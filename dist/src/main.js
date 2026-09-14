@@ -38,7 +38,7 @@ const years = [
  {year:2022,label:'ROOM FOR THE STORY',title:'Every journey has a beginning.',body:'This chapter is intentionally open. Continue to 2023 to explore my time at the University of Vavuniya.'},
  {year:2023,label:'A NEW FOUNDATION',title:'An undergraduate. A builder.',body:'Began my B.Sc. (Hons) in Information Technology at the Faculty of Applied Science, University of Vavuniya.'},
  {year:2024,label:'BEYOND THE CLASSROOM',title:'Challenge. Community. Perspective.',body:'Participated in IEEEXtreme 18.0 with TheChiefs and served on its organizing committee. Joined Vanni Vogue Camera Club at the University of Vavuniya.'},
- {year:2025,label:'STEPPING FORWARD',title:'Learning to bring people together.',body:'Served as an Organizing Committee Member for Marketing at NORX 2025, through AIESEC in Sri Lanka.'},
+ {year:2025,label:'CONTINUING THE JOURNEY',title:'A foundation in progress.',body:'Continued my B.Sc. (Hons) in Information Technology at the University of Vavuniya.'},
  {year:2026,label:'THE CHAPTER IN PROGRESS',title:'Still learning. Still building.',body:'Continuing my IT degree and exploring full-stack development, distributed systems, and autonomous agents. The next chapter is open.'}
 ];
 const rail=document.querySelector('.year-rail');const story=document.querySelector('.year-story');let active=-1;let targetU=5;let locked=false;
