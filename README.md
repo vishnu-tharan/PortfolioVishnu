@@ -17,7 +17,9 @@ Open http://localhost:5173. Deploy the contents of `dist/` to any static host. T
 - `dist/src/main.js`: project data, accessible project dialogs, six-year timeline, keyboard navigation, reduced motion, visibility lifecycle.
 - `dist/src/stage.js`: WebGL ember, orbital, clockwork floor, and finale atmospheres. No WebGL support falls back to the CSS background with all content usable.
 
-Project covers are authored interface concepts, not screenshots of the applications. No benchmark metrics or project dates have been invented. The supplied history starts in 2023; 2021–2022 explicitly state that no milestones are supplied. Exact repository links are used only where supplied; other projects link to the GitHub profile.
+The Work section contains five repository-linked projects: Lanka Agri-Direct (group project; team member), University Gateway, cashManage, CEB-Management, and CinemaStream. Covers use original name-based graphics, not official logos or application screenshots.
+
+Community details: AIESEC member, IEEE member, Vanni Vogue Camera Club member, and JamporIEEE organizing committee (Logistics team). Competition details: IEEEXtreme 17.0 and 18.0 participant, and IEEEXtreme 18.0 organizing committee member. Undated memberships and organizing roles remain outside the dated timeline.
 
 ## Missing original media
 
