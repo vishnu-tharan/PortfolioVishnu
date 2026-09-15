@@ -18,9 +18,30 @@
   <div class="hero-composition">
   <div class="hero-word"><div class="overline"><span>HELLO, WORLD. I’M</span><span class="cross">+</span><span>BASED IN SRI LANKA</span></div><h1 id="hero-title">VISHNU<span class="period">.</span></h1><div class="word-baseline"><span>FULL-STACK DEVELOPER</span><span>& IT UNDERGRADUATE</span></div></div>
   <figure class="hero-portrait">
-    <div class="portrait-frame">
-      <img src="./assets/vishnu-portrait.jpeg" width="2286" height="3048" alt="Vishnutharan Bavachelvan wearing a black suit and red tie" fetchpriority="high" decoding="async">
+    <div class="portrait-frame" id="portrait-effect">
+      <pre class="portrait-code" aria-hidden="true"><span>const developer = {</span>
+  name: "Vishnu",
+  focus: "full-stack",
+  location: "Sri Lanka"
+};
+
+<span>async function build() {</span>
+  const idea = await imagine();
+  return create(idea);
+}
+
+<span>while (curious) {</span>
+  learn();
+  build();
+  improve();
+}
+
+&lt;Experience /&gt;
+<span>git commit -m "Keep building"</span></pre>
+      <img src="./assets/vishnu-portrait.jpeg" width="2286" height="3048" alt="Vishnutharan Bavachelvan wearing a black suit and red tie" fetchpriority="high" decoding="async" class="portrait-original">
+      <img class="portrait-cutout" src="./assets/vishnu-portrait.jpeg" alt="" aria-hidden="true" width="2286" height="3048">
     </div>
+    <button class="portrait-toggle" type="button" aria-pressed="false" aria-controls="portrait-effect" disabled>Reveal code &amp; glow ↗</button>
     <figcaption><span>VISHNUTHARAN BAVACHELVAN</span><span>JAFFNA, SRI LANKA</span></figcaption>
   </figure>
   </div>
@@ -105,4 +126,5 @@
 <button class="motion-toggle" aria-pressed="false" aria-label="Pause animations">Ⅱ</button>
 <script type="module" src="./src/main.js"></script>
 <script type="module" src="./src/contact.js"></script>
+<script type="module" src="./src/portrait.js"></script>
 </body></html>
