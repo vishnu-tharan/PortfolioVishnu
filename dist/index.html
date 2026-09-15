@@ -56,10 +56,45 @@
     <p>Participant in IEEEXtreme 17.0 and 18.0.<br>Organizing committee member for IEEEXtreme 18.0.<br>Competed in 18.0 with TheChiefs, representing the University of Vavuniya.</p>
   </article>
 </div></div></section>
-<footer id="contact" class="finale"><canvas class="scene-canvas" data-scene="3" aria-hidden="true"></canvas><div class="section-label"><span>06 / THE NEXT CHAPTER</span><span>STARTS WITH A CONVERSATION</span></div><div class="finale-copy reveal"><span class="eyebrow">HAVE AN IDEA IN MIND?</span><h2>Let’s build<br><em>what’s next.</em><span class="accent">↗</span></h2><a class="email" href="mailto:bavachelvanvishnutharan@gmail.com">bavachelvanvishnutharan@gmail.com <span>↗</span></a></div><div class="footer-word" aria-hidden="true">VISHNU</div><div class="footer-bottom"><span>© <span id="copyright-year">2026</span> VISHNUTHARAN BAVACHELVAN</span><a href="https://github.com/vishnu-tharan" target="_blank" rel="noopener noreferrer">GITHUB ↗</a><a href="#home">BACK TO TOP ↑</a></div></footer>
+<footer id="contact" class="finale contact-finale">
+<canvas class="scene-canvas" data-scene="3" aria-hidden="true"></canvas>
+<div class="section-label"><span>06 / THE NEXT CHAPTER</span><span>STARTS WITH A CONVERSATION</span></div>
+<div class="contact-layout">
+  <div class="finale-copy reveal">
+    <span class="internship-status">OPEN TO INTERNSHIPS</span>
+    <h2>Let’s build<br><em>what’s next.</em></h2>
+    <p class="contact-intro">Looking for a curious developer to join your team? I’m open to full-stack, frontend, and backend internship opportunities. Get in touch about a role, a project, or a question about my work.</p>
+    <div class="contact-methods">
+      <a href="mailto:bavachelvanvishnutharan@gmail.com"><span>EMAIL</span><strong>bavachelvanvishnutharan@gmail.com ↗</strong></a>
+      <a href="tel:+94773646391"><span>PHONE</span><strong>+94 77 364 6391 ↗</strong></a>
+      <p>Jaffna, Sri Lanka</p>
+    </div>
+  </div>
+  <form id="contact-form" class="contact-form" aria-labelledby="contact-form-title" aria-describedby="contact-help">
+    <span class="eyebrow accent">LET’S CONNECT</span>
+    <h3 id="contact-form-title">What’s on your mind?</h3>
+    <p id="contact-help">All fields are required. This form prepares an email in your email app. Review it there and press Send.</p>
+    <label for="contact-name">Your name</label>
+    <input id="contact-name" name="name" autocomplete="name" required maxlength="100" placeholder="Your full name">
+    <label for="contact-email">Your email</label>
+    <input id="contact-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com">
+    <label for="contact-topic">I’d like to discuss</label>
+    <select id="contact-topic" name="topic" required><option value="Internship opportunity">An internship opportunity</option><option value="Project collaboration">A project collaboration</option><option value="Question about your work">A question about your work</option><option value="General enquiry">Something else</option></select>
+    <label for="contact-message">Your message</label>
+    <textarea id="contact-message" name="message" required maxlength="1500" rows="4" placeholder="Tell me about the opportunity or ask your question."></textarea>
+    <button id="prepare-email" type="submit" disabled>OPEN EMAIL APP <span>↗</span></button>
+    <p id="contact-status" role="status" aria-live="polite"></p>
+    <p class="contact-fallback">Prefer to write directly? <a href="mailto:bavachelvanvishnutharan@gmail.com">Email me</a> or <a href="tel:+94773646391">call me</a>.</p>
+    <noscript><p>Please use the email or phone link to contact me.</p></noscript>
+  </form>
+</div>
+<div class="footer-word" aria-hidden="true">VISHNU</div>
+<div class="footer-bottom"><span>© <span id="copyright-year">2026</span> VISHNUTHARAN BAVACHELVAN</span><a href="https://github.com/vishnu-tharan" target="_blank" rel="noopener noreferrer">GITHUB ↗</a><a href="#home">BACK TO TOP ↑</a></div>
+</footer>
 </div>
 </main>
 <dialog class="project-dialog" aria-labelledby="dialog-title"><button class="dialog-close" aria-label="Close project details">✕</button><div class="dialog-content"></div></dialog>
 <button class="motion-toggle" aria-pressed="false" aria-label="Pause animations">Ⅱ</button>
 <script type="module" src="./src/main.js"></script>
+<script type="module" src="./src/contact.js"></script>
 </body></html>
