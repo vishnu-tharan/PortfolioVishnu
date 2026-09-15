@@ -3,3 +3,6 @@ __pycache__/
 *.tar.gz
 *.tar
 shots/
+
+# Local hosting configuration
+.openai/

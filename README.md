@@ -1,34 +1,57 @@
-# VISHNU — cinematic portfolio
+# VISHNU — Personal Portfolio
 
-A buildless, framework-free portfolio for Vishnutharan Bavachelvan. HTML, CSS, native JavaScript modules, and four visibility-gated WebGL atmosphere canvases.
+My personal portfolio showcasing my projects, technical skills, education, and community involvement.
 
-## Run
+I'm Vishnutharan Bavachelvan, a full-stack developer and B.Sc. (Hons) Information Technology undergraduate at the University of Vavuniya, based in Jaffna, Sri Lanka.
+
+## About the portfolio
+
+The portfolio uses a black-and-red cinematic design with animated WebGL backgrounds, an interactive journey timeline, and project cards with individual visual identities.
+
+- Responsive layouts for desktop and mobile
+- Project details with direct GitHub links
+- Keyboard-accessible navigation and dialogs
+- Animation controls and reduced-motion support
+- Education, certifications, memberships, and contact details
+
+## Featured projects
+
+- [Lanka Agri-Direct](https://github.com/dragon-udfly/LankaAgriDirect) — An agricultural marketplace developed as a group project. I contributed as a team member.
+- [University Gateway](https://github.com/vishnu-tharan/GATEWAY-UniversityOfVavuniya) — Campus vehicle access and equipment gate-pass management.
+- [cashManage](https://github.com/vishnu-tharan/cashManage) — Personal cashbooks, budgets, and expense tracking.
+- [CEB-Management](https://github.com/vishnu-tharan/CEB-Management) — Household electricity usage tracking and planning.
+- [CinemaStream](https://github.com/vishnu-tharan/CinemaStream) — A mobile movie discovery application.
+
+## Technologies
+
+HTML, CSS, JavaScript, and WebGL. A small Python server is included for local development. The portfolio runs without a framework or build step.
+
+## Run locally
 
 ```sh
+git clone https://github.com/vishnu-tharan/PortfolioVishnu.git
+cd PortfolioVishnu
 python tools/serve.py 5173
 ```
 
-Open http://localhost:5173. Deploy the contents of `dist/` to any static host. There is no install or compilation step.
+Open [localhost:5173](http://localhost:5173) in your browser.
 
-## Content and interaction
+## Project structure
 
-- `dist/index.html`: semantic page, personal details, contact links.
-- `dist/style.css`: responsive desktop/portrait layouts and animation.
-- `dist/src/main.js`: project data, accessible project dialogs, six-year timeline, keyboard navigation, reduced motion, visibility lifecycle.
-- `dist/src/stage.js`: WebGL ember, orbital, clockwork floor, and finale atmospheres. No WebGL support falls back to the CSS background with all content usable.
+```text
+dist/
+  index.html       Page content and sections
+  style.css        Styling and responsive layouts
+  src/
+    main.js        Projects, timeline, and interactions
+    stage.js       WebGL backgrounds
+tools/
+  serve.py         Local development server
+```
 
-The Work section contains five repository-linked projects: Lanka Agri-Direct (group project; team member), University Gateway, cashManage, CEB-Management, and CinemaStream. Covers use original name-based graphics, not official logos or application screenshots.
+To deploy, serve the contents of `dist/` with any static website host.
 
-Community details: AIESEC member, IEEE member, Vanni Vogue Camera Club member, and JamporIEEE organizing committee (Logistics team). Competition details: IEEEXtreme 17.0 and 18.0 participant, and IEEEXtreme 18.0 organizing committee member. Undated memberships and organizing roles remain outside the dated timeline.
+## Contact
 
-## Missing original media
-
-Only the text brief was attached. The reference images, walking-person source footage, universe movie, and two footer stills were not supplied. This implementation therefore uses an original typographic / procedural direction, not an exact reconstruction of those unavailable references. It does not pretend a generated person is Vishnu.
-
-To finish the footage-based art direction, supply the original portrait/video, universe film, project artwork/screenshots, and finale images. The original brief's matte/extraction scripts cannot be reconstructed or verified against absent source pixels. No unimplemented matte pipeline is claimed here.
-
-## Review
-
-`?t=end` settles and pauses the canvas atmosphere; `?t=3.2` sets its time. `window.__shot('name')` downloads the visible atmosphere canvas (not the DOM layers). `window.__chrono.targetU = 2.5` drives the continuous clock hand. Motion can be paused with the bottom-right control, and system reduced-motion is respected.
-
-Keep `overflow-x: clip` on body so sticky scenes retain document scrolling. Body copy and controls remain in the DOM for selection, keyboard access, and screen readers. Background animation stops while off-screen or when the tab is hidden.
+- Email: [bavachelvanvishnutharan@gmail.com](mailto:bavachelvanvishnutharan@gmail.com)
+- GitHub: [vishnu-tharan](https://github.com/vishnu-tharan)
