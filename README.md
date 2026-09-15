@@ -2,7 +2,7 @@
 
 My personal portfolio showcasing my projects, technical skills, education, and community involvement.
 
-I'm Vishnutharan Bavachelvan, a full-stack developer and B.Sc. (Hons) Information Technology undergraduate at the University of Vavuniya, based in Jaffna, Sri Lanka.
+I'm Vishnutharan Bavachelvan, a full-stack developer and B.Sc. (Hons) Information Technology undergraduate at the University of Vavuniya, available for remote work worldwide and on-site work in Sri Lanka.
 
 ## About the portfolio
 
