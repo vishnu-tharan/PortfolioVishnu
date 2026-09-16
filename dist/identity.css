@@ -1,0 +1,39 @@
+/* Floating developer card and restrained red lighting. */
+.hero-composition{perspective:1400px}
+.hero-with-portrait .hero-portrait{width:clamp(220px,29vw,335px);perspective:1200px}
+.identity-card{position:relative;padding:17px;border:1px solid #ff4935a6;border-radius:18px;background:linear-gradient(145deg,#251519,#100e11 48%,#1b1011);box-shadow:0 26px 65px #000a,0 0 0 5px #ff493508,0 0 38px #ff32221c;transform:rotateX(var(--card-rx,0deg)) rotateY(var(--card-ry,0deg)) rotateZ(-2deg);transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s;isolation:isolate;animation:card-drift 7s ease-in-out infinite}
+.identity-card:before{content:'';position:absolute;inset:-1px;pointer-events:none;border-radius:inherit;background:radial-gradient(250px circle at var(--light-x,50%) var(--light-y,20%),#ff735448,transparent 70%);z-index:-1}
+.identity-card:after{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(120deg,transparent 25%,#fff4dc0b 43%,transparent 60%);opacity:.5;transition:opacity .4s}
+.hero-portrait:hover .identity-card,.hero-portrait:focus-within .identity-card{box-shadow:0 34px 75px #000b,0 0 0 1px #ff8d7166,0 0 55px #ff493536}
+.hero-portrait:hover .identity-card:after{opacity:1}
+.card-topline{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:9px;letter-spacing:1.4px;color:#eadcd6;padding:1px 0 13px}
+.card-edition{font-size:7px;color:#ae8f89;letter-spacing:1px}
+.hero-portrait .portrait-frame,.hero-portrait.effect-ready .portrait-frame{aspect-ratio:3/4;border:1px solid #ff8e7030;border-radius:9px;overflow:hidden;background:radial-gradient(ellipse at 50% 70%,#79392e55,transparent 65%),repeating-linear-gradient(0deg,transparent 0 29px,#ffb39305 30px),#100e12;box-shadow:inset 0 0 38px #0006;transform:none}
+.hero-portrait .portrait-frame .portrait-cutout{filter:drop-shadow(0 0 10px #ff684b38)}
+.hero-portrait.effect-ready .portrait-code{opacity:.25;font-size:9px;padding:8% 5%}
+.hero-portrait.effect-ready.code-active .portrait-code{opacity:.65}
+.card-details{position:relative;padding:16px 1px 0;z-index:6}
+.card-name{display:block;font-size:clamp(19px,1.7vw,25px);line-height:1.05;letter-spacing:-.8px;font-weight:600}
+.card-specialty{display:block;font-size:8px;letter-spacing:1.8px;color:#c09b92;margin-top:9px}
+.card-status{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #ffffff14;margin-top:14px;padding-top:12px;font-size:7px;letter-spacing:.8px;color:#e9c9bc}
+.card-status i{display:inline-block;width:5px;height:5px;background:#ff7056;border-radius:50%;box-shadow:0 0 9px #ff4935;margin-right:5px}
+.card-bars{width:44px;height:18px;background:repeating-linear-gradient(90deg,#bd9280 0 1px,transparent 1px 3px,#bd9280 3px 5px,transparent 5px 8px);opacity:.55}
+.hero-with-portrait .hero-composition{margin-top:30px;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}
+.hero-with-portrait .hero-portrait figcaption{margin-top:10px;font-size:7px}
+.portrait-toggle{margin-top:12px;color:#c9aaa0;font-size:9px;letter-spacing:.6px}
+.hero-with-portrait .hero-bottom{margin-top:24px}
+.hero-with-portrait{background:radial-gradient(ellipse at 80% 45%,#50161022,transparent 55%),#090909}
+.section-label{border-image:linear-gradient(90deg,#ff49356b,#ffffff12 55%,transparent) 1}
+.project-art{border-radius:12px;transition:box-shadow .4s,filter .4s,translate .4s}
+.project-card:is(:hover,:focus-visible) .project-art{box-shadow:0 18px 40px #0007,0 0 0 1px #ff76594a,0 0 30px #ff493512;translate:0 -4px}
+.contact-form{border-radius:16px;background:linear-gradient(135deg,#261411aa,#110d0ce8);box-shadow:0 20px 65px #0004}
+.contact-form button{border-radius:6px;transition:box-shadow .25s,background .25s}
+.contact-form button:hover,.round-link:hover i{box-shadow:0 0 30px #ff49354d}
+.contact-form input,.contact-form select,.contact-form textarea{border-radius:5px}
+@keyframes card-drift{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@media(min-width:751px){.hero-with-portrait .hero-portrait{width:clamp(195px,calc((100svh - 350px)*.55),310px)}.hero-with-portrait{padding-top:115px;padding-bottom:50px}.card-name{font-size:21px}}
+@media(max-width:750px){.hero-with-portrait .hero-composition{grid-template-columns:1fr;gap:34px}.hero-with-portrait .hero-portrait{width:min(76vw,310px)}.hero-with-portrait .hero-bottom{margin-top:30px}.card-name{font-size:25px}.identity-card{transform:rotate(-1.5deg)}.card-topline{font-size:9px}.hero-portrait.effect-ready .portrait-code{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.identity-card{animation:none;transform:none;transition:none}.project-card .project-art{translate:none}.identity-card:after{transition:none}}
+.motion-paused .identity-card{animation:none;transform:none;transition:none}
+
+@media(min-width:751px){.hero-with-portrait .hero-portrait figcaption{display:none}.hero-with-portrait .hero-bottom{margin-top:8px}.hero-with-portrait .hero-composition{margin-top:22px}.hero-with-portrait{padding-bottom:35px}.card-details{padding-top:12px}.card-status{margin-top:10px;padding-top:9px}}

@@ -1,0 +1,42 @@
+/* A portrait-centered constellation of experience. */
+.beyond{position:relative;isolation:isolate;overflow:hidden;padding-bottom:90px;color:#eeeae4;background:radial-gradient(ellipse at 50% 55%,#45182155,transparent 55%),#0c0b0e}
+.beyond .section-label{color:#bca6a3;border-color:#ff735633}
+.beyond .section-label span:first-child{color:#eee2df}
+.beyond .beyond-layout{display:block;padding-top:52px}
+.beyond h2{text-align:center;font-size:clamp(40px,4.7vw,72px);margin:0 0 60px}
+.beyond h2 em{color:#e7b4ab}
+.beyond .credentials{display:grid;grid-template-columns:minmax(0,1fr) minmax(210px,.9fr) minmax(0,1fr);grid-template-rows:auto auto;gap:28px 36px;align-items:center;max-width:1420px;margin:0 auto;position:relative;perspective:1200px}
+.beyond .credentials article{position:relative;z-index:2;padding:26px;border:1px solid #ff79633b;border-radius:16px;background:linear-gradient(135deg,#301c22dd,#151016ed);box-shadow:0 16px 38px #0004,inset 0 1px 0 #ffd1c30a;transition:translate .4s,border-color .4s,box-shadow .4s;min-width:0}
+.beyond .credentials article:nth-of-type(1){grid-area:1/1;--link-side:right}
+.beyond .credentials article:nth-of-type(2){grid-area:1/3;--link-side:left}
+.beyond .credentials article:nth-of-type(3){grid-area:2/1;--link-side:right}
+.beyond .credentials article:nth-of-type(4){grid-area:2/3;--link-side:left}
+.beyond .credentials article:after{content:'';position:absolute;top:50%;width:36px;height:1px;background:linear-gradient(90deg,#ff755c80,#ff755c0d);pointer-events:none}
+.beyond .credentials article:nth-of-type(odd):after{left:100%}
+.beyond .credentials article:nth-of-type(even):after{right:100%;rotate:180deg}
+.beyond .credentials article:hover{translate:0 -4px;border-color:#ff806a88;box-shadow:0 22px 42px #0006,0 0 25px #ff493510}
+.beyond .credentials article>span{font-size:12px;letter-spacing:1.7px;color:#ff9d86}
+.beyond .credentials h3{font-size:22px;line-height:1.3;color:#f3e5e0;margin:17px 0 12px}
+.beyond .credentials p{font-size:16px;line-height:1.75;color:#c5b1af;margin:0;overflow-wrap:anywhere}
+.beyond-person{grid-area:1/2/3/3;position:relative;min-width:0;margin:0;align-self:center;perspective:1000px}
+.person-stage{position:relative;height:450px;transform-style:preserve-3d;transform:rotateX(var(--person-rx,0deg)) rotateY(var(--person-ry,0deg));transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.person-layer{position:absolute;inset:0;transform:translateZ(45px);animation:person-hover 7s ease-in-out infinite}
+.person-layer img{position:absolute;bottom:15px;left:0;display:block;width:100%;height:auto;max-height:100%;object-fit:contain;mask:url('./assets/vishnu-mask.png') center/100% 100% no-repeat;mask-mode:luminance;filter:drop-shadow(0 0 12px #f74a3833)}
+.person-aura{position:absolute;inset:8% -20% 0;border-radius:50%;background:radial-gradient(ellipse,#ff594d24,transparent 68%);transform:translateZ(-30px);animation:aura-breathe 6s ease-in-out infinite}
+.person-orbit{position:absolute;left:-15%;top:20%;width:130%;height:65%;border:1px solid #fa74535c;border-radius:50%;transform:rotateZ(-25deg) rotateY(52deg);box-shadow:0 0 18px #ff493515;pointer-events:none}
+.orbit-two{transform:rotateZ(30deg) rotateY(-50deg);border-color:#ffb49324}
+.person-orbit:after{content:'';position:absolute;inset:-1px;border-radius:50%;border:2px solid transparent;border-top-color:#ffac8b;filter:drop-shadow(0 0 6px #ff6042);animation:orbit-travel 12s linear infinite}
+.orbit-two:after{animation-direction:reverse;animation-duration:17s;border-top-color:#b86280}
+.person-platform{position:absolute;bottom:-2px;left:8%;width:84%;height:40px;border:1px solid #fc836570;border-radius:50%;background:radial-gradient(ellipse,#fa473133,transparent 70%);box-shadow:0 0 30px #ff493520,inset 0 0 15px #ff49351a;transform:translateZ(10px)}
+.beyond-person figcaption{position:relative;z-index:3;text-align:center;margin-top:32px;display:flex;flex-direction:column;gap:8px}
+.beyond-person figcaption strong{font-family:var(--display);font-size:44px;letter-spacing:2px;line-height:1}
+.beyond-person figcaption strong span{color:var(--red)}
+.beyond-person figcaption>span{font-size:12px;letter-spacing:1.7px;color:#c29c94;line-height:1.6}
+@keyframes person-hover{0%,100%{translate:0 0}50%{translate:0 -9px}}
+@keyframes aura-breathe{0%,100%{opacity:.5}50%{opacity:1}}
+@keyframes orbit-travel{to{rotate:360deg}}
+@media(min-width:1500px){.person-stage{height:530px}}
+@media(max-width:1000px){.beyond .credentials{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}.beyond-person{grid-area:1/1/2/3;width:min(65%,310px);justify-self:center;margin-bottom:20px}.person-stage{height:395px}.beyond .credentials article:nth-of-type(1){grid-area:2/1}.beyond .credentials article:nth-of-type(2){grid-area:2/2}.beyond .credentials article:nth-of-type(3){grid-area:3/1}.beyond .credentials article:nth-of-type(4){grid-area:3/2}.beyond .credentials article{align-self:stretch}.beyond .credentials article:after{display:none}.beyond h2{margin-bottom:40px}}
+@media(max-width:600px){.beyond{padding-bottom:60px}.beyond .beyond-layout{padding-top:35px}.beyond .credentials{display:flex;flex-direction:column;gap:20px}.beyond-person{width:min(80%,280px);margin:0 auto 20px}.person-stage{height:360px}.beyond .credentials article{width:100%;padding:24px}.beyond .credentials h3{font-size:22px}.beyond h2{font-size:42px}.beyond .credentials p{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.beyond *, .beyond *:after{animation:none!important;transition:none!important}.person-stage{transform:none}.beyond .credentials article:hover{translate:none}}
+.motion-paused .beyond *,.motion-paused .beyond *:after{animation:none!important;transition:none!important}.motion-paused .person-stage{transform:none}.motion-paused .beyond .credentials article:hover{translate:none}

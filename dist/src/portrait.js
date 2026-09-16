@@ -17,10 +17,14 @@ mask.addEventListener('load', () => { maskLoaded = true; ready(); });
 cutout.addEventListener('load', ready);
 mask.src = new URL('../assets/vishnu-mask.png', import.meta.url).href;
 portrait.addEventListener('pointerenter', event => { if (event.pointerType === 'mouse' && !button.disabled) { hovering = true; update(); } });
-portrait.addEventListener('pointerleave', () => { hovering = false; portrait.style.setProperty('--light-x', '50%'); portrait.style.setProperty('--light-y', '50%'); update(); });
+portrait.addEventListener('pointerleave', () => { portrait.style.setProperty('--card-rx', '0deg'); portrait.style.setProperty('--card-ry', '0deg'); hovering = false; portrait.style.setProperty('--light-x', '50%'); portrait.style.setProperty('--light-y', '50%'); update(); });
 portrait.addEventListener('pointermove', event => {
-  if (reduced.matches || event.pointerType !== 'mouse') return;
+  if (reduced.matches || document.documentElement.classList.contains('motion-paused') || event.pointerType !== 'mouse') return;
   const rect = portrait.getBoundingClientRect();
+  const x = Math.max(-.5, Math.min(.5, (event.clientX - rect.left) / rect.width - .5));
+  const y = Math.max(-.5, Math.min(.5, (event.clientY - rect.top) / rect.height - .5));
+  portrait.style.setProperty('--card-rx', `${(-y * 12).toFixed(2)}deg`);
+  portrait.style.setProperty('--card-ry', `${(x * 16).toFixed(2)}deg`);
   portrait.style.setProperty('--light-x', `${Math.max(0,Math.min(100,(event.clientX-rect.left)/rect.width*100))}%`);
   portrait.style.setProperty('--light-y', `${Math.max(0,Math.min(100,(event.clientY-rect.top)/rect.height*100))}%`);
 });
