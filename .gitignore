@@ -6,3 +6,5 @@ shots/
 
 # Local hosting configuration
 .openai/
+/tmp/
+/output/

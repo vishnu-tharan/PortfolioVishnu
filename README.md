@@ -16,6 +16,7 @@ The portfolio uses a black-and-red cinematic design with animated WebGL backgrou
 
 ## Featured projects
 
+- [Buyora](https://github.com/vishnu-tharan/Buyora) — A Next.js and Spring Boot e-commerce project with storefront, customer accounts and administration workflows.
 - [Lanka Agri-Direct](https://github.com/dragon-udfly/LankaAgriDirect) — An agricultural marketplace developed as a group project. I contributed as a team member.
 - [University Gateway](https://github.com/vishnu-tharan/GATEWAY-UniversityOfVavuniya) — Campus vehicle access and equipment gate-pass management.
 - [cashManage](https://github.com/vishnu-tharan/cashManage) — Personal cashbooks, budgets, and expense tracking.
@@ -55,3 +56,11 @@ To deploy, serve the contents of `dist/` with any static website host.
 
 - Email: [bavachelvanvishnutharan@gmail.com](mailto:bavachelvanvishnutharan@gmail.com)
 - GitHub: [vishnu-tharan](https://github.com/vishnu-tharan)
+
+## CV
+
+The portfolio includes a responsive [CV page](dist/cv.html) and a [downloadable PDF](dist/assets/Vishnutharan-Bavachelvan-CV.pdf), linked from the introduction, navigation and contact section.
+
+Edit `tools/cv-data.json`, then run `python tools/build_cv.py` with ReportLab installed to regenerate both formats. The PDF is also saved to `output/pdf/`. The CV highlights selected projects; the full project list remains in the portfolio. Buyora is included as a development project, without a claim of completed production validation.
+
+Author: **vishnu-tharan**.
