@@ -54,7 +54,7 @@ def link(url, text):
 story = [p(escape(DATA["name"]), "name"), p(escape(DATA["role"]), "role")]
 story += [p(f'{link("mailto:" + DATA["email"], DATA["email"])} | {link("tel:+94773646391", DATA["phone"])}', "contact")]
 story += [p(f'{link(DATA["github"], "github.com/vishnu-tharan")} | {link(DATA["portfolio"], "vishnu-tharan.github.io/PortfolioVishnu")}', "contact")]
-story += [p(escape(DATA["availability"]), "contact")]
+story += [p(escape(DATA["availability"]) + " | " + link(DATA["linkedin"], "LinkedIn / Vishnutharan Bavachelvan"), "contact")]
 story += [p("PROFILE", "section"), p(escape(DATA["summary"]))]
 story += [p("TECHNICAL SKILLS", "section")]
 for label, value in DATA["skills"]:
@@ -104,7 +104,7 @@ html = f'''<!doctype html>
   <nav class="cv-toolbar" aria-label="CV navigation"><a href="./index.html">&#8592; Back to portfolio</a><a class="cv-button" href="./assets/{FILENAME}" download>Download CV <span>PDF &#8595;</span></a></nav>
   <main class="cv-sheet">
     <header class="cv-heading"><p class="cv-kicker">CURRICULUM VITAE</p><h1>{escape(DATA["name"])}</h1><p class="cv-role">{escape(DATA["role"])}</p>
-      <div class="cv-contact">{html_link("mailto:" + DATA["email"], DATA["email"])} {html_link("tel:+94773646391", DATA["phone"])} {html_link(DATA["github"], "GitHub / vishnu-tharan")} {html_link(DATA["portfolio"], "Portfolio")}</div>
+      <div class="cv-contact">{html_link("mailto:" + DATA["email"], DATA["email"])} {html_link("tel:+94773646391", DATA["phone"])} {html_link(DATA["github"], "GitHub / vishnu-tharan")} {html_link(DATA["portfolio"], "Portfolio")} {html_link(DATA["linkedin"], "LinkedIn")}</div>
       <p class="cv-availability">{escape(DATA["availability"])}</p>
     </header>
     <section><h2>Profile</h2><p>{escape(DATA["summary"])}</p></section>

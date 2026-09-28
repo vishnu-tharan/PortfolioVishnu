@@ -9,10 +9,22 @@
   "availability": "Remote worldwide | On-site in Sri Lanka",
   "summary": "Information Technology honours undergraduate at the University of Vavuniya, building full-stack web and mobile applications. Project experience spans e-commerce, campus access management and personal finance, using React, Next.js, Spring Boot and Node.js. Seeking software development internships and entry-level IT opportunities.",
   "skills": [
-    ["Languages", "Java, JavaScript, TypeScript, Python, C/C++, SQL"],
-    ["Web & mobile", "React, Next.js, React Native, Expo, HTML, CSS"],
-    ["Backend & data", "Spring Boot, Node.js, Express, PostgreSQL, MongoDB, MySQL, SQLite, Firebase"],
-    ["Tools", "Git, Docker, Vercel"]
+    [
+      "Languages",
+      "Java, JavaScript, TypeScript, Python, C/C++, SQL"
+    ],
+    [
+      "Web & mobile",
+      "React, Next.js, React Native, Expo, HTML, CSS"
+    ],
+    [
+      "Backend & data",
+      "Spring Boot, Node.js, Express, PostgreSQL, MongoDB, MySQL, SQLite, Firebase"
+    ],
+    [
+      "Tools",
+      "Git, Docker, Vercel"
+    ]
   ],
   "projects": [
     {
@@ -51,7 +63,7 @@
       "stack": "Spring Boot, React, React Native, MongoDB, Docker",
       "url": "https://github.com/dragon-udfly/LankaAgriDirect",
       "bullets": [
-        "Contributed as a team member to a direct-to-consumer agricultural marketplace connecting Sri Lankan producers and consumers, supporting produce distribution and order management."
+        "Contributed to frontend development, interface design and API testing for a team-built agricultural marketplace connecting Sri Lankan producers and consumers."
       ]
     }
   ],
@@ -62,5 +74,6 @@
     "detail": "Selected for the IT Honours programme in 2026. Coursework includes object-oriented programming, data structures and algorithms, database systems and web development."
   },
   "certifications": "JavaScript Essentials 1 & 2 - Cisco Networking Academy; Introduction to SQL - Sololearn.",
-  "community": "IEEE and AIESEC member (2023 - present). IEEEXtreme 17.0 and 18.0 participant; IEEEXtreme 18.0 organizing committee member. JamporIEEE logistics team and hackathon volunteer."
+  "community": "IEEE and AIESEC member (2023 - present). IEEEXtreme 17.0 and 18.0 participant; IEEEXtreme 18.0 organizing committee member. JamporIEEE logistics team and hackathon volunteer.",
+  "linkedin": "https://www.linkedin.com/in/vishnutharan-bavachelvan-5419a02b3/"
 }

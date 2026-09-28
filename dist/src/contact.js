@@ -1,20 +1,17 @@
-export function buildContactEmail({name, email, topic, message}) {
-  const subject = `Portfolio enquiry: ${topic}`;
-  const body = `Hi Vishnu,\n\n${message.trim()}\n\nFrom: ${name.trim()}\nReply to: ${email.trim()}`;
-  return `mailto:bavachelvanvishnutharan@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
+// Author: vishnu-tharan. Native submission retains FormSubmit's spam verification.
 const form = document.querySelector('#contact-form');
 if (form) {
-  document.querySelector('#prepare-email').disabled = false;
-  form.addEventListener('submit', event => {
-    event.preventDefault();
-    for (const field of [form.elements.name, form.elements.message]) {
-      field.setCustomValidity(field.value.trim() ? '' : 'Please complete this field.');
-    }
-    if (!form.reportValidity()) return;
-    const values = Object.fromEntries(new FormData(form));
-    window.location.href = buildContactEmail(values);
-    document.querySelector('#contact-status').textContent = 'Your email app has been requested. Send the message there to contact me. If nothing opens, use the email or phone link below.';
-  });
-  form.addEventListener('input', event => event.target.setCustomValidity?.(''));
+ const status = document.querySelector('#contact-status');
+ form.addEventListener('submit', event => {
+  for (const field of [form.elements.name, form.elements.message]) {
+   field.value = field.value.trim();
+   field.setCustomValidity(field.value ? '' : 'Please complete this field.');
+  }
+  if (!form.reportValidity()) { event.preventDefault(); return; }
+  if (form.elements._honey.value) { event.preventDefault(); return; }
+  form.elements._subject.value = `Portfolio enquiry: ${form.elements.topic.value}`;
+  status.textContent = 'Opening secure submission. Complete any verification shown to send your message.';
+ });
+ form.addEventListener('input', event => { event.target.setCustomValidity?.(''); status.textContent = ''; });
+ window.addEventListener('pageshow', () => { status.textContent = ''; });
 }
