@@ -1,5 +1,6 @@
 /* The same cinematic compositions, with ink, paper and warm red lighting. */
 :root[data-theme=light]{--muted:#5c4c45;--line:#d8c8c0;--surface-2:#f5eae4}
+[data-theme=light] .skip{color:#fff}
 [data-theme=light] .hero{background:radial-gradient(ellipse at 70% 65%,#efc8b944,transparent 65%),var(--bg)}
 [data-theme=light] .universe .sticky-scene{background:radial-gradient(ellipse at 75% 55%,#eed2c366,transparent 65%),var(--bg)}
 [data-theme=light] .journey .sticky-scene{background:radial-gradient(ellipse at 25% 65%,#eed2c355,transparent 65%),var(--bg)}
