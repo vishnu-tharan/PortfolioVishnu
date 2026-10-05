@@ -75,9 +75,13 @@ After changing assets or regenerating the CV, run `python tools/version_assets.p
 
 Mobile layouts include larger touch targets, safe-area spacing, and dialogs that adapt to the browser's visible area and on-screen keyboard. Appearance refinements are in `dist/light-mode.css`; responsive controls are in `dist/responsive.css` and `dist/src/viewport.js`.
 
+Interaction effects live in `dist/effects.css`, `dist/src/effects.js` and `dist/src/transitions.js`. Theme changes reveal the new palette from the theme button in browsers with View Transitions; other browsers switch immediately. Project screenshots animate into their case studies when the source image is visible and loaded, with a short dialog entrance for other projects. Desktop project cards have a pointer spotlight. The thin scroll indicator and active navigation follow the current section without changing the layout. VishnuOS includes command suggestions that fill the input before the visitor presses Run, and a blinking prompt. Copying a project link shows an accessible confirmation beside its button.
+
+New motion respects both the operating system's reduced-motion preference and the portfolio's pause button. Pointer effects require a mouse and fine-pointer support. Animations stop when the page is hidden; essential navigation and commands remain usable without View Transitions.
+
 ## Verification
 
-Run `node --test tools/portfolio.test.mjs tools/stage.test.mjs` to check GitHub data validation, safe activity links, project content, renderer palettes, touch-device resolution and WebGL fallbacks. The website itself has no Node dependency or build step. Preview with the local Python server before publishing.
+Run `node --test tools/portfolio.test.mjs tools/stage.test.mjs tools/effects.test.mjs` to check GitHub data validation, safe activity links, project content, renderer palettes, touch-device resolution, WebGL fallbacks and transition cancellation/fallbacks. The website itself has no Node dependency or build step. Preview with the local Python server before publishing.
 
 Browser checks cover 320, 390, 768 and 1280 pixel viewports in both themes, search-to-project navigation, terminal commands, animation pause and theme changes while paused. These checks use browser viewport emulation; no physical phone was connected.
 
