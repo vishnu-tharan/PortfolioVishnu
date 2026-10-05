@@ -8,7 +8,7 @@
 /* Light mode keeps the original typography and red accents. */
 [data-theme=light] .scene-canvas{display:none}
 [data-theme=light] .header{background:#faf7f5f5;border-color:var(--line)}
-[data-theme=light] :is(.hero,.flow,.sticky-scene,.beyond,.finale){background:var(--bg);color:var(--text)}
+[data-theme=light] :is(.hero,.flow,.work,.sticky-scene,.beyond,.finale){background:var(--bg);color:var(--text)}
 [data-theme=light] :is(.hero-summary,.hero-availability,.overline,.word-baseline,.section-label,.header nav a,.universe-copy p,.work-heading p,.journey-heading p,.year-story p,.contact-intro,.contact-methods p){color:var(--muted)}
 [data-theme=light] :is(.section-label span:first-child,.hero-index span,.project-role strong){color:var(--text)}
 [data-theme=light] :is(.section-label,.word-baseline,.project-links){border-color:var(--line)}

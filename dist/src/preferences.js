@@ -17,7 +17,7 @@ export function toggleTheme() {
 function syncTheme() {
   const theme = appearance === 'system' ? (media.matches ? 'dark' : 'light') : appearance;
   document.documentElement.dataset.theme = theme;
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#101018' : '#f2f3f8');
+  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#090909' : '#faf7f5');
   document.querySelectorAll('[data-theme-toggle]').forEach(button => {
     button.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
     button.setAttribute('title', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
