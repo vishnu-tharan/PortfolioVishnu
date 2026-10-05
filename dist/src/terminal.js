@@ -1,8 +1,15 @@
 // A small portfolio command panel. Commands never execute system code.
 export function mountTerminal(container, actions) {
-  container.innerHTML = `<div class="terminal-output" id="terminal-output" role="log" aria-label="Terminal output" aria-live="polite"></div><form class="terminal-form"><label for="terminal-input">vishnu@portfolio:~$</label><input id="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal command" placeholder="help"><button type="submit">Run</button></form><p class="terminal-hint">Portfolio commands only · ↑ ↓ command history · Esc to close</p>`;
+  container.innerHTML = `<div class="terminal-output" id="terminal-output" role="log" aria-label="Terminal output" aria-live="polite"></div><form class="terminal-form"><label for="terminal-input">vishnu@portfolio:~$</label><input id="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal command" placeholder="help"><button type="submit">Run</button></form><div class="terminal-suggestions" role="group" aria-label="Suggested commands"><button type="button" data-command="help" aria-label="Insert command help">help</button><button type="button" data-command="projects" aria-label="Insert command projects">projects</button><button type="button" data-command="skills" aria-label="Insert command skills">skills</button><button type="button" data-command="search React" aria-label="Insert command search React">search React</button></div><p class="terminal-hint">Pick a suggestion, then Run · ↑ ↓ history · Esc to close<br>Portfolio commands only</p>`;
   const output = container.querySelector('.terminal-output');
   const input = container.querySelector('input');
+  container.querySelector('.terminal-suggestions').addEventListener('click', event => {
+    const command = event.target.closest('[data-command]')?.dataset.command;
+    if (!command) return;
+    input.value = command;
+    input.focus({preventScroll:true});
+    input.setSelectionRange(command.length, command.length);
+  });
   const history = [];
   let position = 0;
   const sections = [

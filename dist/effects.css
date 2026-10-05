@@ -1,4 +1,13 @@
 /* Small interactions that retain the original red, ink and paper identity. */
+.terminal-suggestions{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.terminal-suggestions button{font:12px/1.4 Consolas,monospace;padding:8px 11px;border:1px solid var(--line);border-radius:6px;background:var(--surface-2);color:var(--text);cursor:pointer;min-height:36px}
+.terminal-suggestions button:is(:hover,:focus-visible){border-color:var(--accent);color:var(--accent)}
+.terminal-form label::after{content:'';display:inline-block;width:5px;height:11px;margin-left:7px;vertical-align:-1px;background:var(--accent);opacity:.6}
+.terminal-dialog[open]:focus-within .terminal-form label::after{animation:prompt-blink 1.2s steps(1,end) infinite}
+@keyframes prompt-blink{50%{opacity:0}}
+@media(max-width:750px){.terminal-suggestions button{min-height:44px}.terminal-suggestions{gap:6px}}
+@media(prefers-reduced-motion:reduce){.terminal-dialog[open]:focus-within .terminal-form label::after{animation:none}}
+.motion-paused .terminal-dialog[open]:focus-within .terminal-form label::after{animation:none}
 .scroll-progress{position:fixed;inset:0 0 auto;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;z-index:45;pointer-events:none;box-shadow:0 0 10px #ff49354d}
 .header nav a{position:relative}
 .header nav a::after{content:'';position:absolute;left:0;right:0;bottom:3px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .2s}

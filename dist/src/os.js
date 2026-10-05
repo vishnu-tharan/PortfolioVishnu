@@ -3,6 +3,7 @@ import { escape } from './projects.js?v=20261005-light-v2';
 import { openProject as openPortfolioProject } from './main.js?v=20261005-light-v2';
 import { setTheme, toggleTheme } from './preferences.js?v=20261005-light-v2';
 import { mountTerminal } from './terminal.js?v=20261005-light-v2';
+import { motionAllowed } from './transitions.js';
 export { escape };
 const dialog = document.querySelector('#app-dialog');
 let previousFocus, toastTimer;
@@ -23,6 +24,7 @@ export function openTerminal() {
   previousFocus = document.activeElement;
   dialog.show();
   mountTerminal(document.querySelector('#app-content'), {projects, openProject, setTheme, toggleTheme, close:() => dialog.close()});
+  if (motionAllowed()) dialog.animate?.([{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],{duration:200,easing:'ease-out'});
 }
 dialog.querySelector('[data-close-terminal]').addEventListener('click', () => dialog.close());
 dialog.addEventListener('close', () => { if (!document.querySelector('dialog[open]')) previousFocus?.focus({preventScroll:true}); });
