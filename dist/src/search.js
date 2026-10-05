@@ -71,6 +71,7 @@ document.addEventListener('click', event => {
   if (event.target.closest('[data-close-search]')) dialog.close();
 });
 dialog.addEventListener('close', () => {
+  if (document.querySelector('#app-dialog').open) return;
   document.body.classList.remove('modal-open');
   previousFocus?.focus({preventScroll:true});
 });

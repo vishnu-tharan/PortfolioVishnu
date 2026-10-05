@@ -5,6 +5,14 @@ export function mountTerminal(container, actions) {
   const input = container.querySelector('input');
   const history = [];
   let position = 0;
+  const sections = [
+    {name:'Education & journey', keywords:'education university vavuniya honours degree academic', hash:'#about'},
+    {name:'Certifications', keywords:'certificate certifications cisco javascript sololearn sql', hash:'#about'},
+    {name:'Community & competitions', keywords:'community leadership ieee aiesec ieeextreme volunteering', hash:'#about'},
+    {name:'Technical skills', keywords:'skills languages tools frontend backend mobile database', hash:'#skills'},
+    {name:'GitHub activity', keywords:'github tracker activity repositories commits', hash:'#activity'},
+    {name:'Contact', keywords:'contact email phone linkedin internship remote sri lanka', hash:'#contact'}
+  ];
   function write(text, command = false) {
     const line = document.createElement('p');
     line.textContent = text;
@@ -29,6 +37,9 @@ export function mountTerminal(container, actions) {
       case 'projects': write(actions.projects.map(item => `${item.title} — ${item.stack}`).join('\n')); break;
       case 'open': {
         if (!argument) { write('Usage: open <project name>'); break; }
+        const destinations = {about:'#about',education:'#about',skills:'#skills',contact:'#contact',github:'#activity',projects:'#work'};
+        if (destinations[argument]) { actions.close(); location.hash = destinations[argument]; break; }
+        if (argument === 'cv') { actions.close(); location.href = './cv.html'; break; }
         const matches = actions.projects.filter(item => item.title.toLowerCase().includes(argument));
         if (matches.length === 1) actions.openProject(matches[0]);
         else write(matches.length ? `Be more specific: ${matches.map(item => item.title).join(', ')}` : `No project found for “${argument}”. Try projects.`);
@@ -36,8 +47,11 @@ export function mountTerminal(container, actions) {
       }
       case 'search': {
         if (!argument) { write('Usage: search <project, technology or topic>'); break; }
-        const matches = actions.projects.filter(item => [item.title,item.stack,item.summary,item.problem,item.contribution].join(' ').toLowerCase().includes(argument));
-        write(matches.length ? matches.map(item => `${item.title} — ${item.stack}`).join('\n') : `No projects found for “${argument}”.`);
+        const terms = argument.split(/\s+/);
+        const matches = actions.projects.filter(item => terms.every(term => [item.title,item.stack,item.summary,item.problem,item.contribution].join(' ').toLowerCase().includes(term)));
+        const pages = sections.filter(item => terms.every(term => `${item.name} ${item.keywords}`.toLowerCase().includes(term)));
+        const lines = [...matches.map(item => `${item.title} — ${item.stack}`), ...pages.map(item => `${item.name} — ${item.hash}`)];
+        write(lines.length ? lines.join('\n') : `No matches for “${argument}”. Try projects, education or skills.`);
         break;
       }
       case 'skills': write('Frontend: React, Next.js, React Native, Expo, HTML, CSS\nBackend: Spring Boot, Node.js, Express\nData: PostgreSQL, MongoDB, MySQL, SQLite, Firebase\nLanguages & tools: Java, JavaScript, TypeScript, Python, C/C++, SQL, Git, Docker, Vercel'); break;
