@@ -69,9 +69,15 @@ The tracker reads the public GitHub REST API for `vishnu-tharan`, without an acc
 
 Appearance, sound preferences and the public GitHub snapshot are stored locally when browser storage is available. Sound requires a visitor interaction; nothing autoplays on page load. The existing reduced-motion and animation controls remain available.
 
+Both themes keep the cinematic backgrounds. Light mode uses warm red lighting, particles and orbit effects against paper-colored surfaces, with matching portrait, project and timeline styles. Paused scenes repaint once when the theme changes. Touch devices use a lower maximum canvas resolution, and browsers without WebGL retain static gradient backgrounds.
+
+Mobile layouts include larger touch targets, safe-area spacing, and dialogs that adapt to the browser's visible area and on-screen keyboard. Appearance refinements are in `dist/light-mode.css`; responsive controls are in `dist/responsive.css` and `dist/src/viewport.js`.
+
 ## Verification
 
-Run `node --test tools/portfolio.test.mjs` to check GitHub data validation, safe activity links and project content. The website itself has no Node dependency or build step. Preview with the local Python server before publishing.
+Run `node --test tools/portfolio.test.mjs tools/stage.test.mjs` to check GitHub data validation, safe activity links, project content, renderer palettes, touch-device resolution and WebGL fallbacks. The website itself has no Node dependency or build step. Preview with the local Python server before publishing.
+
+Browser checks cover 320, 390, 768 and 1280 pixel viewports in both themes, search-to-project navigation, terminal commands, animation pause and theme changes while paused. These checks use browser viewport emulation; no physical phone was connected.
 
 The GitHub Pages workflow publishes `dist/` when commits reach `main`. The local publishing checkout under `.sites-runtime/github-publish/` contains the matching GitHub history; the main workspace keeps the editable site files.
 
