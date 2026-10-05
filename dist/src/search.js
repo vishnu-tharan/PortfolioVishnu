@@ -1,5 +1,5 @@
-import { projects } from './project-data.js';
-import { escape, openProject, openTerminal } from './os.js';
+import { projects } from './project-data.js?v=20261005-light-v2';
+import { escape, openProject, openTerminal } from './os.js?v=20261005-light-v2';
 
 const dialog = document.querySelector('#search-dialog');
 const input = document.querySelector('#os-search');

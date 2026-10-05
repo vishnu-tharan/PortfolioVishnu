@@ -71,6 +71,8 @@ Appearance, sound preferences and the public GitHub snapshot are stored locally 
 
 Both themes keep the cinematic backgrounds. Light mode uses warm red lighting, particles and orbit effects against paper-colored surfaces, with matching portrait, project and timeline styles. Paused scenes repaint once when the theme changes. Touch devices use a lower maximum canvas resolution, and browsers without WebGL retain static gradient backgrounds.
 
+After changing assets or regenerating the CV, run `python tools/version_assets.py <new-release-name>` before publishing. This updates HTML asset URLs and module imports together, so returning visitors receive one consistent version instead of mixing cached theme files with new code.
+
 Mobile layouts include larger touch targets, safe-area spacing, and dialogs that adapt to the browser's visible area and on-screen keyboard. Appearance refinements are in `dist/light-mode.css`; responsive controls are in `dist/responsive.css` and `dist/src/viewport.js`.
 
 ## Verification

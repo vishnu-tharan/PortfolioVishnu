@@ -1,8 +1,8 @@
-import { projects } from './project-data.js';
-import { escape } from './projects.js';
-import { openProject as openPortfolioProject } from './main.js';
-import { setTheme, toggleTheme } from './preferences.js';
-import { mountTerminal } from './terminal.js';
+import { projects } from './project-data.js?v=20261005-light-v2';
+import { escape } from './projects.js?v=20261005-light-v2';
+import { openProject as openPortfolioProject } from './main.js?v=20261005-light-v2';
+import { setTheme, toggleTheme } from './preferences.js?v=20261005-light-v2';
+import { mountTerminal } from './terminal.js?v=20261005-light-v2';
 export { escape };
 const dialog = document.querySelector('#app-dialog');
 let previousFocus, toastTimer;

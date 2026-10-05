@@ -1,6 +1,6 @@
-import { createStage } from './stage.js';
-import { renderProjectGallery, projectDetails } from './projects.js';
-import { projects } from './project-data.js';
+import { createStage } from './stage.js?v=20261005-light-v2';
+import { renderProjectGallery, projectDetails } from './projects.js?v=20261005-light-v2';
+import { projects } from './project-data.js?v=20261005-light-v2';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 let paused = reduce.matches;
