@@ -11,7 +11,7 @@ else if(uScene<2.5){vec2 q=p-vec2(0.,-.31);float r=length(q*vec2(.8,4.));float a
 else{float fog=fbm(p*2.+vec2(t*.2,-t*.3));float glow=exp(-length((p-vec2(.0,-.30))*vec2(.8,1.8))*2.5);color+=vec3(.43,.045,.015)*glow*(fog+.18);color+=vec3(.08,.016,.009)*pow(fog,3.);}
 for(int i=0;i<25;i++){float fi=float(i);vec2 seed=vec2(fi,fi+9.);vec2 pos=vec2(hash(seed)*2.-1.,fract(hash(seed+3.)+uTime*(.007+hash(seed+7.)*.01))-.5);pos.x+=sin(uTime*.25+fi)*.025;float d=length(p-pos);float spark=pow(max(0.,1.-d*260.),3.)*(.3+.7*hash(seed+8.));color+=vec3(.8,.22,.055)*spark;}
 float grain=(hash(gl_FragCoord.xy+mod(uTime,100.))-.5)*.018;color+=grain;color*=1.-.4*length(uv-.5);
-if(uLight>.5){vec3 paper=vec3(.984,.972,.961);float ink=clamp(max(0.,color.r-.022)*1.85,0.,.62);color=mix(paper,vec3(.76,.24,.16),ink);color-=vec3(.012,.025,.035)*(cloud-.5);}
+if(uLight>.5){vec3 paper=vec3(.984,.972,.961);float ink=clamp(max(0.,color.r-.022)*1.85,0.,.40);color=mix(paper,vec3(.86,.42,.30),ink);color-=vec3(.012,.025,.035)*(cloud-.5);}
 gl_FragColor=vec4(color,1.);}`;
 export function createStage(canvas){
  let gl=canvas.getContext('webgl',{alpha:false,antialias:false,powerPreference:'low-power',preserveDrawingBuffer:true});let program,position,time,resolution,scene,pointer,light;let pointerXY=[0,0];let failed=false;
@@ -19,4 +19,5 @@ export function createStage(canvas){
  init();canvas.parentElement.addEventListener('pointermove',e=>{const r=canvas.getBoundingClientRect();pointerXY=[(e.clientX-r.left)/r.width-.5,.5-(e.clientY-r.top)/r.height];},{passive:true});canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();failed=true;canvas.style.visibility='hidden';});canvas.addEventListener('webglcontextrestored',()=>{init();canvas.style.visibility='';});
  return{canvas,draw(t){if(!gl||failed)return;const dpr=Math.min(devicePixelRatio||1,matchMedia('(pointer: coarse)').matches?1.25:1.5);const width=Math.round(canvas.clientWidth*dpr),height=Math.round(canvas.clientHeight*dpr);if(!width||!height)return;if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;gl.viewport(0,0,width,height);}gl.useProgram(program);gl.uniform1f(time,t);gl.uniform2f(resolution,width,height);gl.uniform1f(scene,Number(canvas.dataset.scene));gl.uniform2f(pointer,...pointerXY);gl.uniform1f(light,document.documentElement.dataset.theme==='light'?1:0);gl.drawArrays(gl.TRIANGLES,0,6);}};
 }
+
 

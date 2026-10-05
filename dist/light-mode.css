@@ -1,0 +1,56 @@
+/* The same cinematic compositions, with ink, paper and warm red lighting. */
+:root[data-theme=light]{--muted:#5c4c45;--line:#d8c8c0;--surface-2:#f5eae4}
+[data-theme=light] .hero{background:radial-gradient(ellipse at 70% 65%,#efc8b944,transparent 65%),var(--bg)}
+[data-theme=light] .universe .sticky-scene{background:radial-gradient(ellipse at 75% 55%,#eed2c366,transparent 65%),var(--bg)}
+[data-theme=light] .journey .sticky-scene{background:radial-gradient(ellipse at 25% 65%,#eed2c355,transparent 65%),var(--bg)}
+[data-theme=light] .finale{background:radial-gradient(ellipse at 50% 80%,#f0cbb95c,transparent 70%),var(--bg)}
+[data-theme=light] .section-label{border-image:linear-gradient(90deg,#b62d1f80,#d8c8c0 65%,transparent) 1}
+[data-theme=light] .header nav a:hover,[data-theme=light] .hero-social a:hover{color:var(--accent)}
+[data-theme=light] .outline-button{color:var(--text);border-color:#a77a68;background:#ffffff80}
+[data-theme=light] .outline-button:hover{color:var(--accent);border-color:var(--accent);background:#fff4ee}
+[data-theme=light] .identity-card{background:linear-gradient(145deg,#fff,#f7e4da);border-color:#ad4739;box-shadow:0 20px 55px #6e392820,0 0 30px #c04a2715}
+[data-theme=light] .identity-card:before{background:radial-gradient(250px circle at var(--light-x,50%) var(--light-y,20%),#e5987655,transparent 75%)}
+[data-theme=light] .identity-card:after{background:linear-gradient(120deg,transparent 25%,#fff9 44%,transparent 63%)}
+[data-theme=light] .hero-portrait:hover .identity-card,[data-theme=light] .hero-portrait:focus-within .identity-card{box-shadow:0 28px 65px #7a342529,0 0 0 1px #b6422b66,0 0 45px #e1784430}
+[data-theme=light] .hero-portrait .portrait-frame,[data-theme=light] .hero-portrait.effect-ready .portrait-frame{background:radial-gradient(ellipse at 50% 75%,#dfa78e55,transparent 70%),repeating-linear-gradient(0deg,transparent 0 29px,#a13e250b 30px),#f6e9e1;border-color:#c9958066;box-shadow:inset 0 0 28px #b8826b13}
+[data-theme=light] .hero-portrait.effect-ready .portrait-code{color:#693629;opacity:.55}
+[data-theme=light] .hero-portrait.effect-ready .portrait-code span{color:#953320}
+[data-theme=light] .hero-portrait.effect-ready.code-active .portrait-code{opacity:.8}
+[data-theme=light] .hero-portrait .portrait-cutout{filter:drop-shadow(0 7px 12px #70392733)}
+[data-theme=light] .effect-ready.code-active .portrait-frame{box-shadow:0 0 35px #b5422920}
+[data-theme=light] .effect-ready.code-active .portrait-frame .portrait-cutout{filter:drop-shadow(0 0 8px #b4422944)}
+[data-theme=light] .card-status{border-top-color:var(--line)}
+[data-theme=light] .work .project-card{border-color:#d8c1b6;box-shadow:0 10px 25px #7548320b}
+[data-theme=light] .work .project-card:hover,[data-theme=light] .work .project-card:focus-within{border-color:#b64b32;box-shadow:0 16px 38px #863b241c,0 0 24px #d875431c}
+[data-theme=light] .project-stack>span{color:#7a3225;background:#fff0e7;border-color:#d4b5a6}
+[data-theme=light] .project-role strong,[data-theme=light] .project-body h3{color:var(--text)}
+[data-theme=light] .github-row{color:var(--text);border-color:var(--line)}
+[data-theme=light] .github-row>span:first-child{color:var(--muted)}
+[data-theme=light] .skills-grid article{background:linear-gradient(135deg,#fff,#fcf1ea);border-color:#d8c1b6}
+[data-theme=light] .year-story{border-color:#cfa08a}
+[data-theme=light] .year-story .eyebrow{color:#894332}
+[data-theme=light] .year-button:before{background:#fff1e7;border-color:#9f5c44}
+[data-theme=light] .year-button[aria-pressed=true]:before{background:var(--accent);box-shadow:0 0 16px 3px #c9593733}
+[data-theme=light] .clock-face{border-color:#c99a85;background:radial-gradient(ellipse,#e7bc9d33,transparent 70%);box-shadow:0 0 35px #b8734020,inset 0 0 35px #b8734012}
+[data-theme=light] .clock-face b{background:#8e4430;box-shadow:0 0 13px #b85c3833}
+[data-theme=light] .clock-hand{background:linear-gradient(#a03d27,#d3875a);filter:drop-shadow(0 0 5px #b15e3833)}
+[data-theme=light] .clock-number{color:#894a2b28}
+[data-theme=light] .beyond .credentials article{background:linear-gradient(135deg,#fff,#f7e7df);border-color:#d5b6a8;box-shadow:0 14px 35px #64372413}
+[data-theme=light] .beyond .credentials article:hover{border-color:#b85e43;box-shadow:0 16px 40px #ae563a22}
+[data-theme=light] .internship-status{color:#963623;border-color:#c9866d;background:#fff0e8}
+[data-theme=light] .contact-methods a{border-color:var(--line)}
+[data-theme=light] .contact-form{background:linear-gradient(140deg,#fff,#f9eee8);border-color:#d6bcb0;box-shadow:0 20px 55px #803d2015}
+[data-theme=light] .contact-form :is(input,select,textarea){background:#fffaf7;border-color:#bd9d8d;color:var(--text)}
+[data-theme=light] .contact-form input::placeholder,[data-theme=light] .contact-form textarea::placeholder{color:#776054;opacity:1}
+[data-theme=light] .contact-form button:hover,[data-theme=light] .cv-button:hover{background:#982318;border-color:#982318;color:#fff;box-shadow:0 0 24px #b7432533}
+[data-theme=light] .contact-form :is(.contact-fallback,.contact-privacy){color:var(--muted)}
+[data-theme=light] .contact-fallback a,[data-theme=light] .contact-privacy a{color:#8e2e20}
+[data-theme=light] .footer-bottom{border-color:var(--line)}
+[data-theme=light] .footer-word{color:#a9392117}
+[data-theme=light] .project-dialog .project-links a,[data-theme=light] .project-dialog .project-details{color:#8e2e20}
+[data-theme=light] .project-dialog::backdrop{background:#4d241b66}
+[data-theme=light] .terminal-form input::placeholder,[data-theme=light] .search-dialog>input::placeholder{color:#776054;opacity:1}
+[data-theme=light] .terminal-dialog,[data-theme=light] .search-dialog{box-shadow:0 24px 75px #642d2440}
+[data-theme=light] .search-dialog::backdrop{background:#5a30275e;backdrop-filter:blur(7px)}
+[data-theme=light] .search-result.is-selected,[data-theme=light] .search-result:hover{border-color:#c99883}
+@media(prefers-reduced-motion:reduce){[data-theme=light] .identity-card{animation:none}}
