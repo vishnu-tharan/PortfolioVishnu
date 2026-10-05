@@ -103,8 +103,10 @@ The contact form submits through FormSubmit with its default spam verification a
 
 ## CV
 
-The portfolio includes a responsive [CV page](dist/cv.html) and a [downloadable PDF](dist/assets/Vishnutharan-Bavachelvan-CV.pdf), linked from the introduction, navigation and contact section.
+The portfolio includes a responsive [general CV](dist/cv.html) and a [downloadable PDF](dist/assets/Vishnutharan-Bavachelvan-CV.pdf), linked from the introduction, navigation and contact section. The CV page also links to [frontend](dist/cv-frontend.html), [backend](dist/cv-backend.html) and [mobile](dist/cv-mobile.html) versions, each with a matching one-page PDF. Each version selects three relevant projects and preserves the confirmed group-project contribution and community activities.
 
-Edit `tools/cv-data.json`, then run `python tools/build_cv.py` with ReportLab installed to regenerate both formats. The PDF is also saved to `output/pdf/`. The CV highlights selected projects; the full project list remains in the portfolio. Buyora is included as a development project, without a claim of completed production validation.
+Edit `tools/cv-data.json`, then run `python tools/build_cv.py` with ReportLab and pypdf installed to regenerate all four PDFs and web pages. PDFs are also saved to `output/pdf/`. Run `python tools/check_cv.py` with pdfplumber installed to check one-page layout limits, selectable text, PDF link annotations, project order and matching web downloads. Render and inspect the PDFs before publishing. Then run `python tools/version_assets.py <new-release-name>`; PDF download URLs are versioned too.
+
+The expected graduation date, June 2027, was confirmed by the owner. Project and certification dates, GPA, team size and more specific group-project responsibilities are omitted until confirmed. Optional project `dates` fields are supported by the generator. The CV's bundle figures describe CinemaStream's measured web entry bundle, not total JavaScript or physical-device performance. Test evidence comes from the linked repository verification documents; production acceptance is not claimed.
 
 Author: **vishnu-tharan**.
