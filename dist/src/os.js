@@ -72,7 +72,7 @@ document.addEventListener('click', event => {
     document.querySelectorAll('[data-filter]').forEach(button => button.setAttribute('aria-pressed', String(button === filter)));
     document.querySelector('#project-count').textContent = `${count} ${count === 1 ? 'project' : 'projects'}`;
   }
-  if (event.target.closest('[data-app="terminal"]')) openTerminal();
+  if (event.target.closest('button[data-app="terminal"]')) openTerminal();
 });
 function handleRoute() {
   if (!location.hash.startsWith('#project=')) return;
