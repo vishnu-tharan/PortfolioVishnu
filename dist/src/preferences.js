@@ -3,7 +3,7 @@ const storage = {
   get(key, fallback) { try { return localStorage.getItem(key) ?? fallback; } catch { return fallback; } },
   set(key, value) { try { localStorage.setItem(key, value); } catch {} }
 };
-let appearance = storage.get('vishnuos-theme', 'system');
+let appearance = storage.get('vishnuos-theme', 'dark');
 if (!['light', 'dark', 'system'].includes(appearance)) appearance = 'system';
 export function setTheme(value) {
   if (!['light', 'dark', 'system'].includes(value)) return;

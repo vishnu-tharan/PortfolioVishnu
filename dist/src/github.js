@@ -1,4 +1,5 @@
 import { escape } from './os.js';
+import { validSnapshot, eventDetails } from './github-data.js';
 
 const username = 'vishnu-tharan';
 const cacheKey = 'vishnuos-github-v1';
@@ -16,30 +17,6 @@ try {
   if (validSnapshot(saved)) snapshot = saved;
 } catch {}
 
-export function validSnapshot(value) {
-  return value && Number.isFinite(value.time) && value.time <= Date.now() + 60000 && value.user?.login?.toLowerCase() === username && ['public_repos','followers','following'].every(key => Number.isInteger(value.user[key]) && value.user[key] >= 0) && Array.isArray(value.events);
-}
-export function eventDetails(event) {
-  const repo = event?.repo?.name;
-  if (typeof repo !== 'string' || !/^[\w.-]+\/[\w.-]+$/.test(repo)) return null;
-  const created = new Date(event.created_at);
-  if (!Number.isFinite(created.getTime())) return null;
-  const ref = String(event.payload?.ref || '').replace('refs/heads/', '');
-  const types = {
-    PushEvent:['Pushed code', ref ? `Branch: ${ref}` : 'Repository update', '>_'],
-    CreateEvent:['Created ' + String(event.payload?.ref_type || 'resource'), ref || 'New repository resource', '+'],
-    PullRequestEvent:['Pull request ' + String(event.payload?.action || 'updated'), event.payload?.pull_request?.title || 'Pull request update', '⑂'],
-    IssuesEvent:['Issue ' + String(event.payload?.action || 'updated'), event.payload?.issue?.title || 'Issue update', '◉'],
-    IssueCommentEvent:['Commented on an issue', event.payload?.issue?.title || 'Discussion update', '≡'],
-    WatchEvent:['Starred a repository', 'Public repository', '☆'],
-    ForkEvent:['Forked a repository', 'Public repository', '⑂'],
-    ReleaseEvent:['Published a release', event.payload?.release?.name || 'Release update', '◇']
-  };
-  const [title, detail, icon] = types[event.type] || ['Repository activity', String(event.type || 'Public event').replace(/Event$/, ''), '·'];
-  const head = event.payload?.head;
-  const url = event.type === 'PushEvent' && /^[a-f0-9]{40}$/i.test(head || '') ? `https://github.com/${repo}/commit/${head}` : `https://github.com/${repo}`;
-  return {repo, created, title, detail:String(detail), icon, url};
-}
 function relativeTime(date) {
   const seconds = Math.max(0, (Date.now() - date.getTime()) / 1000);
   if (seconds < 60) return 'Just now';
@@ -99,7 +76,8 @@ export async function loadGitHub(manual = false) {
 }
 if (snapshot) render(true);
 if (!snapshot || Date.now() - snapshot.time > pollInterval) loadGitHub();
-else { render(false); status.textContent = 'Recent saved snapshot. Checking GitHub automatically when the next refresh is due.'; }
+else { render(true); status.textContent = 'Recent saved snapshot. Checking GitHub automatically when the next refresh is due.'; }
 refresh.addEventListener('click', () => loadGitHub(true));
 setInterval(() => { if (Date.now() - (snapshot?.time || lastAttempt) >= pollInterval) loadGitHub(); }, 60000);
 document.addEventListener('visibilitychange', () => { if (!document.hidden && Date.now() - (snapshot?.time || lastAttempt) >= pollInterval) loadGitHub(); });
+

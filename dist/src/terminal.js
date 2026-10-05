@@ -6,10 +6,10 @@ export function mountTerminal(container, actions) {
   const history = [];
   let position = 0;
   const sections = [
-    {name:'Education & journey', keywords:'education university vavuniya honours degree academic', hash:'#about'},
-    {name:'Certifications', keywords:'certificate certifications cisco javascript sololearn sql', hash:'#about'},
-    {name:'Community & competitions', keywords:'community leadership ieee aiesec ieeextreme volunteering', hash:'#about'},
-    {name:'Technical skills', keywords:'skills languages tools frontend backend mobile database', hash:'#skills'},
+    {name:'Education & journey', keywords:'education university vavuniya honours degree academic', hash:'#beyond'},
+    {name:'Certifications', keywords:'certificate certifications cisco javascript sololearn sql', hash:'#beyond'},
+    {name:'Community & competitions', keywords:'community leadership ieee aiesec ieeextreme volunteering', hash:'#beyond'},
+    {name:'Technical skills', keywords:'skills languages tools frontend backend mobile database', hash:'#universe'},
     {name:'GitHub activity', keywords:'github tracker activity repositories commits', hash:'#activity'},
     {name:'Contact', keywords:'contact email phone linkedin internship remote sri lanka', hash:'#contact'}
   ];
@@ -37,7 +37,7 @@ export function mountTerminal(container, actions) {
       case 'projects': write(actions.projects.map(item => `${item.title} — ${item.stack}`).join('\n')); break;
       case 'open': {
         if (!argument) { write('Usage: open <project name>'); break; }
-        const destinations = {about:'#about',education:'#about',skills:'#skills',contact:'#contact',github:'#activity',projects:'#work'};
+        const destinations = {about:'#beyond',education:'#beyond',skills:'#universe',contact:'#contact',github:'#activity',projects:'#work'};
         if (destinations[argument]) { actions.close(); location.hash = destinations[argument]; break; }
         if (argument === 'cv') { actions.close(); location.href = './cv.html'; break; }
         const matches = actions.projects.filter(item => item.title.toLowerCase().includes(argument));

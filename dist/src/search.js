@@ -9,10 +9,10 @@ let matches = [];
 let previousFocus;
 const entries = [
   ...projects.map(project => ({title:project.title, description:project.summary, keywords:[project.stack, project.type, project.role, project.problem, project.contribution].join(' '), type:'Project', icon:'▦', action:() => openProject(project)})),
-  {title:'Technical skills',description:'Frontend, mobile, backend, databases, languages & tools',keywords:'React Next.js Spring Boot Java Python SQL Docker Git Firebase TypeScript',type:'Section',icon:'</>',action:() => navigate('#skills')},
-  {title:'Education & journey',description:'B.Sc. (Hons) IT · University of Vavuniya · 2023–Present',keywords:'honours university degree academic coursework database algorithms',type:'Section',icon:'◈',action:() => navigate('#about')},
-  {title:'Certifications',description:'Cisco JavaScript Essentials 1 & 2 · Sololearn SQL',keywords:'certificate networking academy learning',type:'Section',icon:'≡',action:() => navigate('#about')},
-  {title:'Community & competitions',description:'IEEE, AIESEC, IEEEXtreme, volunteering & leadership',keywords:'TheChiefs JamporIEEE camera club hackathon team',type:'Section',icon:'✳',action:() => navigate('#about')},
+  {title:'Technical skills',description:'Frontend, mobile, backend, databases, languages & tools',keywords:'React Next.js Spring Boot Java Python SQL Docker Git Firebase TypeScript',type:'Section',icon:'</>',action:() => navigate('#universe')},
+  {title:'Education & journey',description:'B.Sc. (Hons) IT · University of Vavuniya · 2023–Present',keywords:'honours university degree academic coursework database algorithms',type:'Section',icon:'◈',action:() => navigate('#beyond')},
+  {title:'Certifications',description:'Cisco JavaScript Essentials 1 & 2 · Sololearn SQL',keywords:'certificate networking academy learning',type:'Section',icon:'≡',action:() => navigate('#beyond')},
+  {title:'Community & competitions',description:'IEEE, AIESEC, IEEEXtreme, volunteering & leadership',keywords:'TheChiefs JamporIEEE camera club hackathon team',type:'Section',icon:'✳',action:() => navigate('#beyond')},
   {title:'GitHub activity',description:'Latest available public updates from @vishnu-tharan',keywords:'repositories commits contributions tracker github feed',type:'Section',icon:'◉',action:() => navigate('#activity')},
   {title:'Contact Vishnu',description:'Internships, collaborations, email & LinkedIn',keywords:'phone email Sri Lanka remote opportunities contact',type:'Section',icon:'@',action:() => navigate('#contact')},
   {title:'View CV',description:'Read my CV or download the PDF',keywords:'resume curriculum vitae experience',type:'Page',icon:'≡',action:() => { location.href = './cv.html'; }},
@@ -35,6 +35,8 @@ function open() {
   // Keep a small non-modal terminal from sitting above the search surface.
   const app = document.querySelector('#app-dialog');
   if (app.open) app.close();
+  const projectDialog = document.querySelector('.project-dialog');
+  if (projectDialog.open) projectDialog.close();
   input.value = '';
   render();
   dialog.showModal();
@@ -71,7 +73,7 @@ document.addEventListener('click', event => {
   if (event.target.closest('[data-close-search]')) dialog.close();
 });
 dialog.addEventListener('close', () => {
-  if (document.querySelector('#app-dialog').open) return;
+  if (document.querySelector('#app-dialog').open || document.querySelector('.project-dialog').open) return;
   document.body.classList.remove('modal-open');
   previousFocus?.focus({preventScroll:true});
 });

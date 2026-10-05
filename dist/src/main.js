@@ -8,13 +8,33 @@ document.documentElement.classList.toggle('js-motion', !paused);
 const stages = [...document.querySelectorAll('[data-scene]')].map(canvas => createStage(canvas));
 renderProjectGallery(document.querySelector('.project-grid'), projects, openProject);
 const dialog=document.querySelector('.project-dialog');
-function openProject(p){
+export function openProject(p, updateURL = true){
+ document.querySelector('#app-dialog')?.close();
  document.querySelector('.dialog-content').innerHTML = projectDetails(p);
- dialog.showModal();
+ if(!dialog.open)dialog.showModal();
  dialog.scrollTop = 0;
  document.body.classList.add('dialog-open');
+ if(updateURL)history.replaceState(null,'',`${location.pathname}${location.search}#project=${projectSlug(p)}`);
 }
-dialog.addEventListener('close', () => document.body.classList.remove('dialog-open'));
+const projectSlug = p => p.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
+function openSharedProject(){
+ if(!location.hash.startsWith('#project='))return;
+ const p=projects.find(p=>projectSlug(p)===location.hash.slice(9));
+ if(p)openProject(p,false);
+}
+window.addEventListener('hashchange',openSharedProject);
+openSharedProject();
+dialog.addEventListener('close',()=>{
+ if(dialog.open)return;
+ document.body.classList.remove('dialog-open');
+ if(location.hash.startsWith('#project='))history.replaceState(null,'',`${location.pathname}${location.search}#work`);
+});
+dialog.addEventListener('click',async event=>{
+ const button=event.target.closest('[data-copy-project]');
+ if(!button)return;
+ try{await navigator.clipboard.writeText(location.href);button.textContent='Link copied';}
+ catch{button.textContent='Copy the link from the address bar';}
+});
 document.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});
 
