@@ -1,4 +1,4 @@
-import { toast } from './os.js?v=20261005-light-v2';
+import { toast } from './os.js?v=20261006-effects-v1';
 
 let enabled = false;
 let context;
