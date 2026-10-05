@@ -1,0 +1,8 @@
+/* Small interactions that retain the original red, ink and paper identity. */
+html[data-transition=theme]::view-transition-old(root),
+html[data-transition=theme]::view-transition-new(root){animation:none;mix-blend-mode:normal}
+html[data-transition=theme]::view-transition-old(root){z-index:1}
+html[data-transition=theme]::view-transition-new(root){z-index:2;animation:theme-reveal .48s cubic-bezier(.2,.7,.2,1) both}
+@keyframes theme-reveal{from{clip-path:circle(0 at var(--transition-x) var(--transition-y))}to{clip-path:circle(var(--transition-radius) at var(--transition-x) var(--transition-y))}}
+@media(prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
+.motion-paused::view-transition-group(*),.motion-paused::view-transition-old(*),.motion-paused::view-transition-new(*){animation:none!important}

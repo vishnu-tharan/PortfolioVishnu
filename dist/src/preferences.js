@@ -1,3 +1,4 @@
+import { viewTransition } from './transitions.js';
 const media = matchMedia('(prefers-color-scheme: dark)');
 const storage = {
   get(key, fallback) { try { return localStorage.getItem(key) ?? fallback; } catch { return fallback; } },
@@ -5,14 +6,14 @@ const storage = {
 };
 let appearance = storage.get('vishnuos-theme', 'dark');
 if (!['light', 'dark', 'system'].includes(appearance)) appearance = 'system';
-export function setTheme(value) {
+export function setTheme(value, origin) {
   if (!['light', 'dark', 'system'].includes(value)) return;
   appearance = value;
   storage.set('vishnuos-theme', value);
-  syncTheme();
+  viewTransition(syncTheme, {origin});
 }
-export function toggleTheme() {
-  setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark');
+export function toggleTheme(origin) {
+  setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark', origin);
 }
 function syncTheme() {
   const theme = appearance === 'system' ? (media.matches ? 'dark' : 'light') : appearance;
@@ -28,8 +29,9 @@ function syncTheme() {
 }
 media.addEventListener('change', syncTheme);
 document.addEventListener('click', event => {
-  if (event.target.closest('[data-theme-toggle]')) toggleTheme();
+  const toggle = event.target.closest('[data-theme-toggle]');
+  if (toggle) toggleTheme(toggle);
   const choice = event.target.closest('[data-theme-choice]');
-  if (choice) setTheme(choice.dataset.themeChoice);
+  if (choice) setTheme(choice.dataset.themeChoice, choice);
 });
 syncTheme();
