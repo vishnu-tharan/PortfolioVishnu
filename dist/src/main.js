@@ -1,7 +1,7 @@
-import { createStage } from './stage.js?v=20261006-effects-v1';
-import { renderProjectGallery, projectDetails } from './projects.js?v=20261006-effects-v1';
-import { projects } from './project-data.js?v=20261006-effects-v1';
-import { motionAllowed, viewTransition } from './transitions.js?v=20261006-effects-v1';
+import { createStage } from './stage.js?v=20261006-cv-v1';
+import { renderProjectGallery, projectDetails } from './projects.js?v=20261006-cv-v1';
+import { projects } from './project-data.js?v=20261006-cv-v1';
+import { motionAllowed, viewTransition } from './transitions.js?v=20261006-cv-v1';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 let paused = reduce.matches;

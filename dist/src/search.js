@@ -1,5 +1,5 @@
-import { projects } from './project-data.js?v=20261006-effects-v1';
-import { escape, openProject, openTerminal } from './os.js?v=20261006-effects-v1';
+import { projects } from './project-data.js?v=20261006-cv-v1';
+import { escape, openProject, openTerminal } from './os.js?v=20261006-cv-v1';
 
 const dialog = document.querySelector('#search-dialog');
 const input = document.querySelector('#os-search');
