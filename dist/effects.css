@@ -1,7 +1,7 @@
 /* Small interactions that retain the original red, ink and paper identity. */
 :is(.cv-button,.outline-button,.feature-button,.github-refresh,.terminal-form button,.terminal-suggestions button,.project-details,.contact-form button){transition:scale .15s,background-color .2s,border-color .2s,color .2s}
 :is(.cv-button,.outline-button,.feature-button,.github-refresh,.terminal-form button,.terminal-suggestions button,.project-details,.contact-form button):not(:disabled):active{scale:.98}
-:is(.hero-social a,.project-links a,.project-details,.skills-grid a){text-decoration-thickness:1px;text-decoration-color:color-mix(in srgb,currentColor 45%,transparent);transition:text-decoration-color .2s,color .2s,scale .15s}
+:is(.hero-social a,.project-links a,.project-details,.skills-grid a){text-decoration-thickness:1px;text-decoration-color:color-mix(in srgb,currentColor 45%,transparent);transition:text-decoration-color .2s,text-underline-offset .2s,color .2s,scale .15s}
 :is(.hero-social a,.project-links a,.project-details,.skills-grid a):is(:hover,:focus-visible){text-decoration-color:currentColor;text-underline-offset:6px}
 .project-dialog .copy-status{font-size:14px;color:var(--text);margin:16px 0;padding:12px 14px;background:var(--accent-soft);border-left:2px solid var(--accent);border-radius:4px}
 .copy-status:empty{display:none}
