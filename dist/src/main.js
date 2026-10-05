@@ -50,8 +50,15 @@ dialog.addEventListener('close',()=>{
 dialog.addEventListener('click',async event=>{
  const button=event.target.closest('[data-copy-project]');
  if(!button)return;
- try{await navigator.clipboard.writeText(location.href);button.textContent='Link copied';}
- catch{button.textContent='Copy the link from the address bar';}
+ const status=dialog.querySelector('.copy-status');
+ try{
+  await navigator.clipboard.writeText(location.href);
+  if (!button.isConnected) return;
+  button.textContent='✓ Link copied';button.classList.add('copy-confirmed');
+  status.textContent='Project link copied. You can paste it to share this case study.';
+  setTimeout(()=>{if(button.isConnected){button.textContent='Copy project link';button.classList.remove('copy-confirmed');}},2500);
+ }
+ catch{if(status.isConnected)status.textContent='Copy the link from the address bar to share this project.';}
 });
 document.querySelector('.dialog-close').addEventListener('click',()=>dialog.close());
 dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});

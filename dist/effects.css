@@ -1,4 +1,13 @@
 /* Small interactions that retain the original red, ink and paper identity. */
+:is(.cv-button,.outline-button,.feature-button,.github-refresh,.terminal-form button,.terminal-suggestions button,.project-details,.contact-form button){transition:scale .15s,background-color .2s,border-color .2s,color .2s}
+:is(.cv-button,.outline-button,.feature-button,.github-refresh,.terminal-form button,.terminal-suggestions button,.project-details,.contact-form button):not(:disabled):active{scale:.98}
+:is(.hero-social a,.project-links a,.project-details,.skills-grid a){text-decoration-thickness:1px;text-decoration-color:color-mix(in srgb,currentColor 45%,transparent);transition:text-decoration-color .2s,color .2s,scale .15s}
+:is(.hero-social a,.project-links a,.project-details,.skills-grid a):is(:hover,:focus-visible){text-decoration-color:currentColor;text-underline-offset:6px}
+.project-dialog .copy-status{font-size:14px;color:var(--text);margin:16px 0;padding:12px 14px;background:var(--accent-soft);border-left:2px solid var(--accent);border-radius:4px}
+.copy-status:empty{display:none}
+.project-details.copy-confirmed{color:var(--accent)}
+@media(prefers-reduced-motion:reduce){:is(.cv-button,.outline-button,.feature-button,.github-refresh,.terminal-form button,.terminal-suggestions button,.project-details,.contact-form button):active{scale:1}}
+.motion-paused :is(.cv-button,.outline-button,.feature-button,.github-refresh,.terminal-form button,.terminal-suggestions button,.project-details,.contact-form button):active{scale:1}
 .terminal-suggestions{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
 .terminal-suggestions button{font:12px/1.4 Consolas,monospace;padding:8px 11px;border:1px solid var(--line);border-radius:6px;background:var(--surface-2);color:var(--text);cursor:pointer;min-height:36px}
 .terminal-suggestions button:is(:hover,:focus-visible){border-color:var(--accent);color:var(--accent)}
