@@ -6,7 +6,14 @@ I'm Vishnutharan Bavachelvan, a full-stack developer and B.Sc. (Hons) Informatio
 
 ## About the portfolio
 
-The portfolio uses a black-and-red cinematic design with animated WebGL backgrounds, an interactive journey timeline, and project cards with individual visual identities.
+The portfolio keeps its black-and-red cinematic design with animated WebGL backgrounds, an interactive journey timeline, and project case studies. New features extend this layout:
+
+- Dark and light modes, with saved preferences and a dark default
+- Search across projects, technologies, education, certificates and contact information (Ctrl/Cmd K or `/`)
+- A small optional **VishnuOS** terminal; the portfolio itself remains a normal website
+- Optional quiet click sounds, off by default and controlled from the header or terminal
+- Public GitHub repository counts and recent activity, refreshed every five minutes while visible
+- Shareable project links such as `#project=buyora`
 
 - Responsive layouts for desktop and mobile
 - Projects immediately after the introduction, with screenshots, contribution notes, technical decisions and verification context
@@ -51,6 +58,22 @@ tools/
 ```
 
 To deploy, serve the contents of `dist/` with any static website host.
+
+## VishnuOS commands
+
+Click **VishnuOS** in the corner and type `help`. Supported commands include `about`, `projects`, `open buyora`, `search spring boot`, `skills`, `contact`, `cv`, `github`, `theme dark`, `theme light`, `theme system`, `sound on`, `sound off`, `clear`, and `exit`. `open` also accepts `education`, `skills`, `contact`, `github`, `projects` and `cv`. Arrow keys navigate the current terminal's command history. Commands only navigate this portfolio; they never run system code.
+
+## GitHub activity
+
+The tracker reads the public GitHub REST API for `vishnu-tharan`, without an access token. GitHub events can arrive late, so this is the latest available public feed rather than instant notifications or a complete contribution calendar. A browser-local snapshot is labelled when reused. Timeouts, rate limits and unavailable data leave the profile link accessible. Automatic requests stop while the page is hidden, refreshes are spaced out, and server polling/rate-limit headers are respected. No private activity is accessed.
+
+Appearance, sound preferences and the public GitHub snapshot are stored locally when browser storage is available. Sound requires a visitor interaction; nothing autoplays on page load. The existing reduced-motion and animation controls remain available.
+
+## Verification
+
+Run `node --test tools/portfolio.test.mjs` to check GitHub data validation, safe activity links and project content. The website itself has no Node dependency or build step. Preview with the local Python server before publishing.
+
+The GitHub Pages workflow publishes `dist/` when commits reach `main`. The local publishing checkout under `.sites-runtime/github-publish/` contains the matching GitHub history; the main workspace keeps the editable site files.
 
 ## Contact
 
