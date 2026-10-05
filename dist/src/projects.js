@@ -1,7 +1,7 @@
 // Author: vishnu-tharan
 export const escape = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function projectDetails(project) {
- const sections = [['The problem', project.problem], ['My contribution', project.contribution], ['Technical approach', project.decision], ['Testing & verification', project.testing]];
+ const sections = [['The problem', project.problem], ['My contribution', project.contribution], ['Technical approach', project.decision], ['Testing & verification', project.testing], ['Performance notes', project.performance]];
  return `<span class="eyebrow accent">${escape(project.type)}</span><h2 id="dialog-title">${escape(project.title)}</h2><p class="dialog-tech">${escape(project.stack)}</p>
  ${project.image ? `<figure class="project-detail-image"><img src="${project.image}" alt="${escape(project.imageAlt)}"><figcaption>${escape(project.caption)}</figcaption></figure>` : ''}
  <div class="case-study">${sections.filter(([,text]) => text).map(([title,text]) => `<section><h3>${title}</h3><p>${escape(text)}</p></section>`).join('')}</div>
