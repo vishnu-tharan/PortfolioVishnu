@@ -1,0 +1,28 @@
+html{scroll-padding-top:calc(var(--header-height,78px) + 16px)}
+.project-dialog{max-height:min(90svh,calc(var(--usable-height,100svh) - 28px))}
+.search-dialog{max-height:min(76svh,calc(var(--usable-height,100svh) - 28px));margin-top:min(12svh,28px)}
+.search-results{max-height:min(44svh,max(80px,calc(var(--usable-height,100svh) - 190px)))}
+.terminal-dialog{bottom:calc(82px + env(safe-area-inset-bottom,0px) + var(--keyboard-inset,0px));max-height:min(65svh,calc(var(--usable-height,100svh) - 94px))}
+.terminal-output{min-height:90px;max-height:min(240px,max(90px,calc(var(--usable-height,100svh) - 250px)))}
+.terminal-launcher{bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+.motion-toggle{bottom:calc(20px + env(safe-area-inset-bottom,0px))}
+.feature-controls,.header nav,.hero-actions,.contact-layout,.credentials,.github-panel{min-width:0}
+.feed-item>div,.feed-header>span:first-child,.feed-footer>span{min-width:0;overflow-wrap:anywhere}
+.project-stack>span{overflow-wrap:anywhere}
+.project-preview,.project-details,.portrait-toggle{touch-action:manipulation}
+.project-details,.project-links a,.portrait-toggle{min-height:44px}
+@media(max-width:750px){
+ .header{gap:8px 12px}.feature-controls{gap:2px}.feature-button{min-width:44px;min-height:44px}.search-trigger{padding:6px 9px}
+ .header nav a{min-height:44px;display:inline-flex;align-items:center}.header>.contact-link{min-height:44px;align-items:center}
+ .terminal-dialog{bottom:calc(76px + env(safe-area-inset-bottom,0px) + var(--keyboard-inset,0px));max-height:min(70svh,calc(var(--usable-height,100svh) - 88px))}
+ .terminal-launcher{min-height:44px;bottom:calc(17px + env(safe-area-inset-bottom,0px));font-size:14px}
+ .terminal-form input{font-size:16px}.terminal-form button{font-size:14px;min-height:44px}.terminal-output{font-size:14px}
+ .search-dialog>input{font-size:18px}.search-result{min-height:52px}.search-result small{font-size:13px}.search-top .feature-button{min-width:44px;min-height:44px}
+ .search-dialog{margin-top:14px}.search-footer{flex-wrap:wrap;gap:6px}.search-dialog>input{padding:14px 18px}
+ .feed-footer{flex-wrap:wrap}.feed-footer a{min-height:44px;display:flex;align-items:center}.github-refresh{min-height:44px}
+ .contact-methods strong{overflow-wrap:anywhere}.contact-form input,.contact-form textarea,.contact-form select{font-size:16px}
+ .footer-bottom{padding-bottom:64px}.github-summary{gap:12px}
+}
+@media(max-width:440px){.header>.contact-link{display:none}}
+@media(max-width:360px){.hero-with-portrait .overline{font-size:11px}.hero-with-portrait .word-baseline{font-size:12px}.terminal-launcher{right:64px}.project-body{padding:20px}.github-summary{padding:18px;gap:9px}.github-summary span{font-size:12px}.terminal-content{padding:14px}}
+@media(hover:none){.work .project-card:hover{translate:none}.identity-card:after{opacity:.5}}
