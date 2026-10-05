@@ -28,9 +28,10 @@ export function showWindow(title, html, app = 'project') {
   dialog.scrollTop = 0;
 }
 dialog.addEventListener('close', () => {
-  document.body.classList.remove('modal-open');
+  if (dialog.open) return;
+  if (!document.querySelector('dialog[open]')) document.body.classList.remove('modal-open');
   if (location.hash.startsWith('#project=')) history.replaceState(null, '', `${location.pathname}${location.search}#work`);
-  lastFocus?.focus({preventScroll:true});
+  if (!document.querySelector('dialog[open]')) lastFocus?.focus({preventScroll:true});
 });
 dialog.querySelector('.dialog-close').addEventListener('click', closeWindow);
 dialog.addEventListener('click', event => {
