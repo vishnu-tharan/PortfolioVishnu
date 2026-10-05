@@ -73,6 +73,8 @@ const revealObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.
 const visible=new Set();const sceneObserver=new IntersectionObserver(entries=>{entries.forEach(e=>{const s=stages.find(s=>s.canvas===e.target);if(e.isIntersecting)visible.add(s);else visible.delete(s);});schedule();},{threshold:0});stages.forEach(s=>sceneObserver.observe(s.canvas));
 let frame=0;let last=0;let time=0;
 function schedule(){if(!frame&&!document.hidden)frame=requestAnimationFrame(render);}
+// A paused scene still repaints once when its palette changes.
+document.addEventListener('portfolio:themechange',schedule);
 function render(now){frame=0;const dt=Math.min((now-last)/1000||0,.05);last=now;if(!paused)time+=dt;visible.forEach(s=>s.draw(time));if(!paused&&visible.size&&!document.hidden)schedule();}
 const toggle=document.querySelector('.motion-toggle');
 function syncMotion(){document.documentElement.classList.toggle('motion-paused',paused);toggle.setAttribute('aria-pressed',String(paused));toggle.setAttribute('aria-label',paused?'Resume animations':'Pause animations');toggle.textContent=paused?'▶':'Ⅱ';schedule();}

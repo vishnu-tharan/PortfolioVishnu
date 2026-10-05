@@ -24,6 +24,7 @@ function syncTheme() {
     button.setAttribute('aria-pressed', String(theme === 'dark'));
   });
   document.querySelectorAll('[data-theme-choice]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.themeChoice === appearance)));
+  document.dispatchEvent(new CustomEvent('portfolio:themechange', {detail:theme}));
 }
 media.addEventListener('change', syncTheme);
 document.addEventListener('click', event => {
