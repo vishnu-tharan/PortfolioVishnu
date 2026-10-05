@@ -98,10 +98,10 @@ html = f'''<!doctype html>
   <meta name="description" content="Vishnutharan Bavachelvan's CV: full-stack development projects, technical skills, education and certifications.">
   <meta name="theme-color" content="#090909">
   <title>CV | {escape(DATA["name"])}</title>
-  <link rel="stylesheet" href="./cv.css">
+  <script src="./src/theme-init.js"></script><link rel="stylesheet" href="./theme.css"><link rel="stylesheet" href="./cv.css"><link rel="stylesheet" href="./cv-theme.css">
 </head>
 <body class="cv-page">
-  <nav class="cv-toolbar" aria-label="CV navigation"><a href="./index.html">&#8592; Back to portfolio</a><a class="cv-button" href="./assets/{FILENAME}" download>Download CV <span>PDF &#8595;</span></a></nav>
+  <nav class="cv-toolbar" aria-label="CV navigation"><a href="./index.html">&#8592; Back to portfolio</a><div class="cv-toolbar-actions"><button class="cv-theme-toggle" type="button" data-theme-toggle aria-label="Switch theme" aria-pressed="false">◐</button><a class="cv-button" href="./assets/{FILENAME}" download>Download CV <span>PDF &#8595;</span></a></div></nav>
   <main class="cv-sheet">
     <header class="cv-heading"><p class="cv-kicker">CURRICULUM VITAE</p><h1>{escape(DATA["name"])}</h1><p class="cv-role">{escape(DATA["role"])}</p>
       <div class="cv-contact">{html_link("mailto:" + DATA["email"], DATA["email"])} {html_link("tel:+94773646391", DATA["phone"])} {html_link(DATA["github"], "GitHub / vishnu-tharan")} {html_link(DATA["portfolio"], "Portfolio")} {html_link(DATA["linkedin"], "LinkedIn")}</div>
@@ -114,7 +114,7 @@ html = f'''<!doctype html>
     <section><h2>Certifications</h2><p>{escape(DATA["certifications"])}</p></section>
     <section><h2>Leadership &amp; community</h2><p>{escape(DATA["community"])}</p></section>
   </main>
-</body>
+<script type="module" src="./src/preferences.js"></script></body>
 </html>
 '''
 (ROOT / "dist/cv.html").write_text(html, encoding="utf-8")
