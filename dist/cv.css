@@ -28,5 +28,11 @@
 .cv-sheet h3 a:hover{text-decoration:underline}
 .cv-skills{margin:0}.cv-skills>div{display:grid;grid-template-columns:125px 1fr;gap:14px;margin:5px 0}.cv-skills dt{font-weight:700}.cv-skills dd{margin:0}
 .cv-project{margin:16px 0}.cv-stack{font-size:14px;color:#555d66}.cv-project ul{padding-left:20px;margin:5px 0}.cv-project li{padding-left:2px;margin:4px 0}
+.cv-versions{max-width:852px;margin:0 auto 20px;padding:0 24px;display:flex;flex-wrap:wrap;gap:8px;font-size:14px}
+.cv-versions a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 16px;border:1px solid var(--line);border-radius:7px;color:var(--text);background:var(--surface);text-decoration:none}
+.cv-versions a:is(:hover,:focus-visible,[aria-current=page]){border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
+.cv-evidence{font-size:13px;color:var(--accent)}
+@media(max-width:600px){.cv-versions{padding:0 16px;gap:6px}.cv-versions a{flex:1;padding:10px 12px}.cv-toolbar-actions{min-width:0}.cv-toolbar .cv-button{white-space:nowrap}.cv-skills dt{overflow-wrap:anywhere}}
+@media print{.cv-versions{display:none}.cv-evidence{font-size:9pt;color:#b42e25}}
 @media(max-width:600px){.cv-toolbar{padding:16px;gap:12px}.cv-toolbar .cv-button{padding:12px;gap:10px}.cv-sheet{padding:28px 22px 36px;margin-bottom:0}.cv-skills>div{display:block;margin:10px 0}.cv-heading h1{overflow-wrap:break-word}.cv-sheet section{margin-top:24px}}
 @media print{.cv-page{background:#fff;font-size:10pt;line-height:1.3}.cv-toolbar,.cv-kicker{display:none}.cv-sheet{max-width:none;margin:0;padding:0;border:0;box-shadow:none}.cv-heading h1{font-size:25pt}.cv-role{font-size:11pt}.cv-contact,.cv-availability,.cv-stack,.cv-sheet h3 span{font-size:9pt}.cv-sheet h2{font-size:10pt;margin-bottom:5px}.cv-sheet h3{font-size:11pt}.cv-sheet section{margin-top:12px}.cv-project{margin:8px 0;break-inside:avoid}.cv-skills>div{margin:2px 0}.cv-page a{text-decoration:none}@page{size:A4;margin:13mm}}
