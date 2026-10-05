@@ -1,4 +1,10 @@
 /* Small interactions that retain the original red, ink and paper identity. */
+.scroll-progress{position:fixed;inset:0 0 auto;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;z-index:45;pointer-events:none;box-shadow:0 0 10px #ff49354d}
+.header nav a{position:relative}
+.header nav a::after{content:'';position:absolute;left:0;right:0;bottom:3px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .2s}
+.header nav a[aria-current=location]{color:var(--accent)}
+.header nav a:is(:hover,:focus-visible,[aria-current=location])::after{transform:scaleX(1)}
+.header .contact-link[aria-current=location]{color:var(--accent)}
 .work .project-card::before{display:block;z-index:0;background:radial-gradient(350px circle at var(--spot-x,50%) var(--spot-y,40%),#ff493526,transparent 75%);opacity:0;transition:opacity .25s;pointer-events:none}
 .project-body,.project-preview{position:relative;z-index:1}
 .work .project-card:focus-within::before{opacity:1}
