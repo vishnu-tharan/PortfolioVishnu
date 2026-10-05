@@ -16,7 +16,7 @@ export function renderProjectGallery(grid, projects, openProject) {
   <div class="project-body"><p class="project-category">${escape(project.type)}</p><h3>${escape(project.title)}</h3><p class="project-summary">${escape(project.summary)}</p><p class="project-role"><strong>My role</strong> ${escape(project.role)}</p>
   <div class="project-stack">${project.stack.split(' · ').map(tech => `<span>${escape(tech)}</span>`).join('')}</div>
   <div class="project-links"><button type="button" class="project-details" aria-label="Read about ${escape(project.title)}">Read case study <span aria-hidden="true">↗</span></button><a href="${project.link}" target="_blank" rel="noopener noreferrer" aria-label="${escape(project.title)} repository on GitHub">GitHub ↗</a></div></div>`;
-  card.querySelectorAll('button').forEach(button => button.addEventListener('click', () => openProject(project)));
+  card.querySelectorAll('button').forEach(button => button.addEventListener('click', event => openProject(project, true, event.currentTarget)));
   grid.append(card);
  });
  const count = document.querySelector('.header a[href="#work"] sup');

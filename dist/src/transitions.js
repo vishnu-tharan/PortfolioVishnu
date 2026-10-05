@@ -6,7 +6,7 @@ export function motionAllowed() {
 }
 export function viewTransition(update, {kind = 'theme', origin, prepare = () => {}, cleanup = () => {}} = {}) {
   active?.skipTransition();
-  if (!motionAllowed() || !document.startViewTransition) { update(); return; }
+  if (!motionAllowed() || !document.startViewTransition) { update(); cleanup(); return; }
   const root = document.documentElement;
   const rect = origin?.getBoundingClientRect();
   const x = rect ? rect.left + rect.width / 2 : innerWidth / 2;

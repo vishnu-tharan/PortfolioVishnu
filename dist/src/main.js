@@ -1,6 +1,7 @@
 import { createStage } from './stage.js?v=20261005-light-v2';
 import { renderProjectGallery, projectDetails } from './projects.js?v=20261005-light-v2';
 import { projects } from './project-data.js?v=20261005-light-v2';
+import { motionAllowed, viewTransition } from './transitions.js';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 let paused = reduce.matches;
@@ -8,13 +9,29 @@ document.documentElement.classList.toggle('js-motion', !paused);
 const stages = [...document.querySelectorAll('[data-scene]')].map(canvas => createStage(canvas));
 renderProjectGallery(document.querySelector('.project-grid'), projects, openProject);
 const dialog=document.querySelector('.project-dialog');
-export function openProject(p, updateURL = true){
- document.querySelector('#app-dialog')?.close();
- document.querySelector('.dialog-content').innerHTML = projectDetails(p);
- if(!dialog.open)dialog.showModal();
- dialog.scrollTop = 0;
- document.body.classList.add('dialog-open');
- if(updateURL)history.replaceState(null,'',`${location.pathname}${location.search}#project=${projectSlug(p)}`);
+let projectFocus;
+export function openProject(p, updateURL = true, source = null){
+ projectFocus = source || document.activeElement;
+ const image = source?.closest('.project-card')?.querySelector('.project-preview img');
+ const rect = image?.getBoundingClientRect();
+ const shared = image?.complete && image.naturalWidth > 0 && rect.bottom > 0 && rect.top < innerHeight;
+ let detailImage;
+ const show = () => {
+  document.querySelector('#app-dialog')?.close();
+  document.querySelector('.dialog-content').innerHTML = projectDetails(p);
+  if(!dialog.open)dialog.showModal();
+  dialog.scrollTop = 0;
+  document.body.classList.add('dialog-open');
+  if(updateURL)history.replaceState(null,'',`${location.pathname}${location.search}#project=${projectSlug(p)}`);
+  if (shared) {
+   image.style.viewTransitionName = '';
+   detailImage = dialog.querySelector('.project-detail-image img');
+   if (detailImage) detailImage.style.viewTransitionName = 'project-image';
+  }
+  if ((!shared || !document.startViewTransition) && motionAllowed()) dialog.animate?.([{opacity:0,transform:'translateY(12px) scale(.985)'},{opacity:1,transform:'none'}],{duration:230,easing:'cubic-bezier(.2,.7,.2,1)'});
+ };
+ if (shared) viewTransition(show, {kind:'project',prepare:()=>{image.style.viewTransitionName='project-image';},cleanup:()=>{image.style.viewTransitionName='';if(detailImage)detailImage.style.viewTransitionName='';}});
+ else show();
 }
 const projectSlug = p => p.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 function openSharedProject(){
@@ -28,6 +45,7 @@ dialog.addEventListener('close',()=>{
  if(dialog.open)return;
  document.body.classList.remove('dialog-open');
  if(location.hash.startsWith('#project='))history.replaceState(null,'',`${location.pathname}${location.search}#work`);
+ if (!document.querySelector('dialog[open]') && projectFocus?.isConnected && projectFocus.getClientRects().length) projectFocus.focus({preventScroll:true});
 });
 dialog.addEventListener('click',async event=>{
  const button=event.target.closest('[data-copy-project]');
