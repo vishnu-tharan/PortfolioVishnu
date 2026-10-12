@@ -1,5 +1,5 @@
-import { projects } from './project-data.js?v=20261012-intern-cv-v1';
-import { escape, openProject, openTerminal } from './os.js?v=20261012-intern-cv-v1';
+import { projects } from './project-data.js?v=20261013-buyora-v1';
+import { escape, openProject, openTerminal } from './os.js?v=20261013-buyora-v1';
 
 const dialog = document.querySelector('#search-dialog');
 const input = document.querySelector('#os-search');
