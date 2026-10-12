@@ -1,25 +1,25 @@
 {
   "author": "vishnu-tharan",
   "name": "Vishnutharan Bavachelvan",
-  "role": "IT Honours Undergraduate | Software Engineering Intern Candidate",
+  "role": "Software Engineering Intern Candidate",
   "email": "bavachelvanvishnutharan@gmail.com",
   "phone": "+94 77 364 6391",
   "github": "https://github.com/vishnu-tharan",
   "portfolio": "https://vishnu-tharan.github.io/PortfolioVishnu/",
   "availability": "Remote worldwide | On-site in Sri Lanka",
-  "summary": "IT honours undergraduate building full-stack web and mobile applications. Seeking a software engineering internship, with project experience in API workflows, offline synchronization and automated verification.",
+  "summary": "IT honours undergraduate seeking a software engineering internship, with project experience in full-stack development, REST APIs, databases, automated tests and collaborative frontend/backend work.",
   "skills": [
     [
-      "Languages & interfaces",
-      "Java, JavaScript, TypeScript, SQL; React, Next.js, React Native, Expo, HTML, CSS"
+      "Languages",
+      "Java, JavaScript, TypeScript, SQL, HTML, CSS"
     ],
     [
-      "Backend & data",
-      "Spring Boot, Node.js, Express; PostgreSQL, MongoDB, SQLite, Firebase"
+      "Frameworks & data",
+      "React, Next.js, React Native, Expo, Spring Boot, Node.js, Express; PostgreSQL, MongoDB, SQLite, Firebase"
     ],
     [
-      "Tools & verification",
-      "Git, Docker, Vitest, Playwright; API validation and automated regression checks"
+      "Tools & testing",
+      "Git, Docker, Vitest, Playwright; REST APIs, API validation and regression testing"
     ]
   ],
   "projects": [
@@ -31,18 +31,18 @@
       "url": "https://github.com/vishnu-tharan/Buyora",
       "evidence": "https://github.com/vishnu-tharan/Buyora/blob/main/BuyoraFrontend/docs/BUYORA_TEST_MATRIX.md",
       "bullets": [
-        "Built a Next.js storefront, customer accounts and admin interfaces connected to a Spring Boot API and PostgreSQL.",
-        "Implemented catalog, cart and checkout workflows; repository unit, browser and backend regression checks cover validation, inventory and payment handling."
+        "Built a Next.js storefront, customer accounts and admin interfaces backed by a Spring Boot REST API and PostgreSQL.",
+        "Implemented catalog, cart and checkout workflows; repository regression tests cover validation, inventory and payment handling."
       ]
     },
     {
       "id": "gateway",
       "name": "GATEWAY",
-      "category": "Semester 3.1 group project | Team member",
+      "category": "Semester 3.1 group project",
       "stack": "React, JavaScript, Node.js, Express, MongoDB",
       "url": "https://github.com/chamikara12/GATEWAY",
       "bullets": [
-        "Contributed frontend and backend development to our semester 3.1 React, Express and MongoDB group project for university vehicle records and gate-pass management."
+        "Contributed React frontend and Express/MongoDB backend development to a team application for university vehicle records and gate-pass management."
       ]
     },
     {
@@ -54,17 +54,17 @@
       "evidence": "https://github.com/vishnu-tharan/cashManage#verification",
       "bullets": [
         "Built an installable React PWA with encrypted offline cashbooks, budgets, CSV import and PDF/CSV reports.",
-        "Implemented Express/SQLite sharing roles and revision checks for sync conflicts; repository tests cover encryption, account isolation and conflicting edits."
+        "Implemented Express/SQLite sharing permissions and sync conflict checks; repository tests cover encryption, account isolation and conflicting edits."
       ]
     },
     {
       "id": "agri",
       "name": "Lanka Agri-Direct",
-      "category": "Group project | Team member",
+      "category": "Group project",
       "stack": "Spring Boot, React, React Native, MongoDB, Docker",
       "url": "https://github.com/dragon-udfly/LankaAgriDirect",
       "bullets": [
-        "Contributed frontend development, interface design and API integration testing to a team-built marketplace connecting Sri Lankan growers and consumers."
+        "Contributed frontend development, interface design and API integration testing to a team marketplace connecting Sri Lankan growers and consumers."
       ]
     },
     {
@@ -75,9 +75,8 @@
       "url": "https://github.com/vishnu-tharan/CinemaStream",
       "evidence": "https://github.com/vishnu-tharan/CinemaStream/blob/main/RELEASE_CHECKLIST.md",
       "bullets": [
-        "Built guest discovery and personal collections with per-account offline caching and reconnect synchronization using React Native, Expo and Firebase.",
-        "Reduced the measured web entry bundle from approximately 4.25 MB to 2.67 MB by separating optional crash reporting.",
-        "Verified discovery and collection logic with 8 unit tests, plus authentication, account isolation and schemas with 10 Firestore emulator rule tests."
+        "Built React Native/Expo discovery and collections with Firebase, per-account offline caching and reconnect synchronization; verified with 8 unit and 10 Firestore rule tests.",
+        "Reduced the measured web entry bundle from approximately 4.25 MB to 2.67 MB by separating optional crash reporting."
       ]
     },
     {
@@ -88,8 +87,8 @@
       "url": "https://github.com/vishnu-tharan/GatePilot",
       "evidence": "https://github.com/vishnu-tharan/GatePilot#checks",
       "bullets": [
-        "Built shared web/mobile screens and an Express/MongoDB API for vehicle visits, equipment approvals, staff QR lookup and PDF reports.",
-        "Implemented department-scoped access, protected sessions and atomic visit transitions; repository tests cover authentication, account isolation, concurrent visits and report data."
+        "Built shared React Native/Expo web and mobile screens with an Express/MongoDB API for vehicle visits, equipment approvals, staff QR lookup and PDF reports.",
+        "Implemented department permissions, protected sessions and atomic visit updates; repository tests cover authentication, concurrent visits and report data."
       ]
     }
   ],
@@ -99,33 +98,40 @@
     "institution": "Faculty of Applied Science, University of Vavuniya",
     "dates": "2023 - Present",
     "expected_graduation": "June 2027",
-    "detail": "Selected for the Honours programme in 2026. Relevant coursework: object-oriented programming, data structures and algorithms, databases and web development."
+    "detail": "Selected for the Honours programme in 2026. Coursework: object-oriented programming, data structures and algorithms, databases, web development."
   },
   "certifications": "JavaScript Essentials 1 & 2 - Cisco Networking Academy; Introduction to SQL - Sololearn.",
   "community": "IEEEXtreme 17.0 & 18.0 participant; 18.0 organizing committee member. JamporIEEE logistics volunteer. IEEE and AIESEC member, 2023 - present.",
   "linkedin": "https://www.linkedin.com/in/vishnutharan-bavachelvan-5419a02b3/",
   "profiles": {
-    "general": {"label": "General", "project_ids": ["buyora", "gatepilot", "cinemastream"]},
+    "general": {"label": "Software Engineering", "project_ids": ["buyora", "gatepilot", "cinemastream"]},
+    "fullstack": {
+      "label": "Full-Stack",
+      "role": "Full-Stack Developer Intern Candidate",
+      "summary": "IT honours undergraduate seeking a full-stack development internship. Build React and Next.js interfaces with Spring Boot and Express APIs, relational and document databases, authentication and automated tests.",
+      "project_ids": ["buyora", "gatepilot", "cashmanage"],
+      "skills": [["Frontend", "JavaScript, TypeScript, React, Next.js, HTML, CSS; React Native, Expo"], ["Backend & data", "Java, Spring Boot, Node.js, Express, REST APIs; SQL, PostgreSQL, MongoDB, SQLite"], ["Tools & testing", "Git, Docker, Vitest, Playwright; API validation, permissions and regression testing"]]
+    },
     "frontend": {
       "label": "Frontend",
-      "role": "IT Honours Undergraduate | Frontend Development Intern Candidate",
-      "summary": "IT honours undergraduate seeking a frontend development internship. Build responsive React and Next.js interfaces with TypeScript, accessible interaction states and browser-tested workflows.",
+      "role": "Frontend Developer Intern Candidate",
+      "summary": "IT honours undergraduate seeking a frontend development internship. Build responsive React and Next.js interfaces with TypeScript, accessible interaction states, REST API integration and browser-tested workflows.",
       "project_ids": ["buyora", "cashmanage", "cinemastream"],
-      "skills": [["Frontend", "JavaScript, TypeScript, React, Next.js, HTML, CSS"], ["Mobile & integration", "React Native, Expo; REST API integration, Firebase, offline storage"], ["Tools & verification", "Git, Vitest, Playwright; responsive interfaces and browser workflow checks"]]
+      "skills": [["Frontend", "JavaScript, TypeScript, React, Next.js, HTML, CSS"], ["Mobile & integration", "React Native, Expo; REST API integration, Firebase, offline storage"], ["Tools & testing", "Git, Vitest, Playwright; responsive interfaces and browser workflow testing"]]
     },
     "backend": {
       "label": "Backend",
-      "role": "IT Honours Undergraduate | Backend Development Intern Candidate",
+      "role": "Backend Developer Intern Candidate",
       "summary": "IT honours undergraduate seeking a backend development internship. Build Java/Spring Boot and Express APIs with SQL and MongoDB, focusing on validation, permissions and data consistency.",
       "project_ids": ["buyora", "gatepilot", "cashmanage"],
-      "skills": [["Languages & APIs", "Java, JavaScript, TypeScript, SQL; Spring Boot, Node.js, Express"], ["Data & infrastructure", "PostgreSQL, MongoDB, SQLite, Redis; Git, Docker"], ["Verification", "API validation, regression checks, account isolation and synchronization conflict handling"]]
+      "skills": [["Languages & APIs", "Java, JavaScript, TypeScript, SQL; Spring Boot, Node.js, Express, REST APIs"], ["Data & tools", "PostgreSQL, MongoDB, SQLite, Redis; Git, Docker"], ["Testing", "API validation, regression tests, account isolation and synchronization conflict handling"]]
     },
     "mobile": {
       "label": "Mobile",
-      "role": "IT Honours Undergraduate | Mobile Development Intern Candidate",
+      "role": "Mobile Developer Intern Candidate",
       "summary": "IT honours undergraduate seeking a mobile development internship. Build React Native and Expo applications with Firebase, per-account offline storage and reconnect synchronization.",
       "project_ids": ["cinemastream", "gatepilot", "cashmanage"],
-      "skills": [["Mobile & web", "TypeScript, JavaScript, React Native, Expo, React, PWA"], ["Data & integration", "Firebase, Firestore, AsyncStorage; Express, MongoDB, SQLite, REST APIs"], ["Tools & verification", "Git; unit tests, Firebase emulator rules, offline cache and synchronization checks"]]
+      "skills": [["Mobile & web", "TypeScript, JavaScript, React Native, Expo, React, PWA"], ["Data & integration", "Firebase, Firestore, AsyncStorage; Express, MongoDB, SQLite, REST APIs"], ["Tools & testing", "Git; unit tests, Firebase emulator rules, offline cache and synchronization testing"]]
     }
   }
 }
