@@ -1,4 +1,4 @@
-import { toast } from './os.js?v=20261012-projects-v1';
+import { toast } from './os.js?v=20261012-intern-cv-v1';
 
 let enabled = false;
 let context;
