@@ -25,7 +25,8 @@ The portfolio keeps its black-and-red cinematic design with animated WebGL backg
 
 - [Buyora](https://github.com/vishnu-tharan/Buyora) — A Next.js and Spring Boot e-commerce project with storefront, customer accounts and administration workflows.
 - [Lanka Agri-Direct](https://github.com/dragon-udfly/LankaAgriDirect) — An agricultural marketplace developed as a group project. I helped with frontend development, design and API testing.
-- [University Gateway](https://github.com/vishnu-tharan/GATEWAY-UniversityOfVavuniya) — Campus vehicle access and equipment gate-pass management.
+- [GATEWAY](https://github.com/chamikara12/GATEWAY) — Our semester 3.1 group project for University of Vavuniya vehicle records and gate-pass management. I contributed to frontend and backend development.
+- [GatePilot](https://github.com/vishnu-tharan/GatePilot) — A separate access-management prototype with React Native/Expo web and mobile screens, an Express/MongoDB API, equipment approvals, staff QR lookup, reports and configurable workspace settings.
 - [cashManage](https://github.com/vishnu-tharan/cashManage) — Personal cashbooks, budgets, and expense tracking.
 - [CEB-Management](https://github.com/vishnu-tharan/CEB-Management) — Household electricity usage tracking and planning.
 - [CinemaStream](https://github.com/vishnu-tharan/CinemaStream) — A mobile movie discovery application.
@@ -95,7 +96,7 @@ The GitHub Pages workflow publishes `dist/` when commits reach `main`. The local
 
 ## Project content and contact form
 
-Edit `dist/src/project-data.js` to update project descriptions, contributions and evidence links. The Buyora image comes from its repository's `docs/verification/login-chromium.png`; University Gateway and cashManage images show actual local builds (sign-in and an empty guest dashboard respectively). Captions identify these states. Testing notes refer to repository documentation, not production certification. No public application demo is claimed.
+Edit `dist/src/project-data.js` to update project descriptions, contributions and evidence links. The Buyora image comes from its repository's `docs/verification/login-chromium.png`; cashManage shows an empty guest dashboard in a local build. Captions identify these states. GATEWAY links to the original semester 3.1 group repository and credits my frontend/backend contribution. GatePilot is listed separately, based on its own README, architecture and test files. The previous copied Gateway entry, screenshot and verification claims have been removed. Testing notes refer to repository documentation, not production certification. No public application demo is claimed.
 
 `dist/recruiter.css` contains the responsive layout refinements. `dist/social-preview.html` is the source for the 1200 × 630 social sharing image.
 
@@ -108,5 +109,7 @@ The portfolio includes a responsive [general CV](dist/cv.html) and a [downloadab
 Edit `tools/cv-data.json`, then run `python tools/build_cv.py` with ReportLab and pypdf installed to regenerate all four PDFs and web pages. PDFs are also saved to `output/pdf/`. Run `python tools/check_cv.py` with pdfplumber installed to check one-page layout limits, selectable text, PDF link annotations, project order and matching web downloads. Render and inspect the PDFs before publishing. Then run `python tools/version_assets.py <new-release-name>`; PDF download URLs are versioned too.
 
 The expected graduation date, June 2027, was confirmed by the owner. Project and certification dates, GPA, team size and more specific group-project responsibilities are omitted until confirmed. Optional project `dates` fields are supported by the generator. The CV's bundle figures describe CinemaStream's measured web entry bundle, not total JavaScript or physical-device performance. Test evidence comes from the linked repository verification documents; production acceptance is not claimed.
+
+The CVs list GATEWAY under teamwork as a semester 3.1 group project and keep GatePilot as a separate individual project in the relevant selected-project lists. `team_project_ids` controls the shared group-project entries across all versions.
 
 Author: **vishnu-tharan**.
