@@ -102,7 +102,7 @@ def build(key, profile):
     if len(selected) != 3 or len(set(profile['project_ids'])) != 3:
         raise ValueError(f'{key}: select three distinct projects.')
     education = DATA['education']
-    team = CATALOG['agri']
+    teams = [CATALOG[project_id] for project_id in DATA.get('team_project_ids', ['agri'])]
     story = [paragraph(escape(DATA['name']), 'name'), paragraph(escape(role), 'role')]
     story.append(paragraph(f'{pdf_link("mailto:" + DATA["email"], DATA["email"])} | {pdf_link("tel:" + DATA["phone"].replace(" ", ""), DATA["phone"])}', 'contact'))
     story.append(paragraph(f'{pdf_link(DATA["github"], "GitHub / vishnu-tharan")} | {pdf_link(DATA["portfolio"], "Portfolio")} | {pdf_link(DATA["linkedin"], "LinkedIn")} | {escape(DATA["availability"])}', 'contact'))
@@ -112,7 +112,12 @@ def build(key, profile):
     story.extend(paragraph(f'<b>{escape(label)}:</b> {escape(value)}') for label, value in skills)
     story.append(paragraph('SELECTED PROJECTS', 'section'))
     story.extend(pdf_project(project) for project in selected)
-    story.append(KeepTogether([paragraph('TEAMWORK & LEADERSHIP', 'section'), paragraph(f'<b>{escape(team["name"])}</b> | {escape(team["category"])} | {pdf_link(team["url"], "Repository")}'), paragraph(escape(team['bullets'][0])), paragraph(escape(DATA['community']))]))
+    teamwork = [paragraph('TEAMWORK & LEADERSHIP', 'section')]
+    for team in teams:
+        teamwork.append(paragraph(f'<b>{escape(team["name"])}</b> | {escape(team["category"])} | {pdf_link(team["url"], "Repository")}'))
+        teamwork.extend(paragraph(escape(bullet)) for bullet in team['bullets'])
+    teamwork.append(paragraph(escape(DATA['community'])))
+    story.append(KeepTogether(teamwork))
     story.extend([paragraph('CERTIFICATIONS', 'section'), paragraph(escape(DATA['certifications']))])
     output = OUTPUT / filename
     document = SimpleDocTemplate(str(output), pagesize=A4, rightMargin=42, leftMargin=42, topMargin=38, bottomMargin=32,
@@ -127,6 +132,7 @@ def build(key, profile):
         choices.append(f'<a href="./{filenames(other)[1]}"{current}>{escape(value["label"])}</a>')
     choices = ''.join(choices)
     skills_html = ''.join(f'<div><dt>{escape(label)}</dt><dd>{escape(value)}</dd></div>' for label, value in skills)
+    team_html = ''.join(f'<article class="cv-team-project"><h3>{html_link(team["url"], team["name"])}<span>{escape(team["category"])}</span></h3>' + ''.join(f'<p>{escape(bullet)}</p>' for bullet in team['bullets']) + '</article>' for team in teams)
     html = f'''<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="author" content="{escape(DATA['name'])}">
@@ -143,7 +149,7 @@ def build(key, profile):
 <section><h2>Education</h2><h3>{escape(education['degree'])}<span>{escape(education_text())}</span></h3><p>{escape(education['institution'])}</p><p>{escape(education['detail'])}</p></section>
 <section><h2>Technical skills</h2><dl class="cv-skills">{skills_html}</dl></section>
 <section><h2>Selected projects</h2>{''.join(html_project(project) for project in selected)}</section>
-<section><h2>Teamwork &amp; leadership</h2><h3>{html_link(team['url'], team['name'])}<span>{escape(team['category'])}</span></h3><p>{escape(team['bullets'][0])}</p><p>{escape(DATA['community'])}</p></section>
+<section><h2>Teamwork &amp; leadership</h2>{team_html}<p>{escape(DATA['community'])}</p></section>
 <section><h2>Certifications</h2><p>{escape(DATA['certifications'])}</p></section>
 </main><script type="module" src="./src/preferences.js"></script></body></html>
 '''

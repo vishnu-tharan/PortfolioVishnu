@@ -37,14 +37,12 @@
     },
     {
       "id": "gateway",
-      "name": "University Gateway",
-      "category": "Campus access management",
-      "stack": "React Native, Expo, Express, MongoDB",
-      "url": "https://github.com/vishnu-tharan/GATEWAY-UniversityOfVavuniya",
-      "evidence": "https://github.com/vishnu-tharan/GATEWAY-UniversityOfVavuniya/blob/main/VERIFICATION.md",
+      "name": "GATEWAY",
+      "category": "Semester 3.1 group project | Team member",
+      "stack": "React, JavaScript, Node.js, Express, MongoDB",
+      "url": "https://github.com/chamikara12/GATEWAY",
       "bullets": [
-        "Built React Native/Expo interfaces and an Express/MongoDB API for officer, faculty and administrator workflows.",
-        "Added QR staff passes, vehicle history and PDF reports; documented checks cover API authorization, faculty isolation and concurrent updates."
+        "Contributed frontend and backend development to our semester 3.1 React, Express and MongoDB group project for university vehicle records and gate-pass management."
       ]
     },
     {
@@ -81,8 +79,21 @@
         "Reduced the measured web entry bundle from approximately 4.25 MB to 2.67 MB by separating optional crash reporting.",
         "Verified discovery and collection logic with 8 unit tests, plus authentication, account isolation and schemas with 10 Firestore emulator rule tests."
       ]
+    },
+    {
+      "id": "gatepilot",
+      "name": "GatePilot",
+      "category": "Independent access-management prototype",
+      "stack": "React Native, Expo, Express, MongoDB, Docker",
+      "url": "https://github.com/vishnu-tharan/GatePilot",
+      "evidence": "https://github.com/vishnu-tharan/GatePilot#checks",
+      "bullets": [
+        "Built shared web/mobile screens and an Express/MongoDB API for vehicle visits, equipment approvals, staff QR lookup and PDF reports.",
+        "Implemented department-scoped access, protected sessions and atomic visit transitions; repository tests cover authentication, account isolation, concurrent visits and report data."
+      ]
     }
   ],
+  "team_project_ids": ["gateway", "agri"],
   "education": {
     "degree": "B.Sc. (Hons) in Information Technology",
     "institution": "Faculty of Applied Science, University of Vavuniya",
@@ -94,7 +105,7 @@
   "community": "IEEEXtreme 17.0 & 18.0 participant; 18.0 organizing committee member. JamporIEEE logistics volunteer. IEEE and AIESEC member, 2023 - present.",
   "linkedin": "https://www.linkedin.com/in/vishnutharan-bavachelvan-5419a02b3/",
   "profiles": {
-    "general": {"label": "General", "project_ids": ["buyora", "gateway", "cinemastream"]},
+    "general": {"label": "General", "project_ids": ["buyora", "gatepilot", "cinemastream"]},
     "frontend": {
       "label": "Frontend",
       "role": "IT Honours Undergraduate | Frontend Development Intern Candidate",
@@ -106,14 +117,14 @@
       "label": "Backend",
       "role": "IT Honours Undergraduate | Backend Development Intern Candidate",
       "summary": "IT honours undergraduate seeking a backend development internship. Build Java/Spring Boot and Express APIs with SQL and MongoDB, focusing on validation, permissions and data consistency.",
-      "project_ids": ["buyora", "gateway", "cashmanage"],
+      "project_ids": ["buyora", "gatepilot", "cashmanage"],
       "skills": [["Languages & APIs", "Java, JavaScript, TypeScript, SQL; Spring Boot, Node.js, Express"], ["Data & infrastructure", "PostgreSQL, MongoDB, SQLite, Redis; Git, Docker"], ["Verification", "API validation, regression checks, account isolation and synchronization conflict handling"]]
     },
     "mobile": {
       "label": "Mobile",
       "role": "IT Honours Undergraduate | Mobile Development Intern Candidate",
       "summary": "IT honours undergraduate seeking a mobile development internship. Build React Native and Expo applications with Firebase, per-account offline storage and reconnect synchronization.",
-      "project_ids": ["cinemastream", "gateway", "cashmanage"],
+      "project_ids": ["cinemastream", "gatepilot", "cashmanage"],
       "skills": [["Mobile & web", "TypeScript, JavaScript, React Native, Expo, React, PWA"], ["Data & integration", "Firebase, Firestore, AsyncStorage; Express, MongoDB, SQLite, REST APIs"], ["Tools & verification", "Git; unit tests, Firebase emulator rules, offline cache and synchronization checks"]]
     }
   }
