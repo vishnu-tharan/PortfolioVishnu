@@ -14,7 +14,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import SimpleDocTemplate, Paragraph, KeepTogether
+from reportlab.platypus import SimpleDocTemplate, Paragraph, KeepTogether, HRFlowable
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = json.loads((ROOT / 'tools/cv-data.json').read_text(encoding='utf-8'))
@@ -25,8 +25,8 @@ ASSETS.mkdir(parents=True, exist_ok=True)
 BASE = 'Vishnutharan-Bavachelvan-CV'
 CATALOG = {project['id']: project for project in DATA['projects']}
 PROFILES = DATA['profiles']
-if len(CATALOG) != len(DATA['projects']) or set(PROFILES) != {'general', 'frontend', 'backend', 'mobile'}:
-    raise ValueError('CV project IDs must be unique and all four profiles must exist.')
+if len(CATALOG) != len(DATA['projects']) or set(PROFILES) != {'general', 'fullstack', 'frontend', 'backend', 'mobile'}:
+    raise ValueError('CV project IDs must be unique and all five internship profiles must exist.')
 
 font_dir = Path('C:/Windows/Fonts')
 if all((font_dir / name).exists() for name in ['calibri.ttf', 'calibrib.ttf']):
@@ -37,30 +37,30 @@ if all((font_dir / name).exists() for name in ['calibri.ttf', 'calibrib.ttf']):
 else:
     regular, bold = 'Helvetica', 'Helvetica-Bold'
 
-ink = colors.HexColor('#20252b')
-red = colors.HexColor('#b42e25')
+ink = colors.HexColor('#111111')
+muted = colors.HexColor('#555555')
 styles = {
-    'name': ParagraphStyle('name', fontName=bold, fontSize=26, leading=29, textColor=ink, spaceAfter=4),
-    'role': ParagraphStyle('role', fontName=bold, fontSize=10.5, leading=14, textColor=red, spaceAfter=6),
+    'name': ParagraphStyle('name', fontName=bold, fontSize=27, leading=30, textColor=ink, spaceAfter=4),
+    'role': ParagraphStyle('role', fontName=bold, fontSize=11, leading=14, textColor=ink, spaceAfter=6),
     'contact': ParagraphStyle('contact', fontName=regular, fontSize=9.5, leading=12, textColor=ink),
-    'section': ParagraphStyle('section', fontName=bold, fontSize=10.5, leading=13, textColor=red, spaceBefore=10, spaceAfter=4),
-    'body': ParagraphStyle('body', fontName=regular, fontSize=10.2, leading=13.2, textColor=ink),
-    'project': ParagraphStyle('project', fontName=bold, fontSize=10.5, leading=13.5, textColor=ink, spaceBefore=5),
-    'stack': ParagraphStyle('stack', fontName=regular, fontSize=9.5, leading=12, textColor=colors.HexColor('#555d66'), spaceAfter=2),
-    'bullet': ParagraphStyle('bullet', fontName=regular, fontSize=10.2, leading=13.2, textColor=ink, leftIndent=10, firstLineIndent=-8, spaceAfter=2),
+    'section': ParagraphStyle('section', fontName=bold, fontSize=10.5, leading=13, textColor=ink, spaceBefore=9, spaceAfter=4, keepWithNext=True),
+    'body': ParagraphStyle('body', fontName=regular, fontSize=10.5, leading=13.4, textColor=ink),
+    'project': ParagraphStyle('project', fontName=bold, fontSize=10.8, leading=13.5, textColor=ink, spaceBefore=5),
+    'stack': ParagraphStyle('stack', fontName=regular, fontSize=9.5, leading=12, textColor=muted, spaceAfter=2),
+    'bullet': ParagraphStyle('bullet', fontName=regular, fontSize=10.5, leading=13.4, textColor=ink, leftIndent=10, firstLineIndent=-8, spaceAfter=2),
 }
 
 def paragraph(text, style='body'):
     return Paragraph(text, styles[style])
 
 def pdf_link(url, text):
-    return f'<a href="{escape(url, quote=True)}" color="#b42e25">{escape(text)}</a>'
+    return f'<a href="{escape(url, quote=True)}" color="#111111"><u>{escape(text)}</u></a>'
 
 def html_link(url, text):
     return f'<a href="{escape(url, quote=True)}">{escape(text)}</a>'
 
 def filenames(key):
-    suffix = '' if key == 'general' else f'-{key.title()}'
+    suffix = '' if key == 'general' else '-FullStack' if key == 'fullstack' else f'-{key.title()}'
     return BASE + suffix + '.pdf', 'cv.html' if key == 'general' else f'cv-{key}.html'
 
 def education_text():
@@ -69,10 +69,6 @@ def education_text():
     if education.get('expected_graduation'):
         dates += f" | Expected graduation: {education['expected_graduation']}"
     return dates
-
-def decorate(canvas, doc):
-    canvas.setFillColor(red)
-    canvas.rect(42, A4[1] - 24, 48, 3, fill=1, stroke=0)
 
 def pdf_project(project):
     links = pdf_link(project['url'], 'Repository')
@@ -104,15 +100,16 @@ def build(key, profile):
     education = DATA['education']
     teams = [CATALOG[project_id] for project_id in DATA.get('team_project_ids', ['agri'])]
     story = [paragraph(escape(DATA['name']), 'name'), paragraph(escape(role), 'role')]
-    story.append(paragraph(f'{pdf_link("mailto:" + DATA["email"], DATA["email"])} | {pdf_link("tel:" + DATA["phone"].replace(" ", ""), DATA["phone"])}', 'contact'))
-    story.append(paragraph(f'{pdf_link(DATA["github"], "GitHub / vishnu-tharan")} | {pdf_link(DATA["portfolio"], "Portfolio")} | {pdf_link(DATA["linkedin"], "LinkedIn")} | {escape(DATA["availability"])}', 'contact'))
+    story.append(paragraph(f'{pdf_link("mailto:" + DATA["email"], DATA["email"])} | {pdf_link("tel:" + DATA["phone"].replace(" ", ""), DATA["phone"])} | {escape(DATA["availability"])}', 'contact'))
+    story.append(paragraph(f'{pdf_link(DATA["github"], "github.com/vishnu-tharan")} | {pdf_link(DATA["portfolio"], "vishnu-tharan.github.io/PortfolioVishnu")} | {pdf_link(DATA["linkedin"], "LinkedIn")}', 'contact'))
+    story.append(HRFlowable(width='100%', thickness=0.7, color=ink, spaceBefore=8, spaceAfter=0))
     story.extend([paragraph('PROFILE', 'section'), paragraph(escape(summary))])
     story.append(KeepTogether([paragraph('EDUCATION', 'section'), paragraph(f'<b>{escape(education["degree"])}</b>'), paragraph(f'{escape(education["institution"])} | {escape(education_text())}', 'stack'), paragraph(escape(education['detail']))]))
     story.append(paragraph('TECHNICAL SKILLS', 'section'))
     story.extend(paragraph(f'<b>{escape(label)}:</b> {escape(value)}') for label, value in skills)
-    story.append(paragraph('SELECTED PROJECTS', 'section'))
+    story.append(paragraph('TECHNICAL PROJECTS', 'section'))
     story.extend(pdf_project(project) for project in selected)
-    teamwork = [paragraph('TEAMWORK & LEADERSHIP', 'section')]
+    teamwork = [paragraph('TEAM PROJECTS & LEADERSHIP', 'section')]
     for team in teams:
         teamwork.append(paragraph(f'<b>{escape(team["name"])}</b> | {escape(team["category"])} | {pdf_link(team["url"], "Repository")}'))
         teamwork.extend(paragraph(escape(bullet)) for bullet in team['bullets'])
@@ -122,7 +119,7 @@ def build(key, profile):
     output = OUTPUT / filename
     document = SimpleDocTemplate(str(output), pagesize=A4, rightMargin=42, leftMargin=42, topMargin=38, bottomMargin=32,
                                  title=f'{DATA["name"]} - {profile["label"]} CV', author=DATA['name'], subject=role)
-    document.build(story, onFirstPage=decorate, onLaterPages=decorate)
+    document.build(story)
     if len(PdfReader(output).pages) != 1:
         raise ValueError(f'{filename} exceeds one page. Edit the content or spacing before publishing.')
     shutil.copyfile(output, ASSETS / filename)
@@ -136,20 +133,20 @@ def build(key, profile):
     html = f'''<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="author" content="{escape(DATA['name'])}">
-<meta name="description" content="{escape(summary, quote=True)}"><meta name="theme-color" content="#090909">
+<meta name="description" content="{escape(summary, quote=True)}"><meta name="theme-color" content="#ffffff">
 <title>{escape(profile['label'])} CV | {escape(DATA['name'])}</title>
-<script src="./src/theme-init.js"></script><link rel="stylesheet" href="./theme.css"><link rel="stylesheet" href="./cv.css"><link rel="stylesheet" href="./cv-theme.css"><link rel="stylesheet" href="./effects.css">
+<script src="./src/theme-init.js"></script><link rel="stylesheet" href="./theme.css"><link rel="stylesheet" href="./cv.css"><link rel="stylesheet" href="./cv-theme.css">
 </head><body class="cv-page">
 <nav class="cv-toolbar" aria-label="CV navigation"><a href="./index.html">&#8592; Back to portfolio</a><div class="cv-toolbar-actions"><button class="cv-theme-toggle" type="button" data-theme-toggle aria-label="Switch theme" aria-pressed="false">◐</button><a class="cv-button" href="./assets/{filename}" download>Download CV <span>PDF &#8595;</span></a></div></nav>
 <nav class="cv-versions" aria-label="CV versions">{choices}</nav>
 <main class="cv-sheet">
-<header class="cv-heading"><p class="cv-kicker">{escape(profile['label'])} / CURRICULUM VITAE</p><h1>{escape(DATA['name'])}</h1><p class="cv-role">{escape(role)}</p>
+<header class="cv-heading"><h1>{escape(DATA['name'])}</h1><p class="cv-role">{escape(role)}</p>
 <div class="cv-contact">{html_link('mailto:' + DATA['email'], DATA['email'])} {html_link('tel:' + DATA['phone'].replace(' ', ''), DATA['phone'])} {html_link(DATA['github'], 'GitHub / vishnu-tharan')} {html_link(DATA['portfolio'], 'Portfolio')} {html_link(DATA['linkedin'], 'LinkedIn')}</div><p class="cv-availability">{escape(DATA['availability'])}</p></header>
 <section><h2>Profile</h2><p>{escape(summary)}</p></section>
 <section><h2>Education</h2><h3>{escape(education['degree'])}<span>{escape(education_text())}</span></h3><p>{escape(education['institution'])}</p><p>{escape(education['detail'])}</p></section>
 <section><h2>Technical skills</h2><dl class="cv-skills">{skills_html}</dl></section>
-<section><h2>Selected projects</h2>{''.join(html_project(project) for project in selected)}</section>
-<section><h2>Teamwork &amp; leadership</h2>{team_html}<p>{escape(DATA['community'])}</p></section>
+<section><h2>Technical projects</h2>{''.join(html_project(project) for project in selected)}</section>
+<section><h2>Team projects &amp; leadership</h2>{team_html}<p>{escape(DATA['community'])}</p></section>
 <section><h2>Certifications</h2><p>{escape(DATA['certifications'])}</p></section>
 </main><script type="module" src="./src/preferences.js"></script></body></html>
 '''
