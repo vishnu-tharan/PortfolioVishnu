@@ -7,6 +7,7 @@ from pathlib import Path
 from html import escape
 import json
 import shutil
+import sys
 
 from pypdf import PdfReader
 from reportlab.lib import colors
@@ -153,5 +154,8 @@ def build(key, profile):
     (ROOT / 'dist' / html_filename).write_text(html, encoding='utf-8')
     print(f'Created one-page {filename} and {html_filename}')
 
-for key, profile in PROFILES.items():
-    build(key, profile)
+requested = sys.argv[1:] or list(PROFILES)
+if len(set(requested)) != len(requested) or any(key not in PROFILES for key in requested):
+    raise SystemExit('Choose distinct profiles: general fullstack frontend backend mobile')
+for key in requested:
+    build(key, PROFILES[key])
