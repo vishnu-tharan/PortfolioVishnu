@@ -43,6 +43,11 @@ for key, profile in DATA['profiles'].items():
     urls = [str(annotation.get_object().get('/A', {}).get('/URI', '')) for annotation in annotations]
     assert DATA['github'] in urls and DATA['portfolio'] in urls and DATA['linkedin'] in urls
     assert all(PROJECTS[project_id]['url'] in urls for project_id in profile['project_ids'])
+    for project_id in DATA.get('team_project_ids', ['agri']):
+        team = PROJECTS[project_id]
+        assert team['name'] in text and team['url'] in urls, f'{filename}: missing group project attribution'
+        assert all(' '.join(bullet.split()) in ' '.join(text.split()) for bullet in team['bullets'])
+    assert 'GATEWAY-UniversityOfVavuniya' not in ' '.join(urls), f'{filename}: copied Gateway repository still linked'
     with pdfplumber.open(pdf) as document:
         page = document.pages[0]
         assert all(char['x0'] >= 35 and char['x1'] <= page.width - 35 and char['top'] >= 30 and char['bottom'] <= page.height - 30 for char in page.chars), f'{filename}: text outside page margins'
@@ -51,5 +56,6 @@ for key, profile in DATA['profiles'].items():
     assert [urlsplit(url).path for url in page.downloads] == [f'./assets/{filename}'], f'{html_name}: incorrect PDF download'
     assert page.current == [f'./{html_name}'], f'{html_name}: incorrect selected version'
     assert all(name in html for name in names)
+    assert 'GATEWAY-UniversityOfVavuniya' not in html, f'{html_name}: copied Gateway repository still linked'
     assert pdf.read_bytes() == (ROOT / 'output/pdf' / filename).read_bytes(), f'{filename}: stale published PDF'
     print(f'{key}: one page, selectable text, working link annotations, correct project order and matching download')

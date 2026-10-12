@@ -34,3 +34,17 @@ test('All project share links have unique names and useful content', () => {
     assert.match(project.link,/^https:\/\/github\.com\/[\w.-]+\/[\w.-]+$/);
   }
 });
+
+test('GATEWAY group work and GatePilot retain their own repositories and attribution', () => {
+  const gateway = projects.find(project => project.title === 'GATEWAY');
+  const gatepilot = projects.find(project => project.title === 'GatePilot');
+  assert.equal(gateway.link, 'https://github.com/chamikara12/GATEWAY');
+  assert.match(gateway.type, /3\.1.*GROUP PROJECT/);
+  assert.match(gateway.role, /Frontend and backend.*Group project/);
+  assert.equal(gateway.image, undefined);
+  assert.equal(gateway.evidence, undefined);
+  assert.match(gateway.stack, /React · JavaScript/);
+  assert.equal(gatepilot.link, 'https://github.com/vishnu-tharan/GatePilot');
+  assert.match(gatepilot.stack, /React Native · Expo/);
+  assert.ok(projects.every(project => !project.link.includes('GATEWAY-UniversityOfVavuniya')));
+});
