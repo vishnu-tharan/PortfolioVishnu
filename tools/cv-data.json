@@ -29,10 +29,10 @@
       "category": "E-commerce application",
       "stack": "Next.js, Spring Boot, PostgreSQL, Redis, Docker",
       "url": "https://github.com/vishnu-tharan/Buyora",
-      "evidence": "https://github.com/vishnu-tharan/Buyora/blob/main/BuyoraFrontend/docs/BUYORA_TEST_MATRIX.md",
+      "evidence": "https://github.com/vishnu-tharan/Buyora/blob/a54ea43a4c7a0b6ddb862bea851362f48df68803/docs/verification/SHOPPING_IMPROVEMENTS.md",
       "bullets": [
-        "Built a Next.js storefront, customer accounts and admin interfaces backed by a Spring Boot REST API and PostgreSQL.",
-        "Implemented catalog, cart and checkout workflows; repository regression tests cover validation, inventory and payment handling."
+        "Built a Next.js/Spring Boot store with LKR filters, product comparison, stock alerts, checkout, order tracking and partial returns.",
+        "Added email retry and refund safeguards; repository checks report 70 frontend, 36 backend unit and 8 PostgreSQL integration tests passing."
       ]
     },
     {
