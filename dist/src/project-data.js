@@ -2,7 +2,7 @@
 export const projects = [
  {title:'Buyora', type:'E-COMMERCE / FULL-STACK', stack:'Next.js · Spring Boot · PostgreSQL · Redis · Docker',
   summary:'LKR shopping, product comparison, order tracking and store operations in one full-stack application.', role:'Full-stack development',
-  image:'./assets/projects/buyora-storefront.jpg', imageAlt:'Buyora red storefront with LKR product prices, category tiles and budget collections', caption:'Red storefront · local sample catalog with illustrative LKR prices · repository screenshot',
+  image:'./assets/projects/buyora-storefront.jpg', imageLayout:'page', imageAlt:'Buyora red storefront with LKR product prices, category tiles and budget collections', caption:'Red storefront preview · local sample catalog with illustrative LKR prices · repository screenshot',
   link:'https://github.com/vishnu-tharan/Buyora',
   problem:'Connect product discovery, local delivery, checkout and after-sales support with reliable store administration.',
   contribution:'Expanded the Next.js and Spring Boot application with a red storefront, photographed sample catalog, LKR price ranges and budget collections. Added keyboard search suggestions, variant filters, four-product comparison, guest wishlist merging, stock and price alerts, image zoom and mobile purchase controls. Built delivery estimates and COD eligibility, order tracking, partial returns, refund progress, product editing and store operations dashboards.',
