@@ -1,26 +1,26 @@
 {
   "author": "vishnu-tharan",
   "name": "Vishnutharan Bavachelvan",
-  "role": "Industrial Internship Applicant",
-  "focus": "Software Engineering | Full-Stack | Web & Mobile Development",
+  "role": "Software Engineering Intern",
+  "default_profile": "software",
+  "uppercase_name": true,
   "email": "bavachelvanvishnutharan@gmail.com",
   "phone": "+94 77 364 6391",
   "github": "https://github.com/vishnu-tharan",
   "portfolio": "https://vishnu-tharan.github.io/PortfolioVishnu/",
-  "availability": "Remote worldwide | On-site in Sri Lanka",
-  "summary": "IT honours undergraduate seeking an industrial internship in software development. Experience building web and mobile applications with React, Next.js, React Native, Spring Boot and Express. Practical skills in REST APIs, databases, authentication, automated testing and collaborative frontend/backend development.",
+  "summary": "IT honours undergraduate seeking a software engineering internship. Experience developing web and mobile systems with REST APIs, authentication and databases. Project work includes automated testing, offline synchronization and data-consistency safeguards, with frontend and backend contributions to university group projects.",
   "skills": [
     [
       "Languages",
-      "Java, JavaScript, TypeScript, SQL, HTML, CSS"
+      "Java, JavaScript, TypeScript, SQL"
     ],
     [
-      "Frontend & mobile",
-      "React, Next.js, React Native, Expo"
+      "Frameworks",
+      "React, Next.js, React Native, Expo, Spring Boot, Node.js, Express"
     ],
     [
-      "Backend",
-      "Spring Boot, Node.js, Express, REST APIs"
+      "Engineering",
+      "REST APIs, authentication, permissions, data consistency"
     ],
     [
       "Databases",
@@ -28,7 +28,7 @@
     ],
     [
       "Tools & testing",
-      "Git, Docker, Vitest, Playwright; API validation and regression testing"
+      "Git, Docker, Linux, GitHub Actions; API validation and regression testing"
     ]
   ],
   "projects": [
@@ -133,34 +133,33 @@
     }
   ],
   "profiles": {
-    "general": {"label": "Industrial Internship", "heading_alignment": "center", "refined_layout": true, "project_ids": ["buyora", "gatepilot", "cinemastream"]},
+    "software": {"label": "Software Engineering", "heading_alignment": "center", "refined_layout": true, "project_ids": ["buyora", "gatepilot", "cinemastream"]},
     "fullstack": {
       "label": "Full-Stack",
-      "role": "Full-Stack Developer Intern Candidate",
-      "summary": "IT honours undergraduate seeking a full-stack development internship. Build React and Next.js interfaces with Spring Boot and Express APIs, relational and document databases, authentication and automated tests.",
+      "role": "Full-Stack Developer Intern",
+      "heading_alignment": "center",
+      "refined_layout": true,
+      "summary": "IT honours undergraduate seeking a full-stack development internship. Experience building React and Next.js interfaces with Spring Boot and Express APIs, relational and document databases, authentication and automated tests. Contributed frontend and backend development to university group projects.",
       "project_ids": ["buyora", "gatepilot", "cashmanage"],
-      "skills": [["Frontend", "JavaScript, TypeScript, React, Next.js, HTML, CSS; React Native, Expo"], ["Backend & data", "Java, Spring Boot, Node.js, Express, REST APIs; SQL, PostgreSQL, MongoDB, SQLite"], ["Tools & testing", "Git, Docker, Vitest, Playwright; API validation, permissions and regression testing"]]
+      "skills": [["Languages", "Java, JavaScript, TypeScript, SQL, HTML, CSS"], ["Frontend", "React, Next.js; React Native, Expo"], ["Backend", "Spring Boot, Node.js, Express, REST APIs"], ["Databases", "PostgreSQL, MongoDB, SQLite"], ["Tools & testing", "Git, Docker, Linux, GitHub Actions; API validation and regression testing"]]
     },
-    "frontend": {
-      "label": "Frontend",
-      "role": "Frontend Developer Intern Candidate",
-      "summary": "IT honours undergraduate seeking a frontend development internship. Build responsive React and Next.js interfaces with TypeScript, accessible interaction states, REST API integration and browser-tested workflows.",
-      "project_ids": ["buyora", "cashmanage", "cinemastream"],
-      "skills": [["Frontend", "JavaScript, TypeScript, React, Next.js, HTML, CSS"], ["Mobile & integration", "React Native, Expo; REST API integration, Firebase, offline storage"], ["Tools & testing", "Git, Vitest, Playwright; responsive interfaces and browser workflow testing"]]
-    },
-    "backend": {
-      "label": "Backend",
-      "role": "Backend Developer Intern Candidate",
-      "summary": "IT honours undergraduate seeking a backend development internship. Build Java/Spring Boot and Express APIs with SQL and MongoDB, focusing on validation, permissions and data consistency.",
-      "project_ids": ["buyora", "gatepilot", "cashmanage"],
-      "skills": [["Languages & APIs", "Java, JavaScript, TypeScript, SQL; Spring Boot, Node.js, Express, REST APIs"], ["Data & tools", "PostgreSQL, MongoDB, SQLite, Redis; Git, Docker"], ["Testing", "API validation, regression tests, account isolation and synchronization conflict handling"]]
+    "web": {
+      "label": "Web Development",
+      "role": "Web Application Developer Intern",
+      "heading_alignment": "center",
+      "refined_layout": true,
+      "summary": "IT honours undergraduate seeking a web application development internship. Experience building responsive React and Next.js interfaces, integrating REST APIs and developing installable web applications. Project work includes authentication, offline storage and browser-tested workflows.",
+      "project_ids": ["buyora", "cashmanage", "gatepilot"],
+      "skills": [["Languages", "JavaScript, TypeScript, HTML, CSS, SQL"], ["Frontend", "React, Next.js; responsive interfaces and API integration"], ["Backend", "Node.js, Express, Spring Boot, REST APIs"], ["Data & storage", "PostgreSQL, MongoDB, SQLite; offline web storage"], ["Tools & testing", "Git, Docker, Linux, GitHub Actions; browser workflow testing"]]
     },
     "mobile": {
-      "label": "Mobile",
-      "role": "Mobile Developer Intern Candidate",
-      "summary": "IT honours undergraduate seeking a mobile development internship. Build React Native and Expo applications with Firebase, per-account offline storage and reconnect synchronization.",
+      "label": "Mobile Apps",
+      "role": "Mobile App Developer Intern",
+      "heading_alignment": "center",
+      "refined_layout": true,
+      "summary": "IT honours undergraduate seeking a mobile app development internship. Experience building React Native and Expo applications with Firebase, per-account offline storage and reconnect synchronization. Project work includes shared web/mobile screens, API integration and automated tests.",
       "project_ids": ["cinemastream", "gatepilot", "cashmanage"],
-      "skills": [["Mobile & web", "TypeScript, JavaScript, React Native, Expo, React, PWA"], ["Data & integration", "Firebase, Firestore, AsyncStorage; Express, MongoDB, SQLite, REST APIs"], ["Tools & testing", "Git; unit tests, Firebase emulator rules, offline cache and synchronization testing"]]
+      "skills": [["Languages", "TypeScript, JavaScript"], ["Mobile & web", "React Native, Expo, React, PWA"], ["Data & storage", "Firebase, Firestore, AsyncStorage, MongoDB, SQLite"], ["API integration", "REST APIs, Express; authentication and synchronization"], ["Tools & testing", "Git, Linux, GitHub Actions; unit tests, Firebase emulator rules and offline cache validation"]]
     }
   }
 }
