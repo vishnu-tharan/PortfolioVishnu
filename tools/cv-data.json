@@ -8,7 +8,7 @@
   "github": "https://github.com/vishnu-tharan",
   "portfolio": "https://vishnu-tharan.github.io/PortfolioVishnu/",
   "availability": "Remote worldwide | On-site in Sri Lanka",
-  "summary": "IT honours undergraduate seeking an industrial internship in software development. Build web and mobile applications with React, Next.js, React Native, Spring Boot and Express. Practical experience in REST APIs, databases, authentication, automated testing and collaborative frontend/backend development.",
+  "summary": "IT honours undergraduate seeking an industrial internship in software development. Experience building web and mobile applications with React, Next.js, React Native, Spring Boot and Express. Practical skills in REST APIs, databases, authentication, automated testing and collaborative frontend/backend development.",
   "skills": [
     [
       "Languages",
@@ -110,6 +110,13 @@
     "detail": "Selected for the Honours programme in 2026. Coursework: object-oriented programming, data structures and algorithms, databases, web development."
   },
   "certifications": "JavaScript Essentials 1 & 2 - Cisco Networking Academy.",
+  "certificate_descriptions": {
+    "trailblazers-2024": "Personal and professional development event.",
+    "ieeextreme-18-2024": "Team: TheChiefs.",
+    "ieeextreme-17-2023": "Team: Riskybiscuits.",
+    "school-merit-2023": "Grade 13 recognition in Accounting and ICT.",
+    "hackforce-2023": "Salesforce hackathon participation."
+  },
   "community": "IEEEXtreme 18.0 organizing committee member. JamporIEEE logistics volunteer. IEEE and AIESEC member, 2023 - present.",
   "leadership": [{"title": "School Head Prefect", "institution": "J/Uduppiddy American Mission College"}],
   "linkedin": "https://www.linkedin.com/in/vishnutharan-bavachelvan-5419a02b3/",
