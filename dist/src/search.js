@@ -1,6 +1,6 @@
-import { projects } from './project-data.js?v=20261013-cv-dividers-v1';
-import { certificates } from './certificate-data.js?v=20261013-cv-dividers-v1';
-import { escape, openProject, openTerminal } from './os.js?v=20261013-cv-dividers-v1';
+import { projects } from './project-data.js?v=20261013-role-cvs-v1';
+import { certificates } from './certificate-data.js?v=20261013-role-cvs-v1';
+import { escape, openProject, openTerminal } from './os.js?v=20261013-role-cvs-v1';
 
 const dialog = document.querySelector('#search-dialog');
 const input = document.querySelector('#os-search');
@@ -17,7 +17,10 @@ const entries = [
   {title:'Community & competitions',description:'IEEE, AIESEC, IEEEXtreme, volunteering & leadership',keywords:'TheChiefs JamporIEEE camera club hackathon team',type:'Section',icon:'✳',action:() => navigate('#beyond')},
   {title:'GitHub activity',description:'Latest available public updates from @vishnu-tharan',keywords:'repositories commits contributions tracker github feed',type:'Section',icon:'◉',action:() => navigate('#activity')},
   {title:'Contact Vishnu',description:'Internships, collaborations, email & LinkedIn',keywords:'phone email Sri Lanka remote opportunities contact',type:'Section',icon:'@',action:() => navigate('#contact')},
-  {title:'View CV',description:'Read my CV or download the PDF',keywords:'resume curriculum vitae experience',type:'Page',icon:'≡',action:() => { location.href = './cv.html'; }},
+  {title:'Software Engineering CV',description:'Main internship CV · Read or download the PDF',keywords:'resume curriculum vitae software engineer internship experience',type:'Page',icon:'≡',action:() => { location.href = './cv.html'; }},
+  {title:'Full-Stack CV',description:'Full-stack developer internship CV',keywords:'resume cv fullstack full stack frontend backend internship',type:'Page',icon:'≡',action:() => { location.href = './cv-fullstack.html'; }},
+  {title:'Web Development CV',description:'Web application developer internship CV',keywords:'resume cv web developer app application frontend internship',type:'Page',icon:'≡',action:() => { location.href = './cv-web.html'; }},
+  {title:'Mobile Apps CV',description:'Mobile app developer internship CV',keywords:'resume cv mobile app react native expo internship',type:'Page',icon:'≡',action:() => { location.href = './cv-mobile.html'; }},
   {title:'VishnuOS terminal',description:'Try help, projects, search or theme dark',keywords:'cmd command line help terminal shell os',type:'Feature',icon:'>_',action:openTerminal}
 ];
 function navigate(hash) {
