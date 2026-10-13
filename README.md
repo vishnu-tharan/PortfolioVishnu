@@ -94,7 +94,7 @@ The GitHub Pages workflow publishes `dist/` when commits reach `main`. The local
 
 - Email: [bavachelvanvishnutharan@gmail.com](mailto:bavachelvanvishnutharan@gmail.com)
 - GitHub: [vishnu-tharan](https://github.com/vishnu-tharan)
-- LinkedIn: [Vishnutharan Bavachelvan](https://www.linkedin.com/in/vishnutharan-bavachelvan-5419a02b3/)
+- LinkedIn: [Vishnutharan Bavachelvan](https://www.linkedin.com/in/vishnutharan)
 
 ## Project content and contact form
 
