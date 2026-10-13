@@ -1,4 +1,5 @@
 // A small portfolio command panel. Commands never execute system code.
+import { certificates } from './certificate-data.js';
 export function mountTerminal(container, actions) {
   container.innerHTML = `<div class="terminal-output" id="terminal-output" role="log" aria-label="Terminal output" aria-live="polite"></div><form class="terminal-form"><label for="terminal-input">vishnu@portfolio:~$</label><input id="terminal-input" autocomplete="off" spellcheck="false" aria-label="Terminal command" placeholder="help"><button type="submit">Run</button></form><div class="terminal-suggestions" role="group" aria-label="Suggested commands"><button type="button" data-command="help" aria-label="Insert command help">help</button><button type="button" data-command="projects" aria-label="Insert command projects">projects</button><button type="button" data-command="skills" aria-label="Insert command skills">skills</button><button type="button" data-command="search React" aria-label="Insert command search React">search React</button></div><p class="terminal-hint">Pick a suggestion, then Run · ↑ ↓ history · Esc to close<br>Portfolio commands only</p>`;
   const output = container.querySelector('.terminal-output');
@@ -14,7 +15,7 @@ export function mountTerminal(container, actions) {
   let position = 0;
   const sections = [
     {name:'Education & journey', keywords:'education university vavuniya honours degree academic', hash:'#beyond'},
-    {name:'Certifications', keywords:'certificate certifications cisco javascript sololearn sql', hash:'#beyond'},
+    {name:'Certificates & recognition', keywords:'certificate certificates certifications awards cisco javascript sololearn sql', hash:'#certificates'},
     {name:'Community & competitions', keywords:'community leadership ieee aiesec ieeextreme volunteering', hash:'#beyond'},
     {name:'Technical skills', keywords:'skills languages tools frontend backend mobile database', hash:'#universe'},
     {name:'GitHub activity', keywords:'github tracker activity repositories commits', hash:'#activity'},
@@ -39,12 +40,13 @@ export function mountTerminal(container, actions) {
     const [command, ...parts] = raw.toLowerCase().split(/\s+/);
     const argument = parts.join(' ');
     switch (command) {
-      case 'help': write('help                 Show commands\nabout                Meet Vishnu\nprojects             List projects\nopen <project>       Open a case study\nsearch <text>        Find projects & technologies\nskills               View my toolkit\ncontact              Contact details\ncv                   Open my CV\ngithub               Open the activity section\ntheme dark|light|system\nsound on|off         Control click sounds\nclear                Clear this terminal\nexit                 Close VishnuOS'); break;
+      case 'help': write('help                 Show commands\nabout                Meet Vishnu\nprojects             List projects\ncertificates         List certificates & awards\nopen <project>       Open a case study\nopen certificates    View certificate gallery\nsearch <text>        Find projects, certificates & topics\nskills               View my toolkit\ncontact              Contact details\ncv                   Open my CV\ngithub               Open the activity section\ntheme dark|light|system\nsound on|off         Control click sounds\nclear                Clear this terminal\nexit                 Close VishnuOS'); break;
       case 'about': write('Vishnutharan Bavachelvan\nIT honours undergraduate — University of Vavuniya.\nBuilding web & mobile applications. Open to software development internships in Sri Lanka and remotely.'); break;
       case 'projects': write(actions.projects.map(item => `${item.title} — ${item.stack}`).join('\n')); break;
+      case 'certificates': write(certificates.map(item => `${item.title} — ${item.kind} · ${item.date.slice(0,4)}`).join('\n')); break;
       case 'open': {
         if (!argument) { write('Usage: open <project name>'); break; }
-        const destinations = {about:'#beyond',education:'#beyond',skills:'#universe',contact:'#contact',github:'#activity',projects:'#work'};
+        const destinations = {about:'#beyond',education:'#beyond',skills:'#universe',contact:'#contact',github:'#activity',projects:'#work',certificates:'#certificates'};
         if (destinations[argument]) { actions.close(); location.hash = destinations[argument]; break; }
         if (argument === 'cv') { actions.close(); location.href = './cv.html'; break; }
         const matches = actions.projects.filter(item => item.title.toLowerCase().includes(argument));
@@ -57,7 +59,8 @@ export function mountTerminal(container, actions) {
         const terms = argument.split(/\s+/);
         const matches = actions.projects.filter(item => terms.every(term => [item.title,item.stack,item.summary,item.problem,item.contribution].join(' ').toLowerCase().includes(term)));
         const pages = sections.filter(item => terms.every(term => `${item.name} ${item.keywords}`.toLowerCase().includes(term)));
-        const lines = [...matches.map(item => `${item.title} — ${item.stack}`), ...pages.map(item => `${item.name} — ${item.hash}`)];
+        const evidence = certificates.filter(item => terms.every(term => [item.title,item.kind,item.issuer,item.description,item.date].join(' ').toLowerCase().includes(term)));
+        const lines = [...matches.map(item => `${item.title} — ${item.stack}`), ...evidence.map(item => `${item.title} — #certificate-${item.id}`), ...pages.map(item => `${item.name} — ${item.hash}`)];
         write(lines.length ? lines.join('\n') : `No matches for “${argument}”. Try projects, education or skills.`);
         break;
       }

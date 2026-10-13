@@ -1,4 +1,5 @@
 import { projects } from './project-data.js?v=20261013-buyora-v1';
+import { certificates } from './certificate-data.js';
 import { escape, openProject, openTerminal } from './os.js?v=20261013-buyora-v1';
 
 const dialog = document.querySelector('#search-dialog');
@@ -9,9 +10,10 @@ let matches = [];
 let previousFocus;
 const entries = [
   ...projects.map(project => ({title:project.title, description:project.summary, keywords:[project.stack, project.type, project.role, project.problem, project.contribution].join(' '), type:'Project', icon:'▦', action:() => openProject(project)})),
+  ...certificates.map(certificate => ({title:certificate.title,description:`${certificate.kind} · ${certificate.issuer} · ${certificate.date.slice(0,4)}`,keywords:[certificate.description,certificate.date,'certificate recognition'].join(' '),type:'Certificate',icon:'≡',action:() => navigate(`#certificate-${certificate.id}`)})),
   {title:'Technical skills',description:'Frontend, mobile, backend, databases, languages & tools',keywords:'React Next.js Spring Boot Java Python SQL Docker Git Firebase TypeScript',type:'Section',icon:'</>',action:() => navigate('#universe')},
   {title:'Education & journey',description:'B.Sc. (Hons) IT · University of Vavuniya · 2023–Present',keywords:'honours university degree academic coursework database algorithms',type:'Section',icon:'◈',action:() => navigate('#beyond')},
-  {title:'Certifications',description:'Cisco JavaScript Essentials 1 & 2 · Sololearn SQL',keywords:'certificate networking academy learning',type:'Section',icon:'≡',action:() => navigate('#beyond')},
+  {title:'Certificates & recognition',description:'Courses, workshops, competitions and awards with certificate files',keywords:'certificate certification networking academy learning',type:'Section',icon:'≡',action:() => navigate('#certificates')},
   {title:'Community & competitions',description:'IEEE, AIESEC, IEEEXtreme, volunteering & leadership',keywords:'TheChiefs JamporIEEE camera club hackathon team',type:'Section',icon:'✳',action:() => navigate('#beyond')},
   {title:'GitHub activity',description:'Latest available public updates from @vishnu-tharan',keywords:'repositories commits contributions tracker github feed',type:'Section',icon:'◉',action:() => navigate('#activity')},
   {title:'Contact Vishnu',description:'Internships, collaborations, email & LinkedIn',keywords:'phone email Sri Lanka remote opportunities contact',type:'Section',icon:'@',action:() => navigate('#contact')},
