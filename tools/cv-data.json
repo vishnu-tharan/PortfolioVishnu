@@ -1,13 +1,14 @@
 {
   "author": "vishnu-tharan",
   "name": "Vishnutharan Bavachelvan",
-  "role": "Software Engineering Intern Candidate",
+  "role": "Industrial Internship Applicant",
+  "focus": "Software Engineering | Full-Stack | Web & Mobile Development",
   "email": "bavachelvanvishnutharan@gmail.com",
   "phone": "+94 77 364 6391",
   "github": "https://github.com/vishnu-tharan",
   "portfolio": "https://vishnu-tharan.github.io/PortfolioVishnu/",
   "availability": "Remote worldwide | On-site in Sri Lanka",
-  "summary": "IT honours undergraduate seeking a software engineering internship, with project experience in full-stack development, REST APIs, databases, automated tests and collaborative frontend/backend work.",
+  "summary": "IT honours undergraduate seeking an industrial internship in software engineering, full-stack, frontend, backend or mobile development. Project experience includes responsive interfaces, REST APIs, databases, authentication, offline synchronization and automated testing. Contributed frontend and backend development to university group projects.",
   "skills": [
     [
       "Languages",
@@ -114,7 +115,7 @@
     }
   ],
   "profiles": {
-    "general": {"label": "Software Engineering", "project_ids": ["buyora", "gatepilot", "cinemastream"]},
+    "general": {"label": "Industrial Internship", "heading_alignment": "center", "project_ids": ["buyora", "gatepilot", "cinemastream"]},
     "fullstack": {
       "label": "Full-Stack",
       "role": "Full-Stack Developer Intern Candidate",
