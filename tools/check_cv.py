@@ -64,16 +64,22 @@ for key, profile in DATA['profiles'].items():
         assert all(' '.join(reference[field].split()) in normalized for field in ['name', 'credentials', 'title', 'phone', 'email']), f'{filename}: missing reference details'
         assert 'mailto:' + reference['email'] in urls and 'tel:' + reference['phone'].replace(' ', '') in urls
     for certificate in CERTIFICATES:
-        assert all(' '.join(certificate[field].split()) in normalized for field in ['title', 'issuer', 'kind', 'description']), f'{filename}: missing certificate content'
+        assert all(' '.join(certificate[field].split()) in normalized for field in ['title', 'issuer', 'kind']), f'{filename}: missing certificate content'
+        description = DATA.get('certificate_descriptions', {}).get(certificate['id'], certificate['description'])
+        assert ' '.join(description.split()) in normalized, f'{filename}: missing certificate description'
         assert DATA['portfolio'] + 'assets/certificates/' + certificate['file'] in urls, f'{filename}: missing certificate link'
     for item in DATA.get('leadership', []):
         assert item['title'] in text and item['institution'] in text
+        if item.get('dates'):
+            assert item['dates'] in text, f'{filename}: missing leadership dates'
     assert 'TEAM PROJECTS & LEADERSHIP' in reader.pages[1].extract_text(), f'{filename}: expected supplemental content on page 2'
     assert 'REFERENCES' not in reader.pages[0].extract_text(), f'{filename}: reference should be at the end'
     for project_id in DATA.get('team_project_ids', ['agri']):
         team = PROJECTS[project_id]
         assert team['name'] in text and team['url'] in urls, f'{filename}: missing group project attribution'
         assert all(' '.join(bullet.split()) in ' '.join(text.split()) for bullet in team['bullets'])
+        if team.get('dates'):
+            assert team['dates'] in text, f'{filename}: missing group project dates'
     assert 'GATEWAY-UniversityOfVavuniya' not in ' '.join(urls), f'{filename}: copied Gateway repository still linked'
     with pdfplumber.open(pdf) as document:
         if profile.get('heading_alignment') == 'center':
@@ -97,6 +103,7 @@ for key, profile in DATA['profiles'].items():
     assert page.versions == expected_versions, f'{html_name}: incomplete role navigation'
     assert all(name in html for name in names)
     assert all(escape(certificate['title']) in html and certificate['file'] in html for certificate in CERTIFICATES)
+    assert all(escape(DATA.get('certificate_descriptions', {}).get(certificate['id'], certificate['description'])) in html for certificate in CERTIFICATES)
     assert all(reference['email'] in html and reference['name'] in html for reference in DATA.get('references', []))
     assert ('cv-heading-centered' in html) == (profile.get('heading_alignment') == 'center'), f'{html_name}: incorrect header alignment'
     assert 'GATEWAY-UniversityOfVavuniya' not in html, f'{html_name}: copied Gateway repository still linked'

@@ -96,17 +96,20 @@ def certificate_date(certificate):
     when = date.fromisoformat(certificate['date'])
     return f'{when.day} {when:%B %Y}'
 
+def certificate_description(certificate):
+    return DATA.get('certificate_descriptions', {}).get(certificate['id'], certificate['description'])
+
 def pdf_certificate(certificate, style_set=styles):
     url = DATA['portfolio'] + 'assets/certificates/' + certificate['file']
     return KeepTogether([
         paragraph(f'<b>{escape(certificate["title"])}</b> | {escape(certificate["kind"])}', 'project', style_set),
         paragraph(f'{escape(certificate["issuer"])} | {certificate_date(certificate)} | {pdf_link(url, "Certificate")}', 'stack', style_set),
-        paragraph(escape(certificate['description']), 'body', style_set),
+        paragraph(escape(certificate_description(certificate)), 'body', style_set),
     ])
 
 def html_certificate(certificate):
     url = './assets/certificates/' + certificate['file']
-    return f'<article class="cv-certificate"><h3>{escape(certificate["title"])}<span>{escape(certificate["kind"])}</span></h3><p class="cv-stack">{escape(certificate["issuer"])} | {certificate_date(certificate)} | {html_link(url, "Certificate")}</p><p>{escape(certificate["description"])}</p></article>'
+    return f'<article class="cv-certificate"><h3>{escape(certificate["title"])}<span>{escape(certificate["kind"])}</span></h3><p class="cv-stack">{escape(certificate["issuer"])} | {certificate_date(certificate)} | {html_link(url, "Certificate")}</p><p>{escape(certificate_description(certificate))}</p></article>'
 
 def page_footer(canvas, document):
     canvas.saveState()
@@ -193,9 +196,11 @@ def build(key, profile):
     teamwork = [section('TEAM PROJECTS & LEADERSHIP')]
     for team in teams:
         teamwork.append(paragraph(f'<b>{escape(team["name"])}</b> | {escape(team["category"])} | {pdf_link(team["url"], "Repository")}'))
+        if team.get('dates'):
+            teamwork.append(paragraph(escape(team['dates']), 'stack'))
         teamwork.extend(paragraph(escape(bullet)) for bullet in team['bullets'])
     teamwork.append(paragraph(escape(DATA['community'])))
-    teamwork.extend(paragraph(f'<b>{escape(item["title"])}</b> | {escape(item["institution"])}') for item in DATA.get('leadership', []))
+    teamwork.extend(paragraph(f'<b>{escape(item["title"])}</b> | {escape(item["institution"])}' + (f' | {escape(item["dates"])}' if item.get('dates') else '')) for item in DATA.get('leadership', []))
     teamwork.extend(pdf_certificate(certificate, document_styles) for certificate in CERTIFICATES if certificate['kind'] == 'Development event')
     story.append(KeepTogether(teamwork))
     story.extend([section('CERTIFICATIONS & WORKSHOPS'), paragraph(escape(DATA['certifications']))])
@@ -225,8 +230,8 @@ def build(key, profile):
         choices.append(f'<a href="./{filenames(other)[1]}"{current}>{escape(value["label"])}</a>')
     choices = ''.join(choices)
     skills_html = ''.join(f'<div><dt>{escape(label)}</dt><dd>{escape(value)}</dd></div>' for label, value in skills)
-    team_html = ''.join(f'<article class="cv-team-project"><h3>{html_link(team["url"], team["name"])}<span>{escape(team["category"])}</span></h3>' + ''.join(f'<p>{escape(bullet)}</p>' for bullet in team['bullets']) + '</article>' for team in teams)
-    leadership_html = ''.join(f'<p><strong>{escape(item["title"])}</strong> | {escape(item["institution"])}</p>' for item in DATA.get('leadership', []))
+    team_html = ''.join(f'<article class="cv-team-project"><h3>{html_link(team["url"], team["name"])}<span>{escape(team["category"])}</span></h3>' + (f'<p class="cv-stack">{escape(team["dates"])}</p>' if team.get('dates') else '') + ''.join(f'<p>{escape(bullet)}</p>' for bullet in team['bullets']) + '</article>' for team in teams)
+    leadership_html = ''.join(f'<p><strong>{escape(item["title"])}</strong> | {escape(item["institution"])}' + (f' | {escape(item["dates"])}' if item.get('dates') else '') + '</p>' for item in DATA.get('leadership', []))
     development_html = ''.join(html_certificate(certificate) for certificate in CERTIFICATES if certificate['kind'] == 'Development event')
     courses_html = ''.join(html_certificate(certificate) for certificate in CERTIFICATES if certificate['kind'] in ['Course', 'Workshop'])
     awards_html = ''.join(html_certificate(certificate) for certificate in CERTIFICATES if certificate['kind'] in ['Competition participation', 'Merit award'])
