@@ -11,7 +11,7 @@
 [data-theme=light] .outline-button:hover{color:var(--accent);border-color:var(--accent);background:#fff4ee}
 [data-theme=light] .identity-card{background:linear-gradient(145deg,#fff,#f7e4da);border-color:#ad4739;box-shadow:0 20px 55px #6e392820,0 0 30px #c04a2715}
 [data-theme=light] .identity-card:before{background:radial-gradient(250px circle at var(--light-x,50%) var(--light-y,20%),#e5987655,transparent 75%)}
-[data-theme=light] .identity-card:after{background:linear-gradient(120deg,transparent 25%,#fff9 44%,transparent 63%)}
+[data-theme=light] .identity-card:after{display:none}
 [data-theme=light] .hero-portrait:hover .identity-card,[data-theme=light] .hero-portrait:focus-within .identity-card{box-shadow:0 28px 65px #7a342529,0 0 0 1px #b6422b66,0 0 45px #e1784430}
 [data-theme=light] .hero-portrait .portrait-frame,[data-theme=light] .hero-portrait.effect-ready .portrait-frame{background:radial-gradient(ellipse at 50% 75%,#dfa78e55,transparent 70%),repeating-linear-gradient(0deg,transparent 0 29px,#a13e250b 30px),#f6e9e1;border-color:#c9958066;box-shadow:inset 0 0 28px #b8826b13}
 [data-theme=light] .hero-portrait.effect-ready .portrait-code{color:#693629;opacity:.55}
