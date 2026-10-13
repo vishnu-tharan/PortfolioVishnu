@@ -77,10 +77,9 @@ def pdf_project(project, style_set=styles):
     links = pdf_link(project['url'], 'Repository')
     if project.get('evidence'):
         links += ' | ' + pdf_link(project['evidence'], 'Verification')
-    title = f"{escape(project['name'])} <font name=\"{regular}\" size=\"9.5\">| {escape(project['category'])}</font>"
+    dates = f" | {escape(project['dates'])}" if project.get('dates') else ''
+    title = f"{escape(project['name'])} <font name=\"{regular}\" size=\"9.5\">| {escape(project['category'])}{dates}</font>"
     block = [paragraph(title, 'project', style_set), paragraph(f"{escape(project['stack'])} | {links}", 'stack', style_set)]
-    if project.get('dates'):
-        block.append(paragraph(escape(project['dates']), 'stack', style_set))
     block.extend(paragraph('- ' + escape(bullet), 'bullet', style_set) for bullet in project['bullets'])
     return KeepTogether(block)
 

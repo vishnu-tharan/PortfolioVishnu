@@ -35,6 +35,7 @@
     {
       "id": "buyora",
       "name": "Buyora",
+      "dates": "May 2026 - June 2026",
       "category": "E-commerce application",
       "stack": "Next.js, Spring Boot, PostgreSQL, Redis, Docker",
       "url": "https://github.com/vishnu-tharan/Buyora",
@@ -79,6 +80,7 @@
     {
       "id": "cinemastream",
       "name": "CinemaStream",
+      "dates": "November 2025",
       "category": "Movie discovery | Mobile & web",
       "stack": "TypeScript, React Native, Expo, Firebase, AsyncStorage",
       "url": "https://github.com/vishnu-tharan/CinemaStream",
@@ -91,6 +93,7 @@
     {
       "id": "gatepilot",
       "name": "GatePilot",
+      "dates": "August 2026 - September 2026",
       "category": "Independent access-management prototype",
       "stack": "React Native, Expo, Express, MongoDB, Docker",
       "url": "https://github.com/vishnu-tharan/GatePilot",
@@ -118,7 +121,7 @@
     "hackforce-2023": "Salesforce hackathon participation."
   },
   "community": "IEEEXtreme 18.0 organizing committee member. JamporIEEE logistics volunteer. IEEE and AIESEC member, 2023 - present.",
-  "leadership": [{"title": "School Head Prefect", "institution": "J/Uduppiddy American Mission College"}],
+  "leadership": [{"title": "School Head Prefect", "institution": "J/Uduppiddy American Mission College", "dates": "2020 - 2022"}],
   "linkedin": "https://www.linkedin.com/in/vishnutharan-bavachelvan-5419a02b3/",
   "references": [
     {

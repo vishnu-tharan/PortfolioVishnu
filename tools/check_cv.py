@@ -54,6 +54,8 @@ for key, profile in DATA['profiles'].items():
     positions = [text.index(name) for name in names]
     assert positions == sorted(positions), f'{filename}: incorrect project order'
     for project_id in profile['project_ids']:
+        if PROJECTS[project_id].get('dates'):
+            assert PROJECTS[project_id]['dates'] in normalized, f'{filename}: missing project dates'
         for bullet in PROJECTS[project_id]['bullets']:
             assert ' '.join(bullet.split()) in ' '.join(text.split()), f'{filename}: missing project bullet'
     annotations = [annotation for page in reader.pages for annotation in page.get('/Annots', [])]
@@ -102,6 +104,8 @@ for key, profile in DATA['profiles'].items():
     expected_versions = ['./cv.html' if version == 'general' else f'./cv-{version}.html' for version in DATA['profiles']]
     assert page.versions == expected_versions, f'{html_name}: incomplete role navigation'
     assert all(name in html for name in names)
+    assert all(escape(PROJECTS[project_id]['dates']) in html for project_id in profile['project_ids'] if PROJECTS[project_id].get('dates'))
+    assert all(escape(item['dates']) in html for item in DATA.get('leadership', []) if item.get('dates'))
     assert all(escape(certificate['title']) in html and certificate['file'] in html for certificate in CERTIFICATES)
     assert all(escape(DATA.get('certificate_descriptions', {}).get(certificate['id'], certificate['description'])) in html for certificate in CERTIFICATES)
     assert all(reference['email'] in html and reference['name'] in html for reference in DATA.get('references', []))
