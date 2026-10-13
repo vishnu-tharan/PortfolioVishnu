@@ -35,6 +35,7 @@ def grayscale(color):
 suffixes = {'software': 'SoftwareEngineering', 'fullstack': 'FullStack', 'web': 'Web', 'mobile': 'Mobile'}
 assert set(DATA['profiles']) == set(suffixes), 'Expected four distinct internship roles'
 assert DATA['default_profile'] == 'software', 'The main CV must be Software Engineering'
+assert 'ceb' in DATA['profiles']['software']['project_ids'] and 'cinemastream' not in DATA['profiles']['software']['project_ids'], 'Main CV must feature CEB instead of CinemaStream'
 for key, profile in DATA['profiles'].items():
     filename = f'Vishnutharan-Bavachelvan-CV-{suffixes[key]}.pdf'
     html_name = f'cv-{key}.html'
@@ -52,7 +53,7 @@ for key, profile in DATA['profiles'].items():
         assert 'Playwright' not in value and 'Vitest' not in value, f'{filename}: excluded testing tools still present'
         if label == 'Tools & testing':
             assert 'Linux' in value and 'GitHub Actions' in value, f'{filename}: requested tools missing'
-    sections = ['PROFILE', 'EDUCATION', 'TECHNICAL SKILLS', 'TECHNICAL PROJECTS', 'TEAM PROJECTS & LEADERSHIP', 'CERTIFICATIONS & WORKSHOPS', 'AWARDS & COMPETITIONS', 'REFERENCES']
+    sections = ['PROFILE', 'EDUCATION', 'TECHNICAL SKILLS', 'TECHNICAL PROJECTS', 'OTHER DEVELOPMENTS', 'TEAM PROJECTS & LEADERSHIP', 'CERTIFICATIONS & WORKSHOPS', 'AWARDS & COMPETITIONS', 'REFERENCES']
     section_positions = [text.index(section) for section in sections]
     assert section_positions == sorted(section_positions), f'{filename}: incorrect reading order'
     assert '\ufffd' not in text, f'{filename}: broken characters'
@@ -68,6 +69,11 @@ for key, profile in DATA['profiles'].items():
     urls = [str(annotation.get_object().get('/A', {}).get('/URI', '')) for annotation in annotations]
     assert DATA['github'] in urls and DATA['portfolio'] in urls and DATA['linkedin'] in urls
     assert all(PROJECTS[project_id]['url'] in urls for project_id in profile['project_ids'])
+    covered_ids = set(profile['project_ids']) | set(DATA['team_project_ids'])
+    others = [project for project in DATA['projects'] if project['id'] not in covered_ids]
+    other_text = text.split('OTHER DEVELOPMENTS', 1)[1].split(DATA['name'], 1)[0].strip()
+    assert ' '.join(other_text.split()) == ' | '.join(project['name'] for project in others), f'{filename}: other developments should contain only remaining project names'
+    assert all(project['url'] in urls for project in others), f'{filename}: missing other project links'
     for reference in DATA.get('references', []):
         assert all(' '.join(reference[field].split()) in normalized for field in ['name', 'credentials', 'title', 'phone', 'email']), f'{filename}: missing reference details'
         assert 'mailto:' + reference['email'] in urls and 'tel:' + reference['phone'].replace(' ', '') in urls
@@ -111,6 +117,8 @@ for key, profile in DATA['profiles'].items():
     expected_versions = ['./cv.html' if version == DATA['default_profile'] else f'./cv-{version}.html' for version in DATA['profiles']]
     assert page.versions == expected_versions, f'{html_name}: incomplete role navigation'
     assert all(name in html for name in names)
+    other_html = '<section class="cv-other-developments"><h2>Other developments</h2><p>' + ' · '.join(f'<a href="{escape(project["url"], quote=True)}">{escape(project["name"])}</a>' for project in others) + '</p></section>'
+    assert other_html in html, f'{html_name}: other developments must contain only project names'
     assert all(escape(PROJECTS[project_id]['dates']) in html for project_id in profile['project_ids'] if PROJECTS[project_id].get('dates'))
     assert all(escape(item['dates']) in html for item in DATA.get('leadership', []) if item.get('dates'))
     assert all(escape(certificate['title']) in html and certificate['file'] in html for certificate in CERTIFICATES)

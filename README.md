@@ -118,6 +118,8 @@ The owner confirmed expected graduation in June 2027, Buyora development in May-
 
 The CVs list GATEWAY under teamwork as a semester 3.1 group project and keep GatePilot as a separate individual project in the relevant selected-project lists. `team_project_ids` controls the shared group-project entries across all versions.
 
+The main Software Engineering CV features Buyora, GatePilot and CEB-Management. Each CV adds a compact Other Developments section containing only linked names for projects not already featured or covered under teamwork. CinemaStream remains featured in the Mobile App CV and is listed by name in the main CV's Other Developments section.
+
 ## Certificates and recognition
 
 Seven supplied certificates have descriptive filenames in `dist/assets/certificates/`, with organized copies in `output/certificates/`. Original files are preserved. The gallery uses existing portfolio colors in both themes, responsive cards, lazy previews and direct view/download links. Search includes each certificate and its issuer. VishnuOS supports `certificates`, `search SQL` and `open certificates`.
