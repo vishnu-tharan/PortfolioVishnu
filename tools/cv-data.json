@@ -8,19 +8,27 @@
   "github": "https://github.com/vishnu-tharan",
   "portfolio": "https://vishnu-tharan.github.io/PortfolioVishnu/",
   "availability": "Remote worldwide | On-site in Sri Lanka",
-  "summary": "IT honours undergraduate seeking an industrial internship in software engineering, full-stack, frontend, backend or mobile development. Project experience includes responsive interfaces, REST APIs, databases, authentication, offline synchronization and automated testing. Contributed frontend and backend development to university group projects.",
+  "summary": "IT honours undergraduate seeking an industrial internship in software development. Build web and mobile applications with React, Next.js, React Native, Spring Boot and Express. Practical experience in REST APIs, databases, authentication, automated testing and collaborative frontend/backend development.",
   "skills": [
     [
       "Languages",
       "Java, JavaScript, TypeScript, SQL, HTML, CSS"
     ],
     [
-      "Frameworks & data",
-      "React, Next.js, React Native, Expo, Spring Boot, Node.js, Express; PostgreSQL, MongoDB, SQLite, Firebase"
+      "Frontend & mobile",
+      "React, Next.js, React Native, Expo"
+    ],
+    [
+      "Backend",
+      "Spring Boot, Node.js, Express, REST APIs"
+    ],
+    [
+      "Databases",
+      "PostgreSQL, MongoDB, SQLite, Firebase"
     ],
     [
       "Tools & testing",
-      "Git, Docker, Vitest, Playwright; REST APIs, API validation and regression testing"
+      "Git, Docker, Vitest, Playwright; API validation and regression testing"
     ]
   ],
   "projects": [
@@ -115,7 +123,7 @@
     }
   ],
   "profiles": {
-    "general": {"label": "Industrial Internship", "heading_alignment": "center", "project_ids": ["buyora", "gatepilot", "cinemastream"]},
+    "general": {"label": "Industrial Internship", "heading_alignment": "center", "refined_layout": true, "project_ids": ["buyora", "gatepilot", "cinemastream"]},
     "fullstack": {
       "label": "Full-Stack",
       "role": "Full-Stack Developer Intern Candidate",
