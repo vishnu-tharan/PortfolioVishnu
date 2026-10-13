@@ -156,6 +156,8 @@ def build(key, profile):
         raise ValueError(f'{key}: select three distinct projects.')
     education = DATA['education']
     teams = [CATALOG[project_id] for project_id in DATA.get('team_project_ids', ['agri'])]
+    covered_ids = {project['id'] for project in selected + teams}
+    others = [project for project in DATA['projects'] if project['id'] not in covered_ids]
     centered = profile.get('heading_alignment', 'left') == 'center'
     refined = profile.get('refined_layout', False)
     document_styles = {name: ParagraphStyle(f'{key}-{name}', parent=style) for name, style in styles.items()}
@@ -196,6 +198,8 @@ def build(key, profile):
     story.extend(paragraph(f'<b>{escape(label)}:</b> {escape(value)}') for label, value in skills)
     story.append(section('TECHNICAL PROJECTS'))
     story.extend(pdf_project(project, document_styles) for project in selected)
+    if others:
+        story.append(KeepTogether([section('OTHER DEVELOPMENTS'), paragraph(' | '.join(pdf_link(project['url'], project['name']) for project in others))]))
     story.append(PageBreak())
     teamwork = [section('TEAM PROJECTS & LEADERSHIP')]
     for team in teams:
@@ -235,6 +239,7 @@ def build(key, profile):
         choices.append(f'<a href="./{navigation_page(other)}"{current}>{escape(label)}</a>')
     choices = ''.join(choices)
     skills_html = ''.join(f'<div><dt>{escape(label)}</dt><dd>{escape(value)}</dd></div>' for label, value in skills)
+    other_html = '<section class="cv-other-developments"><h2>Other developments</h2><p>' + ' · '.join(html_link(project['url'], project['name']) for project in others) + '</p></section>' if others else ''
     team_html = ''.join(f'<article class="cv-team-project"><h3>{html_link(team["url"], team["name"])}<span>{escape(team["category"])}</span></h3>' + (f'<p class="cv-stack">{escape(team["dates"])}</p>' if team.get('dates') else '') + ''.join(f'<p>{escape(bullet)}</p>' for bullet in team['bullets']) + '</article>' for team in teams)
     leadership_html = ''.join(f'<p><strong>{escape(item["title"])}</strong> | {escape(item["institution"])}' + (f' | {escape(item["dates"])}' if item.get('dates') else '') + '</p>' for item in DATA.get('leadership', []))
     development_html = ''.join(html_certificate(certificate) for certificate in CERTIFICATES if certificate['kind'] == 'Development event')
@@ -257,6 +262,7 @@ def build(key, profile):
 <section><h2>Education</h2><h3>{escape(education['degree'])}<span>{escape(education_text())}</span></h3><p>{escape(education['institution'])}</p><p>{escape(education['detail'])}</p></section>
 <section><h2>Technical skills</h2><dl class="cv-skills">{skills_html}</dl></section>
 <section><h2>Technical projects</h2>{''.join(html_project(project) for project in selected)}</section>
+{other_html}
 <section class="cv-page-two"><h2>Team projects &amp; leadership</h2>{team_html}<p>{escape(DATA['community'])}</p>{leadership_html}{development_html}</section>
 <section><h2>Certifications &amp; workshops</h2><p>{escape(DATA['certifications'])}</p>{courses_html}</section>
 <section><h2>Awards &amp; competitions</h2>{awards_html}</section>
