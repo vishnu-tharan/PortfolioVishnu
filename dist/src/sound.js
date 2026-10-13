@@ -1,4 +1,4 @@
-import { toast } from './os.js?v=20261013-industrial-cv-v1';
+import { toast } from './os.js?v=20261013-professional-cv-v1';
 
 let enabled = false;
 let context;
