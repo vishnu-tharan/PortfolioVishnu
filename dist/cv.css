@@ -19,12 +19,12 @@
 .cv-focus{font-size:14px;color:#555}
 .cv-sheet-refined{font-size:15px;line-height:1.55}
 .cv-sheet-refined .cv-heading{border-bottom:0;padding-bottom:0}
-.cv-sheet-refined .cv-heading h1{font-size:clamp(28px,4.5vw,36px);letter-spacing:-.015em}
+.cv-sheet-refined .cv-heading h1{font-family:Arial,Helvetica,sans-serif;font-size:clamp(25px,4.2vw,33px);font-weight:700;letter-spacing:.035em}
 .cv-sheet-refined section h2{border-top:0;border-bottom:1px solid #777;padding:0 0 8px;margin-bottom:12px;font-size:14px;letter-spacing:.06em}
 .cv-sheet-refined .cv-skills>div{margin:8px 0;grid-template-columns:145px 1fr}
 .cv-sheet-refined .cv-project{margin:20px 0}
 .cv-sheet-refined .cv-team-project{margin:14px 0}
-@media print{.cv-sheet-refined{font-size:10pt}.cv-sheet-refined .cv-heading h1{font-size:24pt}.cv-sheet-refined section h2{font-size:11pt;padding:0 0 5pt;margin-bottom:5pt}.cv-sheet-refined .cv-skills>div{margin:3pt 0}.cv-sheet-refined .cv-project{margin:8pt 0}}
+@media print{.cv-sheet-refined{font-size:10pt}.cv-sheet-refined .cv-heading h1{font-size:22pt}.cv-sheet-refined section h2{font-size:11pt;padding:0 0 5pt;margin-bottom:5pt}.cv-sheet-refined .cv-skills>div{margin:3pt 0}.cv-sheet-refined .cv-project{margin:8pt 0}}
 .cv-heading h1{font-size:clamp(30px,5vw,41px);line-height:1.12;letter-spacing:-.025em;margin:0 0 9px}
 .cv-role{color:#111;font-size:18px;font-weight:600;margin:8px 0}
 .cv-contact{display:flex;flex-wrap:wrap;column-gap:18px;row-gap:3px;font-size:14px;overflow-wrap:anywhere}

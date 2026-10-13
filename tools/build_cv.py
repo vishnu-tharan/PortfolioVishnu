@@ -27,9 +27,11 @@ ASSETS.mkdir(parents=True, exist_ok=True)
 BASE = 'Vishnutharan-Bavachelvan-CV'
 CATALOG = {project['id']: project for project in DATA['projects']}
 PROFILES = DATA['profiles']
+DEFAULT_PROFILE = DATA['default_profile']
+FILE_SUFFIXES = {'software': 'SoftwareEngineering', 'fullstack': 'FullStack', 'web': 'Web', 'mobile': 'Mobile'}
 CERTIFICATES = json.loads((ROOT / 'tools/certificate-data.json').read_text(encoding='utf-8'))
-if len(CATALOG) != len(DATA['projects']) or set(PROFILES) != {'general', 'fullstack', 'frontend', 'backend', 'mobile'}:
-    raise ValueError('CV project IDs must be unique and all five internship profiles must exist.')
+if len(CATALOG) != len(DATA['projects']) or set(PROFILES) != set(FILE_SUFFIXES) or DEFAULT_PROFILE not in PROFILES:
+    raise ValueError('CV project IDs must be unique; software, fullstack, web and mobile profiles must exist with a valid default.')
 
 font_dir = Path('C:/Windows/Fonts')
 if all((font_dir / name).exists() for name in ['calibri.ttf', 'calibrib.ttf']):
@@ -39,6 +41,10 @@ if all((font_dir / name).exists() for name in ['calibri.ttf', 'calibrib.ttf']):
     regular, bold = 'CV', 'CV-Bold'
 else:
     regular, bold = 'Helvetica', 'Helvetica-Bold'
+heading_font = bold
+if (font_dir / 'arialbd.ttf').exists():
+    pdfmetrics.registerFont(TTFont('CV-Heading', str(font_dir / 'arialbd.ttf')))
+    heading_font = 'CV-Heading'
 
 ink = colors.HexColor('#111111')
 muted = colors.HexColor('#555555')
@@ -63,8 +69,10 @@ def html_link(url, text):
     return f'<a href="{escape(url, quote=True)}">{escape(text)}</a>'
 
 def filenames(key):
-    suffix = '' if key == 'general' else '-FullStack' if key == 'fullstack' else f'-{key.title()}'
-    return BASE + suffix + '.pdf', 'cv.html' if key == 'general' else f'cv-{key}.html'
+    return BASE + '-' + FILE_SUFFIXES[key] + '.pdf', f'cv-{key}.html'
+
+def navigation_page(key):
+    return 'cv.html' if key == DEFAULT_PROFILE else filenames(key)[1]
 
 def education_text():
     education = DATA['education']
@@ -152,7 +160,8 @@ def build(key, profile):
     refined = profile.get('refined_layout', False)
     document_styles = {name: ParagraphStyle(f'{key}-{name}', parent=style) for name, style in styles.items()}
     if refined:
-        document_styles['name'].fontSize = 24
+        document_styles['name'].fontName = heading_font
+        document_styles['name'].fontSize = 22
         document_styles['name'].leading = 28
         document_styles['section'].fontSize = 11
         document_styles['section'].spaceBefore = 0
@@ -166,19 +175,15 @@ def build(key, profile):
     def section(title):
         heading = paragraph(title, 'section')
         return SectionHeading(heading) if refined else heading
-    focus = profile.get('focus', DATA.get('focus', '') if key == 'general' else '')
+    display_name = DATA['name'].upper() if DATA.get('uppercase_name') else DATA['name']
     def header(text, style):
         return Paragraph(text, ParagraphStyle(f'{key}-header-{style}', parent=document_styles[style], alignment=1 if centered else 0))
     story = []
-    story.extend([header(escape(DATA['name']), 'name'), header(escape(role), 'role')])
-    if focus:
-        story.append(header(escape(focus), 'stack'))
+    story.extend([header(escape(display_name), 'name'), header(escape(role), 'role')])
     contact = f'{pdf_link("mailto:" + DATA["email"], DATA["email"])} | {pdf_link("tel:" + DATA["phone"].replace(" ", ""), DATA["phone"])}'
-    story.append(header(contact if refined else contact + ' | ' + escape(DATA['availability']), 'contact'))
+    story.append(header(contact, 'contact'))
     story.append(header(f'{pdf_link(DATA["github"], "GitHub" if refined else "github.com/vishnu-tharan")} | {pdf_link(DATA["portfolio"], "Portfolio" if refined else "vishnu-tharan.github.io/PortfolioVishnu")} | {pdf_link(DATA["linkedin"], "LinkedIn")}', 'contact'))
-    if refined:
-        story.append(header(escape(DATA['availability']), 'stack'))
-    else:
+    if not refined:
         story.append(HRFlowable(width='100%', thickness=0.7, color=ink, spaceBefore=8, spaceAfter=0))
     story.extend([section('PROFILE'), paragraph(escape(summary))])
     education_block = [section('EDUCATION'), paragraph(f'<b>{escape(education["degree"])}</b>')]
@@ -226,7 +231,8 @@ def build(key, profile):
     choices = []
     for other, value in PROFILES.items():
         current = ' aria-current="page"' if other == key else ''
-        choices.append(f'<a href="./{filenames(other)[1]}"{current}>{escape(value["label"])}</a>')
+        label = value['label'] + (' (Main)' if other == DEFAULT_PROFILE else '')
+        choices.append(f'<a href="./{navigation_page(other)}"{current}>{escape(label)}</a>')
     choices = ''.join(choices)
     skills_html = ''.join(f'<div><dt>{escape(label)}</dt><dd>{escape(value)}</dd></div>' for label, value in skills)
     team_html = ''.join(f'<article class="cv-team-project"><h3>{html_link(team["url"], team["name"])}<span>{escape(team["category"])}</span></h3>' + (f'<p class="cv-stack">{escape(team["dates"])}</p>' if team.get('dates') else '') + ''.join(f'<p>{escape(bullet)}</p>' for bullet in team['bullets']) + '</article>' for team in teams)
@@ -245,8 +251,8 @@ def build(key, profile):
 <nav class="cv-toolbar" aria-label="CV navigation"><a href="./index.html">&#8592; Back to portfolio</a><div class="cv-toolbar-actions"><button class="cv-theme-toggle" type="button" data-theme-toggle aria-label="Switch theme" aria-pressed="false">◐</button><a class="cv-button" href="./assets/{filename}" download>Download CV <span>PDF &#8595;</span></a></div></nav>
 <nav class="cv-versions" aria-label="CV versions">{choices}</nav>
 <main class="cv-sheet{' cv-sheet-refined' if refined else ''}">
-<header class="cv-heading{' cv-heading-centered' if centered else ''}"><h1>{escape(DATA['name'])}</h1><p class="cv-role">{escape(role)}</p>{f'<p class="cv-focus">{escape(focus)}</p>' if focus else ''}
-<div class="cv-contact">{html_link('mailto:' + DATA['email'], DATA['email'])} {html_link('tel:' + DATA['phone'].replace(' ', ''), DATA['phone'])} {html_link(DATA['github'], 'GitHub / vishnu-tharan')} {html_link(DATA['portfolio'], 'Portfolio')} {html_link(DATA['linkedin'], 'LinkedIn')}</div><p class="cv-availability">{escape(DATA['availability'])}</p></header>
+<header class="cv-heading{' cv-heading-centered' if centered else ''}"><h1>{escape(display_name)}</h1><p class="cv-role">{escape(role)}</p>
+<div class="cv-contact">{html_link('mailto:' + DATA['email'], DATA['email'])} {html_link('tel:' + DATA['phone'].replace(' ', ''), DATA['phone'])} {html_link(DATA['github'], 'GitHub / vishnu-tharan')} {html_link(DATA['portfolio'], 'Portfolio')} {html_link(DATA['linkedin'], 'LinkedIn')}</div></header>
 <section><h2>Profile</h2><p>{escape(summary)}</p></section>
 <section><h2>Education</h2><h3>{escape(education['degree'])}<span>{escape(education_text())}</span></h3><p>{escape(education['institution'])}</p><p>{escape(education['detail'])}</p></section>
 <section><h2>Technical skills</h2><dl class="cv-skills">{skills_html}</dl></section>
@@ -258,10 +264,18 @@ def build(key, profile):
 </main><script type="module" src="./src/preferences.js"></script></body></html>
 '''
     (ROOT / 'dist' / html_filename).write_text(html, encoding='utf-8')
+    if key == DEFAULT_PROFILE:
+        for directory in [OUTPUT, ASSETS]:
+            shutil.copyfile(output, directory / (BASE + '.pdf'))
+        main_html = html.replace(f'./assets/{filename}', f'./assets/{BASE}.pdf')
+        (ROOT / 'dist/cv.html').write_text(main_html, encoding='utf-8')
+        print(f'Main CV now uses {profile["label"]}.')
     print(f'Created two-page {filename} and {html_filename}')
 
 requested = sys.argv[1:] or list(PROFILES)
 if len(set(requested)) != len(requested) or any(key not in PROFILES for key in requested):
-    raise SystemExit('Choose distinct profiles: general fullstack frontend backend mobile')
+    raise SystemExit('Choose distinct profiles: software fullstack web mobile')
 for key in requested:
     build(key, PROFILES[key])
+for legacy, target in {'cv-frontend.html': 'cv-web.html', 'cv-backend.html': 'cv-software.html'}.items():
+    (ROOT / 'dist' / legacy).write_text(f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0;url=./{target}"><title>CV moved | {escape(DATA["name"])}</title></head><body><p>This CV is now available at <a href="./{target}">the updated internship CV page</a>.</p></body></html>\n', encoding='utf-8')
