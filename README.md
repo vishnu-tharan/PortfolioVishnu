@@ -62,7 +62,7 @@ To deploy, serve the contents of `dist/` with any static website host.
 
 ## VishnuOS commands
 
-Click **VishnuOS** in the corner and type `help`. Supported commands include `about`, `projects`, `open buyora`, `search spring boot`, `skills`, `contact`, `cv`, `github`, `theme dark`, `theme light`, `theme system`, `sound on`, `sound off`, `clear`, and `exit`. `open` also accepts `education`, `skills`, `contact`, `github`, `projects` and `cv`. Arrow keys navigate the current terminal's command history. Commands only navigate this portfolio; they never run system code.
+Click **VishnuOS** in the corner and type `help`. Supported commands include `about`, `projects`, `open buyora`, `search spring boot`, `certificates`, `skills`, `contact`, `cv`, `github`, `theme dark`, `theme light`, `theme system`, `sound on`, `sound off`, `clear`, and `exit`. `open` also accepts `certificates`, `education`, `skills`, `contact`, `github`, `projects` and `cv`. Arrow keys navigate the current terminal's command history. Commands only navigate this portfolio; they never run system code.
 
 ## GitHub activity
 
@@ -104,16 +104,24 @@ The contact form submits through FormSubmit with its default spam verification a
 
 ## CV
 
-The portfolio includes a responsive [software engineering CV](dist/cv.html) and a [downloadable PDF](dist/assets/Vishnutharan-Bavachelvan-CV.pdf), linked from the introduction, navigation and contact section. The CV page also links to [full-stack](dist/cv-fullstack.html), [frontend](dist/cv-frontend.html), [backend](dist/cv-backend.html) and [mobile](dist/cv-mobile.html) internship versions, each with a matching one-page PDF. Each version selects three relevant projects and preserves the confirmed group-project contribution and community activities.
+The portfolio includes a responsive [software engineering CV](dist/cv.html) and a [downloadable PDF](dist/assets/Vishnutharan-Bavachelvan-CV.pdf), linked from the introduction, navigation and contact section. The CV page also links to [full-stack](dist/cv-fullstack.html), [frontend](dist/cv-frontend.html), [backend](dist/cv-backend.html) and [mobile](dist/cv-mobile.html) internship versions, each with a matching two-page PDF. Each version preserves the original left-aligned Calibri format and selects three relevant projects. Page two includes group projects, community involvement, School Head Prefect leadership, certificates, awards and Dr. R. Nagulan's reference at the end.
 
-Edit `tools/cv-data.json`, then run `python tools/build_cv.py` with ReportLab and pypdf installed to regenerate all five PDFs and web pages. PDFs are also saved to `output/pdf/`. Run `python tools/check_cv.py` with pdfplumber installed to check one-page layout limits, readable monochrome text, standard reading order, PDF link annotations, project order, all role links and matching web downloads. Render and inspect the PDFs before publishing. Then run `python tools/version_assets.py <new-release-name>`; PDF download URLs are versioned too.
+Edit `tools/cv-data.json`, then run `python tools/build_cv.py` with ReportLab and pypdf installed to regenerate all five PDFs and web pages. PDFs are also saved to `output/pdf/`. Run `python tools/check_cv.py` with pdfplumber installed to check two-page layout limits, readable monochrome text, standard reading order, certificate and reference links, project order, all role links and matching web downloads. Render and inspect both pages of every PDF before publishing. Then run `python tools/version_assets.py <new-release-name>`; PDF download URLs are versioned too.
 
 To regenerate only affected CVs, pass profile names: `python tools/build_cv.py general fullstack frontend backend`. Omit profile names to regenerate all five.
 
 CVs use a single column with black text, gray secondary text, standard section headings and a simple header rule. The web document stays white in both themes; its surrounding controls use monochrome light/dark colors. The main PDF remains the software engineering version, while `cv-fullstack.html` downloads the separate full-stack version. Applicant-tracking compatibility is supported by selectable text and logical reading order, but no automated screening score is claimed.
 
-The expected graduation date, June 2027, was confirmed by the owner. Project and certification dates, GPA, team size and more specific group-project responsibilities are omitted until confirmed. Optional project `dates` fields are supported by the generator. The CV's bundle figures describe CinemaStream's measured web entry bundle, not total JavaScript or physical-device performance. Test evidence comes from the linked repository verification documents; production acceptance is not claimed.
+The expected graduation date, June 2027, was confirmed by the owner. Certificate dates come from the supplied documents. Project dates, Cisco course dates, Head Prefect dates and duties, GPA and team size are omitted until confirmed. Optional project `dates` fields are supported by the generator. The CV's bundle figures describe CinemaStream's measured web entry bundle, not total JavaScript or physical-device performance. Test evidence comes from the linked repository verification documents; production acceptance is not claimed.
 
 The CVs list GATEWAY under teamwork as a semester 3.1 group project and keep GatePilot as a separate individual project in the relevant selected-project lists. `team_project_ids` controls the shared group-project entries across all versions.
+
+## Certificates and recognition
+
+Seven supplied certificates have descriptive filenames in `dist/assets/certificates/`, with organized copies in `output/certificates/`. Original files are preserved. The gallery uses existing portfolio colors in both themes, responsive cards, lazy previews and direct view/download links. Search includes each certificate and its issuer. VishnuOS supports `certificates`, `search SQL` and `open certificates`.
+
+`tools/certificate-data.json` is the shared source for the gallery, search, terminal and all five CVs. It separates SQL course completion, Cursor AI workshop participation, Trailblazers development-event participation, the school Accounting & ICT merit award, and participation in IEEEXtreme 17.0, IEEEXtreme 18.0 and HACKFORCE '23. No competition ranking or professional certification is inferred from participation.
+
+After editing the metadata, run `python tools/build_certificates.py`, then `python tools/build_cv.py`. Run `python tools/check_certificates.py` and `python tools/check_cv.py` to check files, content and links. PDF preview images are rendered from the supplied documents using Poppler. Finish with `python tools/version_assets.py <new-release-name>` and browser checks before publishing.
 
 Author: **vishnu-tharan**.
