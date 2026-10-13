@@ -127,16 +127,16 @@ class SectionHeading(Flowable):
         self.spaceAfter = 5
     def wrap(self, available_width, available_height):
         self.width = available_width
-        _, height = self.heading.wrap(available_width, available_height)
-        self.height = height + 14
+        _, self.heading_height = self.heading.wrap(available_width, available_height)
+        self.height = self.heading_height + 14
         return self.width, self.height
     def draw(self):
         self.canv.saveState()
         self.canv.setStrokeColor(muted)
         self.canv.setLineWidth(0.5)
-        self.canv.line(0, self.height - 9, self.width, self.height - 9)
+        self.canv.line(0, 2, self.width, 2)
         self.canv.restoreState()
-        self.heading.drawOn(self.canv, 0, 0)
+        self.heading.drawOn(self.canv, 0, 7)
 
 def build(key, profile):
     filename, html_filename = filenames(key)
