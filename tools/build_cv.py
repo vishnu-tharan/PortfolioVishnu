@@ -169,7 +169,7 @@ def build(key, profile):
     focus = profile.get('focus', DATA.get('focus', '') if key == 'general' else '')
     def header(text, style):
         return Paragraph(text, ParagraphStyle(f'{key}-header-{style}', parent=document_styles[style], alignment=1 if centered else 0))
-    story = [HRFlowable(width=56, thickness=1, color=ink, hAlign='CENTER', spaceAfter=10)] if refined else []
+    story = []
     story.extend([header(escape(DATA['name']), 'name'), header(escape(role), 'role')])
     if focus:
         story.append(header(escape(focus), 'stack'))
