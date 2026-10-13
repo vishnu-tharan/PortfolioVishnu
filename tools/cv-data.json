@@ -91,6 +91,18 @@
       ]
     },
     {
+      "id": "ceb",
+      "name": "CEB-Management",
+      "category": "Household electricity planner",
+      "stack": "JavaScript, HTML, CSS, Node.js, Express, SQLite",
+      "url": "https://github.com/vishnu-tharan/CEB-Management",
+      "evidence": "https://github.com/vishnu-tharan/CEB-Management#verification",
+      "bullets": [
+        "Built an Express/SQLite household energy planner with appliance tracking, meter readings, budgets, forecasts, weekly plans and CSV export.",
+        "Implemented per-household data isolation and cookie-based sessions; repository tests cover tariff boundaries, input validation, CSRF and session expiry."
+      ]
+    },
+    {
       "id": "gatepilot",
       "name": "GatePilot",
       "dates": "August 2026 - September 2026",
@@ -133,7 +145,7 @@
     }
   ],
   "profiles": {
-    "software": {"label": "Software Engineering", "heading_alignment": "center", "refined_layout": true, "project_ids": ["buyora", "gatepilot", "cinemastream"]},
+    "software": {"label": "Software Engineering", "heading_alignment": "center", "refined_layout": true, "project_ids": ["buyora", "gatepilot", "ceb"]},
     "fullstack": {
       "label": "Full-Stack",
       "role": "Full-Stack Developer Intern",
