@@ -100,9 +100,19 @@
     "expected_graduation": "June 2027",
     "detail": "Selected for the Honours programme in 2026. Coursework: object-oriented programming, data structures and algorithms, databases, web development."
   },
-  "certifications": "JavaScript Essentials 1 & 2 - Cisco Networking Academy; Introduction to SQL - Sololearn.",
-  "community": "IEEEXtreme 17.0 & 18.0 participant; 18.0 organizing committee member. JamporIEEE logistics volunteer. IEEE and AIESEC member, 2023 - present.",
+  "certifications": "JavaScript Essentials 1 & 2 - Cisco Networking Academy.",
+  "community": "IEEEXtreme 18.0 organizing committee member. JamporIEEE logistics volunteer. IEEE and AIESEC member, 2023 - present.",
+  "leadership": [{"title": "School Head Prefect", "institution": "J/Uduppiddy American Mission College"}],
   "linkedin": "https://www.linkedin.com/in/vishnutharan-bavachelvan-5419a02b3/",
+  "references": [
+    {
+      "name": "Dr. R. Nagulan",
+      "credentials": "B.Sc. (Jaffna), M.Sc. in Computer Science (Peradeniya), Ph.D. in Medical Image Computing (Kent, UK)",
+      "title": "Senior Lecturer Gr.I",
+      "phone": "+94 71 107 1289",
+      "email": "nagulanr@vau.ac.lk"
+    }
+  ],
   "profiles": {
     "general": {"label": "Software Engineering", "project_ids": ["buyora", "gatepilot", "cinemastream"]},
     "fullstack": {

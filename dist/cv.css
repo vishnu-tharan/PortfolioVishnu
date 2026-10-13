@@ -33,6 +33,8 @@
 .cv-versions a:is(:hover,:focus-visible,[aria-current=page]){border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
 .cv-evidence{font-size:13px;color:var(--accent)}
 .cv-team-project + .cv-team-project{margin-top:14px}
+.cv-certificate{margin:16px 0}.cv-reference-contact{font-size:14px;overflow-wrap:anywhere}
+@media print{.cv-page-two{break-before:page}.cv-certificate,.cv-reference{break-inside:avoid}}
 @media(max-width:600px){.cv-versions{padding:0 16px;gap:6px}.cv-versions a{flex:1;padding:10px 12px}.cv-toolbar-actions{min-width:0}.cv-toolbar .cv-button{white-space:nowrap}.cv-skills dt{overflow-wrap:anywhere}}
 @media print{.cv-versions{display:none}.cv-evidence{font-size:9pt;color:#111}}
 @media(max-width:600px){.cv-toolbar{padding:16px;gap:12px}.cv-toolbar .cv-button{padding:12px;gap:10px}.cv-sheet{padding:28px 22px 36px;margin-bottom:0}.cv-skills>div{display:block;margin:10px 0}.cv-heading h1{overflow-wrap:break-word}.cv-sheet section{margin-top:24px}}

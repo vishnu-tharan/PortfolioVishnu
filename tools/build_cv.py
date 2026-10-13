@@ -1,10 +1,11 @@
-"""Generate matching one-page PDFs and web CVs from cv-data.json.
+"""Generate matching internship PDFs and web CVs with the existing CV layout.
 
 Requires reportlab and pypdf. Run: python tools/build_cv.py
 Author: vishnu-tharan
 """
 from pathlib import Path
 from html import escape
+from datetime import date
 import json
 import shutil
 import sys
@@ -15,7 +16,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import SimpleDocTemplate, Paragraph, KeepTogether, HRFlowable
+from reportlab.platypus import SimpleDocTemplate, Paragraph, KeepTogether, HRFlowable, PageBreak
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = json.loads((ROOT / 'tools/cv-data.json').read_text(encoding='utf-8'))
@@ -26,6 +27,7 @@ ASSETS.mkdir(parents=True, exist_ok=True)
 BASE = 'Vishnutharan-Bavachelvan-CV'
 CATALOG = {project['id']: project for project in DATA['projects']}
 PROFILES = DATA['profiles']
+CERTIFICATES = json.loads((ROOT / 'tools/certificate-data.json').read_text(encoding='utf-8'))
 if len(CATALOG) != len(DATA['projects']) or set(PROFILES) != {'general', 'fullstack', 'frontend', 'backend', 'mobile'}:
     raise ValueError('CV project IDs must be unique and all five internship profiles must exist.')
 
@@ -90,6 +92,30 @@ def html_project(project):
     return f'''<article class="cv-project"><h3>{html_link(project['url'], project['name'])}<span>{escape(project['category'])}</span></h3>
 <p class="cv-stack">{escape(project['stack'])}</p>{dates}<ul>{''.join(f'<li>{escape(bullet)}</li>' for bullet in project['bullets'])}</ul><p class="cv-evidence">{links}</p></article>'''
 
+def certificate_date(certificate):
+    when = date.fromisoformat(certificate['date'])
+    return f'{when.day} {when:%B %Y}'
+
+def pdf_certificate(certificate):
+    url = DATA['portfolio'] + 'assets/certificates/' + certificate['file']
+    return KeepTogether([
+        paragraph(f'<b>{escape(certificate["title"])}</b> | {escape(certificate["kind"])}', 'project'),
+        paragraph(f'{escape(certificate["issuer"])} | {certificate_date(certificate)} | {pdf_link(url, "Certificate")}', 'stack'),
+        paragraph(escape(certificate['description'])),
+    ])
+
+def html_certificate(certificate):
+    url = './assets/certificates/' + certificate['file']
+    return f'<article class="cv-certificate"><h3>{escape(certificate["title"])}<span>{escape(certificate["kind"])}</span></h3><p class="cv-stack">{escape(certificate["issuer"])} | {certificate_date(certificate)} | {html_link(url, "Certificate")}</p><p>{escape(certificate["description"])}</p></article>'
+
+def page_footer(canvas, document):
+    canvas.saveState()
+    canvas.setFont(regular, 9.5)
+    canvas.setFillColor(muted)
+    canvas.drawString(42, 35, DATA['name'])
+    canvas.drawRightString(A4[0] - 42, 35, f'{document.page} / 2')
+    canvas.restoreState()
+
 def build(key, profile):
     filename, html_filename = filenames(key)
     role = profile.get('role', DATA['role'])
@@ -110,19 +136,35 @@ def build(key, profile):
     story.extend(paragraph(f'<b>{escape(label)}:</b> {escape(value)}') for label, value in skills)
     story.append(paragraph('TECHNICAL PROJECTS', 'section'))
     story.extend(pdf_project(project) for project in selected)
+    story.append(PageBreak())
     teamwork = [paragraph('TEAM PROJECTS & LEADERSHIP', 'section')]
     for team in teams:
         teamwork.append(paragraph(f'<b>{escape(team["name"])}</b> | {escape(team["category"])} | {pdf_link(team["url"], "Repository")}'))
         teamwork.extend(paragraph(escape(bullet)) for bullet in team['bullets'])
     teamwork.append(paragraph(escape(DATA['community'])))
+    teamwork.extend(paragraph(f'<b>{escape(item["title"])}</b> | {escape(item["institution"])}') for item in DATA.get('leadership', []))
+    teamwork.extend(pdf_certificate(certificate) for certificate in CERTIFICATES if certificate['kind'] == 'Development event')
     story.append(KeepTogether(teamwork))
-    story.extend([paragraph('CERTIFICATIONS', 'section'), paragraph(escape(DATA['certifications']))])
+    story.extend([paragraph('CERTIFICATIONS & WORKSHOPS', 'section'), paragraph(escape(DATA['certifications']))])
+    story.extend(pdf_certificate(certificate) for certificate in CERTIFICATES if certificate['kind'] in ['Course', 'Workshop'])
+    story.append(paragraph('AWARDS & COMPETITIONS', 'section'))
+    story.extend(pdf_certificate(certificate) for certificate in CERTIFICATES if certificate['kind'] in ['Competition participation', 'Merit award'])
+    references = DATA.get('references', [])
+    if references:
+        reference_block = [paragraph('REFERENCES', 'section')]
+        for reference in references:
+            reference_block.extend([
+                paragraph(f'<b>{escape(reference["name"])}</b> | {escape(reference["title"])}'),
+                paragraph(escape(reference['credentials']), 'stack'),
+                paragraph(f'{pdf_link("tel:" + reference["phone"].replace(" ", ""), reference["phone"])} | {pdf_link("mailto:" + reference["email"], reference["email"])}', 'stack'),
+            ])
+        story.append(KeepTogether(reference_block))
     output = OUTPUT / filename
-    document = SimpleDocTemplate(str(output), pagesize=A4, rightMargin=42, leftMargin=42, topMargin=38, bottomMargin=32,
+    document = SimpleDocTemplate(str(output), pagesize=A4, rightMargin=42, leftMargin=42, topMargin=38, bottomMargin=54,
                                  title=f'{DATA["name"]} - {profile["label"]} CV', author=DATA['name'], subject=role)
-    document.build(story)
-    if len(PdfReader(output).pages) != 1:
-        raise ValueError(f'{filename} exceeds one page. Edit the content or spacing before publishing.')
+    document.build(story, onFirstPage=page_footer, onLaterPages=page_footer)
+    if len(PdfReader(output).pages) != 2:
+        raise ValueError(f'{filename} must have two readable pages. Check content and spacing before publishing.')
     shutil.copyfile(output, ASSETS / filename)
     choices = []
     for other, value in PROFILES.items():
@@ -131,6 +173,11 @@ def build(key, profile):
     choices = ''.join(choices)
     skills_html = ''.join(f'<div><dt>{escape(label)}</dt><dd>{escape(value)}</dd></div>' for label, value in skills)
     team_html = ''.join(f'<article class="cv-team-project"><h3>{html_link(team["url"], team["name"])}<span>{escape(team["category"])}</span></h3>' + ''.join(f'<p>{escape(bullet)}</p>' for bullet in team['bullets']) + '</article>' for team in teams)
+    leadership_html = ''.join(f'<p><strong>{escape(item["title"])}</strong> | {escape(item["institution"])}</p>' for item in DATA.get('leadership', []))
+    development_html = ''.join(html_certificate(certificate) for certificate in CERTIFICATES if certificate['kind'] == 'Development event')
+    courses_html = ''.join(html_certificate(certificate) for certificate in CERTIFICATES if certificate['kind'] in ['Course', 'Workshop'])
+    awards_html = ''.join(html_certificate(certificate) for certificate in CERTIFICATES if certificate['kind'] in ['Competition participation', 'Merit award'])
+    references_html = '<section><h2>References</h2>' + ''.join(f'<article class="cv-reference"><h3>{escape(reference["name"])}<span>{escape(reference["title"])}</span></h3><p class="cv-stack">{escape(reference["credentials"])}</p><p class="cv-reference-contact">{html_link("tel:" + reference["phone"].replace(" ", ""), reference["phone"])} | {html_link("mailto:" + reference["email"], reference["email"])}</p></article>' for reference in references) + '</section>' if references else ''
     html = f'''<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="author" content="{escape(DATA['name'])}">
@@ -147,12 +194,14 @@ def build(key, profile):
 <section><h2>Education</h2><h3>{escape(education['degree'])}<span>{escape(education_text())}</span></h3><p>{escape(education['institution'])}</p><p>{escape(education['detail'])}</p></section>
 <section><h2>Technical skills</h2><dl class="cv-skills">{skills_html}</dl></section>
 <section><h2>Technical projects</h2>{''.join(html_project(project) for project in selected)}</section>
-<section><h2>Team projects &amp; leadership</h2>{team_html}<p>{escape(DATA['community'])}</p></section>
-<section><h2>Certifications</h2><p>{escape(DATA['certifications'])}</p></section>
+<section class="cv-page-two"><h2>Team projects &amp; leadership</h2>{team_html}<p>{escape(DATA['community'])}</p>{leadership_html}{development_html}</section>
+<section><h2>Certifications &amp; workshops</h2><p>{escape(DATA['certifications'])}</p>{courses_html}</section>
+<section><h2>Awards &amp; competitions</h2>{awards_html}</section>
+{references_html}
 </main><script type="module" src="./src/preferences.js"></script></body></html>
 '''
     (ROOT / 'dist' / html_filename).write_text(html, encoding='utf-8')
-    print(f'Created one-page {filename} and {html_filename}')
+    print(f'Created two-page {filename} and {html_filename}')
 
 requested = sys.argv[1:] or list(PROFILES)
 if len(set(requested)) != len(requested) or any(key not in PROFILES for key in requested):
