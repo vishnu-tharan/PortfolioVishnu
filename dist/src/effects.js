@@ -1,4 +1,4 @@
-import { motionAllowed } from './transitions.js?v=20261013-portrait-glare-v1';
+import { motionAllowed } from './transitions.js?v=20261014-linkedin-v1';
 
 const grid = document.querySelector('.project-grid');
 const fine = matchMedia('(hover: hover) and (pointer: fine)');
