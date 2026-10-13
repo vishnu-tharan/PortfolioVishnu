@@ -1,6 +1,6 @@
-import { projects } from './project-data.js?v=20261013-buyora-v1';
-import { certificates } from './certificate-data.js';
-import { escape, openProject, openTerminal } from './os.js?v=20261013-buyora-v1';
+import { projects } from './project-data.js?v=20261013-certificates-v1';
+import { certificates } from './certificate-data.js?v=20261013-certificates-v1';
+import { escape, openProject, openTerminal } from './os.js?v=20261013-certificates-v1';
 
 const dialog = document.querySelector('#search-dialog');
 const input = document.querySelector('#os-search');

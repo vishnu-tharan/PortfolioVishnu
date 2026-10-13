@@ -1,4 +1,4 @@
-import { toast } from './os.js?v=20261013-buyora-v1';
+import { toast } from './os.js?v=20261013-certificates-v1';
 
 let enabled = false;
 let context;
