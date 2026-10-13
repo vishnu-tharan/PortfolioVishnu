@@ -1,4 +1,4 @@
-import { toast } from './os.js?v=20261014-linkedin-v1';
+import { toast } from './os.js?v=20261014-cv-projects-v1';
 
 let enabled = false;
 let context;
