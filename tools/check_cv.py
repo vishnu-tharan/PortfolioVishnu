@@ -76,6 +76,13 @@ for key, profile in DATA['profiles'].items():
         assert all(' '.join(bullet.split()) in ' '.join(text.split()) for bullet in team['bullets'])
     assert 'GATEWAY-UniversityOfVavuniya' not in ' '.join(urls), f'{filename}: copied Gateway repository still linked'
     with pdfplumber.open(pdf) as document:
+        if profile.get('heading_alignment') == 'center':
+            first = document.pages[0]
+            for heading in [DATA['name'], profile.get('role', DATA['role'])]:
+                matches = [match for match in first.search(heading, regex=False) if match['top'] < 130]
+                assert len(matches) == 1 and abs((matches[0]['x0'] + matches[0]['x1']) / 2 - first.width / 2) < 1, f'{filename}: header should be centered'
+            assert first.search('PROFILE', regex=False)[0]['x0'] < 55, f'{filename}: body should stay left aligned'
+            assert DATA['focus'] in normalized, f'{filename}: missing internship focus'
         for page in document.pages:
             assert all(char['x0'] >= 35 and char['x1'] <= page.width - 35 and char['top'] >= 30 and char['bottom'] <= page.height - 30 for char in page.chars), f'{filename}: text outside page margins'
             assert not page.images, f'{filename}: CV should contain selectable text rather than images'
@@ -91,6 +98,7 @@ for key, profile in DATA['profiles'].items():
     assert all(name in html for name in names)
     assert all(escape(certificate['title']) in html and certificate['file'] in html for certificate in CERTIFICATES)
     assert all(reference['email'] in html and reference['name'] in html for reference in DATA.get('references', []))
+    assert ('cv-heading-centered' in html) == (profile.get('heading_alignment') == 'center'), f'{html_name}: incorrect header alignment'
     assert 'GATEWAY-UniversityOfVavuniya' not in html, f'{html_name}: copied Gateway repository still linked'
     assert pdf.read_bytes() == (ROOT / 'output/pdf' / filename).read_bytes(), f'{filename}: stale published PDF'
     print(f'{key}: two readable monochrome pages, all certificates, leadership and final reference, matching role download')

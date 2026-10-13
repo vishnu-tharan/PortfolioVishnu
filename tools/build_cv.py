@@ -126,9 +126,15 @@ def build(key, profile):
         raise ValueError(f'{key}: select three distinct projects.')
     education = DATA['education']
     teams = [CATALOG[project_id] for project_id in DATA.get('team_project_ids', ['agri'])]
-    story = [paragraph(escape(DATA['name']), 'name'), paragraph(escape(role), 'role')]
-    story.append(paragraph(f'{pdf_link("mailto:" + DATA["email"], DATA["email"])} | {pdf_link("tel:" + DATA["phone"].replace(" ", ""), DATA["phone"])} | {escape(DATA["availability"])}', 'contact'))
-    story.append(paragraph(f'{pdf_link(DATA["github"], "github.com/vishnu-tharan")} | {pdf_link(DATA["portfolio"], "vishnu-tharan.github.io/PortfolioVishnu")} | {pdf_link(DATA["linkedin"], "LinkedIn")}', 'contact'))
+    centered = profile.get('heading_alignment', 'left') == 'center'
+    focus = profile.get('focus', DATA.get('focus', '') if key == 'general' else '')
+    def header(text, style):
+        return Paragraph(text, ParagraphStyle(f'{key}-header-{style}', parent=styles[style], alignment=1 if centered else 0))
+    story = [header(escape(DATA['name']), 'name'), header(escape(role), 'role')]
+    if focus:
+        story.append(header(escape(focus), 'stack'))
+    story.append(header(f'{pdf_link("mailto:" + DATA["email"], DATA["email"])} | {pdf_link("tel:" + DATA["phone"].replace(" ", ""), DATA["phone"])} | {escape(DATA["availability"])}', 'contact'))
+    story.append(header(f'{pdf_link(DATA["github"], "github.com/vishnu-tharan")} | {pdf_link(DATA["portfolio"], "vishnu-tharan.github.io/PortfolioVishnu")} | {pdf_link(DATA["linkedin"], "LinkedIn")}', 'contact'))
     story.append(HRFlowable(width='100%', thickness=0.7, color=ink, spaceBefore=8, spaceAfter=0))
     story.extend([paragraph('PROFILE', 'section'), paragraph(escape(summary))])
     story.append(KeepTogether([paragraph('EDUCATION', 'section'), paragraph(f'<b>{escape(education["degree"])}</b>'), paragraph(f'{escape(education["institution"])} | {escape(education_text())}', 'stack'), paragraph(escape(education['detail']))]))
@@ -188,7 +194,7 @@ def build(key, profile):
 <nav class="cv-toolbar" aria-label="CV navigation"><a href="./index.html">&#8592; Back to portfolio</a><div class="cv-toolbar-actions"><button class="cv-theme-toggle" type="button" data-theme-toggle aria-label="Switch theme" aria-pressed="false">◐</button><a class="cv-button" href="./assets/{filename}" download>Download CV <span>PDF &#8595;</span></a></div></nav>
 <nav class="cv-versions" aria-label="CV versions">{choices}</nav>
 <main class="cv-sheet">
-<header class="cv-heading"><h1>{escape(DATA['name'])}</h1><p class="cv-role">{escape(role)}</p>
+<header class="cv-heading{' cv-heading-centered' if centered else ''}"><h1>{escape(DATA['name'])}</h1><p class="cv-role">{escape(role)}</p>{f'<p class="cv-focus">{escape(focus)}</p>' if focus else ''}
 <div class="cv-contact">{html_link('mailto:' + DATA['email'], DATA['email'])} {html_link('tel:' + DATA['phone'].replace(' ', ''), DATA['phone'])} {html_link(DATA['github'], 'GitHub / vishnu-tharan')} {html_link(DATA['portfolio'], 'Portfolio')} {html_link(DATA['linkedin'], 'LinkedIn')}</div><p class="cv-availability">{escape(DATA['availability'])}</p></header>
 <section><h2>Profile</h2><p>{escape(summary)}</p></section>
 <section><h2>Education</h2><h3>{escape(education['degree'])}<span>{escape(education_text())}</span></h3><p>{escape(education['institution'])}</p><p>{escape(education['detail'])}</p></section>
