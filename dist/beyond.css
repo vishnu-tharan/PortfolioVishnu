@@ -21,7 +21,7 @@
 .beyond-person{grid-area:1/2/3/3;position:relative;min-width:0;margin:0;align-self:center;perspective:1000px}
 .person-stage{position:relative;height:450px;transform-style:preserve-3d;transform:rotateX(var(--person-rx,0deg)) rotateY(var(--person-ry,0deg));transition:transform .55s cubic-bezier(.2,.8,.2,1)}
 .person-layer{position:absolute;inset:0;transform:translateZ(45px);animation:person-hover 7s ease-in-out infinite}
-.person-layer img{position:absolute;bottom:15px;left:0;display:block;width:100%;height:auto;max-height:100%;object-fit:contain;mask:url('./assets/vishnu-mask.png') center/100% 100% no-repeat;mask-mode:luminance;filter:drop-shadow(0 0 12px #f74a3833)}
+.person-layer img{position:absolute;bottom:15px;left:0;display:block;width:100%;height:auto;max-height:100%;object-fit:contain;border-radius:12px;filter:drop-shadow(0 0 12px #f74a3833)}
 .person-aura{position:absolute;inset:8% -20% 0;border-radius:50%;background:radial-gradient(ellipse,#ff594d24,transparent 68%);transform:translateZ(-30px);animation:aura-breathe 6s ease-in-out infinite}
 .person-orbit{position:absolute;left:-15%;top:20%;width:130%;height:65%;border:1px solid #fa74535c;border-radius:50%;transform:rotateZ(-25deg) rotateY(52deg);box-shadow:0 0 18px #ff493515;pointer-events:none}
 .orbit-two{transform:rotateZ(30deg) rotateY(-50deg);border-color:#ffb49324}

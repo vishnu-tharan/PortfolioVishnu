@@ -9,6 +9,8 @@
 .card-topline{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:9px;letter-spacing:1.4px;color:#eadcd6;padding:1px 0 13px}
 .card-edition{font-size:7px;color:#ae8f89;letter-spacing:1px}
 .hero-portrait .portrait-frame,.hero-portrait.effect-ready .portrait-frame{aspect-ratio:3/4;border:1px solid #ff8e7030;border-radius:9px;overflow:hidden;background:radial-gradient(ellipse at 50% 70%,#79392e55,transparent 65%),repeating-linear-gradient(0deg,transparent 0 29px,#ffb39305 30px),#100e12;box-shadow:inset 0 0 38px #0006;transform:none}
+.hero-portrait .portrait-frame{aspect-ratio:33/40}
+.hero-portrait .portrait-frame .portrait-original{aspect-ratio:33/40;object-fit:cover;object-position:center;opacity:1}
 .hero-portrait .portrait-frame .portrait-cutout{filter:drop-shadow(0 0 10px #ff684b38)}
 .hero-portrait.effect-ready .portrait-code{opacity:.25;font-size:9px;padding:8% 5%}
 .hero-portrait.effect-ready.code-active .portrait-code{opacity:.65}
