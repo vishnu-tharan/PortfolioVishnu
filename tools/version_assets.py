@@ -19,3 +19,6 @@ for path in root.glob('*.html'):
     updated = assets.sub(lambda m: f'{m[1]}{m[2]}?v={release}{m[3]}', text)
     if text != updated:
         path.write_text(updated, encoding='utf-8')
+
+from secure_pages import secure_pages
+secure_pages(root)

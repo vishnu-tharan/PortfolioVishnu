@@ -92,7 +92,7 @@ The GitHub Pages workflow publishes `dist/` when commits reach `main`. The local
 
 ## Contact
 
-- Email: [bavachelvanvishnutharan@gmail.com](mailto:bavachelvanvishnutharan@gmail.com)
+- Email: [vtharan.b@gmail.com](mailto:vtharan.b@gmail.com)
 - GitHub: [vishnu-tharan](https://github.com/vishnu-tharan)
 - LinkedIn: [Vishnutharan Bavachelvan](https://www.linkedin.com/in/vishnutharan)
 
@@ -129,3 +129,5 @@ Seven supplied certificates have descriptive filenames in `dist/assets/certifica
 After editing the metadata, run `python tools/build_certificates.py`, then `python tools/build_cv.py`. Run `python tools/check_certificates.py` and `python tools/check_cv.py` to check files, content and links. PDF preview images are rendered from the supplied documents using Poppler. Finish with `python tools/version_assets.py <new-release-name>` and browser checks before publishing.
 
 Author: **vishnu-tharan**.
+
+Contact and security update (18 October 2026): the portfolio and all current/legacy CV downloads use vtharan.b@gmail.com. LinkedIn is https://www.linkedin.com/in/vishnutharan. New project category filters and a copy-email shortcut retain both themes. The new FormSubmit destination may need activation; delivery has not been verified. See SECURITY-AUDIT.md for findings, checks and hosting limitations. Run tools/version_assets.py after generating pages to apply the browser security policy.
