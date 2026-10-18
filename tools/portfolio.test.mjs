@@ -2,9 +2,29 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { validSnapshot, eventDetails } from '../dist/src/github-data.js';
 import { projects } from '../dist/src/project-data.js';
+import { safeProjectURL, projectDetails } from '../dist/src/projects.js';
 
 const now = Date.now();
 const valid = {time:now,user:{login:'vishnu-tharan',public_repos:12,followers:1,following:1},events:[]};
+
+test('Untrusted event types and path segments cannot crash or redirect the activity feed', () => {
+  for (const type of ['constructor', '__proto__', 'toString']) {
+    assert.equal(eventDetails({type,repo:{name:'owner/repo'},created_at:'2026-10-18'}).url, 'https://github.com/owner/repo');
+  }
+  for (const name of ['owner/..','owner/.']) assert.equal(eventDetails({repo:{name},created_at:'2026-10-18'}), null);
+  assert.equal(validSnapshot({...valid,events:Array(101).fill(null)}), false);
+});
+
+test('Project destinations reject executable URLs, attribute injection and outside images', () => {
+  for (const url of ['javascript:alert(1)','https://evil.test/repo','https://github.com/a/b" onmouseover="alert(1)', 'https://github.com/a/../evil']) assert.equal(safeProjectURL(url), '#');
+  assert.equal(safeProjectURL('https://evil.test/image.jpg', true), '#');
+  assert.equal(safeProjectURL('./assets/projects/buyora-storefront.jpg', true), './assets/projects/buyora-storefront.jpg');
+  for (const project of projects) {
+    assert.notEqual(safeProjectURL(project.link), '#');
+    if (project.evidence) assert.notEqual(safeProjectURL(project.evidence), '#');
+  }
+  assert.ok(!projectDetails({...projects[0],link:'javascript:alert(1)',title:'<script>alert(1)</script>'}).includes('<script>'));
+});
 test('GitHub snapshots reject malformed, foreign and future data', () => {
   assert.equal(validSnapshot(valid), true);
   for (const invalid of [null, {}, {...valid,time:now + 120000}, {...valid,time:-1}, {...valid,events:{}}, {...valid,user:{...valid.user,login:42}}, {...valid,user:{...valid.user,login:'someone-else'}}, {...valid,user:{...valid.user,followers:'1'}}, {...valid,user:{...valid.user,public_repos:-2}}]) assert.equal(validSnapshot(invalid), false);
