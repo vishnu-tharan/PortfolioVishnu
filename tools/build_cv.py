@@ -285,3 +285,10 @@ for key in requested:
     build(key, PROFILES[key])
 for legacy, target in {'cv-frontend.html': 'cv-web.html', 'cv-backend.html': 'cv-software.html'}.items():
     (ROOT / 'dist' / legacy).write_text(f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0;url=./{target}"><title>CV moved | {escape(DATA["name"])}</title></head><body><p>This CV is now available at <a href="./{target}">the updated internship CV page</a>.</p></body></html>\n', encoding='utf-8')
+
+# Keep legacy download URLs in sync with their replacement roles.
+for old, new in {"Frontend": "Web", "Backend": "SoftwareEngineering"}.items():
+    for directory in [OUTPUT, ASSETS]:
+        source = directory / f"{BASE}-{new}.pdf"
+        if source.exists():
+            shutil.copyfile(source, directory / f"{BASE}-{old}.pdf")
