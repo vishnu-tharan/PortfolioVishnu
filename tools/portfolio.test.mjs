@@ -61,7 +61,8 @@ test('GATEWAY group work and GatePilot retain their own repositories and attribu
   assert.equal(gateway.link, 'https://github.com/chamikara12/GATEWAY');
   assert.match(gateway.type, /3\.1.*GROUP PROJECT/);
   assert.match(gateway.role, /Frontend and backend.*Group project/);
-  assert.equal(gateway.image, undefined);
+  assert.equal(gateway.imageKind, 'logo');
+  assert.match(gateway.image, /gateway-symbol\.svg$/);
   assert.equal(gateway.evidence, undefined);
   assert.match(gateway.stack, /React · JavaScript/);
   assert.equal(gatepilot.link, 'https://github.com/vishnu-tharan/GatePilot');

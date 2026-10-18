@@ -1,4 +1,4 @@
-import { toast } from './os.js?v=20261018-contact-security-v1';
+import { toast } from './os.js?v=20261018-project-visuals-v1';
 
 let enabled = false;
 let context;

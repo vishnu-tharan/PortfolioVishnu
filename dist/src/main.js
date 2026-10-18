@@ -1,7 +1,7 @@
-import { createStage } from './stage.js?v=20261018-contact-security-v1';
-import { renderProjectGallery, projectDetails } from './projects.js?v=20261018-contact-security-v1';
-import { projects } from './project-data.js?v=20261018-contact-security-v1';
-import { motionAllowed, viewTransition } from './transitions.js?v=20261018-contact-security-v1';
+import { createStage } from './stage.js?v=20261018-project-visuals-v1';
+import { renderProjectGallery, projectDetails } from './projects.js?v=20261018-project-visuals-v1';
+import { projects } from './project-data.js?v=20261018-project-visuals-v1';
+import { motionAllowed, viewTransition } from './transitions.js?v=20261018-project-visuals-v1';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 let paused = reduce.matches;

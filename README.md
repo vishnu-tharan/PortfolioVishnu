@@ -131,3 +131,5 @@ After editing the metadata, run `python tools/build_certificates.py`, then `pyth
 Author: **vishnu-tharan**.
 
 Contact and security update (18 October 2026): the portfolio and all current/legacy CV downloads use vtharan.b@gmail.com. LinkedIn is https://www.linkedin.com/in/vishnutharan. New project category filters and a copy-email shortcut retain both themes. The new FormSubmit destination may need activation; delivery has not been verified. See SECURITY-AUDIT.md for findings, checks and hosting limitations. Run tools/version_assets.py after generating pages to apply the browser security policy.
+
+Project visuals (18 October 2026): GatePilot sign-in and CinemaStream welcome screenshots were captured from existing local web builds. CEB uses its Energy Saver logo. GATEWAY and Lanka Agri-Direct use portfolio gate/leaf symbols, explicitly labelled as symbols rather than screenshots. Existing Buyora and cashManage screenshots remain. All seven project cards now have a visual.
