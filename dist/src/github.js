@@ -1,5 +1,5 @@
-import { escape } from './os.js?v=20261018-project-visuals-v1';
-import { validSnapshot, eventDetails } from './github-data.js?v=20261018-project-visuals-v1';
+import { escape } from './os.js?v=20261022-screenshot-galleries-v1';
+import { validSnapshot, eventDetails } from './github-data.js?v=20261022-screenshot-galleries-v1';
 
 const username = 'vishnu-tharan';
 const cacheKey = 'vishnuos-github-v1';

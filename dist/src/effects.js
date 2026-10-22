@@ -1,4 +1,4 @@
-import { motionAllowed } from './transitions.js?v=20261018-project-visuals-v1';
+import { motionAllowed } from './transitions.js?v=20261022-screenshot-galleries-v1';
 
 const grid = document.querySelector('.project-grid');
 const fine = matchMedia('(hover: hover) and (pointer: fine)');

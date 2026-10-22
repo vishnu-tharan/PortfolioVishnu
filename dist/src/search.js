@@ -1,6 +1,6 @@
-import { projects } from './project-data.js?v=20261018-project-visuals-v1';
-import { certificates } from './certificate-data.js?v=20261018-project-visuals-v1';
-import { escape, openProject, openTerminal } from './os.js?v=20261018-project-visuals-v1';
+import { projects } from './project-data.js?v=20261022-screenshot-galleries-v1';
+import { certificates } from './certificate-data.js?v=20261022-screenshot-galleries-v1';
+import { escape, openProject, openTerminal } from './os.js?v=20261022-screenshot-galleries-v1';
 
 const dialog = document.querySelector('#search-dialog');
 const input = document.querySelector('#os-search');
