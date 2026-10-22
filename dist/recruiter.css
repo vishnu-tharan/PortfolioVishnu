@@ -42,3 +42,22 @@ html{scroll-padding-top:110px}.hero.hero-with-portrait{padding:30px 4% 65px;min-
 @media(max-width:750px){.journey .year-rail{width:100%;flex-direction:row;border-left:0;border-top:1px solid #9f5b3d66}.journey .year-button:before{left:50%;top:-5px}}
 
 .project-preview.logo-preview{display:grid;place-items:center;background:radial-gradient(ellipse at center,#51232b,#171013)}.project-preview.logo-preview img{width:96px;height:96px;object-fit:contain;background:transparent;filter:drop-shadow(0 12px 20px #0005)}.project-detail-image.logo-preview{padding:28px;border:1px solid #bd645140;border-radius:12px;text-align:center}.project-detail-image.logo-preview img{width:120px;height:120px;margin:auto}.project-detail-image.logo-preview figcaption{max-width:55ch;margin:auto}[data-theme=light] .project-preview.logo-preview{background:radial-gradient(ellipse at center,#fff,#f3ddd7)}
+
+/* Screen selectors keep the case study compact and preserve portrait captures. */
+.project-detail-image:not(.logo-preview) img{width:100%;height:clamp(240px,52vh,540px);object-fit:contain;background:#141216}
+.screenshot-original{display:block;border-radius:8px;overflow:hidden}
+.screenshot-original:focus-visible{outline:3px solid #ff725c;outline-offset:5px}
+.screenshot-gallery{margin:20px 0 30px;padding:18px;border:1px solid #b76c5744;border-radius:12px;background:#8b33210a}
+.screenshot-heading{display:flex;justify-content:space-between;gap:16px;align-items:baseline;margin-bottom:12px}
+.screenshot-heading h3{margin:0;font-size:18px}.screenshot-count{font-size:12px;color:#baaaa6}
+.screenshot-options{display:flex;gap:8px;flex-wrap:wrap}
+.screenshot-options button{font:inherit;font-size:13px;padding:11px 13px;min-height:44px;border:1px solid #a8756655;border-radius:8px;background:transparent;color:inherit;cursor:pointer;text-align:left}
+.screenshot-options button span{opacity:.65;margin-right:5px;font-size:11px}
+.screenshot-options button[aria-pressed=true]{background:#c42c1c;border-color:#c42c1c;color:white}
+.screenshot-options button:focus-visible{outline:3px solid currentColor;outline-offset:3px}
+.screenshot-gallery>p{font-size:12px;line-height:1.6;color:#baaaa6;margin:12px 0 0}
+[data-theme=light] .project-detail-image:not(.logo-preview) img{background:#eee9e6}
+[data-theme=light] :is(.screenshot-count,.screenshot-gallery>p){color:#675650}
+@media(max-width:600px){.screenshot-heading{flex-direction:column;gap:6px}.screenshot-gallery{padding:12px}.screenshot-options button{flex:1 1 135px}.project-detail-image:not(.logo-preview) img{height:clamp(240px,45vh,420px)}}
+
+.project-dialog .screenshot-original{display:block;width:100%;padding:0;margin:0;border:0;text-decoration:none}.screenshot-gallery{margin-bottom:18px}

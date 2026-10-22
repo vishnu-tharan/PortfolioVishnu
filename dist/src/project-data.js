@@ -1,3 +1,4 @@
+import { projectScreenshots } from './project-screenshots.js?v=20261022-screenshot-galleries-v1';
 // Author: vishnu-tharan. Based on project documentation and confirmed contributions.
 export const projects = [
  {title:'Buyora', type:'E-COMMERCE / FULL-STACK', stack:'Next.js · Spring Boot · PostgreSQL · Redis · Docker',
@@ -54,3 +55,15 @@ export const projects = [
   status:'Development project · movie discovery and trailers; does not stream full films',evidence:'https://github.com/vishnu-tharan/CinemaStream/blob/main/RELEASE_CHECKLIST.md',performanceEvidence:'https://github.com/vishnu-tharan/CinemaStream#guest-mode-and-performance'}
 ];
 
+
+// Repository screenshot sets replace older cover images and logo fallbacks.
+for (const project of projects) {
+ const shots = projectScreenshots[project.title];
+ if (!shots?.length) continue;
+ project.screenshots = shots;
+ project.image = shots[0].src;
+ project.imageAlt = shots[0].alt;
+ project.caption = shots[0].caption;
+ project.imageKind = "screenshot";
+ project.imageLayout = "contain";
+}

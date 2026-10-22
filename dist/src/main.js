@@ -1,7 +1,7 @@
-import { createStage } from './stage.js?v=20261018-project-visuals-v1';
-import { renderProjectGallery, projectDetails } from './projects.js?v=20261018-project-visuals-v1';
-import { projects } from './project-data.js?v=20261018-project-visuals-v1';
-import { motionAllowed, viewTransition } from './transitions.js?v=20261018-project-visuals-v1';
+import { createStage } from './stage.js?v=20261022-screenshot-galleries-v1';
+import { renderProjectGallery, projectDetails, mountProjectScreenshots } from './projects.js?v=20261022-screenshot-galleries-v1';
+import { projects } from './project-data.js?v=20261022-screenshot-galleries-v1';
+import { motionAllowed, viewTransition } from './transitions.js?v=20261022-screenshot-galleries-v1';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 let paused = reduce.matches;
@@ -19,6 +19,7 @@ export function openProject(p, updateURL = true, source = null){
  const show = () => {
   document.querySelector('#app-dialog')?.close();
   document.querySelector('.dialog-content').innerHTML = projectDetails(p);
+  mountProjectScreenshots(dialog, p);
   if(!dialog.open)dialog.showModal();
   dialog.scrollTop = 0;
   document.body.classList.add('dialog-open');

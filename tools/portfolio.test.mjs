@@ -3,9 +3,30 @@ import assert from 'node:assert/strict';
 import { validSnapshot, eventDetails } from '../dist/src/github-data.js';
 import { projects } from '../dist/src/project-data.js';
 import { safeProjectURL, projectDetails } from '../dist/src/projects.js';
+import { readFileSync } from 'node:fs';
 
 const now = Date.now();
 const valid = {time:now,user:{login:'vishnu-tharan',public_repos:12,followers:1,following:1},events:[]};
+
+test('Every gallery image is present, traceable to its repository and uses a safe local URL', () => {
+  const sources = JSON.parse(readFileSync(new URL('../dist/assets/projects/screenshot-sources.json', import.meta.url)));
+  let count = 0;
+  for (const project of projects.filter(item => item.screenshots)) {
+    assert.equal(project.image, project.screenshots[0].src);
+    assert.equal(new Set(project.screenshots.map(shot => shot.src)).size, project.screenshots.length);
+    for (const shot of project.screenshots) {
+      assert.notEqual(safeProjectURL(shot.src, true), '#');
+      const bytes = readFileSync(new URL('../dist/' + shot.src.slice(2), import.meta.url));
+      const source = sources.find(item => shot.src.endsWith('/' + item.file));
+      assert.ok(source?.source.includes('/blob/' + source.commit + '/docs/screenshots/'));
+      assert.ok(shot.alt && shot.caption && shot.width > 0 && shot.height > 0 && bytes.length > 0);
+      count++;
+    }
+    const malicious = {...project, screenshots:[{...project.screenshots[0], label:'<script>alert(1)</script>'}]};
+    assert.ok(!projectDetails(malicious).includes('<script>'));
+  }
+  assert.equal(count, 32);
+});
 
 test('Untrusted event types and path segments cannot crash or redirect the activity feed', () => {
   for (const type of ['constructor', '__proto__', 'toString']) {
