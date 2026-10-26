@@ -1,4 +1,4 @@
-import { projectScreenshots } from './project-screenshots.js?v=20261027-cashmanage-link-v1';
+import { projectScreenshots } from './project-screenshots.js?v=20261027-cv-tools-v1';
 // Author: vishnu-tharan. Based on project documentation and confirmed contributions.
 export const projects = [
  {title:'Buyora', type:'E-COMMERCE / FULL-STACK', stack:'Next.js · Spring Boot · PostgreSQL · Redis · Docker',

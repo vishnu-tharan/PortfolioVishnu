@@ -1,7 +1,7 @@
-import { createStage } from './stage.js?v=20261027-cashmanage-link-v1';
-import { renderProjectGallery, projectDetails, mountProjectScreenshots } from './projects.js?v=20261027-cashmanage-link-v1';
-import { projects } from './project-data.js?v=20261027-cashmanage-link-v1';
-import { motionAllowed, viewTransition } from './transitions.js?v=20261027-cashmanage-link-v1';
+import { createStage } from './stage.js?v=20261027-cv-tools-v1';
+import { renderProjectGallery, projectDetails, mountProjectScreenshots } from './projects.js?v=20261027-cv-tools-v1';
+import { projects } from './project-data.js?v=20261027-cv-tools-v1';
+import { motionAllowed, viewTransition } from './transitions.js?v=20261027-cv-tools-v1';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 let paused = reduce.matches;
