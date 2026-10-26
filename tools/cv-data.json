@@ -8,7 +8,7 @@
   "phone": "+94 77 364 6391",
   "github": "https://github.com/vishnu-tharan",
   "portfolio": "https://vishnu-tharan.github.io/PortfolioVishnu/",
-  "summary": "IT honours undergraduate seeking a software engineering internship. Experience developing web and mobile systems with REST APIs, authentication and databases. Project work includes automated testing, offline synchronization and data-consistency safeguards, with frontend and backend contributions to university group projects.",
+  "summary": "IT honours undergraduate seeking a software engineering internship. Experience in web and mobile projects, REST APIs, databases and automated testing, including frontend and backend group work.",
   "skills": [
     [
       "Languages",
@@ -28,7 +28,15 @@
     ],
     [
       "Tools & testing",
-      "Git, Docker, Linux, GitHub Actions; API validation and regression testing"
+      "Git, Docker, Linux, GitHub Actions; Selenium automation, Postman"
+    ],
+    [
+      "Development environments",
+      "VS Code, IntelliJ IDEA"
+    ],
+    [
+      "Analysis & prototyping",
+      "MATLAB, Jupyter Notebook, Axure RP"
     ]
   ],
   "projects": [
@@ -116,7 +124,10 @@
       ]
     }
   ],
-  "team_project_ids": ["gateway", "agri"],
+  "team_project_ids": [
+    "gateway",
+    "agri"
+  ],
   "education": {
     "degree": "B.Sc. (Hons) in Information Technology",
     "institution": "Faculty of Applied Science, University of Vavuniya",
@@ -133,7 +144,13 @@
     "hackforce-2023": "Salesforce hackathon participation."
   },
   "community": "IEEEXtreme 18.0 organizing committee member. JamporIEEE logistics volunteer. IEEE and AIESEC member, 2023 - present.",
-  "leadership": [{"title": "School Head Prefect", "institution": "J/Uduppiddy American Mission College", "dates": "2020 - 2022"}],
+  "leadership": [
+    {
+      "title": "School Head Prefect",
+      "institution": "J/Uduppiddy American Mission College",
+      "dates": "2020 - 2022"
+    }
+  ],
   "linkedin": "https://www.linkedin.com/in/vishnutharan",
   "references": [
     {
@@ -145,15 +162,57 @@
     }
   ],
   "profiles": {
-    "software": {"label": "Software Engineering", "heading_alignment": "center", "refined_layout": true, "project_ids": ["buyora", "gatepilot", "ceb"]},
+    "software": {
+      "label": "Software Engineering",
+      "heading_alignment": "center",
+      "refined_layout": true,
+      "project_ids": [
+        "buyora",
+        "gatepilot",
+        "ceb"
+      ]
+    },
     "fullstack": {
       "label": "Full-Stack",
       "role": "Full-Stack Developer Intern",
       "heading_alignment": "center",
       "refined_layout": true,
       "summary": "IT honours undergraduate seeking a full-stack development internship. Experience building React and Next.js interfaces with Spring Boot and Express APIs, relational and document databases, authentication and automated tests. Contributed frontend and backend development to university group projects.",
-      "project_ids": ["buyora", "gatepilot", "cashmanage"],
-      "skills": [["Languages", "Java, JavaScript, TypeScript, SQL, HTML, CSS"], ["Frontend", "React, Next.js; React Native, Expo"], ["Backend", "Spring Boot, Node.js, Express, REST APIs"], ["Databases", "PostgreSQL, MongoDB, SQLite"], ["Tools & testing", "Git, Docker, Linux, GitHub Actions; API validation and regression testing"]]
+      "project_ids": [
+        "buyora",
+        "gatepilot",
+        "cashmanage"
+      ],
+      "skills": [
+        [
+          "Languages",
+          "Java, JavaScript, TypeScript, SQL, HTML, CSS"
+        ],
+        [
+          "Frontend",
+          "React, Next.js; React Native, Expo"
+        ],
+        [
+          "Backend",
+          "Spring Boot, Node.js, Express, REST APIs"
+        ],
+        [
+          "Databases",
+          "PostgreSQL, MongoDB, SQLite"
+        ],
+        [
+          "Tools & testing",
+          "Git, Docker, Linux, GitHub Actions; Selenium automation, Postman"
+        ],
+        [
+          "Development environments",
+          "VS Code, IntelliJ IDEA"
+        ],
+        [
+          "Analysis & prototyping",
+          "MATLAB, Jupyter Notebook, Axure RP"
+        ]
+      ]
     },
     "web": {
       "label": "Web Development",
@@ -161,8 +220,41 @@
       "heading_alignment": "center",
       "refined_layout": true,
       "summary": "IT honours undergraduate seeking a web application development internship. Experience building responsive React and Next.js interfaces, integrating REST APIs and developing installable web applications. Project work includes authentication, offline storage and browser-tested workflows.",
-      "project_ids": ["buyora", "cashmanage", "gatepilot"],
-      "skills": [["Languages", "JavaScript, TypeScript, HTML, CSS, SQL"], ["Frontend", "React, Next.js; responsive interfaces and API integration"], ["Backend", "Node.js, Express, Spring Boot, REST APIs"], ["Data & storage", "PostgreSQL, MongoDB, SQLite; offline web storage"], ["Tools & testing", "Git, Docker, Linux, GitHub Actions; browser workflow testing"]]
+      "project_ids": [
+        "buyora",
+        "cashmanage",
+        "gatepilot"
+      ],
+      "skills": [
+        [
+          "Languages",
+          "JavaScript, TypeScript, HTML, CSS, SQL"
+        ],
+        [
+          "Frontend",
+          "React, Next.js; responsive interfaces and API integration"
+        ],
+        [
+          "Backend",
+          "Node.js, Express, Spring Boot, REST APIs"
+        ],
+        [
+          "Data & storage",
+          "PostgreSQL, MongoDB, SQLite; offline web storage"
+        ],
+        [
+          "Tools & testing",
+          "Git, Docker, Linux, GitHub Actions; Selenium automation, Postman"
+        ],
+        [
+          "Development environments",
+          "VS Code, IntelliJ IDEA"
+        ],
+        [
+          "Analysis & prototyping",
+          "MATLAB, Jupyter Notebook, Axure RP"
+        ]
+      ]
     },
     "mobile": {
       "label": "Mobile Apps",
@@ -170,8 +262,41 @@
       "heading_alignment": "center",
       "refined_layout": true,
       "summary": "IT honours undergraduate seeking a mobile app development internship. Experience building React Native and Expo applications with Firebase, per-account offline storage and reconnect synchronization. Project work includes shared web/mobile screens, API integration and automated tests.",
-      "project_ids": ["cinemastream", "gatepilot", "cashmanage"],
-      "skills": [["Languages", "TypeScript, JavaScript"], ["Mobile & web", "React Native, Expo, React, PWA"], ["Data & storage", "Firebase, Firestore, AsyncStorage, MongoDB, SQLite"], ["API integration", "REST APIs, Express; authentication and synchronization"], ["Tools & testing", "Git, Linux, GitHub Actions; unit tests, Firebase emulator rules and offline cache validation"]]
+      "project_ids": [
+        "cinemastream",
+        "gatepilot",
+        "cashmanage"
+      ],
+      "skills": [
+        [
+          "Languages",
+          "TypeScript, JavaScript"
+        ],
+        [
+          "Mobile & web",
+          "React Native, Expo, React, PWA"
+        ],
+        [
+          "Data & storage",
+          "Firebase, Firestore, AsyncStorage, MongoDB, SQLite"
+        ],
+        [
+          "API integration",
+          "REST APIs, Express; authentication and synchronization"
+        ],
+        [
+          "Tools & testing",
+          "Git, Linux, GitHub Actions; Selenium automation, Postman"
+        ],
+        [
+          "Development environments",
+          "VS Code, IntelliJ IDEA"
+        ],
+        [
+          "Analysis & prototyping",
+          "MATLAB, Jupyter Notebook, Axure RP"
+        ]
+      ]
     }
   }
 }
