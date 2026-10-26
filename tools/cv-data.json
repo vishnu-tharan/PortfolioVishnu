@@ -60,8 +60,8 @@
       "name": "cashManage",
       "category": "Personal finance application",
       "stack": "React, JavaScript, Express, SQLite, PWA",
-      "url": "https://github.com/vishnu-tharan/cashManage",
-      "evidence": "https://github.com/vishnu-tharan/cashManage#verification",
+      "url": "https://github.com/vishnu-tharan/CashManage",
+      "evidence": "https://github.com/vishnu-tharan/CashManage#checks",
       "bullets": [
         "Built an installable React PWA with encrypted offline cashbooks, budgets, CSV import and PDF/CSV reports.",
         "Implemented Express/SQLite sharing permissions and sync conflict checks; repository tests cover encryption, account isolation and conflicting edits."
