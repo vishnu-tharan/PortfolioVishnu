@@ -27,7 +27,7 @@ The portfolio keeps its black-and-red cinematic design with animated WebGL backg
 - [Lanka Agri-Direct](https://github.com/dragon-udfly/LankaAgriDirect) — An agricultural marketplace developed as a group project. I helped with frontend development, design and API testing.
 - [GATEWAY](https://github.com/chamikara12/GATEWAY) — Our semester 3.1 group project for University of Vavuniya vehicle records and gate-pass management. I contributed to frontend and backend development.
 - [GatePilot](https://github.com/vishnu-tharan/GatePilot) — A separate access-management prototype with React Native/Expo web and mobile screens, an Express/MongoDB API, equipment approvals, staff QR lookup, reports and configurable workspace settings.
-- [cashManage](https://github.com/vishnu-tharan/cashManage) — Personal cashbooks, budgets, and expense tracking.
+- [cashManage](https://github.com/vishnu-tharan/CashManage) — Personal cashbooks, budgets, and expense tracking.
 - [CEB-Management](https://github.com/vishnu-tharan/CEB-Management) — Household electricity usage tracking and planning.
 - [CinemaStream](https://github.com/vishnu-tharan/CinemaStream) — A mobile movie discovery application.
 

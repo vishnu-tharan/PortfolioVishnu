@@ -1,4 +1,4 @@
-import { projectScreenshots } from './project-screenshots.js?v=20261022-screenshot-galleries-v1';
+import { projectScreenshots } from './project-screenshots.js?v=20261027-cashmanage-link-v1';
 // Author: vishnu-tharan. Based on project documentation and confirmed contributions.
 export const projects = [
  {title:'Buyora', type:'E-COMMERCE / FULL-STACK', stack:'Next.js · Spring Boot · PostgreSQL · Redis · Docker',
@@ -28,12 +28,12 @@ export const projects = [
  {title:'cashManage',type:'PERSONAL FINANCE / PWA',stack:'React · JavaScript · Express · SQLite · PWA',
   summary:'Private cashbooks, budgets and reports with encrypted offline storage.',role:'Full-stack development',
   image:'./assets/projects/cashmanage-overview.png',imageAlt:'cashManage overview showing an empty temporary guest workspace',caption:'Overview · empty guest workspace in a local build',
-  link:'https://github.com/vishnu-tharan/cashManage',
+  link:'https://github.com/vishnu-tharan/CashManage',
   problem:'Bring income, expenses, debts and savings into currency-specific cashbooks that remain usable offline.',
   contribution:'Created an installable React PWA with encrypted local storage, CSV statement import, budgets, debt tracking and PDF/CSV reports. Added an Express and SQLite account server and shared cashbook roles.',
   decision:'Use encrypted vaults for offline data and revision checks for synchronization, so conflicting edits can be reviewed instead of silently overwritten.',
   testing:'Repository tests cover encryption and tampering, transfer balances, recurrence, CSV validation, conflict resolution, PDF pagination and account isolation. Guest UI checks are documented; device installation and live Google integration remain separate checks.',
-  status:'Development project · records finances; does not process payments',evidence:'https://github.com/vishnu-tharan/cashManage#verification'},
+  status:'Development project · records finances; does not process payments',evidence:'https://github.com/vishnu-tharan/CashManage#checks'},
  {title:'Lanka Agri-Direct', image:'./assets/projects/agri-symbol.svg', imageKind:'logo', imageAlt:'Leaf symbol representing Lanka Agri-Direct', caption:'Portfolio leaf symbol · represents the agricultural marketplace group project',type:'GROUP PROJECT / TEAM MEMBER',stack:'Spring Boot · React · React Native · MongoDB · Docker',
   summary:'A team-built marketplace connecting Sri Lankan growers and consumers.',role:'Frontend, design and API testing',link:'https://github.com/dragon-udfly/LankaAgriDirect',
   problem:'Help agricultural producers connect with consumers through a direct-to-consumer marketplace.',

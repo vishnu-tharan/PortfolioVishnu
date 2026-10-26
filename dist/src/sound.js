@@ -1,4 +1,4 @@
-import { toast } from './os.js?v=20261022-screenshot-galleries-v1';
+import { toast } from './os.js?v=20261027-cashmanage-link-v1';
 
 let enabled = false;
 let context;
