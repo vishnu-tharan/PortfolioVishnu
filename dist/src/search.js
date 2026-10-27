@@ -1,6 +1,6 @@
-import { projects } from './project-data.js?v=20261027-project-refresh-v1';
-import { certificates } from './certificate-data.js?v=20261027-project-refresh-v1';
-import { escape, openProject, openTerminal } from './os.js?v=20261027-project-refresh-v1';
+import { projects } from './project-data.js?v=20261027-skills-cleanup-v1';
+import { certificates } from './certificate-data.js?v=20261027-skills-cleanup-v1';
+import { escape, openProject, openTerminal } from './os.js?v=20261027-skills-cleanup-v1';
 
 const dialog = document.querySelector('#search-dialog');
 const input = document.querySelector('#os-search');
@@ -11,7 +11,7 @@ let previousFocus;
 const entries = [
   ...projects.map(project => ({title:project.title, description:project.summary, keywords:[project.stack, project.type, project.role, project.problem, project.contribution].join(' '), type:'Project', icon:'▦', action:() => openProject(project)})),
   ...certificates.map(certificate => ({title:certificate.title,description:`${certificate.kind} · ${certificate.issuer} · ${certificate.date.slice(0,4)}`,keywords:[certificate.description,certificate.date,'certificate recognition'].join(' '),type:'Certificate',icon:'≡',action:() => navigate(`#certificate-${certificate.id}`)})),
-  {title:'Technical skills',description:'Frontend, mobile, backend, databases, languages & tools',keywords:'React Next.js Spring Boot Java Python SQL Docker Git Firebase TypeScript',type:'Section',icon:'</>',action:() => navigate('#universe')},
+  {title:'Technical skills',description:'Frontend, mobile, backend, databases, languages & tools',keywords:'React Next.js Spring Boot Java Python SQL Docker Git Firebase',type:'Section',icon:'</>',action:() => navigate('#universe')},
   {title:'Education & journey',description:'B.Sc. (Hons) IT · University of Vavuniya · 2023–Present',keywords:'honours university degree academic coursework database algorithms',type:'Section',icon:'◈',action:() => navigate('#beyond')},
   {title:'Certificates & recognition',description:'Courses, workshops, competitions and awards with certificate files',keywords:'certificate certification networking academy learning',type:'Section',icon:'≡',action:() => navigate('#certificates')},
   {title:'Community & competitions',description:'IEEE, AIESEC, IEEEXtreme, volunteering & leadership',keywords:'TheChiefs JamporIEEE camera club hackathon team',type:'Section',icon:'✳',action:() => navigate('#beyond')},

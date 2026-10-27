@@ -1,4 +1,4 @@
-import { toast } from './os.js?v=20261027-project-refresh-v1';
+import { toast } from './os.js?v=20261027-skills-cleanup-v1';
 
 let enabled = false;
 let context;

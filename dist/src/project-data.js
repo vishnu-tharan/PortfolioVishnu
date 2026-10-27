@@ -1,4 +1,4 @@
-import { projectScreenshots } from './project-screenshots.js?v=20261027-project-refresh-v1';
+import { projectScreenshots } from './project-screenshots.js?v=20261027-skills-cleanup-v1';
 // Project descriptions reviewed against current repository source on 27 October 2026.
 export const projects = [
   {

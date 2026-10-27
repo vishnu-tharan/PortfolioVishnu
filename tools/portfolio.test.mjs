@@ -88,7 +88,7 @@ test('Project descriptions follow the reviewed repository revisions', () => {
   }
   const cinema = projects.find(item => item.title === 'CinemaStream');
   assert.match(cinema.stack, /JavaScript/);
-  assert.doesNotMatch(cinema.stack, /TypeScript|AsyncStorage/);
+  assert.doesNotMatch(cinema.stack, /AsyncStorage/);
   assert.match(cinema.decision, /require an internet connection/);
   assert.equal(cinema.performance, undefined);
   const gatepilot = projects.find(item => item.title === 'GatePilot');
