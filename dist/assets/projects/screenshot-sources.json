@@ -7,39 +7,11 @@
     "source": "https://github.com/vishnu-tharan/Buyora/blob/3db4dda77a9336791ed7d05c1cc2c5c75ae3152b/docs/screenshots/desktop-home.png"
   },
   {
-    "file": "buyora-desktop-catalog.png",
-    "repository": "vishnu-tharan/Buyora",
-    "commit": "3db4dda77a9336791ed7d05c1cc2c5c75ae3152b",
-    "blob": "c3d27a6ccf7fb0ff73667de5295538bf06af1a6e",
-    "source": "https://github.com/vishnu-tharan/Buyora/blob/3db4dda77a9336791ed7d05c1cc2c5c75ae3152b/docs/screenshots/desktop-catalog.png"
-  },
-  {
     "file": "buyora-desktop-product.png",
     "repository": "vishnu-tharan/Buyora",
     "commit": "3db4dda77a9336791ed7d05c1cc2c5c75ae3152b",
     "blob": "6c0aba479840dc8020021bcfaf794fa5c9533564",
     "source": "https://github.com/vishnu-tharan/Buyora/blob/3db4dda77a9336791ed7d05c1cc2c5c75ae3152b/docs/screenshots/desktop-product.png"
-  },
-  {
-    "file": "buyora-desktop-wishlist.png",
-    "repository": "vishnu-tharan/Buyora",
-    "commit": "3db4dda77a9336791ed7d05c1cc2c5c75ae3152b",
-    "blob": "c03437307289a6b9dff2d1b49f060d2d8e54ab1a",
-    "source": "https://github.com/vishnu-tharan/Buyora/blob/3db4dda77a9336791ed7d05c1cc2c5c75ae3152b/docs/screenshots/desktop-wishlist.png"
-  },
-  {
-    "file": "buyora-desktop-cart.png",
-    "repository": "vishnu-tharan/Buyora",
-    "commit": "3db4dda77a9336791ed7d05c1cc2c5c75ae3152b",
-    "blob": "a51091c7d61e476639a9dbcfed3a542808c55200",
-    "source": "https://github.com/vishnu-tharan/Buyora/blob/3db4dda77a9336791ed7d05c1cc2c5c75ae3152b/docs/screenshots/desktop-cart.png"
-  },
-  {
-    "file": "buyora-desktop-checkout.png",
-    "repository": "vishnu-tharan/Buyora",
-    "commit": "3db4dda77a9336791ed7d05c1cc2c5c75ae3152b",
-    "blob": "06eb41a8adcc1b57afd2974ba1125dc223504c9c",
-    "source": "https://github.com/vishnu-tharan/Buyora/blob/3db4dda77a9336791ed7d05c1cc2c5c75ae3152b/docs/screenshots/desktop-checkout.png"
   },
   {
     "file": "buyora-mobile-home.png",
@@ -49,32 +21,11 @@
     "source": "https://github.com/vishnu-tharan/Buyora/blob/3db4dda77a9336791ed7d05c1cc2c5c75ae3152b/docs/screenshots/mobile-home.png"
   },
   {
-    "file": "buyora-mobile-product.png",
-    "repository": "vishnu-tharan/Buyora",
-    "commit": "3db4dda77a9336791ed7d05c1cc2c5c75ae3152b",
-    "blob": "06216d5de0983efb66d6a52f6660b756c9afc283",
-    "source": "https://github.com/vishnu-tharan/Buyora/blob/3db4dda77a9336791ed7d05c1cc2c5c75ae3152b/docs/screenshots/mobile-product.png"
-  },
-  {
-    "file": "buyora-desktop-home-full.jpg",
-    "repository": "vishnu-tharan/Buyora",
-    "commit": "3db4dda77a9336791ed7d05c1cc2c5c75ae3152b",
-    "blob": "fa3e9f5b7bc6eff8aa189773260b7e3242e973b5",
-    "source": "https://github.com/vishnu-tharan/Buyora/blob/3db4dda77a9336791ed7d05c1cc2c5c75ae3152b/docs/screenshots/desktop-home-full.jpg"
-  },
-  {
     "file": "gatepilot-02-dashboard.png",
     "repository": "vishnu-tharan/GatePilot",
     "commit": "94f5c069dad296877cd321bdfa54275ed7b95ba6",
     "blob": "e0d4de59153f1297c99aece157d27a2d5b9ea03f",
     "source": "https://github.com/vishnu-tharan/GatePilot/blob/94f5c069dad296877cd321bdfa54275ed7b95ba6/docs/screenshots/02-dashboard.png"
-  },
-  {
-    "file": "gatepilot-03-vehicle-records.png",
-    "repository": "vishnu-tharan/GatePilot",
-    "commit": "94f5c069dad296877cd321bdfa54275ed7b95ba6",
-    "blob": "963bb4d57b935ddfd4f395f7b4d7cf8a0b42612b",
-    "source": "https://github.com/vishnu-tharan/GatePilot/blob/94f5c069dad296877cd321bdfa54275ed7b95ba6/docs/screenshots/03-vehicle-records.png"
   },
   {
     "file": "gatepilot-04-equipment-approvals.png",
@@ -84,39 +35,11 @@
     "source": "https://github.com/vishnu-tharan/GatePilot/blob/94f5c069dad296877cd321bdfa54275ed7b95ba6/docs/screenshots/04-equipment-approvals.png"
   },
   {
-    "file": "gatepilot-05-vehicle-exit.png",
-    "repository": "vishnu-tharan/GatePilot",
-    "commit": "94f5c069dad296877cd321bdfa54275ed7b95ba6",
-    "blob": "63d8beb37140dcbb7cefc112c0bc05f3fc2ee32f",
-    "source": "https://github.com/vishnu-tharan/GatePilot/blob/94f5c069dad296877cd321bdfa54275ed7b95ba6/docs/screenshots/05-vehicle-exit.png"
-  },
-  {
-    "file": "gatepilot-08-vehicle-entry.png",
-    "repository": "vishnu-tharan/GatePilot",
-    "commit": "94f5c069dad296877cd321bdfa54275ed7b95ba6",
-    "blob": "b3c84936655b39547717bf4da28feec376c5fc50",
-    "source": "https://github.com/vishnu-tharan/GatePilot/blob/94f5c069dad296877cd321bdfa54275ed7b95ba6/docs/screenshots/08-vehicle-entry.png"
-  },
-  {
-    "file": "gatepilot-06-organization-settings.png",
-    "repository": "vishnu-tharan/GatePilot",
-    "commit": "94f5c069dad296877cd321bdfa54275ed7b95ba6",
-    "blob": "3d20a5ce4157980e97d3c58f7b86d9d2483c3009",
-    "source": "https://github.com/vishnu-tharan/GatePilot/blob/94f5c069dad296877cd321bdfa54275ed7b95ba6/docs/screenshots/06-organization-settings.png"
-  },
-  {
     "file": "gatepilot-07-mobile-dashboard.png",
     "repository": "vishnu-tharan/GatePilot",
     "commit": "94f5c069dad296877cd321bdfa54275ed7b95ba6",
     "blob": "f290330f67ee68bacbd3ec2300750b08afa7f066",
     "source": "https://github.com/vishnu-tharan/GatePilot/blob/94f5c069dad296877cd321bdfa54275ed7b95ba6/docs/screenshots/07-mobile-dashboard.png"
-  },
-  {
-    "file": "gatepilot-01-sign-in.png",
-    "repository": "vishnu-tharan/GatePilot",
-    "commit": "94f5c069dad296877cd321bdfa54275ed7b95ba6",
-    "blob": "b0e676018c4665db55a8877a20362f969abbc8d6",
-    "source": "https://github.com/vishnu-tharan/GatePilot/blob/94f5c069dad296877cd321bdfa54275ed7b95ba6/docs/screenshots/01-sign-in.png"
   },
   {
     "file": "cinemastream-movies.jpg",
@@ -133,25 +56,11 @@
     "source": "https://github.com/vishnu-tharan/CinemaStream/blob/abc97b57ac3e454cbfa55c797b3d8c421d2f2ba3/docs/screenshots/details.jpg"
   },
   {
-    "file": "cinemastream-collection.jpg",
-    "repository": "vishnu-tharan/CinemaStream",
-    "commit": "abc97b57ac3e454cbfa55c797b3d8c421d2f2ba3",
-    "blob": "1797474c189ca1e7235d990ba4a864ab1d24b259",
-    "source": "https://github.com/vishnu-tharan/CinemaStream/blob/abc97b57ac3e454cbfa55c797b3d8c421d2f2ba3/docs/screenshots/collection.jpg"
-  },
-  {
     "file": "cinemastream-mobile.jpg",
     "repository": "vishnu-tharan/CinemaStream",
     "commit": "abc97b57ac3e454cbfa55c797b3d8c421d2f2ba3",
     "blob": "76303a544a5a8728999a47acec8e841d8a3cf8b4",
     "source": "https://github.com/vishnu-tharan/CinemaStream/blob/abc97b57ac3e454cbfa55c797b3d8c421d2f2ba3/docs/screenshots/mobile.jpg"
-  },
-  {
-    "file": "cinemastream-login.jpg",
-    "repository": "vishnu-tharan/CinemaStream",
-    "commit": "abc97b57ac3e454cbfa55c797b3d8c421d2f2ba3",
-    "blob": "f455840473e9a8d05439c96d9e56fc660c53cd6e",
-    "source": "https://github.com/vishnu-tharan/CinemaStream/blob/abc97b57ac3e454cbfa55c797b3d8c421d2f2ba3/docs/screenshots/login.jpg"
   },
   {
     "file": "ceb-management-dashboard-desktop.jpg",
@@ -161,13 +70,6 @@
     "source": "https://github.com/vishnu-tharan/CEB-Management/blob/e708d978a9b13e72d0b193a38bfc11095c44fa61/docs/screenshots/dashboard-desktop.jpg"
   },
   {
-    "file": "ceb-management-appliances-desktop.jpg",
-    "repository": "vishnu-tharan/CEB-Management",
-    "commit": "e708d978a9b13e72d0b193a38bfc11095c44fa61",
-    "blob": "92bb6aeb86d22915e4d118412ac21ba1d95417ec",
-    "source": "https://github.com/vishnu-tharan/CEB-Management/blob/e708d978a9b13e72d0b193a38bfc11095c44fa61/docs/screenshots/appliances-desktop.jpg"
-  },
-  {
     "file": "ceb-management-bill-estimator-desktop.jpg",
     "repository": "vishnu-tharan/CEB-Management",
     "commit": "e708d978a9b13e72d0b193a38bfc11095c44fa61",
@@ -175,31 +77,10 @@
     "source": "https://github.com/vishnu-tharan/CEB-Management/blob/e708d978a9b13e72d0b193a38bfc11095c44fa61/docs/screenshots/bill-estimator-desktop.jpg"
   },
   {
-    "file": "ceb-management-meter-readings-desktop.jpg",
-    "repository": "vishnu-tharan/CEB-Management",
-    "commit": "e708d978a9b13e72d0b193a38bfc11095c44fa61",
-    "blob": "b2785c368fd10c8a2ce7242f59525b544502cf2f",
-    "source": "https://github.com/vishnu-tharan/CEB-Management/blob/e708d978a9b13e72d0b193a38bfc11095c44fa61/docs/screenshots/meter-readings-desktop.jpg"
-  },
-  {
     "file": "ceb-management-dashboard-mobile.jpg",
     "repository": "vishnu-tharan/CEB-Management",
     "commit": "e708d978a9b13e72d0b193a38bfc11095c44fa61",
     "blob": "9fad0dd03ac661a5f3d52e9abc7aeee3a95398f9",
     "source": "https://github.com/vishnu-tharan/CEB-Management/blob/e708d978a9b13e72d0b193a38bfc11095c44fa61/docs/screenshots/dashboard-mobile.jpg"
-  },
-  {
-    "file": "ceb-management-dashboard-mobile-dark.jpg",
-    "repository": "vishnu-tharan/CEB-Management",
-    "commit": "e708d978a9b13e72d0b193a38bfc11095c44fa61",
-    "blob": "459060a4fc70f8f011457ecc00b3475a4ea0eb12",
-    "source": "https://github.com/vishnu-tharan/CEB-Management/blob/e708d978a9b13e72d0b193a38bfc11095c44fa61/docs/screenshots/dashboard-mobile-dark.jpg"
-  },
-  {
-    "file": "ceb-management-sign-in-desktop.jpg",
-    "repository": "vishnu-tharan/CEB-Management",
-    "commit": "e708d978a9b13e72d0b193a38bfc11095c44fa61",
-    "blob": "cf74170db50322dca81150890c24c3096bd0f457",
-    "source": "https://github.com/vishnu-tharan/CEB-Management/blob/e708d978a9b13e72d0b193a38bfc11095c44fa61/docs/screenshots/sign-in-desktop.jpg"
   }
 ]
