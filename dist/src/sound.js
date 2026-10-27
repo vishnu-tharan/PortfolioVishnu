@@ -1,4 +1,4 @@
-import { toast } from './os.js?v=20261027-verified-features-v1';
+import { toast } from './os.js?v=20261027-common-cv-v1';
 
 let enabled = false;
 let context;

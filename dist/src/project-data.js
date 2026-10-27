@@ -1,4 +1,4 @@
-import { projectScreenshots } from './project-screenshots.js?v=20261027-verified-features-v1';
+import { projectScreenshots } from './project-screenshots.js?v=20261027-common-cv-v1';
 // Current descriptions are limited to implemented screens and routes.
 export const projects = [
   {
