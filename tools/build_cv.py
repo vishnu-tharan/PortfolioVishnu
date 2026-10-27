@@ -28,10 +28,10 @@ BASE = 'Vishnutharan-Bavachelvan-CV'
 CATALOG = {project['id']: project for project in DATA['projects']}
 PROFILES = DATA['profiles']
 DEFAULT_PROFILE = DATA['default_profile']
-FILE_SUFFIXES = {'software': 'SoftwareEngineering', 'fullstack': 'FullStack', 'web': 'Web', 'mobile': 'Mobile'}
+FILE_SUFFIXES = {'general': 'General'}
 CERTIFICATES = json.loads((ROOT / 'tools/certificate-data.json').read_text(encoding='utf-8'))
 if len(CATALOG) != len(DATA['projects']) or set(PROFILES) != set(FILE_SUFFIXES) or DEFAULT_PROFILE not in PROFILES:
-    raise ValueError('CV project IDs must be unique; software, fullstack, web and mobile profiles must exist with a valid default.')
+    raise ValueError('CV project IDs must be unique; a general profile must exist with a valid default.')
 
 font_dir = Path('C:/Windows/Fonts')
 if all((font_dir / name).exists() for name in ['calibri.ttf', 'calibrib.ttf']):
@@ -181,7 +181,9 @@ def build(key, profile):
     def header(text, style):
         return Paragraph(text, ParagraphStyle(f'{key}-header-{style}', parent=document_styles[style], alignment=1 if centered else 0))
     story = []
-    story.extend([header(escape(display_name), 'name'), header(escape(role), 'role')])
+    story.append(header(escape(display_name), 'name'))
+    if role:
+        story.append(header(escape(role), 'role'))
     contact = f'{pdf_link("mailto:" + DATA["email"], DATA["email"])} | {pdf_link("tel:" + DATA["phone"].replace(" ", ""), DATA["phone"])}'
     story.append(header(contact, 'contact'))
     story.append(header(f'{pdf_link(DATA["github"], "GitHub" if refined else "github.com/vishnu-tharan")} | {pdf_link(DATA["portfolio"], "Portfolio" if refined else "vishnu-tharan.github.io/PortfolioVishnu")} | {pdf_link(DATA["linkedin"], "LinkedIn")}', 'contact'))
@@ -227,7 +229,7 @@ def build(key, profile):
         story.append(KeepTogether(reference_block))
     output = OUTPUT / filename
     document = SimpleDocTemplate(str(output), pagesize=A4, rightMargin=42, leftMargin=42, topMargin=38, bottomMargin=54,
-                                 title=f'{DATA["name"]} - {profile["label"]} CV', author=DATA['name'], subject=role)
+                                 title=f'{DATA["name"]} - {profile["label"]} CV', author=DATA['name'], subject=role or 'Curriculum Vitae')
     document.build(story, onFirstPage=page_footer, onLaterPages=page_footer)
     if len(PdfReader(output).pages) != 2:
         raise ValueError(f'{filename} must have two readable pages. Check content and spacing before publishing.')
@@ -238,6 +240,8 @@ def build(key, profile):
         label = value['label'] + (' (Main)' if other == DEFAULT_PROFILE else '')
         choices.append(f'<a href="./{navigation_page(other)}"{current}>{escape(label)}</a>')
     choices = ''.join(choices)
+    versions_html = f'<nav class="cv-versions" aria-label="CV versions">{choices}</nav>' if len(PROFILES) > 1 else ''
+    role_html = f'<p class="cv-role">{escape(role)}</p>' if role else ''
     skills_html = ''.join(f'<div><dt>{escape(label)}</dt><dd>{escape(value)}</dd></div>' for label, value in skills)
     other_html = '<section class="cv-other-developments"><h2>Other developments</h2><p>' + ' · '.join(html_link(project['url'], project['name']) for project in others) + '</p></section>' if others else ''
     team_html = ''.join(f'<article class="cv-team-project"><h3>{html_link(team["url"], team["name"])}<span>{escape(team["category"])}</span></h3>' + (f'<p class="cv-stack">{escape(team["dates"])}</p>' if team.get('dates') else '') + ''.join(f'<p>{escape(bullet)}</p>' for bullet in team['bullets']) + '</article>' for team in teams)
@@ -254,9 +258,9 @@ def build(key, profile):
 <script src="./src/theme-init.js"></script><link rel="stylesheet" href="./theme.css"><link rel="stylesheet" href="./cv.css"><link rel="stylesheet" href="./cv-theme.css">
 </head><body class="cv-page">
 <nav class="cv-toolbar" aria-label="CV navigation"><a href="./index.html">&#8592; Back to portfolio</a><div class="cv-toolbar-actions"><button class="cv-theme-toggle" type="button" data-theme-toggle aria-label="Switch theme" aria-pressed="false">◐</button><a class="cv-button" href="./assets/{filename}" download>Download CV <span>PDF &#8595;</span></a></div></nav>
-<nav class="cv-versions" aria-label="CV versions">{choices}</nav>
+{versions_html}
 <main class="cv-sheet{' cv-sheet-refined' if refined else ''}">
-<header class="cv-heading{' cv-heading-centered' if centered else ''}"><h1>{escape(display_name)}</h1><p class="cv-role">{escape(role)}</p>
+<header class="cv-heading{' cv-heading-centered' if centered else ''}"><h1>{escape(display_name)}</h1>{role_html}
 <div class="cv-contact">{html_link('mailto:' + DATA['email'], DATA['email'])} {html_link('tel:' + DATA['phone'].replace(' ', ''), DATA['phone'])} {html_link(DATA['github'], 'GitHub / vishnu-tharan')} {html_link(DATA['portfolio'], 'Portfolio')} {html_link(DATA['linkedin'], 'LinkedIn')}</div></header>
 <section><h2>Profile</h2><p>{escape(summary)}</p></section>
 <section><h2>Education</h2><h3>{escape(education['degree'])}<span>{escape(education_text())}</span></h3><p>{escape(education['institution'])}</p><p>{escape(education['detail'])}</p></section>
@@ -280,15 +284,12 @@ def build(key, profile):
 
 requested = sys.argv[1:] or list(PROFILES)
 if len(set(requested)) != len(requested) or any(key not in PROFILES for key in requested):
-    raise SystemExit('Choose distinct profiles: software fullstack web mobile')
+    raise SystemExit('Choose profile: general')
 for key in requested:
     build(key, PROFILES[key])
-for legacy, target in {'cv-frontend.html': 'cv-web.html', 'cv-backend.html': 'cv-software.html'}.items():
-    (ROOT / 'dist' / legacy).write_text(f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0;url=./{target}"><title>CV moved | {escape(DATA["name"])}</title></head><body><p>This CV is now available at <a href="./{target}">the updated internship CV page</a>.</p></body></html>\n', encoding='utf-8')
-
-# Keep legacy download URLs in sync with their replacement roles.
-for old, new in {"Frontend": "Web", "Backend": "SoftwareEngineering"}.items():
+# Older URLs continue to serve the common CV without exposing separate role versions.
+for legacy in ['software', 'fullstack', 'web', 'mobile', 'frontend', 'backend']:
+    (ROOT / 'dist' / f'cv-{legacy}.html').write_text(f'<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="refresh" content="0;url=./cv.html"><title>Curriculum Vitae | {escape(DATA["name"])}</title></head><body><p>Read or download my <a href="./cv.html">current CV</a>.</p></body></html>\n', encoding='utf-8')
+for suffix in ['SoftwareEngineering', 'FullStack', 'Web', 'Mobile', 'Frontend', 'Backend']:
     for directory in [OUTPUT, ASSETS]:
-        source = directory / f"{BASE}-{new}.pdf"
-        if source.exists():
-            shutil.copyfile(source, directory / f"{BASE}-{old}.pdf")
+        shutil.copyfile(directory / f'{BASE}.pdf', directory / f'{BASE}-{suffix}.pdf')

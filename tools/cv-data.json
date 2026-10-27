@@ -1,14 +1,14 @@
 {
   "author": "vishnu-tharan",
   "name": "Vishnutharan Bavachelvan",
-  "role": "Software Engineering Intern",
-  "default_profile": "software",
+  "role": "",
+  "default_profile": "general",
   "uppercase_name": true,
   "email": "vtharan.b@gmail.com",
   "phone": "+94 77 364 6391",
   "github": "https://github.com/vishnu-tharan",
   "portfolio": "https://vishnu-tharan.github.io/PortfolioVishnu/",
-  "summary": "IT honours undergraduate seeking a software engineering internship. Experience in web and mobile projects, REST APIs, databases and automated testing, including frontend and backend group work.",
+  "summary": "IT honours undergraduate with practical experience in programming, web and mobile applications, API integration and databases. Contributed to individual and university group projects, with experience in software testing and collaborative development.",
   "skills": [
     [
       "Languages",
@@ -162,140 +162,14 @@
     }
   ],
   "profiles": {
-    "software": {
-      "label": "Software Engineering",
+    "general": {
+      "label": "General",
       "heading_alignment": "center",
       "refined_layout": true,
       "project_ids": [
         "buyora",
         "gatepilot",
         "ceb"
-      ]
-    },
-    "fullstack": {
-      "label": "Full-Stack",
-      "role": "Full-Stack Developer Intern",
-      "heading_alignment": "center",
-      "refined_layout": true,
-      "summary": "IT honours undergraduate seeking a full-stack development internship. Experience building React and Next.js interfaces with Spring Boot and Express APIs, relational and document databases, authentication and automated tests. Contributed frontend and backend development to university group projects.",
-      "project_ids": [
-        "buyora",
-        "gatepilot",
-        "cashmanage"
-      ],
-      "skills": [
-        [
-          "Languages",
-          "Java, JavaScript, C++, C, Python, SQL, HTML, CSS"
-        ],
-        [
-          "Frontend",
-          "React, Next.js; React Native, Expo"
-        ],
-        [
-          "Backend",
-          "Spring Boot, Node.js, Express, REST APIs"
-        ],
-        [
-          "Databases",
-          "PostgreSQL, MongoDB, SQLite"
-        ],
-        [
-          "Tools & testing",
-          "Git, Docker, Linux, GitHub Actions; Selenium automation, Postman"
-        ],
-        [
-          "Development environments",
-          "VS Code, IntelliJ IDEA"
-        ],
-        [
-          "Analysis & prototyping",
-          "MATLAB, Jupyter Notebook, Axure RP"
-        ]
-      ]
-    },
-    "web": {
-      "label": "Web Development",
-      "role": "Web Application Developer Intern",
-      "heading_alignment": "center",
-      "refined_layout": true,
-      "summary": "IT honours undergraduate seeking a web application development internship. Experience building responsive React and Next.js interfaces, integrating REST APIs and developing installable web applications. Project work includes authentication, offline storage and browser-tested workflows.",
-      "project_ids": [
-        "buyora",
-        "cashmanage",
-        "gatepilot"
-      ],
-      "skills": [
-        [
-          "Languages",
-          "Java, JavaScript, C++, C, Python, SQL, HTML, CSS"
-        ],
-        [
-          "Frontend",
-          "React, Next.js; responsive interfaces and API integration"
-        ],
-        [
-          "Backend",
-          "Node.js, Express, Spring Boot, REST APIs"
-        ],
-        [
-          "Data & storage",
-          "PostgreSQL, MongoDB, SQLite; offline web storage"
-        ],
-        [
-          "Tools & testing",
-          "Git, Docker, Linux, GitHub Actions; Selenium automation, Postman"
-        ],
-        [
-          "Development environments",
-          "VS Code, IntelliJ IDEA"
-        ],
-        [
-          "Analysis & prototyping",
-          "MATLAB, Jupyter Notebook, Axure RP"
-        ]
-      ]
-    },
-    "mobile": {
-      "label": "Mobile Apps",
-      "role": "Mobile App Developer Intern",
-      "heading_alignment": "center",
-      "refined_layout": true,
-      "summary": "IT honours undergraduate seeking a mobile app development internship. Experience building React Native and Expo interfaces, integrating APIs and Firebase, and implementing authentication and per-account collections. Contributed to shared web/mobile and university group projects.",
-      "project_ids": [
-        "cinemastream",
-        "gatepilot",
-        "cashmanage"
-      ],
-      "skills": [
-        [
-          "Languages",
-          "Java, JavaScript, C++, C, Python, SQL, HTML, CSS"
-        ],
-        [
-          "Mobile & web",
-          "React Native, Expo, React, PWA"
-        ],
-        [
-          "Data & storage",
-          "Firebase, Firestore, AsyncStorage, MongoDB, SQLite"
-        ],
-        [
-          "API integration",
-          "REST APIs, Express; authentication and account-scoped data"
-        ],
-        [
-          "Tools & testing",
-          "Git, Linux, GitHub Actions; Selenium automation, Postman"
-        ],
-        [
-          "Development environments",
-          "VS Code, IntelliJ IDEA"
-        ],
-        [
-          "Analysis & prototyping",
-          "MATLAB, Jupyter Notebook, Axure RP"
-        ]
       ]
     }
   }

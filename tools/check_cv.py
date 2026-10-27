@@ -32,10 +32,11 @@ def grayscale(color):
         return True
     return color is not None and len(color) == 3 and max(color) - min(color) < 0.001
 
-suffixes = {'software': 'SoftwareEngineering', 'fullstack': 'FullStack', 'web': 'Web', 'mobile': 'Mobile'}
-assert set(DATA['profiles']) == set(suffixes), 'Expected four distinct internship roles'
-assert DATA['default_profile'] == 'software', 'The main CV must be Software Engineering'
-assert 'ceb' in DATA['profiles']['software']['project_ids'] and 'cinemastream' not in DATA['profiles']['software']['project_ids'], 'Main CV must feature CEB instead of CinemaStream'
+suffixes = {'general': 'General'}
+assert set(DATA['profiles']) == set(suffixes), 'Expected one common CV'
+assert DATA['default_profile'] == 'general', 'The main CV must be general'
+assert not DATA['role'], 'The common CV must not have a role title'
+assert 'ceb' in DATA['profiles']['general']['project_ids'], 'Main project selection must retain CEB'
 for key, profile in DATA['profiles'].items():
     filename = f'Vishnutharan-Bavachelvan-CV-{suffixes[key]}.pdf'
     html_name = f'cv-{key}.html'
@@ -46,6 +47,8 @@ for key, profile in DATA['profiles'].items():
     assert DATA['name'] in text and DATA['education']['expected_graduation'] in text
     assert profile.get('role', DATA['role']) in text
     normalized = ' '.join(text.split())
+    assert all(title not in text for title in ['Software Engineering Intern', 'Full-Stack Developer Intern', 'Web Application Developer Intern', 'Mobile App Developer Intern'])
+    assert not any(phrase in normalized.lower() for phrase in ['seeking a software', 'seeking a full-stack', 'seeking a web application', 'seeking a mobile app'])
     assert 'Applicant' not in text and 'Remote worldwide' not in text and 'On-site in Sri Lanka' not in text, f'{filename}: outdated header wording'
     assert ' '.join(profile.get('summary', DATA['summary']).split()) in normalized
     for label, value in profile.get('skills', DATA['skills']):
@@ -99,7 +102,7 @@ for key, profile in DATA['profiles'].items():
         if profile.get('heading_alignment') == 'center':
             first = document.pages[0]
             display_name = DATA['name'].upper() if DATA.get('uppercase_name') else DATA['name']
-            for heading in [display_name, profile.get('role', DATA['role'])]:
+            for heading in filter(None, [display_name, profile.get('role', DATA['role'])]):
                 matches = [match for match in first.search(heading, regex=False) if match['top'] < 130]
                 assert len(matches) == 1 and abs((matches[0]['x0'] + matches[0]['x1']) / 2 - first.width / 2) < 1, f'{filename}: header should be centered'
             assert first.search('PROFILE', regex=False)[0]['x0'] < 55, f'{filename}: body should stay left aligned'
@@ -113,9 +116,8 @@ for key, profile in DATA['profiles'].items():
     page = Page(); page.feed(html)
     assert [urlsplit(url).path for url in page.downloads] == [f'./assets/{filename}'], f'{html_name}: incorrect PDF download'
     selected_page = 'cv.html' if key == DATA['default_profile'] else html_name
-    assert page.current == [f'./{selected_page}'], f'{html_name}: incorrect selected version'
-    expected_versions = ['./cv.html' if version == DATA['default_profile'] else f'./cv-{version}.html' for version in DATA['profiles']]
-    assert page.versions == expected_versions, f'{html_name}: incomplete role navigation'
+    assert page.current == [] and page.versions == [], f'{html_name}: common CV should have no role navigation'
+    assert 'cv-role' not in html, f'{html_name}: role heading should be absent'
     assert all(name in html for name in names)
     other_html = '<section class="cv-other-developments"><h2>Other developments</h2><p>' + ' · '.join(f'<a href="{escape(project["url"], quote=True)}">{escape(project["name"])}</a>' for project in others) + '</p></section>'
     assert other_html in html, f'{html_name}: other developments must contain only project names'
@@ -130,15 +132,18 @@ for key, profile in DATA['profiles'].items():
     assert 'cv-focus' not in html and 'cv-availability' not in html and 'Applicant' not in html, f'{html_name}: heading should contain only role and contact details'
     assert 'GATEWAY-UniversityOfVavuniya' not in html, f'{html_name}: copied Gateway repository still linked'
     assert pdf.read_bytes() == (ROOT / 'output/pdf' / filename).read_bytes(), f'{filename}: stale published PDF'
-    print(f'{key}: two readable monochrome pages, all certificates, leadership and final reference, matching role download')
+    print(f'{key}: two readable monochrome pages, no role heading, all certificates, leadership and reference')
 
 main_filename = 'Vishnutharan-Bavachelvan-CV.pdf'
-software_filename = 'Vishnutharan-Bavachelvan-CV-SoftwareEngineering.pdf'
+general_filename = 'Vishnutharan-Bavachelvan-CV-General.pdf'
 for directory in ['dist/assets', 'output/pdf']:
-    assert (ROOT / directory / main_filename).read_bytes() == (ROOT / directory / software_filename).read_bytes(), 'Default download must be the Software Engineering PDF'
-software_html = (ROOT / 'dist/cv-software.html').read_text(encoding='utf-8')
+    common = (ROOT / directory / main_filename).read_bytes()
+    assert common == (ROOT / directory / general_filename).read_bytes(), 'Main download must be the common CV'
+    for suffix in ['SoftwareEngineering', 'FullStack', 'Web', 'Mobile', 'Frontend', 'Backend']:
+        assert (ROOT / directory / f'Vishnutharan-Bavachelvan-CV-{suffix}.pdf').read_bytes() == common, 'Older downloads must serve the same common CV'
+general_html = (ROOT / 'dist/cv-general.html').read_text(encoding='utf-8')
 main_html = (ROOT / 'dist/cv.html').read_text(encoding='utf-8')
-assert main_html == software_html.replace(f'./assets/{software_filename}', f'./assets/{main_filename}'), 'Main web CV must match Software Engineering'
-for legacy, destination in {'cv-frontend.html': 'cv-web.html', 'cv-backend.html': 'cv-software.html'}.items():
-    assert f'url=./{destination}' in (ROOT / 'dist' / legacy).read_text(encoding='utf-8'), 'Legacy CV page should reach its replacement'
-print('Main PDF and page use Software Engineering; four role pages and previous page links are consistent.')
+assert main_html == general_html.replace(f'./assets/{general_filename}', f'./assets/{main_filename}'), 'Main web CV must match the common version'
+for legacy in ['software', 'fullstack', 'web', 'mobile', 'frontend', 'backend']:
+    assert 'url=./cv.html' in (ROOT / 'dist' / f'cv-{legacy}.html').read_text(encoding='utf-8'), 'Older CV pages must reach the common version'
+print('Main PDF/page and every previous CV link now lead to the same common CV.')
