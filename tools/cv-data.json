@@ -12,7 +12,7 @@
   "skills": [
     [
       "Languages",
-      "Java, JavaScript, SQL"
+      "Java, JavaScript, C++, C, Python, SQL, HTML, CSS"
     ],
     [
       "Frameworks",
@@ -49,8 +49,8 @@
       "url": "https://github.com/vishnu-tharan/Buyora",
       "evidence": "https://github.com/vishnu-tharan/Buyora/blob/3db4dda77a9336791ed7d05c1cc2c5c75ae3152b/README.md#checks",
       "bullets": [
-        "Built a Next.js/Spring Boot shop with LKR pricing, search, cart, checkout, order tracking and administration.",
-        "Implemented transactional stock reservations, idempotent checkout and payment/refund safeguards; added unit and PostgreSQL integration tests."
+        "Built a Next.js/Spring Boot shop with LKR prices, product search, cart, checkout and order tracking.",
+        "Connected the storefront and admin product/order screens to a PostgreSQL-backed API with server-side stock and total validation."
       ]
     },
     {
@@ -71,8 +71,8 @@
       "url": "https://github.com/vishnu-tharan/CashManage",
       "evidence": "https://github.com/vishnu-tharan/CashManage/blob/6c4d82d5fcd3eab6985d4691bcf822ea2bc417aa/README.md#checks",
       "bullets": [
-        "Built personal cashbooks with budgets, transfers, receipts, CSV import, browser PDF reports and encrypted backups.",
-        "Implemented AES-GCM vaults, offline unlock, revision-checked sync, MFA, recovery and session revocation."
+        "Built a React/Express/SQLite cashbook for transactions, budgets, transfers, debts, savings and receipts.",
+        "Added CSV import/export, browser PDF printing, encrypted backup restore and local-vault synchronization."
       ]
     },
     {
@@ -82,7 +82,7 @@
       "stack": "Spring Boot, React, React Native, MongoDB, Docker",
       "url": "https://github.com/dragon-udfly/LankaAgriDirect",
       "bullets": [
-        "Contributed frontend development, interface design and API integration testing to a team directory connecting buyers with verified Sri Lankan producers."
+        "Contributed frontend development, interface design and API integration testing to a team produce directory with buyer, producer and admin interfaces."
       ]
     },
     {
@@ -94,8 +94,8 @@
       "url": "https://github.com/vishnu-tharan/CinemaStream",
       "evidence": "https://github.com/vishnu-tharan/CinemaStream/blob/abc97b57ac3e454cbfa55c797b3d8c421d2f2ba3/README.md#check",
       "bullets": [
-        "Built a React Native/Expo movie catalog with search, genre filters, trailer links, guest browsing and account access.",
-        "Implemented online Firestore favourites, watchlists and watched records with ownership rules, schema checks and emulator tests."
+        "Built React Native/Expo movie discovery with search, genre filters, film details, trailer links and guest browsing.",
+        "Connected Firebase account access and online Firestore favourites, watchlists and watched records."
       ]
     },
     {
@@ -106,8 +106,8 @@
       "url": "https://github.com/vishnu-tharan/CEB-Management",
       "evidence": "https://github.com/vishnu-tharan/CEB-Management/blob/e708d978a9b13e72d0b193a38bfc11095c44fa61/README.md#verify",
       "bullets": [
-        "Built an Express/SQLite tracker for appliances, cumulative meter readings, consumption charts and actual bill history.",
-        "Implemented a dated tariff estimator, user-scoped records, CSRF checks and data-preserving migrations with API and calculation tests."
+        "Built an Express/SQLite household tracker with appliance records, cumulative meter readings and usage charts.",
+        "Added a dated tariff-based bill estimator, actual bill history, account settings and responsive light/dark screens."
       ]
     },
     {
@@ -119,8 +119,8 @@
       "url": "https://github.com/vishnu-tharan/GatePilot",
       "evidence": "https://github.com/vishnu-tharan/GatePilot/blob/94f5c069dad296877cd321bdfa54275ed7b95ba6/README.md#checks",
       "bullets": [
-        "Built React Native/Expo interfaces and an Express/MongoDB API for vehicle entry, exit and department equipment approvals.",
-        "Implemented role-scoped records, duplicate-visit prevention and conditional approvals, with security and workflow tests."
+        "Built React Native/Expo screens for vehicle entry, exit and department equipment approvals with an Express/MongoDB API.",
+        "Added searchable vehicle records, role-based dashboards, account management and organization settings."
       ]
     }
   ],
@@ -186,7 +186,7 @@
       "skills": [
         [
           "Languages",
-          "Java, JavaScript, SQL, HTML, CSS"
+          "Java, JavaScript, C++, C, Python, SQL, HTML, CSS"
         ],
         [
           "Frontend",
@@ -228,7 +228,7 @@
       "skills": [
         [
           "Languages",
-          "JavaScript, HTML, CSS, SQL"
+          "Java, JavaScript, C++, C, Python, SQL, HTML, CSS"
         ],
         [
           "Frontend",
@@ -270,7 +270,7 @@
       "skills": [
         [
           "Languages",
-          "JavaScript"
+          "Java, JavaScript, C++, C, Python, SQL, HTML, CSS"
         ],
         [
           "Mobile & web",
