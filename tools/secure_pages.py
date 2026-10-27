@@ -12,7 +12,7 @@ def secure_pages(root):
         for attributes, body in re.findall(r'<script\b([^>]*)>(.*?)</script>', text, re.S):
             if 'src=' not in attributes:
                 hashes.append("'sha256-" + base64.b64encode(hashlib.sha256(body.encode()).digest()).decode() + "'")
-        policy = "default-src 'self'; script-src 'self' " + ' '.join(hashes) + "; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'self' https://formsubmit.co; frame-src 'none'"
+        policy = "default-src 'self'; script-src 'self' " + ' '.join(hashes) + "; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self' https://formsubmit.co; frame-src 'none'"
         meta = f'<meta http-equiv="Content-Security-Policy" content="{policy}"><meta name="referrer" content="strict-origin-when-cross-origin">'
         text = text.replace('<head>', '<head>' + meta, 1)
         page.write_text(text, encoding='utf-8')

@@ -1,4 +1,3 @@
-import { viewTransition } from './transitions.js?v=20261027-common-cv-v1';
 const media = matchMedia('(prefers-color-scheme: dark)');
 const storage = {
   get(key, fallback) { try { return localStorage.getItem(key) ?? fallback; } catch { return fallback; } },
@@ -10,7 +9,7 @@ export function setTheme(value, origin) {
   if (!['light', 'dark', 'system'].includes(value)) return;
   appearance = value;
   storage.set('vishnuos-theme', value);
-  viewTransition(syncTheme, {origin});
+  syncTheme();
 }
 export function toggleTheme(origin) {
   setTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark', origin);

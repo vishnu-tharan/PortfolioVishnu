@@ -1,38 +1,19 @@
-import { createStage } from './stage.js?v=20261027-common-cv-v1';
-import { renderProjectGallery, projectDetails, mountProjectScreenshots } from './projects.js?v=20261027-common-cv-v1';
-import { projects } from './project-data.js?v=20261027-common-cv-v1';
-import { motionAllowed, viewTransition } from './transitions.js?v=20261027-common-cv-v1';
+import { renderProjectGallery, projectDetails, mountProjectScreenshots } from './projects.js?v=20261027-simplified-v1';
+import { projects } from './project-data.js?v=20261027-simplified-v1';
 
-const reduce = matchMedia('(prefers-reduced-motion: reduce)');
-let paused = reduce.matches;
-document.documentElement.classList.toggle('js-motion', !paused);
-const stages = [...document.querySelectorAll('[data-scene]')].map(canvas => createStage(canvas));
+// Keep decorative elements still; interactions remain available without continuous animation.
+document.documentElement.classList.add('motion-paused');
 renderProjectGallery(document.querySelector('.project-grid'), projects, openProject);
 const dialog=document.querySelector('.project-dialog');
 let projectFocus;
 export function openProject(p, updateURL = true, source = null){
  projectFocus = source || document.activeElement;
- const image = source?.closest('.project-card')?.querySelector('.project-preview img');
- const rect = image?.getBoundingClientRect();
- const shared = image?.complete && image.naturalWidth > 0 && rect.bottom > 0 && rect.top < innerHeight;
- let detailImage;
- const show = () => {
-  document.querySelector('#app-dialog')?.close();
-  document.querySelector('.dialog-content').innerHTML = projectDetails(p);
-  mountProjectScreenshots(dialog, p);
-  if(!dialog.open)dialog.showModal();
-  dialog.scrollTop = 0;
-  document.body.classList.add('dialog-open');
-  if(updateURL)history.replaceState(null,'',`${location.pathname}${location.search}#project=${projectSlug(p)}`);
-  if (shared) {
-   image.style.viewTransitionName = '';
-   detailImage = dialog.querySelector('.project-detail-image img');
-   if (detailImage) detailImage.style.viewTransitionName = 'project-image';
-  }
-  if ((!shared || !document.startViewTransition) && motionAllowed()) dialog.animate?.([{opacity:0,transform:'translateY(12px) scale(.985)'},{opacity:1,transform:'none'}],{duration:230,easing:'cubic-bezier(.2,.7,.2,1)'});
- };
- if (shared) viewTransition(show, {kind:'project',prepare:()=>{image.style.viewTransitionName='project-image';},cleanup:()=>{image.style.viewTransitionName='';if(detailImage)detailImage.style.viewTransitionName='';}});
- else show();
+ document.querySelector('.dialog-content').innerHTML = projectDetails(p);
+ mountProjectScreenshots(dialog, p);
+ if(!dialog.open)dialog.showModal();
+ dialog.scrollTop = 0;
+ document.body.classList.add('dialog-open');
+ if(updateURL)history.replaceState(null,'',`${location.pathname}${location.search}#project=${projectSlug(p)}`);
 }
 const projectSlug = p => p.title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'');
 function openSharedProject(){
@@ -93,18 +74,6 @@ const clockLayout=new ResizeObserver(()=>requestAnimationFrame(aimClockAtYear));
 clockLayout.observe(rail);clockLayout.observe(document.querySelector('.clock-face'));
 window.addEventListener('resize',aimClockAtYear);
 document.fonts.ready.then(aimClockAtYear);
-window.__chrono={get targetU(){return targetU},set targetU(u){selectYear(u)}};
 
 const revealObserver=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObserver.unobserve(e.target);}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>revealObserver.observe(el));
-const visible=new Set();const sceneObserver=new IntersectionObserver(entries=>{entries.forEach(e=>{const s=stages.find(s=>s.canvas===e.target);if(e.isIntersecting)visible.add(s);else visible.delete(s);});schedule();},{threshold:0});stages.forEach(s=>sceneObserver.observe(s.canvas));
-let frame=0;let last=0;let time=0;
-function schedule(){if(!frame&&!document.hidden)frame=requestAnimationFrame(render);}
-// A paused scene still repaints once when its palette changes.
-document.addEventListener('portfolio:themechange',()=>{visible.forEach(s=>s.draw(time));schedule();});
-function render(now){frame=0;const dt=Math.min((now-last)/1000||0,.05);last=now;if(!paused)time+=dt;visible.forEach(s=>s.draw(time));if(!paused&&visible.size&&!document.hidden)schedule();}
-const toggle=document.querySelector('.motion-toggle');
-function syncMotion(){document.documentElement.classList.toggle('motion-paused',paused);toggle.setAttribute('aria-pressed',String(paused));toggle.setAttribute('aria-label',paused?'Resume animations':'Pause animations');toggle.textContent=paused?'▶':'Ⅱ';schedule();}
-toggle.addEventListener('click',()=>{paused=!paused;syncMotion();});reduce.addEventListener('change',e=>{paused=e.matches;syncMotion();});document.addEventListener('visibilitychange',()=>{last=performance.now();if(document.hidden){cancelAnimationFrame(frame);frame=0;}else schedule();});window.addEventListener('resize',schedule);syncMotion();
 document.querySelector('#copyright-year').textContent=new Date().getFullYear();
-window.__shot=(name='vishnu')=>{const s=[...visible][0]||stages[0];s.draw(time);const a=document.createElement('a');a.download=`${name}.png`;a.href=s.canvas.toDataURL('image/png');a.click();};
-const debugTime=new URLSearchParams(location.search).get('t');if(debugTime){time=debugTime==='end'?12:Math.max(0,Number(debugTime)||0);document.documentElement.classList.add('motion-paused');paused=true;schedule();}

@@ -1,43 +1,13 @@
-/* Small interactions that retain the original red, ink and paper identity. */
-:is(.cv-button,.outline-button,.feature-button,.github-refresh,.terminal-form button,.terminal-suggestions button,.project-details,.contact-form button){transition:scale .15s,background-color .2s,border-color .2s,color .2s}
-:is(.cv-button,.outline-button,.feature-button,.github-refresh,.terminal-form button,.terminal-suggestions button,.project-details,.contact-form button):not(:disabled):active{scale:.98}
-:is(.hero-social a,.project-links a,.project-details,.skills-grid a){text-decoration-thickness:1px;text-decoration-color:color-mix(in srgb,currentColor 45%,transparent);transition:text-decoration-color .2s,text-underline-offset .2s,color .2s,scale .15s}
-:is(.hero-social a,.project-links a,.project-details,.skills-grid a):is(:hover,:focus-visible){text-decoration-color:currentColor;text-underline-offset:6px}
+/* Quiet interactions and static accents keep the focus on portfolio content. */
+:is(.cv-button,.outline-button,.feature-button,.github-refresh,.project-details,.contact-form button){transition:background-color .15s,color .15s,border-color .15s}
+:is(.hero-social a,.project-links a,.project-details,.skills-grid a){text-decoration-thickness:1px;text-underline-offset:5px}
 .project-dialog .copy-status{font-size:14px;color:var(--text);margin:16px 0;padding:12px 14px;background:var(--accent-soft);border-left:2px solid var(--accent);border-radius:4px}
-.copy-status:empty{display:none}
-.project-details.copy-confirmed{color:var(--accent)}
-@media(prefers-reduced-motion:reduce){:is(.cv-button,.outline-button,.feature-button,.github-refresh,.terminal-form button,.terminal-suggestions button,.project-details,.contact-form button):active{scale:1}}
-.motion-paused :is(.cv-button,.outline-button,.feature-button,.github-refresh,.terminal-form button,.terminal-suggestions button,.project-details,.contact-form button):active{scale:1}
-.terminal-suggestions{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
-.terminal-suggestions button{font:12px/1.4 Consolas,monospace;padding:8px 11px;border:1px solid var(--line);border-radius:6px;background:var(--surface-2);color:var(--text);cursor:pointer;min-height:36px}
-.terminal-suggestions button:is(:hover,:focus-visible){border-color:var(--accent);color:var(--accent)}
-.terminal-form label::after{content:'';display:inline-block;width:5px;height:11px;margin-left:7px;vertical-align:-1px;background:var(--accent);opacity:.6}
-.terminal-dialog[open]:focus-within .terminal-form label::after{animation:prompt-blink 1.2s steps(1,end) infinite}
-@keyframes prompt-blink{50%{opacity:0}}
-@media(max-width:750px){.terminal-suggestions button{min-height:44px}.terminal-suggestions{gap:6px}}
-@media(prefers-reduced-motion:reduce){.terminal-dialog[open]:focus-within .terminal-form label::after{animation:none}}
-.motion-paused .terminal-dialog[open]:focus-within .terminal-form label::after{animation:none}
-.scroll-progress{position:fixed;inset:0 0 auto;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;z-index:45;pointer-events:none;box-shadow:0 0 10px #ff49354d}
-.header nav a{position:relative}
-.header nav a::after{content:'';position:absolute;left:0;right:0;bottom:3px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .2s}
-.header nav a[aria-current=location]{color:var(--accent)}
-.header nav a:is(:hover,:focus-visible,[aria-current=location])::after{transform:scaleX(1)}
-.header .contact-link[aria-current=location]{color:var(--accent)}
-.work .project-card::before{display:block;z-index:0;background:radial-gradient(350px circle at var(--spot-x,50%) var(--spot-y,40%),#ff493526,transparent 75%);opacity:0;transition:opacity .25s;pointer-events:none}
-.project-body,.project-preview{position:relative;z-index:1}
-.work .project-card:focus-within::before{opacity:1}
-[data-theme=light] .work .project-card::before{background:radial-gradient(350px circle at var(--spot-x,50%) var(--spot-y,40%),#c9522926,transparent 75%)}
-@media(hover:hover) and (pointer:fine){.work .project-card.spotlight-active::before{opacity:1}.project-card:hover .project-preview img{transform:scale(1.035)}}
-@media(hover:none){.project-preview:hover img{transform:none}}
-@media(prefers-reduced-motion:reduce){.work .project-card::before{display:none}.project-card:hover .project-preview img{transform:none}}
-.motion-paused .work .project-card::before{display:none}.motion-paused .project-card:hover .project-preview img{transform:none}
-html[data-transition=theme]::view-transition-old(root),
-html[data-transition=theme]::view-transition-new(root){animation:none;mix-blend-mode:normal}
-html[data-transition=theme]::view-transition-old(root){z-index:1}
-html[data-transition=theme]::view-transition-new(root){z-index:2;animation:theme-reveal .48s cubic-bezier(.2,.7,.2,1) both}
-@keyframes theme-reveal{from{clip-path:circle(0 at var(--transition-x) var(--transition-y))}to{clip-path:circle(var(--transition-radius) at var(--transition-x) var(--transition-y))}}
-html[data-transition=project]::view-transition-old(root),html[data-transition=project]::view-transition-new(root){animation:none;mix-blend-mode:normal}
-html[data-transition=project]::view-transition-group(project-image){animation-duration:.4s;animation-timing-function:cubic-bezier(.2,.7,.2,1)}
-html[data-transition=project]::view-transition-image-pair(project-image){border-radius:8px;overflow:hidden}
-@media(prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
-.motion-paused::view-transition-group(*),.motion-paused::view-transition-old(*),.motion-paused::view-transition-new(*){animation:none!important}
+.copy-status:empty{display:none}.project-details.copy-confirmed{color:var(--accent)}
+.scroll-progress{position:fixed;inset:0 0 auto;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;z-index:45;pointer-events:none}
+.header nav a{position:relative}.header nav a::after{content:'';position:absolute;left:0;right:0;bottom:3px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left}
+.header nav a[aria-current=location]{color:var(--accent)}.header nav a:is(:hover,:focus-visible,[aria-current=location])::after{transform:scaleX(1)}.header .contact-link[aria-current=location]{color:var(--accent)}
+.scene-static{background:radial-gradient(ellipse at 75% 35%,#7d211d30,transparent 60%),linear-gradient(150deg,#151014,#090909)}
+[data-theme=light] .scene-static{background:radial-gradient(ellipse at 75% 35%,#d8a48e24,transparent 65%),linear-gradient(150deg,#faf7f5,#f3eeea)}
+html.motion-paused *,html.motion-paused *::before,html.motion-paused *::after{animation:none!important}
+html.motion-paused .identity-card,html.motion-paused .hero-portrait,html.motion-paused #hero-title{transform:none;translate:none}
+.work .project-card::before{background:linear-gradient(145deg,#ff493509,transparent);opacity:1}.project-preview img{transform:none!important}
