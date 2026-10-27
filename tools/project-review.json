@@ -1,0 +1,97 @@
+[
+  {
+    "repository": "vishnu-tharan/Buyora",
+    "commit": "3db4dda77a9336791ed7d05c1cc2c5c75ae3152b",
+    "reviewed": "2026-10-27",
+    "sources": [
+      "README.md",
+      "BuyoraBackend/pom.xml",
+      "BuyoraFrontend/package.json",
+      "BuyoraBackend/src/main/java/com/buyora/api/checkout/CheckoutService.java",
+      "BuyoraBackend/src/main/java/com/buyora/api/payment/PaymentService.java",
+      "BuyoraBackend/src/main/java/com/buyora/api/returns/ReturnService.java",
+      "docs/screenshots/README.md"
+    ]
+  },
+  {
+    "repository": "vishnu-tharan/CashManage",
+    "commit": "6c4d82d5fcd3eab6985d4691bcf822ea2bc417aa",
+    "reviewed": "2026-10-27",
+    "sources": [
+      "README.md",
+      "client/package.json",
+      "server/package.json",
+      "server/totp.js",
+      "client/src/hooks/useWorkspace.js",
+      "client/src/lib/crypto.js",
+      "server/routes/security.js"
+    ]
+  },
+  {
+    "repository": "vishnu-tharan/CEB-Management",
+    "commit": "e708d978a9b13e72d0b193a38bfc11095c44fa61",
+    "reviewed": "2026-10-27",
+    "sources": [
+      "README.md",
+      "backend/package.json",
+      "backend/server.js",
+      "frontend/energy.js",
+      "backend/test/app.test.js"
+    ]
+  },
+  {
+    "repository": "vishnu-tharan/CinemaStream",
+    "commit": "abc97b57ac3e454cbfa55c797b3d8c421d2f2ba3",
+    "reviewed": "2026-10-27",
+    "sources": [
+      "README.md",
+      "firestore.rules",
+      "package.json",
+      "tests/unit.test.mjs",
+      "docs/screenshots/README.md",
+      "src/contexts/library.jsx",
+      "src/lib/discovery.js",
+      "src/lib/library.js"
+    ]
+  },
+  {
+    "repository": "vishnu-tharan/GatePilot",
+    "commit": "94f5c069dad296877cd321bdfa54275ed7b95ba6",
+    "reviewed": "2026-10-27",
+    "sources": [
+      "README.md",
+      "backend/package.json",
+      "frontend/package.json",
+      "backend/src/models.js",
+      "backend/test/security.test.js",
+      "backend/src/routes/visits.js"
+    ]
+  },
+  {
+    "repository": "chamikara12/GATEWAY",
+    "commit": "fc205a40ccc97571adcf53ad0e60bb35f5cc7de0",
+    "reviewed": "2026-10-27",
+    "sources": [
+      "README.md",
+      "package.json",
+      "backend/package.json",
+      "controller/gatepassController.js",
+      "controller/vehicleRecordController.js",
+      "src/components/AdminDashboard/Reports.jsx"
+    ]
+  },
+  {
+    "repository": "dragon-udfly/LankaAgriDirect",
+    "commit": "3142c15f1bd36017185cc24028f51849991e82ee",
+    "reviewed": "2026-10-27",
+    "sources": [
+      "README.md",
+      "admin-web/package.json",
+      "backend/pom.xml",
+      "docs/MOBILE_APP_WORKFLOWS.md",
+      "mobile-app/package.json",
+      "backend/src/main/java/com/example/lankaagridirect/Controllers/ProducerController.java",
+      "backend/src/main/java/com/example/lankaagridirect/Controllers/ProductController.java"
+    ]
+  }
+]

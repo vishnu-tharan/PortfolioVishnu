@@ -4,6 +4,7 @@ import { validSnapshot, eventDetails } from '../dist/src/github-data.js';
 import { projects } from '../dist/src/project-data.js';
 import { safeProjectURL, projectDetails } from '../dist/src/projects.js';
 import { readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 
 const now = Date.now();
 const valid = {time:now,user:{login:'vishnu-tharan',public_repos:12,followers:1,following:1},events:[]};
@@ -19,13 +20,14 @@ test('Every gallery image is present, traceable to its repository and uses a saf
       const bytes = readFileSync(new URL('../dist/' + shot.src.slice(2), import.meta.url));
       const source = sources.find(item => shot.src.endsWith('/' + item.file));
       assert.ok(source?.source.includes('/blob/' + source.commit + '/docs/screenshots/'));
+      assert.equal(createHash('sha1').update(`blob ${bytes.length}\0`).update(bytes).digest('hex'), source.blob);
       assert.ok(shot.alt && shot.caption && shot.width > 0 && shot.height > 0 && bytes.length > 0);
       count++;
     }
     const malicious = {...project, screenshots:[{...project.screenshots[0], label:'<script>alert(1)</script>'}]};
     assert.ok(!projectDetails(malicious).includes('<script>'));
   }
-  assert.equal(count, 32);
+  assert.equal(count, 29);
 });
 
 test('Untrusted event types and path segments cannot crash or redirect the activity feed', () => {
@@ -74,6 +76,26 @@ test('All project share links have unique names and useful content', () => {
     for (const field of ['title','summary','role','stack','problem','contribution','decision','status']) assert.ok(project[field], `${project.title}: ${field}`);
     assert.match(project.link,/^https:\/\/github\.com\/[\w.-]+\/[\w.-]+$/);
   }
+});
+
+test('Project descriptions follow the reviewed repository revisions', () => {
+  const review = JSON.parse(readFileSync(new URL('./project-review.json', import.meta.url)));
+  assert.equal(review.length, projects.length);
+  for (const project of projects) {
+    const source = review.find(item => 'https://github.com/' + item.repository === project.link);
+    assert.equal(project.reviewedCommit, source?.commit, project.title);
+    assert.ok(source.sources.length >= 3);
+  }
+  const cinema = projects.find(item => item.title === 'CinemaStream');
+  assert.match(cinema.stack, /JavaScript/);
+  assert.doesNotMatch(cinema.stack, /TypeScript|AsyncStorage/);
+  assert.match(cinema.decision, /require an internet connection/);
+  assert.equal(cinema.performance, undefined);
+  const gatepilot = projects.find(item => item.title === 'GatePilot');
+  assert.doesNotMatch(gatepilot.contribution, /staff QR|PDF report/);
+  const cash = projects.find(item => item.title === 'CashManage');
+  assert.equal(cash.imageKind, 'logo');
+  assert.doesNotMatch(cash.contribution, /shared cashbook roles/);
 });
 
 test('GATEWAY group work and GatePilot retain their own repositories and attribution', () => {
