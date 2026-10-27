@@ -4,14 +4,29 @@
     "commit": "3db4dda77a9336791ed7d05c1cc2c5c75ae3152b",
     "reviewed": "2026-10-27",
     "sources": [
-      "README.md",
       "BuyoraBackend/pom.xml",
-      "BuyoraFrontend/package.json",
       "BuyoraBackend/src/main/java/com/buyora/api/checkout/CheckoutService.java",
       "BuyoraBackend/src/main/java/com/buyora/api/payment/PaymentService.java",
       "BuyoraBackend/src/main/java/com/buyora/api/returns/ReturnService.java",
+      "BuyoraFrontend/package.json",
+      "BuyoraFrontend/src/app/(store)/checkout/page.jsx",
+      "BuyoraFrontend/src/app/(store)/search/SearchPageClient.jsx",
+      "BuyoraFrontend/src/app/(store)/track-order/page.jsx",
+      "BuyoraFrontend/src/app/admin/products/page.jsx",
+      "README.md",
       "docs/screenshots/README.md"
-    ]
+    ],
+    "implemented_workflows": {
+      "Shopping and checkout": [
+        "BuyoraFrontend/src/app/(store)/search/SearchPageClient.jsx",
+        "BuyoraFrontend/src/app/(store)/checkout/page.jsx",
+        "BuyoraBackend/src/main/java/com/buyora/api/checkout/CheckoutService.java"
+      ],
+      "Order tracking and product administration": [
+        "BuyoraFrontend/src/app/(store)/track-order/page.jsx",
+        "BuyoraFrontend/src/app/admin/products/page.jsx"
+      ]
+    }
   },
   {
     "repository": "vishnu-tharan/CashManage",
@@ -20,12 +35,36 @@
     "sources": [
       "README.md",
       "client/package.json",
-      "server/package.json",
-      "server/totp.js",
+      "client/src/AccountSecurity.jsx",
+      "client/src/App.jsx",
       "client/src/hooks/useWorkspace.js",
+      "client/src/ledger.js",
       "client/src/lib/crypto.js",
-      "server/routes/security.js"
-    ]
+      "client/src/pages/PlanningPage.jsx",
+      "client/src/pages/ReportsPage.jsx",
+      "client/src/pages/SettingsPage.jsx",
+      "server/accountSecurity.js",
+      "server/package.json",
+      "server/routes/security.js",
+      "server/totp.js"
+    ],
+    "implemented_workflows": {
+      "Cashbooks and financial planning": [
+        "client/src/App.jsx",
+        "client/src/pages/PlanningPage.jsx",
+        "client/src/ledger.js"
+      ],
+      "Reports and encrypted backups": [
+        "client/src/pages/ReportsPage.jsx",
+        "client/src/pages/SettingsPage.jsx",
+        "client/src/lib/crypto.js"
+      ],
+      "Account controls and synchronization": [
+        "client/src/AccountSecurity.jsx",
+        "server/accountSecurity.js",
+        "client/src/hooks/useWorkspace.js"
+      ]
+    }
   },
   {
     "repository": "vishnu-tharan/CEB-Management",
@@ -35,9 +74,23 @@
       "README.md",
       "backend/package.json",
       "backend/server.js",
+      "backend/test/app.test.js",
+      "frontend/app.js",
+      "frontend/bills.js",
       "frontend/energy.js",
-      "backend/test/app.test.js"
-    ]
+      "frontend/views.js"
+    ],
+    "implemented_workflows": {
+      "Eight current household/account screens": [
+        "frontend/app.js",
+        "frontend/views.js",
+        "frontend/bills.js"
+      ],
+      "Appliances, readings and bills": [
+        "backend/server.js",
+        "frontend/energy.js"
+      ]
+    }
   },
   {
     "repository": "vishnu-tharan/CinemaStream",
@@ -45,14 +98,33 @@
     "reviewed": "2026-10-27",
     "sources": [
       "README.md",
+      "app/(tabs)/favorites.jsx",
+      "app/(tabs)/index.jsx",
+      "app/movie/[id].jsx",
+      "docs/screenshots/README.md",
       "firestore.rules",
       "package.json",
-      "tests/unit.test.mjs",
-      "docs/screenshots/README.md",
+      "src/contexts/auth.jsx",
       "src/contexts/library.jsx",
       "src/lib/discovery.js",
-      "src/lib/library.js"
-    ]
+      "src/lib/library.js",
+      "src/lib/trailers.js",
+      "tests/unit.test.mjs"
+    ],
+    "implemented_workflows": {
+      "Discovery, details and trailers": [
+        "app/(tabs)/index.jsx",
+        "app/movie/[id].jsx",
+        "src/lib/discovery.js",
+        "src/lib/trailers.js"
+      ],
+      "Online account collections": [
+        "src/contexts/auth.jsx",
+        "src/contexts/library.jsx",
+        "app/(tabs)/favorites.jsx",
+        "firestore.rules"
+      ]
+    }
   },
   {
     "repository": "vishnu-tharan/GatePilot",
@@ -61,11 +133,30 @@
     "sources": [
       "README.md",
       "backend/package.json",
-      "frontend/package.json",
       "backend/src/models.js",
+      "backend/src/routes/settings.js",
+      "backend/src/routes/visits.js",
       "backend/test/security.test.js",
-      "backend/src/routes/visits.js"
-    ]
+      "frontend/package.json",
+      "frontend/src/Workspace.jsx",
+      "frontend/src/screens/Accounts.jsx",
+      "frontend/src/screens/Entry.jsx",
+      "frontend/src/screens/Records.jsx",
+      "frontend/src/screens/Settings.jsx"
+    ],
+    "implemented_workflows": {
+      "Entry, exit and approvals": [
+        "frontend/src/Workspace.jsx",
+        "frontend/src/screens/Entry.jsx",
+        "backend/src/routes/visits.js"
+      ],
+      "Records, accounts and organization settings": [
+        "frontend/src/screens/Records.jsx",
+        "frontend/src/screens/Accounts.jsx",
+        "frontend/src/screens/Settings.jsx",
+        "backend/src/routes/settings.js"
+      ]
+    }
   },
   {
     "repository": "chamikara12/GATEWAY",
@@ -73,12 +164,29 @@
     "reviewed": "2026-10-27",
     "sources": [
       "README.md",
-      "package.json",
       "backend/package.json",
       "controller/gatepassController.js",
       "controller/vehicleRecordController.js",
-      "src/components/AdminDashboard/Reports.jsx"
-    ]
+      "package.json",
+      "src/App.jsx",
+      "src/components/AdminDashboard/GatePasses.jsx",
+      "src/components/AdminDashboard/Reports.jsx",
+      "src/components/SecurityDashboard/VehicleEntry.jsx",
+      "src/components/SecurityDashboard/VehicleExit.jsx",
+      "src/index.js"
+    ],
+    "implemented_workflows": {
+      "Active admin/security dashboards": [
+        "src/index.js",
+        "src/App.jsx",
+        "src/components/AdminDashboard/GatePasses.jsx"
+      ],
+      "Vehicle entry, exit and records": [
+        "src/components/SecurityDashboard/VehicleEntry.jsx",
+        "src/components/SecurityDashboard/VehicleExit.jsx",
+        "controller/vehicleRecordController.js"
+      ]
+    }
   },
   {
     "repository": "dragon-udfly/LankaAgriDirect",
@@ -87,11 +195,27 @@
     "sources": [
       "README.md",
       "admin-web/package.json",
+      "admin-web/src/pages/NewRegistrationsPage.tsx",
       "backend/pom.xml",
+      "backend/src/main/java/com/example/lankaagridirect/Controllers/ProducerController.java",
+      "backend/src/main/java/com/example/lankaagridirect/Controllers/ProductController.java",
+      "backend/src/main/java/com/example/lankaagridirect/Services/ProducerService.java",
       "docs/MOBILE_APP_WORKFLOWS.md",
       "mobile-app/package.json",
-      "backend/src/main/java/com/example/lankaagridirect/Controllers/ProducerController.java",
-      "backend/src/main/java/com/example/lankaagridirect/Controllers/ProductController.java"
-    ]
+      "mobile-app/src/screens/buyer/BookmarksScreen.js",
+      "mobile-app/src/screens/buyer/HomeScreen.js",
+      "mobile-app/src/screens/producer/MyProductsScreen.js"
+    ],
+    "implemented_workflows": {
+      "Buyer browsing and bookmarks": [
+        "mobile-app/src/screens/buyer/HomeScreen.js",
+        "mobile-app/src/screens/buyer/BookmarksScreen.js"
+      ],
+      "Producer listings and admin registration review": [
+        "mobile-app/src/screens/producer/MyProductsScreen.js",
+        "admin-web/src/pages/NewRegistrationsPage.tsx",
+        "backend/src/main/java/com/example/lankaagridirect/Services/ProducerService.java"
+      ]
+    }
   }
 ]
