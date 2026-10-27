@@ -1,30 +1,44 @@
 [
   {
     "repository": "vishnu-tharan/Buyora",
-    "commit": "3db4dda77a9336791ed7d05c1cc2c5c75ae3152b",
+    "commit": "2b71f8e3484a9fec1f51a184dfe78f2a945f7c46",
     "reviewed": "2026-10-27",
     "sources": [
       "BuyoraBackend/pom.xml",
       "BuyoraBackend/src/main/java/com/buyora/api/checkout/CheckoutService.java",
-      "BuyoraBackend/src/main/java/com/buyora/api/payment/PaymentService.java",
+      "BuyoraBackend/src/main/java/com/buyora/api/inventory/InventoryService.java",
+      "BuyoraBackend/src/main/java/com/buyora/api/product/CatalogService.java",
       "BuyoraBackend/src/main/java/com/buyora/api/returns/ReturnService.java",
-      "BuyoraFrontend/package.json",
-      "BuyoraFrontend/src/app/(store)/checkout/page.jsx",
+      "BuyoraBackend/src/main/java/com/buyora/api/wishlist/WishlistService.java",
+      "BuyoraFrontend/src/app/(store)/account/orders/[orderNumber]/page.jsx",
       "BuyoraFrontend/src/app/(store)/search/SearchPageClient.jsx",
       "BuyoraFrontend/src/app/(store)/track-order/page.jsx",
+      "BuyoraFrontend/src/app/(store)/wishlist/page.jsx",
       "BuyoraFrontend/src/app/admin/products/page.jsx",
+      "BuyoraFrontend/src/app/admin/settings/page.jsx",
+      "BuyoraFrontend/src/components/checkout/PaymentStep.jsx",
       "README.md",
-      "docs/screenshots/README.md"
+      "docker-compose.yml",
+      "docs/screenshots/manifest.json"
     ],
     "implemented_workflows": {
-      "Shopping and checkout": [
+      "Product discovery and saved favourites": [
         "BuyoraFrontend/src/app/(store)/search/SearchPageClient.jsx",
-        "BuyoraFrontend/src/app/(store)/checkout/page.jsx",
-        "BuyoraBackend/src/main/java/com/buyora/api/checkout/CheckoutService.java"
+        "BuyoraFrontend/src/app/(store)/wishlist/page.jsx",
+        "BuyoraBackend/src/main/java/com/buyora/api/product/CatalogService.java",
+        "BuyoraBackend/src/main/java/com/buyora/api/wishlist/WishlistService.java"
       ],
-      "Order tracking and product administration": [
+      "Checkout, stock and duplicate-order protection": [
+        "BuyoraFrontend/src/components/checkout/PaymentStep.jsx",
+        "BuyoraBackend/src/main/java/com/buyora/api/checkout/CheckoutService.java",
+        "BuyoraBackend/src/main/java/com/buyora/api/inventory/InventoryService.java"
+      ],
+      "Order tracking, returns and administration": [
         "BuyoraFrontend/src/app/(store)/track-order/page.jsx",
-        "BuyoraFrontend/src/app/admin/products/page.jsx"
+        "BuyoraFrontend/src/app/(store)/account/orders/[orderNumber]/page.jsx",
+        "BuyoraFrontend/src/app/admin/products/page.jsx",
+        "BuyoraFrontend/src/app/admin/settings/page.jsx",
+        "BuyoraBackend/src/main/java/com/buyora/api/returns/ReturnService.java"
       ]
     }
   },

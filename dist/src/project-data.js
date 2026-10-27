@@ -1,11 +1,11 @@
-import { projectScreenshots } from './project-screenshots.js?v=20261027-simplified-v1';
+import { projectScreenshots } from './project-screenshots.js?v=20261027-buyora-v2';
 // Current descriptions are limited to implemented screens and routes.
 export const projects = [
   {
     "title": "Buyora",
     "type": "E-COMMERCE / FULL-STACK",
-    "stack": "Next.js · Spring Boot · PostgreSQL · Redis · Docker",
-    "summary": "An LKR-priced shop with product search, a cart, checkout, order tracking and an admin area.",
+    "stack": "Next.js · Spring Boot · PostgreSQL · Docker",
+    "summary": "An LKR-priced shop with product filters, saved favourites, guest checkout and order management.",
     "role": "Full-stack development",
     "image": "./assets/projects/buyora-desktop-home.png",
     "imageLayout": "contain",
@@ -13,13 +13,13 @@ export const projects = [
     "caption": "Storefront · Guest session · sample catalog and illustrative LKR prices",
     "link": "https://github.com/vishnu-tharan/Buyora",
     "problem": "Connect product discovery, local delivery, checkout and after-sales support with reliable store administration.",
-    "contribution": "Built product browsing and search, shopping carts, checkout and order-tracking screens. Developed administration screens for products, stock and orders, connected to the Spring Boot API.",
-    "decision": "Next.js renders the storefront and calls Spring Boot endpoints. PostgreSQL stores shop records, and Redis is configured for catalog caching. Checkout validates stock and totals on the server before saving an order.",
-    "testing": "The repository contains frontend unit/component tests and backend checkout, authentication, stock and payment tests. PostgreSQL integration tests use disposable databases.",
-    "status": "Development project · local Docker setup · configured payment sandbox only",
-    "evidence": "https://github.com/vishnu-tharan/Buyora/blob/3db4dda77a9336791ed7d05c1cc2c5c75ae3152b/README.md#checks",
+    "contribution": "Built product discovery, saved favourites, guest and account carts, cash-on-delivery checkout and order tracking. Developed admin screens for products, stock, orders, reviews and store settings.",
+    "decision": "Next.js calls Spring Boot services backed directly by PostgreSQL. Transactional checkout reserves stock, calculates totals on the server and uses an idempotency key to prevent duplicate orders.",
+    "testing": "The repository includes frontend component tests and backend tests for authentication, stock, checkout totals, duplicate submissions, payment callbacks and refunds. Integration tests use disposable PostgreSQL databases.",
+    "status": "Local Docker development setup · cash on delivery · PayHere sandbox requires configuration",
+    "evidence": "https://github.com/vishnu-tharan/Buyora/blob/2b71f8e3484a9fec1f51a184dfe78f2a945f7c46/README.md#checks",
     "imageKind": "screenshot",
-    "reviewedCommit": "3db4dda77a9336791ed7d05c1cc2c5c75ae3152b"
+    "reviewedCommit": "2b71f8e3484a9fec1f51a184dfe78f2a945f7c46"
   },
   {
     "title": "GATEWAY",

@@ -18,7 +18,7 @@ The portfolio keeps its black-and-red design with a focused project section and 
 
 ## Featured projects
 
-- [Buyora](https://github.com/vishnu-tharan/Buyora) — A Next.js and Spring Boot e-commerce project with storefront, customer accounts and administration workflows.
+- [Buyora](https://github.com/vishnu-tharan/Buyora) — A Next.js/Spring Boot shop with PostgreSQL, product filters, saved favourites, cash-on-delivery checkout and order administration.
 - [Lanka Agri-Direct](https://github.com/dragon-udfly/LankaAgriDirect) — An agricultural marketplace developed as a group project. I helped with frontend development, design and API testing.
 - [GATEWAY](https://github.com/chamikara12/GATEWAY) — Our semester 3.1 group project for University of Vavuniya vehicle records and gate-pass management. I contributed to frontend and backend development.
 - [GatePilot](https://github.com/vishnu-tharan/GatePilot) — A separate access-management prototype with React Native/Expo web and mobile screens, an Express/MongoDB API, vehicle entry/exit, equipment approvals, searchable records and configurable gates/departments.
