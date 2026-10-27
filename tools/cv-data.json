@@ -47,10 +47,10 @@
       "category": "E-commerce application",
       "stack": "Next.js, Spring Boot, PostgreSQL, Redis, Docker",
       "url": "https://github.com/vishnu-tharan/Buyora",
-      "evidence": "https://github.com/vishnu-tharan/Buyora/blob/a54ea43a4c7a0b6ddb862bea851362f48df68803/docs/verification/SHOPPING_IMPROVEMENTS.md",
+      "evidence": "https://github.com/vishnu-tharan/Buyora/blob/3db4dda77a9336791ed7d05c1cc2c5c75ae3152b/README.md#checks",
       "bullets": [
-        "Built a Next.js/Spring Boot store with LKR filters, product comparison, stock alerts, checkout, order tracking and partial returns.",
-        "Added email retry and refund safeguards; repository checks report 70 frontend, 36 backend unit and 8 PostgreSQL integration tests passing."
+        "Built a Next.js/Spring Boot shop with LKR pricing, search, cart, checkout, order tracking and administration.",
+        "Implemented transactional stock reservations, idempotent checkout and payment/refund safeguards; added unit and PostgreSQL integration tests."
       ]
     },
     {
@@ -60,29 +60,29 @@
       "stack": "React, JavaScript, Node.js, Express, MongoDB",
       "url": "https://github.com/chamikara12/GATEWAY",
       "bullets": [
-        "Contributed React frontend and Express/MongoDB backend development to a team application for university vehicle records and gate-pass management."
+        "Contributed React frontend and Express/MongoDB backend development to our semester 3.1 university vehicle and gate-pass group project."
       ]
     },
     {
       "id": "cashmanage",
-      "name": "cashManage",
+      "name": "CashManage",
       "category": "Personal finance application",
-      "stack": "React, JavaScript, Express, SQLite, PWA",
+      "stack": "JavaScript, React, Vite, Express, SQLite, PWA",
       "url": "https://github.com/vishnu-tharan/CashManage",
-      "evidence": "https://github.com/vishnu-tharan/CashManage#checks",
+      "evidence": "https://github.com/vishnu-tharan/CashManage/blob/6c4d82d5fcd3eab6985d4691bcf822ea2bc417aa/README.md#checks",
       "bullets": [
-        "Built an installable React PWA with encrypted offline cashbooks, budgets, CSV import and PDF/CSV reports.",
-        "Implemented Express/SQLite sharing permissions and sync conflict checks; repository tests cover encryption, account isolation and conflicting edits."
+        "Built personal cashbooks with budgets, transfers, receipts, CSV import, browser PDF reports and encrypted backups.",
+        "Implemented AES-GCM vaults, offline unlock, revision-checked sync, MFA, recovery and session revocation."
       ]
     },
     {
       "id": "agri",
       "name": "Lanka Agri-Direct",
-      "category": "Group project",
+      "category": "Produce directory | Group project",
       "stack": "Spring Boot, React, React Native, MongoDB, Docker",
       "url": "https://github.com/dragon-udfly/LankaAgriDirect",
       "bullets": [
-        "Contributed frontend development, interface design and API integration testing to a team marketplace connecting Sri Lankan growers and consumers."
+        "Contributed frontend development, interface design and API integration testing to a team directory connecting buyers with verified Sri Lankan producers."
       ]
     },
     {
@@ -90,24 +90,24 @@
       "name": "CinemaStream",
       "dates": "November 2025",
       "category": "Movie discovery | Mobile & web",
-      "stack": "TypeScript, React Native, Expo, Firebase, AsyncStorage",
+      "stack": "JavaScript, React Native, Expo Router, Firebase, Firestore",
       "url": "https://github.com/vishnu-tharan/CinemaStream",
-      "evidence": "https://github.com/vishnu-tharan/CinemaStream/blob/main/RELEASE_CHECKLIST.md",
+      "evidence": "https://github.com/vishnu-tharan/CinemaStream/blob/abc97b57ac3e454cbfa55c797b3d8c421d2f2ba3/README.md#check",
       "bullets": [
-        "Built React Native/Expo discovery and collections with Firebase, per-account offline caching and reconnect synchronization; verified with 8 unit and 10 Firestore rule tests.",
-        "Reduced the measured web entry bundle from approximately 4.25 MB to 2.67 MB by separating optional crash reporting."
+        "Built a React Native/Expo movie catalog with search, genre filters, trailer links, guest browsing and account access.",
+        "Implemented online Firestore favourites, watchlists and watched records with ownership rules, schema checks and emulator tests."
       ]
     },
     {
       "id": "ceb",
       "name": "CEB-Management",
-      "category": "Household electricity planner",
+      "category": "Household electricity tracker",
       "stack": "JavaScript, HTML, CSS, Node.js, Express, SQLite",
       "url": "https://github.com/vishnu-tharan/CEB-Management",
-      "evidence": "https://github.com/vishnu-tharan/CEB-Management#verification",
+      "evidence": "https://github.com/vishnu-tharan/CEB-Management/blob/e708d978a9b13e72d0b193a38bfc11095c44fa61/README.md#verify",
       "bullets": [
-        "Built an Express/SQLite household energy planner with appliance tracking, meter readings, budgets, forecasts, weekly plans and CSV export.",
-        "Implemented per-household data isolation and cookie-based sessions; repository tests cover tariff boundaries, input validation, CSRF and session expiry."
+        "Built an Express/SQLite tracker for appliances, cumulative meter readings, consumption charts and actual bill history.",
+        "Implemented a dated tariff estimator, user-scoped records, CSRF checks and data-preserving migrations with API and calculation tests."
       ]
     },
     {
@@ -117,10 +117,10 @@
       "category": "Independent access-management prototype",
       "stack": "React Native, Expo, Express, MongoDB, Docker",
       "url": "https://github.com/vishnu-tharan/GatePilot",
-      "evidence": "https://github.com/vishnu-tharan/GatePilot#checks",
+      "evidence": "https://github.com/vishnu-tharan/GatePilot/blob/94f5c069dad296877cd321bdfa54275ed7b95ba6/README.md#checks",
       "bullets": [
-        "Built shared React Native/Expo web and mobile screens with an Express/MongoDB API for vehicle visits, equipment approvals, staff QR lookup and PDF reports.",
-        "Implemented department permissions, protected sessions and atomic visit updates; repository tests cover authentication, concurrent visits and report data."
+        "Built React Native/Expo interfaces and an Express/MongoDB API for vehicle entry, exit and department equipment approvals.",
+        "Implemented role-scoped records, duplicate-visit prevention and conditional approvals, with security and workflow tests."
       ]
     }
   ],
@@ -261,7 +261,7 @@
       "role": "Mobile App Developer Intern",
       "heading_alignment": "center",
       "refined_layout": true,
-      "summary": "IT honours undergraduate seeking a mobile app development internship. Experience building React Native and Expo applications with Firebase, per-account offline storage and reconnect synchronization. Project work includes shared web/mobile screens, API integration and automated tests.",
+      "summary": "IT honours undergraduate seeking a mobile app development internship. Experience building React Native and Expo interfaces, integrating APIs and Firebase, and implementing authentication and per-account collections. Contributed to shared web/mobile and university group projects.",
       "project_ids": [
         "cinemastream",
         "gatepilot",
@@ -282,7 +282,7 @@
         ],
         [
           "API integration",
-          "REST APIs, Express; authentication and synchronization"
+          "REST APIs, Express; authentication and account-scoped data"
         ],
         [
           "Tools & testing",
