@@ -1,9 +1,9 @@
-import { projects } from './project-data.js?v=20261027-cv-tools-v1';
-import { escape } from './projects.js?v=20261027-cv-tools-v1';
-import { openProject as openPortfolioProject } from './main.js?v=20261027-cv-tools-v1';
-import { setTheme, toggleTheme } from './preferences.js?v=20261027-cv-tools-v1';
-import { mountTerminal } from './terminal.js?v=20261027-cv-tools-v1';
-import { motionAllowed } from './transitions.js?v=20261027-cv-tools-v1';
+import { projects } from './project-data.js?v=20261027-project-refresh-v1';
+import { escape } from './projects.js?v=20261027-project-refresh-v1';
+import { openProject as openPortfolioProject } from './main.js?v=20261027-project-refresh-v1';
+import { setTheme, toggleTheme } from './preferences.js?v=20261027-project-refresh-v1';
+import { mountTerminal } from './terminal.js?v=20261027-project-refresh-v1';
+import { motionAllowed } from './transitions.js?v=20261027-project-refresh-v1';
 export { escape };
 const dialog = document.querySelector('#app-dialog');
 let previousFocus, toastTimer;

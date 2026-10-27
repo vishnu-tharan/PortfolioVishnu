@@ -1,4 +1,4 @@
-import { viewTransition } from './transitions.js?v=20261027-cv-tools-v1';
+import { viewTransition } from './transitions.js?v=20261027-project-refresh-v1';
 const media = matchMedia('(prefers-color-scheme: dark)');
 const storage = {
   get(key, fallback) { try { return localStorage.getItem(key) ?? fallback; } catch { return fallback; } },
