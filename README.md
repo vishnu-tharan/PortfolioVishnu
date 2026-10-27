@@ -6,20 +6,15 @@ I'm Vishnutharan Bavachelvan, a full-stack developer and B.Sc. (Hons) Informatio
 
 ## About the portfolio
 
-The portfolio keeps its black-and-red cinematic design with animated WebGL backgrounds, an interactive journey timeline, and project case studies. New features extend this layout:
+The portfolio keeps its black-and-red design with a focused project section and an interactive education timeline.
 
-- Dark and light modes, with saved preferences and a dark default
-- Search across projects, technologies, education, certificates and contact information (Ctrl/Cmd K or `/`)
-- A small optional **VishnuOS** terminal; the portfolio itself remains a normal website
-- Optional quiet click sounds, off by default and controlled from the header or terminal
-- Public GitHub repository counts and recent activity, refreshed every five minutes while visible
-- Shareable project links such as `#project=buyora`
-
+- Dark and light modes with a saved preference
 - Responsive layouts for desktop and mobile
-- Projects immediately after the introduction, with screenshots, contribution notes, technical decisions and verification context
+- Project filters, concise case studies and shareable project links
+- Three representative screenshots per gallery
 - Keyboard-accessible navigation and dialogs
-- Animation controls and reduced-motion support
-- Education, certifications, memberships, and contact details
+- Static background accents without continuous decorative animation
+- Education, certificates, memberships, a common CV and contact details
 
 ## Featured projects
 
@@ -33,7 +28,7 @@ The portfolio keeps its black-and-red cinematic design with animated WebGL backg
 
 ## Technologies
 
-HTML, CSS, JavaScript, and WebGL. A small Python server is included for local development. The portfolio runs without a framework or build step.
+HTML, CSS and JavaScript. A small Python server is included for local development. The portfolio runs without a framework or build step.
 
 ## Run locally
 
@@ -53,40 +48,25 @@ dist/
   style.css        Styling and responsive layouts
   src/
     main.js        Projects, timeline, and interactions
-    stage.js       WebGL backgrounds
 tools/
   serve.py         Local development server
 ```
 
 To deploy, serve the contents of `dist/` with any static website host.
 
-## VishnuOS commands
+## Appearance and interactions
 
-Click **VishnuOS** in the corner and type `help`. Supported commands include `about`, `projects`, `open buyora`, `search spring boot`, `certificates`, `skills`, `contact`, `cv`, `github`, `theme dark`, `theme light`, `theme system`, `sound on`, `sound off`, `clear`, and `exit`. `open` also accepts `certificates`, `education`, `skills`, `contact`, `github`, `projects` and `cv`. Arrow keys navigate the current terminal's command history. Commands only navigate this portfolio; they never run system code.
+The header provides a dark/light toggle and saves the selected theme locally when storage is available. Both themes use static gradient accents. Project filters, screenshot selectors, share links and the education timeline remain interactive. The portfolio does not load a terminal, search dialog, sound engine or GitHub activity feed.
 
-## GitHub activity
+The profile card uses the supplied photo in `dist/assets/vishnu-profile.jpeg`, preserving its natural proportions. Mobile layouts include larger touch targets, safe-area spacing and responsive project dialogs. Light-theme refinements are in `dist/light-mode.css`.
 
-The tracker reads the public GitHub REST API for `vishnu-tharan`, without an access token. GitHub events can arrive late, so this is the latest available public feed rather than instant notifications or a complete contribution calendar. A browser-local snapshot is labelled when reused. Timeouts, rate limits and unavailable data leave the profile link accessible. Automatic requests stop while the page is hidden, refreshes are spaced out, and server polling/rate-limit headers are respected. No private activity is accessed.
-
-Appearance, sound preferences and the public GitHub snapshot are stored locally when browser storage is available. Sound requires a visitor interaction; nothing autoplays on page load. The existing reduced-motion and animation controls remain available.
-
-Both themes keep the cinematic backgrounds. Light mode uses warm red lighting, particles and orbit effects against paper-colored surfaces, with matching portrait, project and timeline styles. Paused scenes repaint once when the theme changes. Touch devices use a lower maximum canvas resolution, and browsers without WebGL retain static gradient backgrounds.
-
-The profile card uses the owner's supplied black-suit/white-shirt photo in `dist/assets/vishnu-profile.jpeg`, with its natural proportions. The old portrait, cutout mask and tie-specific layers have been removed. Card lighting and pointer tilt remain, with reduced-motion support.
-
-After changing assets or regenerating the CV, run `python tools/version_assets.py <new-release-name>` before publishing. This updates HTML asset URLs and module imports together, so returning visitors receive one consistent version instead of mixing cached theme files with new code.
-
-Mobile layouts include larger touch targets, safe-area spacing, and dialogs that adapt to the browser's visible area and on-screen keyboard. Appearance refinements are in `dist/light-mode.css`; responsive controls are in `dist/responsive.css` and `dist/src/viewport.js`.
-
-Interaction effects live in `dist/effects.css`, `dist/src/effects.js` and `dist/src/transitions.js`. Theme changes reveal the new palette from the theme button in browsers with View Transitions; other browsers switch immediately. Project screenshots animate into their case studies when the source image is visible and loaded, with a short dialog entrance for other projects. Desktop project cards have a pointer spotlight. The thin scroll indicator and active navigation follow the current section without changing the layout. VishnuOS includes command suggestions that fill the input before the visitor presses Run, and a blinking prompt. Copying a project link shows an accessible confirmation beside its button.
-
-New motion respects both the operating system's reduced-motion preference and the portfolio's pause button. Pointer effects require a mouse and fine-pointer support. Animations stop when the page is hidden; essential navigation and commands remain usable without View Transitions.
+After changing assets, run `python tools/version_assets.py <new-release-name>` before publishing. This updates HTML asset URLs and module imports together.
 
 ## Verification
 
-Run `node --test tools/portfolio.test.mjs tools/stage.test.mjs tools/effects.test.mjs` to check GitHub data validation, safe activity links, project content, renderer palettes, touch-device resolution, WebGL fallbacks and transition cancellation/fallbacks. The website itself has no Node dependency or build step. Preview with the local Python server before publishing.
+Run `node --test tools/portfolio.test.mjs` to check source-backed project content, safe destinations, gallery files and browser module dependencies. The website itself has no Node dependency or build step. Preview with the local Python server before publishing.
 
-Browser checks cover 320, 390, 768 and 1280 pixel viewports in both themes, search-to-project navigation, terminal commands, animation pause and theme changes while paused. These checks use browser viewport emulation; no physical phone was connected.
+Browser checks cover dark/light themes, saved appearance, responsive layouts, project filters and dialogs, screenshot selection and education navigation. Mobile checks use browser viewport emulation.
 
 The GitHub Pages workflow publishes `dist/` when commits reach `main`. The local publishing checkout under `.sites-runtime/github-publish/` contains the matching GitHub history; the main workspace keeps the editable site files.
 
@@ -122,9 +102,9 @@ The common CV features Buyora, GatePilot and CEB-Management. GATEWAY and Lanka A
 
 ## Certificates and recognition
 
-Seven supplied certificates have descriptive filenames in `dist/assets/certificates/`, with organized copies in `output/certificates/`. Original files are preserved. The gallery uses existing portfolio colors in both themes, responsive cards, lazy previews and direct view/download links. Search includes each certificate and its issuer. VishnuOS supports `certificates`, `search SQL` and `open certificates`.
+Seven supplied certificates have descriptive filenames in `dist/assets/certificates/`, with organized copies in `output/certificates/`. Original files are preserved. The gallery uses existing portfolio colors in both themes, responsive cards, lazy previews and direct view/download links.
 
-`tools/certificate-data.json` is the shared source for the gallery, search, terminal and the common CV. It separates SQL course completion, Cursor AI workshop participation, Trailblazers development-event participation, the school Accounting & ICT merit award, and participation in IEEEXtreme 17.0, IEEEXtreme 18.0 and HACKFORCE '23. No competition ranking or professional certification is inferred from participation.
+`tools/certificate-data.json` is the shared source for the gallery and the common CV. It separates SQL course completion, Cursor AI workshop participation, Trailblazers development-event participation, the school Accounting & ICT merit award, and participation in IEEEXtreme 17.0, IEEEXtreme 18.0 and HACKFORCE '23. No competition ranking or professional certification is inferred from participation.
 
 After editing the metadata, run `python tools/build_certificates.py`, then `python tools/build_cv.py`. Run `python tools/check_certificates.py` and `python tools/check_cv.py` to check files, content and links. PDF preview images are rendered from the supplied documents using Poppler. Finish with `python tools/version_assets.py <new-release-name>` and browser checks before publishing.
 
@@ -132,7 +112,7 @@ Author: **vishnu-tharan**.
 
 Contact and security update (18 October 2026): the portfolio and all current/legacy CV downloads use vtharan.b@gmail.com. LinkedIn is https://www.linkedin.com/in/vishnutharan. New project category filters and a copy-email shortcut retain both themes. The new FormSubmit destination may need activation; delivery has not been verified. See SECURITY-AUDIT.md for findings, checks and hosting limitations. Run tools/version_assets.py after generating pages to apply the browser security policy.
 
-Current project visuals (27 October 2026): 29 original repository screenshots are available in four case studies: Buyora (9), GatePilot (8), CinemaStream (5) and CEB-Management (7). Retired comparison and staff-pass screens and the earlier CinemaStream design are no longer shown. CashManage uses its current repository icon because the current version has no interface screenshots. GATEWAY and Lanka Agri-Direct retain related gate/leaf symbols. All seven cards have visuals.
+Current project visuals (27 October 2026): 12 original repository screenshots are selected for four case studies: Buyora, GatePilot, CinemaStream and CEB-Management (three each). Retired comparison and staff-pass screens and the earlier CinemaStream design are no longer shown. CashManage uses its current repository icon because the current version has no interface screenshots. GATEWAY and Lanka Agri-Direct retain related gate/leaf symbols. All seven cards have visuals.
 
 `dist/src/project-screenshots.js` supplies gallery order, alt text and captions. `dist/assets/projects/screenshot-sources.json` records pinned commits and Git blob hashes. Each displayed screenshot was matched to its source hash. Screen selectors load originals only when selected; full-size links follow the selection, and portrait captures keep their aspect ratio. Captions distinguish fictional demo records, sample data and current application screens.
 
