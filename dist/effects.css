@@ -1,13 +1,94 @@
 /* Quiet interactions and static accents keep the focus on portfolio content. */
-:is(.cv-button,.outline-button,.feature-button,.github-refresh,.project-details,.contact-form button){transition:background-color .15s,color .15s,border-color .15s}
-:is(.hero-social a,.project-links a,.project-details,.skills-grid a){text-decoration-thickness:1px;text-underline-offset:5px}
-.project-dialog .copy-status{font-size:14px;color:var(--text);margin:16px 0;padding:12px 14px;background:var(--accent-soft);border-left:2px solid var(--accent);border-radius:4px}
-.copy-status:empty{display:none}.project-details.copy-confirmed{color:var(--accent)}
-.scroll-progress{position:fixed;inset:0 0 auto;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;z-index:45;pointer-events:none}
-.header nav a{position:relative}.header nav a::after{content:'';position:absolute;left:0;right:0;bottom:3px;height:1px;background:var(--accent);transform:scaleX(0);transform-origin:left}
-.header nav a[aria-current=location]{color:var(--accent)}.header nav a:is(:hover,:focus-visible,[aria-current=location])::after{transform:scaleX(1)}.header .contact-link[aria-current=location]{color:var(--accent)}
-.scene-static{background:radial-gradient(ellipse at 75% 35%,#7d211d30,transparent 60%),linear-gradient(150deg,#151014,#090909)}
-[data-theme=light] .scene-static{background:radial-gradient(ellipse at 75% 35%,#d8a48e24,transparent 65%),linear-gradient(150deg,#faf7f5,#f3eeea)}
-html.motion-paused *,html.motion-paused *::before,html.motion-paused *::after{animation:none!important}
-html.motion-paused .identity-card,html.motion-paused .hero-portrait,html.motion-paused #hero-title{transform:none;translate:none}
-.work .project-card::before{background:linear-gradient(145deg,#ff493509,transparent);opacity:1}.project-preview img{transform:none!important}
+:is(
+  .cv-button,
+  .outline-button,
+  .feature-button,
+  .github-refresh,
+  .project-details,
+  .contact-form button
+) {
+  transition:
+    background-color 0.15s,
+    color 0.15s,
+    border-color 0.15s;
+}
+:is(.hero-social a, .project-links a, .project-details, .skills-grid a) {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 5px;
+}
+.project-dialog .copy-status {
+  font-size: 14px;
+  color: var(--text);
+  margin: 16px 0;
+  padding: 12px 14px;
+  background: var(--accent-soft);
+  border-left: 2px solid var(--accent);
+  border-radius: 4px;
+}
+.copy-status:empty {
+  display: none;
+}
+.project-details.copy-confirmed {
+  color: var(--accent);
+}
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  z-index: 45;
+  pointer-events: none;
+}
+.header nav a {
+  position: relative;
+}
+.header nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 3px;
+  height: 1px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.header nav a[aria-current='location'] {
+  color: var(--accent);
+}
+.header nav a:is(:hover, :focus-visible, [aria-current='location'])::after {
+  transform: scaleX(1);
+}
+.header .contact-link[aria-current='location'] {
+  color: var(--accent);
+}
+.scene-static {
+  background:
+    radial-gradient(ellipse at 75% 35%, #7d211d30, transparent 60%),
+    linear-gradient(150deg, #151014, #090909);
+}
+[data-theme='light'] .scene-static {
+  background:
+    radial-gradient(ellipse at 75% 35%, #d8a48e24, transparent 65%),
+    linear-gradient(150deg, #faf7f5, #f3eeea);
+}
+html.motion-paused *,
+html.motion-paused *::before,
+html.motion-paused *::after {
+  animation: none !important;
+}
+html.motion-paused .identity-card,
+html.motion-paused .hero-portrait,
+html.motion-paused #hero-title {
+  transform: none;
+  translate: none;
+}
+.work .project-card::before {
+  background: linear-gradient(145deg, #ff493509, transparent);
+  opacity: 1;
+}
+.project-preview img {
+  transform: none !important;
+}

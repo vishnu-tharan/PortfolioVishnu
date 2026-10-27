@@ -1,5 +1,6 @@
 """Check generated CVs for page limits, readable text, links and web/PDF parity."""
 from pathlib import Path
+import re
 from html.parser import HTMLParser
 from html import escape
 from urllib.parse import urlsplit
@@ -114,6 +115,8 @@ for key, profile in DATA['profiles'].items():
             assert all(grayscale(line['stroking_color']) for line in page.lines), f'{filename}: colored decoration in monochrome CV'
     html = (ROOT / 'dist' / html_name).read_text(encoding='utf-8')
     page = Page(); page.feed(html)
+    # HTML indentation should not change content validation.
+    html = re.sub(r'>\s+<', '><', ' '.join(html.split()))
     assert [urlsplit(url).path for url in page.downloads] == [f'./assets/{filename}'], f'{html_name}: incorrect PDF download'
     selected_page = 'cv.html' if key == DATA['default_profile'] else html_name
     assert page.current == [] and page.versions == [], f'{html_name}: common CV should have no role navigation'

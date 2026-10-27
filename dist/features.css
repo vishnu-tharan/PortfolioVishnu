@@ -1,32 +1,228 @@
 /* Extend the original black-and-red design without changing its layout. */
-:root,:root[data-theme=dark]{color-scheme:dark;--bg:#090909;--surface:#171214;--surface-2:#21191b;--text:#eeeae4;--muted:#b8aaa5;--accent:#ff4935;--accent-soft:#3b211d;--on-accent:#090909;--line:#ffffff25;--glass:#151112f0}
-:root[data-theme=light]{color-scheme:light;--bg:#faf7f5;--paper:#251e1b;--surface:#fff;--surface-2:#f4eeea;--text:#251e1b;--muted:#71615a;--accent:#b62d1f;--red:#b62d1f;--accent-soft:#fce7df;--on-accent:#fff;--line:#dbcfc9;--glass:#fffaf5f2}
-.feature-controls{display:flex;align-items:center;margin-left:auto}.feature-button{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;background:transparent;border:1px solid transparent;border-radius:7px;color:var(--text);font:22px/1.2 Arial,sans-serif;cursor:pointer}.feature-button:hover{background:var(--surface-2);border-color:var(--line)}.feature-button:focus-visible{outline:2px solid var(--red);outline-offset:4px}.theme-sun,[data-theme=light] .theme-moon{display:none}[data-theme=light] .theme-sun{display:inline}
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #090909;
+  --surface: #171214;
+  --surface-2: #21191b;
+  --text: #eeeae4;
+  --muted: #b8aaa5;
+  --accent: #ff4935;
+  --accent-soft: #3b211d;
+  --on-accent: #090909;
+  --line: #ffffff25;
+  --glass: #151112f0;
+}
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #faf7f5;
+  --paper: #251e1b;
+  --surface: #fff;
+  --surface-2: #f4eeea;
+  --text: #251e1b;
+  --muted: #71615a;
+  --accent: #b62d1f;
+  --red: #b62d1f;
+  --accent-soft: #fce7df;
+  --on-accent: #fff;
+  --line: #dbcfc9;
+  --glass: #fffaf5f2;
+}
+.feature-controls {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+.feature-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  color: var(--text);
+  font:
+    22px/1.2 Arial,
+    sans-serif;
+  cursor: pointer;
+}
+.feature-button:hover {
+  background: var(--surface-2);
+  border-color: var(--line);
+}
+.feature-button:focus-visible {
+  outline: 2px solid var(--red);
+  outline-offset: 4px;
+}
+.theme-sun,
+[data-theme='light'] .theme-moon {
+  display: none;
+}
+[data-theme='light'] .theme-sun {
+  display: inline;
+}
 /* Light mode keeps the original typography and red accents. */
-[data-theme=light] .scene-canvas{display:block}
-[data-theme=light] .header{background:#faf7f5f5;border-color:var(--line)}
-[data-theme=light] :is(.hero,.flow,.work,.sticky-scene,.beyond,.finale){background:var(--bg);color:var(--text)}
-[data-theme=light] :is(.hero-summary,.hero-availability,.overline,.word-baseline,.section-label,.header nav a,.universe-copy p,.work-heading p,.journey-heading p,.year-story p,.contact-intro,.contact-methods p){color:var(--muted)}
-[data-theme=light] :is(.section-label span:first-child,.hero-index span,.project-role strong){color:var(--text)}
-[data-theme=light] :is(.section-label,.word-baseline,.project-links){border-color:var(--line)}
-[data-theme=light] .identity-card{background:linear-gradient(140deg,#fff,#faece6);border-color:#bc392880;box-shadow:0 25px 65px #66362720}
-[data-theme=light] :is(.card-topline,.card-name,.card-specialty,.card-status){color:var(--text)}
-[data-theme=light] :is(.card-edition,.portrait-toggle,.card-status>span){color:var(--muted)}
-[data-theme=light] .portrait-code{color:#734237}
-[data-theme=light] :is(.work .project-card,.skills-grid article,.beyond .credentials article){background:var(--surface);border-color:var(--line);box-shadow:0 10px 28px #65422b08}
-[data-theme=light] :is(.project-summary,.project-role,.project-category,.skills-grid p,.credentials article p,.credentials article>span){color:var(--muted)}
-[data-theme=light] :is(.project-stack>span,.project-links a,.project-details,.skills-grid a){color:var(--accent)}
-[data-theme=light] .project-dialog{background:var(--surface);color:var(--text);border-color:var(--line)}
-[data-theme=light] .dialog-close{background:var(--surface-2);color:var(--text)}
-[data-theme=light] :is(.case-study h3,.year-story h3,.credentials h3,.contact-methods strong,.contact-form h3){color:var(--text)}
-[data-theme=light] :is(.project-dialog .case-study p,.project-detail-image figcaption,.project-dialog .project-status,.dialog-tech,.year-skills li){color:var(--muted)}
-[data-theme=light] .year-skills li{border-color:var(--line);background:var(--surface)}
-[data-theme=light] :is(.year-button,.clock-label,.journey-bottom){color:var(--muted)}
-[data-theme=light] .year-button[aria-pressed=true],[data-theme=light] .beyond h2 em{color:var(--accent)}
-[data-theme=light] .contact-form{background:var(--surface);border-color:var(--line);box-shadow:0 15px 40px #65422b0d}
-[data-theme=light] :is(.contact-form input,.contact-form textarea,.contact-form select){background:var(--surface-2);border-color:var(--line);color:var(--text)}
-[data-theme=light] :is(.contact-form label,.contact-form p,.contact-methods>a>span,.footer-bottom,.contact-fallback){color:var(--muted)}
-[data-theme=light] .contact-form button,[data-theme=light] .cv-button{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
-@media(max-width:1050px){.header{gap:15px}.header nav{gap:16px}.contact-link{font-size:12px;gap:10px}}
-@media(max-width:750px){.header{gap:8px 14px}.feature-controls{margin-left:auto}.header>.contact-link{margin-left:0}.header nav{order:3}}
-@media(max-width:400px){.header>.contact-link{display:none}.header .brand{font-size:28px}}
+[data-theme='light'] .scene-canvas {
+  display: block;
+}
+[data-theme='light'] .header {
+  background: #faf7f5f5;
+  border-color: var(--line);
+}
+[data-theme='light'] :is(.hero, .flow, .work, .sticky-scene, .beyond, .finale) {
+  background: var(--bg);
+  color: var(--text);
+}
+[data-theme='light']
+  :is(
+    .hero-summary,
+    .hero-availability,
+    .overline,
+    .word-baseline,
+    .section-label,
+    .header nav a,
+    .universe-copy p,
+    .work-heading p,
+    .journey-heading p,
+    .year-story p,
+    .contact-intro,
+    .contact-methods p
+  ) {
+  color: var(--muted);
+}
+[data-theme='light'] :is(.section-label span:first-child, .hero-index span, .project-role strong) {
+  color: var(--text);
+}
+[data-theme='light'] :is(.section-label, .word-baseline, .project-links) {
+  border-color: var(--line);
+}
+[data-theme='light'] .identity-card {
+  background: linear-gradient(140deg, #fff, #faece6);
+  border-color: #bc392880;
+  box-shadow: 0 25px 65px #66362720;
+}
+[data-theme='light'] :is(.card-topline, .card-name, .card-specialty, .card-status) {
+  color: var(--text);
+}
+[data-theme='light'] :is(.card-edition, .portrait-toggle, .card-status > span) {
+  color: var(--muted);
+}
+[data-theme='light'] .portrait-code {
+  color: #734237;
+}
+[data-theme='light'] :is(.work .project-card, .skills-grid article, .beyond .credentials article) {
+  background: var(--surface);
+  border-color: var(--line);
+  box-shadow: 0 10px 28px #65422b08;
+}
+[data-theme='light']
+  :is(
+    .project-summary,
+    .project-role,
+    .project-category,
+    .skills-grid p,
+    .credentials article p,
+    .credentials article > span
+  ) {
+  color: var(--muted);
+}
+[data-theme='light']
+  :is(.project-stack > span, .project-links a, .project-details, .skills-grid a) {
+  color: var(--accent);
+}
+[data-theme='light'] .project-dialog {
+  background: var(--surface);
+  color: var(--text);
+  border-color: var(--line);
+}
+[data-theme='light'] .dialog-close {
+  background: var(--surface-2);
+  color: var(--text);
+}
+[data-theme='light']
+  :is(.case-study h3, .year-story h3, .credentials h3, .contact-methods strong, .contact-form h3) {
+  color: var(--text);
+}
+[data-theme='light']
+  :is(
+    .project-dialog .case-study p,
+    .project-detail-image figcaption,
+    .project-dialog .project-status,
+    .dialog-tech,
+    .year-skills li
+  ) {
+  color: var(--muted);
+}
+[data-theme='light'] .year-skills li {
+  border-color: var(--line);
+  background: var(--surface);
+}
+[data-theme='light'] :is(.year-button, .clock-label, .journey-bottom) {
+  color: var(--muted);
+}
+[data-theme='light'] .year-button[aria-pressed='true'],
+[data-theme='light'] .beyond h2 em {
+  color: var(--accent);
+}
+[data-theme='light'] .contact-form {
+  background: var(--surface);
+  border-color: var(--line);
+  box-shadow: 0 15px 40px #65422b0d;
+}
+[data-theme='light'] :is(.contact-form input, .contact-form textarea, .contact-form select) {
+  background: var(--surface-2);
+  border-color: var(--line);
+  color: var(--text);
+}
+[data-theme='light']
+  :is(
+    .contact-form label,
+    .contact-form p,
+    .contact-methods > a > span,
+    .footer-bottom,
+    .contact-fallback
+  ) {
+  color: var(--muted);
+}
+[data-theme='light'] .contact-form button,
+[data-theme='light'] .cv-button {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+@media (max-width: 1050px) {
+  .header {
+    gap: 15px;
+  }
+  .header nav {
+    gap: 16px;
+  }
+  .contact-link {
+    font-size: 12px;
+    gap: 10px;
+  }
+}
+@media (max-width: 750px) {
+  .header {
+    gap: 8px 14px;
+  }
+  .feature-controls {
+    margin-left: auto;
+  }
+  .header > .contact-link {
+    margin-left: 0;
+  }
+  .header nav {
+    order: 3;
+  }
+}
+@media (max-width: 400px) {
+  .header > .contact-link {
+    display: none;
+  }
+  .header .brand {
+    font-size: 28px;
+  }
+}
