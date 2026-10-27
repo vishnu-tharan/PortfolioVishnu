@@ -1,5 +1,5 @@
-import { renderProjectGallery, projectDetails, mountProjectScreenshots } from './projects.js?v=20261027-simplified-v1';
-import { projects } from './project-data.js?v=20261027-simplified-v1';
+import { renderProjectGallery, projectDetails, mountProjectScreenshots } from './projects.js?v=20261027-buyora-v2';
+import { projects } from './project-data.js?v=20261027-buyora-v2';
 
 // Keep decorative elements still; interactions remain available without continuous animation.
 document.documentElement.classList.add('motion-paused');
