@@ -47,7 +47,8 @@ dist/
   index.html       Page content and sections
   style.css        Styling and responsive layouts
   src/
-    main.js        Projects, timeline, and interactions
+    main.js        Project dialogs and sharing
+    journey.js     Education timeline
 tools/
   serve.py         Local development server
 ```
@@ -117,3 +118,7 @@ Current project visuals (27 October 2026): 12 original repository screenshots ar
 `dist/src/project-screenshots.js` supplies gallery order, alt text and captions. `dist/assets/projects/screenshot-sources.json` records pinned commits and Git blob hashes. Each displayed screenshot was matched to its source hash. Screen selectors load originals only when selected; full-size links follow the selection, and portrait captures keep their aspect ratio. Captions distinguish fictional demo records, sample data and current application screens.
 
 Individual feature verification: PROJECT-REVIEW.md and tools/project-review.json map each retained workflow to its current screen/route implementation. Public summaries and CV bullets now use concise implemented workflows, with historical result counts and speculative features omitted. The CV language list includes Java, JavaScript, C++, C, Python, SQL, HTML and CSS.
+
+## Editing the code
+
+See [CODE-GUIDE.md](CODE-GUIDE.md) for the file map, simple coding conventions and preview/check commands. Website source files use normal indentation and separate functions for project dialogs, screenshot galleries and the education timeline.
