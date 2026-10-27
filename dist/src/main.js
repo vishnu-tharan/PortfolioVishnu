@@ -1,7 +1,7 @@
-import { createStage } from './stage.js?v=20261027-skills-cleanup-v1';
-import { renderProjectGallery, projectDetails, mountProjectScreenshots } from './projects.js?v=20261027-skills-cleanup-v1';
-import { projects } from './project-data.js?v=20261027-skills-cleanup-v1';
-import { motionAllowed, viewTransition } from './transitions.js?v=20261027-skills-cleanup-v1';
+import { createStage } from './stage.js?v=20261027-verified-features-v1';
+import { renderProjectGallery, projectDetails, mountProjectScreenshots } from './projects.js?v=20261027-verified-features-v1';
+import { projects } from './project-data.js?v=20261027-verified-features-v1';
+import { motionAllowed, viewTransition } from './transitions.js?v=20261027-verified-features-v1';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)');
 let paused = reduce.matches;

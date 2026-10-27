@@ -1,4 +1,4 @@
-import { viewTransition } from './transitions.js?v=20261027-skills-cleanup-v1';
+import { viewTransition } from './transitions.js?v=20261027-verified-features-v1';
 const media = matchMedia('(prefers-color-scheme: dark)');
 const storage = {
   get(key, fallback) { try { return localStorage.getItem(key) ?? fallback; } catch { return fallback; } },
