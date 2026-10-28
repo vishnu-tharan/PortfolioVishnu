@@ -1,4 +1,4 @@
-import { projectScreenshots } from './project-screenshots.js?v=20261028-gatepilot-v1';
+import { projectScreenshots } from './project-screenshots.js?v=20261028-ceb-v1';
 // Current descriptions are limited to implemented screens and routes.
 export const projects = [
   {
@@ -131,20 +131,21 @@ export const projects = [
     imageAlt: 'CEB-Management — dashboard screen',
     caption: 'Dashboard · Temporary example household · illustrative estimates and readings',
     type: 'HOUSEHOLD ELECTRICITY TRACKER',
-    stack: 'JavaScript · HTML · CSS · Express · SQLite',
-    summary: 'A household electricity tracker with appliances, meter readings and bill estimates.',
+    stack: 'JavaScript · HTML · CSS · Node.js · Express · SQLite · Docker',
+    summary:
+      'A household electricity tracker with appliance management, meter-based usage forecasts, bill estimates and actual bill history.',
     role: 'Web application development',
     link: 'https://github.com/vishnu-tharan/CEB-Management',
     problem:
       'Explain household electricity use by separating appliance estimates, meter measurements and actual saved bills.',
     contribution:
-      'Built appliance management, meter-reading entry, usage charts, a bill estimator and saved bill history. Added profile and account-security screens with light and dark themes.',
+      'Built appliance editing, search and room filters, dated meter readings, usage charts, an itemised bill estimator and actual monthly bill history. Added registration, sign-in, recovery-code access, profile and password changes across eight responsive screens with light and dark themes.',
     decision:
-      'HTML, CSS and JavaScript call an Express API backed by SQLite. The app calculates usage from appliance inputs or cumulative meter readings and estimates bills using its dated tariff model.',
-    status: 'Independent student project · estimated bills use a dated tariff model',
+      'An Express server serves the JavaScript interface and a SQLite-backed API with user-scoped records. Usage forecasts use a day-weighted average of recent meter intervals, falling back to appliance estimates when readings are insufficient. The bill calculator uses a dated 30-day tariff snapshot; saved actual bills are entered separately.',
+    status: 'Independent student project · dated tariff estimates · no live utility integration',
     imageLayout: 'contain',
     testing:
-      'The repository includes calculation, API and migration tests, plus an optional browser suite for the eight current screens.',
+      'The repository includes tests for tariff boundaries, usage calculations, household data isolation, reading chronology, account recovery and database migration. An optional browser suite covers the eight screens, household workflows and responsive themes.',
     evidence:
       'https://github.com/vishnu-tharan/CEB-Management/blob/e708d978a9b13e72d0b193a38bfc11095c44fa61/README.md#verify',
     reviewedCommit: 'e708d978a9b13e72d0b193a38bfc11095c44fa61'

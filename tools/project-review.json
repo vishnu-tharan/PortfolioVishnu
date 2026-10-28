@@ -83,26 +83,51 @@
   {
     "repository": "vishnu-tharan/CEB-Management",
     "commit": "e708d978a9b13e72d0b193a38bfc11095c44fa61",
-    "reviewed": "2026-10-27",
+    "reviewed": "2026-10-28",
     "sources": [
       "README.md",
+      "backend/auth.js",
+      "backend/db.js",
       "backend/package.json",
       "backend/server.js",
       "backend/test/app.test.js",
+      "backend/test/browser.cjs",
+      "backend/test/migration.test.js",
+      "compose.yaml",
+      "frontend/account.js",
       "frontend/app.js",
+      "frontend/auth.js",
       "frontend/bills.js",
+      "frontend/common.js",
       "frontend/energy.js",
       "frontend/views.js"
     ],
     "implemented_workflows": {
-      "Eight current household/account screens": [
+      "Appliance management and chronological meter readings": [
         "frontend/app.js",
+        "frontend/views.js",
+        "backend/server.js"
+      ],
+      "Measured usage forecasts and dated bill estimates": [
+        "frontend/energy.js",
         "frontend/views.js",
         "frontend/bills.js"
       ],
-      "Appliances, readings and bills": [
+      "Actual bill history and household data isolation": [
+        "frontend/bills.js",
         "backend/server.js",
-        "frontend/energy.js"
+        "backend/db.js"
+      ],
+      "Account recovery, profile, password and responsive themes": [
+        "frontend/auth.js",
+        "frontend/account.js",
+        "frontend/common.js",
+        "backend/auth.js"
+      ],
+      "Calculation, account, migration and browser test coverage": [
+        "backend/test/app.test.js",
+        "backend/test/migration.test.js",
+        "backend/test/browser.cjs"
       ]
     }
   },
