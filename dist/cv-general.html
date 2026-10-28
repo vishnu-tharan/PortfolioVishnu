@@ -10,10 +10,10 @@
     />
     <meta name="theme-color" content="#ffffff" />
     <title>General CV | Vishnutharan Bavachelvan</title>
-    <script src="./src/theme-init.js?v=20261029-buyora-v1"></script>
-    <link rel="stylesheet" href="./theme.css?v=20261029-buyora-v1" />
-    <link rel="stylesheet" href="./cv.css?v=20261029-buyora-v1" />
-    <link rel="stylesheet" href="./cv-theme.css?v=20261029-buyora-v1" />
+    <script src="./src/theme-init.js?v=20261029-cv-layout-v1"></script>
+    <link rel="stylesheet" href="./theme.css?v=20261029-cv-layout-v1" />
+    <link rel="stylesheet" href="./cv.css?v=20261029-cv-layout-v1" />
+    <link rel="stylesheet" href="./cv-theme.css?v=20261029-cv-layout-v1" />
   </head>
   <body class="cv-page">
     <nav class="cv-toolbar" aria-label="CV navigation">
@@ -27,7 +27,7 @@
           aria-pressed="false"
         >
           ◐</button
-        ><a class="cv-button" href="./assets/Vishnutharan-Bavachelvan-CV-General.pdf?v=20261029-buyora-v1" download
+        ><a class="cv-button" href="./assets/Vishnutharan-Bavachelvan-CV-General.pdf?v=20261029-cv-layout-v1" download
           >Download CV <span>PDF &#8595;</span></a
         >
       </div>
@@ -39,7 +39,7 @@
         <div class="cv-contact">
           <a href="mailto:vtharan.b@gmail.com">vtharan.b@gmail.com</a>
           <a href="tel:+94773646391">+94 77 364 6391</a>
-          <a href="https://github.com/vishnu-tharan">GitHub / vishnu-tharan</a>
+          <a href="https://github.com/vishnu-tharan">GitHub</a>
           <a href="https://vishnu-tharan.github.io/PortfolioVishnu/">Portfolio</a>
           <a href="https://www.linkedin.com/in/vishnutharan">LinkedIn</a>
         </div>
@@ -101,12 +101,14 @@
       <section>
         <h2>Technical projects</h2>
         <article class="cv-project">
-          <h3>
-            <a href="https://github.com/vishnu-tharan/Buyora">Buyora</a
-            ><span>E-commerce application</span>
-          </h3>
+          <div class="cv-entry-heading">
+            <h3>
+              <a href="https://github.com/vishnu-tharan/Buyora">Buyora</a>
+              <span>| E-commerce application</span>
+            </h3>
+            <p class="cv-entry-date">May 2026 - June 2026</p>
+          </div>
           <p class="cv-stack">Next.js, Spring Boot, PostgreSQL, Docker</p>
-          <p class="cv-stack">May 2026 - June 2026</p>
           <ul>
             <li>
               Built a Next.js/Spring Boot shop with product filters, saved favourites, guest carts,
@@ -126,12 +128,14 @@
           </p>
         </article>
         <article class="cv-project">
-          <h3>
-            <a href="https://github.com/vishnu-tharan/GatePilot">GatePilot</a
-            ><span>Independent access-management prototype</span>
-          </h3>
+          <div class="cv-entry-heading">
+            <h3>
+              <a href="https://github.com/vishnu-tharan/GatePilot">GatePilot</a>
+              <span>| Independent access-management prototype</span>
+            </h3>
+            <p class="cv-entry-date">August 2026 - September 2026</p>
+          </div>
           <p class="cv-stack">React Native, Expo, Express, MongoDB, Docker</p>
-          <p class="cv-stack">August 2026 - September 2026</p>
           <ul>
             <li>
               Built React Native/Expo screens for vehicle entry, exit and department equipment
@@ -151,10 +155,12 @@
           </p>
         </article>
         <article class="cv-project">
-          <h3>
-            <a href="https://github.com/vishnu-tharan/CEB-Management">CEB-Management</a
-            ><span>Household electricity tracker</span>
-          </h3>
+          <div class="cv-entry-heading">
+            <h3>
+              <a href="https://github.com/vishnu-tharan/CEB-Management">CEB-Management</a>
+              <span>| Household electricity tracker</span>
+            </h3>
+          </div>
           <p class="cv-stack">JavaScript, HTML, CSS, Node.js, Express, SQLite</p>
           <ul>
             <li>
@@ -175,136 +181,155 @@
           </p>
         </article>
       </section>
-      <section class="cv-other-developments">
-        <h2>Other developments</h2>
-        <p>
-          <a href="https://github.com/vishnu-tharan/CashManage">CashManage</a> ·
-          <a href="https://github.com/vishnu-tharan/CinemaStream">CinemaStream</a>
-        </p>
-      </section>
-      <section class="cv-page-two">
-        <h2>Team projects &amp; leadership</h2>
-        <article class="cv-team-project">
-          <h3>
-            <a href="https://github.com/chamikara12/GATEWAY">GATEWAY</a
-            ><span>Semester 3.1 group project</span>
-          </h3>
+      <div class="cv-page-two">
+        <section class="cv-other-developments">
+          <h2>Other developments</h2>
           <p>
-            Contributed React frontend and Express/MongoDB backend development to our semester 3.1
-            university vehicle and gate-pass group project.
+            <a href="https://github.com/vishnu-tharan/CashManage">CashManage</a> ·
+            <a href="https://github.com/vishnu-tharan/CinemaStream">CinemaStream</a>
           </p>
-        </article>
-        <article class="cv-team-project">
-          <h3>
-            <a href="https://github.com/dragon-udfly/LankaAgriDirect">Lanka Agri-Direct</a
-            ><span>Produce directory | Group project</span>
-          </h3>
+        </section>
+        <section>
+          <h2>Team projects &amp; leadership</h2>
+          <article class="cv-team-project">
+            <h3>
+              <a href="https://github.com/chamikara12/GATEWAY">GATEWAY</a
+              ><span>Semester 3.1 group project</span>
+            </h3>
+            <p>
+              Contributed React frontend and Express/MongoDB backend development to our semester 3.1
+              university vehicle and gate-pass group project.
+            </p>
+          </article>
+          <article class="cv-team-project">
+            <h3>
+              <a href="https://github.com/dragon-udfly/LankaAgriDirect">Lanka Agri-Direct</a
+              ><span>Produce directory | Group project</span>
+            </h3>
+            <p>
+              Contributed frontend development, interface design and API integration testing to a
+              team produce directory with buyer, producer and admin interfaces.
+            </p>
+          </article>
           <p>
-            Contributed frontend development, interface design and API integration testing to a team
-            produce directory with buyer, producer and admin interfaces.
+            IEEEXtreme 18.0 organizing committee member. JamporIEEE logistics volunteer. IEEE and
+            AIESEC member, 2023 - present.
           </p>
-        </article>
-        <p>
-          IEEEXtreme 18.0 organizing committee member. JamporIEEE logistics volunteer. IEEE and
-          AIESEC member, 2023 - present.
-        </p>
-        <p>
-          <strong>School Head Prefect</strong> | J/Uduppiddy American Mission College | 2020 - 2022
-        </p>
-        <article class="cv-certificate">
-          <h3>Trailblazers &#x27;24<span>Development event</span></h3>
-          <p class="cv-stack">
-            AIESEC in University of Peradeniya | 7 December 2024 |
-            <a href="./assets/certificates/vishnutharan-trailblazers-participation-2024.jpg"
-              >Certificate</a
-            >
+          <p>
+            <strong>School Head Prefect</strong> | J/Uduppiddy American Mission College | 2020 -
+            2022
           </p>
-          <p>Personal and professional development event.</p>
-        </article>
-      </section>
-      <section>
-        <h2>Certifications &amp; workshops</h2>
-        <p>JavaScript Essentials 1 &amp; 2 - Cisco Networking Academy.</p>
-        <article class="cv-certificate">
-          <h3>Cursor AI - AI-Powered Coding Session<span>Workshop</span></h3>
-          <p class="cv-stack">
-            IEEE Student Branch, University of Vavuniya, with AIESEC and Techloom.ai | 9 September
-            2026 |
-            <a href="./assets/certificates/vishnutharan-cursor-ai-coding-workshop-2026.png"
-              >Certificate</a
-            >
-          </p>
-          <p>Participated in the coding session and completed and submitted the assigned task.</p>
-        </article>
-        <article class="cv-certificate">
-          <h3>Introduction to SQL<span>Course</span></h3>
-          <p class="cv-stack">
-            Sololearn | 20 June 2024 |
-            <a href="./assets/certificates/vishnutharan-introduction-to-sql-sololearn-2024.jpg"
-              >Certificate</a
-            >
-          </p>
-          <p>Completed the course with theoretical and practical understanding of SQL.</p>
-        </article>
-      </section>
-      <section>
-        <h2>Awards &amp; competitions</h2>
-        <article class="cv-certificate">
-          <h3>IEEEXtreme 18.0<span>Competition participation</span></h3>
-          <p class="cv-stack">
-            IEEE | 26 October 2024 |
-            <a href="./assets/certificates/vishnutharan-ieeextreme-18-participation-2024.pdf?v=20261029-buyora-v1"
-              >Certificate</a
-            >
-          </p>
-          <p>Team: TheChiefs.</p>
-        </article>
-        <article class="cv-certificate">
-          <h3>IEEEXtreme 17.0<span>Competition participation</span></h3>
-          <p class="cv-stack">
-            IEEE | 29 October 2023 |
-            <a href="./assets/certificates/vishnutharan-ieeextreme-17-participation-2023.pdf?v=20261029-buyora-v1"
-              >Certificate</a
-            >
-          </p>
-          <p>Team: Riskybiscuits.</p>
-        </article>
-        <article class="cv-certificate">
-          <h3>Best Performance in Accounting &amp; ICT<span>Merit award</span></h3>
-          <p class="cv-stack">
-            J/Uduppiddy American Mission College, Valvettithurai | 7 October 2023 |
-            <a href="./assets/certificates/vishnutharan-accounting-ict-merit-award-2023.jpg"
-              >Certificate</a
-            >
-          </p>
-          <p>Grade 13 recognition in Accounting and ICT.</p>
-        </article>
-        <article class="cv-certificate">
-          <h3>HACKFORCE &#x27;23<span>Competition participation</span></h3>
-          <p class="cv-stack">
-            Yarl Salesforce Ohana | 23 September 2023 |
-            <a href="./assets/certificates/vishnutharan-hackforce-hackathon-participation-2023.pdf?v=20261029-buyora-v1"
-              >Certificate</a
-            >
-          </p>
-          <p>Salesforce hackathon participation.</p>
-        </article>
-      </section>
-      <section>
-        <h2>References</h2>
-        <article class="cv-reference">
-          <h3>Dr. R. Nagulan<span>Senior Lecturer Gr.I</span></h3>
-          <p class="cv-stack">
-            B.Sc. (Jaffna), M.Sc. in Computer Science (Peradeniya), Ph.D. in Medical Image Computing
-            (Kent, UK)
-          </p>
-          <p class="cv-reference-contact">
-            <a href="tel:+94711071289">+94 71 107 1289</a> |
-            <a href="mailto:nagulanr@vau.ac.lk">nagulanr@vau.ac.lk</a>
-          </p>
-        </article>
-      </section>
+          <article class="cv-certificate">
+            <div class="cv-entry-heading">
+              <h3>Trailblazers &#x27;24 <span>| Development event</span></h3>
+              <p class="cv-entry-date">7 December 2024</p>
+            </div>
+            <p class="cv-certificate-details">
+              AIESEC in University of Peradeniya. Personal and professional development event. ·
+              <a href="./assets/certificates/vishnutharan-trailblazers-participation-2024.jpg"
+                >Certificate</a
+              >
+            </p>
+          </article>
+        </section>
+        <section>
+          <h2>Certifications &amp; workshops</h2>
+          <p>JavaScript Essentials 1 &amp; 2 - Cisco Networking Academy.</p>
+          <article class="cv-certificate">
+            <div class="cv-entry-heading">
+              <h3>Cursor AI - AI-Powered Coding Session <span>| Workshop</span></h3>
+              <p class="cv-entry-date">9 September 2026</p>
+            </div>
+            <p class="cv-certificate-details">
+              IEEE Student Branch, University of Vavuniya, with AIESEC and Techloom.ai. Participated
+              in the coding session and completed and submitted the assigned task. ·
+              <a href="./assets/certificates/vishnutharan-cursor-ai-coding-workshop-2026.png"
+                >Certificate</a
+              >
+            </p>
+          </article>
+          <article class="cv-certificate">
+            <div class="cv-entry-heading">
+              <h3>Introduction to SQL <span>| Course</span></h3>
+              <p class="cv-entry-date">20 June 2024</p>
+            </div>
+            <p class="cv-certificate-details">
+              Sololearn. Completed the course with theoretical and practical understanding of SQL. ·
+              <a href="./assets/certificates/vishnutharan-introduction-to-sql-sololearn-2024.jpg"
+                >Certificate</a
+              >
+            </p>
+          </article>
+        </section>
+        <section>
+          <h2>Awards &amp; competitions</h2>
+          <article class="cv-certificate">
+            <div class="cv-entry-heading">
+              <h3>IEEEXtreme 18.0 <span>| Competition participation</span></h3>
+              <p class="cv-entry-date">26 October 2024</p>
+            </div>
+            <p class="cv-certificate-details">
+              IEEE. Team: TheChiefs. ·
+              <a href="./assets/certificates/vishnutharan-ieeextreme-18-participation-2024.pdf?v=20261029-cv-layout-v1"
+                >Certificate</a
+              >
+            </p>
+          </article>
+          <article class="cv-certificate">
+            <div class="cv-entry-heading">
+              <h3>IEEEXtreme 17.0 <span>| Competition participation</span></h3>
+              <p class="cv-entry-date">29 October 2023</p>
+            </div>
+            <p class="cv-certificate-details">
+              IEEE. Team: Riskybiscuits. ·
+              <a href="./assets/certificates/vishnutharan-ieeextreme-17-participation-2023.pdf?v=20261029-cv-layout-v1"
+                >Certificate</a
+              >
+            </p>
+          </article>
+          <article class="cv-certificate">
+            <div class="cv-entry-heading">
+              <h3>Best Performance in Accounting &amp; ICT <span>| Merit award</span></h3>
+              <p class="cv-entry-date">7 October 2023</p>
+            </div>
+            <p class="cv-certificate-details">
+              J/Uduppiddy American Mission College, Valvettithurai. Grade 13 recognition in
+              Accounting and ICT. ·
+              <a href="./assets/certificates/vishnutharan-accounting-ict-merit-award-2023.jpg"
+                >Certificate</a
+              >
+            </p>
+          </article>
+          <article class="cv-certificate">
+            <div class="cv-entry-heading">
+              <h3>HACKFORCE &#x27;23 <span>| Competition participation</span></h3>
+              <p class="cv-entry-date">23 September 2023</p>
+            </div>
+            <p class="cv-certificate-details">
+              Yarl Salesforce Ohana. Salesforce hackathon participation. ·
+              <a
+                href="./assets/certificates/vishnutharan-hackforce-hackathon-participation-2023.pdf?v=20261029-cv-layout-v1"
+                >Certificate</a
+              >
+            </p>
+          </article>
+        </section>
+        <section>
+          <h2>References</h2>
+          <article class="cv-reference">
+            <h3>Dr. R. Nagulan<span>Senior Lecturer Gr.I</span></h3>
+            <p class="cv-stack">
+              B.Sc. (Jaffna), M.Sc. in Computer Science (Peradeniya), Ph.D. in Medical Image
+              Computing (Kent, UK)
+            </p>
+            <p class="cv-reference-contact">
+              <a href="tel:+94711071289">+94 71 107 1289</a> |
+              <a href="mailto:nagulanr@vau.ac.lk">nagulanr@vau.ac.lk</a>
+            </p>
+          </article>
+        </section>
+      </div>
     </main>
-    <script type="module" src="./src/preferences.js?v=20261029-buyora-v1"></script>
+    <script type="module" src="./src/preferences.js?v=20261029-cv-layout-v1"></script>
   </body>
 </html>

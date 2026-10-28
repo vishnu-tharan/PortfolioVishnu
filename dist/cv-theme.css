@@ -78,6 +78,66 @@ html[data-theme='dark'] .cv-page {
 .cv-toolbar .cv-button {
   color: var(--on-accent);
 }
+/* Match the PDF hierarchy while allowing dates to wrap on small screens. */
+.cv-sheet .cv-entry-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px 20px;
+}
+.cv-sheet .cv-entry-heading h3 {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 3px;
+}
+.cv-sheet .cv-entry-heading h3 span {
+  display: inline;
+  margin-left: 8px;
+  font-size: 13px;
+}
+.cv-sheet .cv-entry-date {
+  flex-shrink: 0;
+  margin: 0;
+  font-size: 13px;
+  color: #555;
+  text-align: right;
+}
+.cv-sheet .cv-certificate {
+  margin: 14px 0;
+}
+.cv-sheet .cv-certificate-details {
+  margin: 2px 0 0;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.cv-sheet .cv-contact {
+  column-gap: 0;
+  row-gap: 6px;
+}
+.cv-contact a + a::before {
+  content: '|';
+  display: inline-block;
+  margin: 0 8px;
+  color: #777;
+}
+@media (max-width: 600px) {
+  .cv-sheet .cv-entry-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+  }
+  .cv-sheet .cv-entry-date {
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  .cv-contact a + a::before {
+    content: none;
+  }
+  .cv-sheet .cv-contact {
+    column-gap: 12px;
+  }
+}
 .cv-page .cv-button:hover {
   background: var(--accent);
   border-color: var(--accent);
