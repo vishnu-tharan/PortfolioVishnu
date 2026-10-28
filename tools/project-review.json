@@ -45,38 +45,78 @@
   {
     "repository": "vishnu-tharan/CashManage",
     "commit": "6c4d82d5fcd3eab6985d4691bcf822ea2bc417aa",
-    "reviewed": "2026-10-27",
+    "reviewed": "2026-10-28",
     "sources": [
       "README.md",
+      "client/ledger.test.js",
       "client/package.json",
+      "client/public/manifest.webmanifest",
+      "client/public/sw.js",
+      "client/reports.test.js",
       "client/src/AccountSecurity.jsx",
       "client/src/App.jsx",
+      "client/src/components/SyncConflictDialog.jsx",
+      "client/src/domain/currency.js",
       "client/src/hooks/useWorkspace.js",
+      "client/src/index.css",
       "client/src/ledger.js",
       "client/src/lib/crypto.js",
+      "client/src/lib/exportCSV.js",
+      "client/src/pages/CashbooksPage.jsx",
+      "client/src/pages/ImportHistoryPage.jsx",
       "client/src/pages/PlanningPage.jsx",
+      "client/src/pages/ReceiptsPage.jsx",
       "client/src/pages/ReportsPage.jsx",
       "client/src/pages/SettingsPage.jsx",
+      "client/storage.test.js",
       "server/accountSecurity.js",
+      "server/accountSecurity.test.js",
+      "server/index.js",
       "server/package.json",
+      "server/recovery.test.js",
+      "server/routes/recovery.js",
       "server/routes/security.js",
+      "server/security.test.js",
       "server/totp.js"
     ],
     "implemented_workflows": {
-      "Cashbooks and financial planning": [
-        "client/src/App.jsx",
-        "client/src/pages/PlanningPage.jsx",
-        "client/src/ledger.js"
+      "Cashbooks, money precision, transfers, recurring entries and debt repayments": [
+        "client/src/ledger.js",
+        "client/src/domain/currency.js",
+        "client/src/pages/CashbooksPage.jsx",
+        "client/src/pages/PlanningPage.jsx"
       ],
-      "Reports and encrypted backups": [
+      "CSV import, receipts, undo and reports": [
+        "client/src/pages/ImportHistoryPage.jsx",
+        "client/src/pages/ReceiptsPage.jsx",
         "client/src/pages/ReportsPage.jsx",
-        "client/src/pages/SettingsPage.jsx",
-        "client/src/lib/crypto.js"
+        "client/src/lib/exportCSV.js"
       ],
-      "Account controls and synchronization": [
+      "Encrypted offline workspaces, backups and sync conflict review": [
+        "client/src/lib/crypto.js",
+        "client/src/hooks/useWorkspace.js",
+        "client/src/components/SyncConflictDialog.jsx",
+        "server/index.js"
+      ],
+      "MFA, recovery keys, password changes and sessions": [
         "client/src/AccountSecurity.jsx",
+        "server/routes/security.js",
+        "server/routes/recovery.js",
         "server/accountSecurity.js",
-        "client/src/hooks/useWorkspace.js"
+        "server/totp.js"
+      ],
+      "Installable browser shell and responsive themes": [
+        "client/public/sw.js",
+        "client/public/manifest.webmanifest",
+        "client/src/index.css"
+      ],
+      "Ledger, report, encryption and account test coverage": [
+        "client/ledger.test.js",
+        "client/reports.test.js",
+        "client/storage.test.js",
+        "server/security.test.js",
+        "server/accountSecurity.test.js",
+        "server/recovery.test.js"
       ]
     }
   },

@@ -1,4 +1,4 @@
-import { projectScreenshots } from './project-screenshots.js?v=20261028-cinema-v1';
+import { projectScreenshots } from './project-screenshots.js?v=20261028-cashmanage-v1';
 // Current descriptions are limited to implemented screens and routes.
 export const projects = [
   {
@@ -80,7 +80,8 @@ export const projects = [
     title: 'CashManage',
     type: 'PERSONAL FINANCE / PWA',
     stack: 'React · JavaScript · Vite · Express · SQLite · PWA',
-    summary: 'A personal cashbook for income, expenses, budgets, transfers and reports.',
+    summary:
+      'A personal cashbook with budgets, transfers, debt tracking, reports and encrypted offline workspaces.',
     role: 'Full-stack development',
     image: './assets/projects/cashmanage-current-icon.png',
     imageAlt: 'CashManage application icon from the current repository',
@@ -90,12 +91,12 @@ export const projects = [
     problem:
       'Bring income, expenses, debts and savings into currency-specific cashbooks that remain usable offline.',
     contribution:
-      'Built cashbooks, transaction tracking, budgets, debt and savings forms, CSV import and reports. Added receipt attachments, encrypted backup download/restore and account settings.',
+      'Built cashbooks, income and expense tracking, budgets, transfers, recurring entries, partial debt repayments and savings targets. Added CSV import with preview and duplicate checks, receipt attachments, transaction undo, CSV reports and browser PDF printing. Developed encrypted backups, offline account unlock, synchronization and account-security settings.',
     decision:
-      'React and Vite provide the interface; Express and SQLite handle accounts and saved vaults. The workspace hook manages local encrypted storage and synchronization. Reports use CSV export and the browser Print / Save as PDF action.',
+      'React and Vite provide the interface; Express and SQLite store accounts and encrypted vaults. Money uses integer minor units with separate currency totals. Account workspaces use password-derived AES-GCM encryption for local copies and backups; revision checks flag synchronization conflicts for review. Recurring entries are posted when the workspace is unlocked.',
     testing:
-      'The repository contains client tests and server security tests. Account-security routes and the settings interface are present in the current code.',
-    status: 'Personal finance development app · records transactions without processing payments',
+      'The repository includes tests for money precision, transfers, recurring dates, debt repayments, undo, imports, report totals and encryption. Server tests cover account isolation, synchronization conflicts, MFA, recovery and session revocation. Real-device PWA installation remains a separate verification step.',
+    status: 'Personal cashbook app · temporary guest demo · records money without processing payments',
     evidence:
       'https://github.com/vishnu-tharan/CashManage/blob/6c4d82d5fcd3eab6985d4691bcf822ea2bc417aa/README.md#checks',
     imageKind: 'logo',
