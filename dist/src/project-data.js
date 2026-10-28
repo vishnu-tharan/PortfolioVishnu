@@ -1,4 +1,4 @@
-import { projectScreenshots } from './project-screenshots.js?v=20261028-cashmanage-v1';
+import { projectScreenshots } from './project-screenshots.js?v=20261029-buyora-v1';
 // Current descriptions are limited to implemented screens and routes.
 export const projects = [
   {
@@ -16,7 +16,7 @@ export const projects = [
     problem:
       'Connect product discovery, local delivery, checkout and after-sales support with reliable store administration.',
     contribution:
-      'Built product discovery, saved favourites, guest and account carts, cash-on-delivery checkout and order tracking. Developed admin screens for products, stock, orders, reviews and store settings.',
+      'Built product discovery, saved favourites, guest and account carts, cash-on-delivery checkout and order tracking. Added registration, sign-in, profile and address management, and signed-in password changes. Developed admin screens for products, stock, orders, reviews and store settings.',
     decision:
       'Next.js calls Spring Boot services backed directly by PostgreSQL. Transactional checkout reserves stock, calculates totals on the server and uses an idempotency key to prevent duplicate orders.',
     testing:
@@ -24,9 +24,9 @@ export const projects = [
     status:
       'Local Docker development setup · cash on delivery · PayHere sandbox requires configuration',
     evidence:
-      'https://github.com/vishnu-tharan/Buyora/blob/2b71f8e3484a9fec1f51a184dfe78f2a945f7c46/README.md#checks',
+      'https://github.com/vishnu-tharan/Buyora/blob/c9e7d4ab210128b58c4efe98c88747ae3739a760/README.md#checks',
     imageKind: 'screenshot',
-    reviewedCommit: '2b71f8e3484a9fec1f51a184dfe78f2a945f7c46'
+    reviewedCommit: 'c9e7d4ab210128b58c4efe98c88747ae3739a760'
   },
   {
     title: 'GATEWAY',
@@ -69,7 +69,8 @@ export const projects = [
       'React Native and Expo provide the responsive interface. Express and MongoDB support three roles: gate officer, department administrator and organization administrator. The API checks department access and equipment approval before departure; conditional updates prevent duplicate approvals and exits.',
     testing:
       'The repository includes tests for sign-in, sessions, permissions, concurrent vehicle updates and approval workflows, plus frontend pagination tests. Build scripts export web, Android and iOS bundles; these exports are not signed native installers or physical-device tests.',
-    status: 'Independent development prototype · fictional Sample Campus demo · responsive web screenshots',
+    status:
+      'Independent development prototype · fictional Sample Campus demo · responsive web screenshots',
     evidence:
       'https://github.com/vishnu-tharan/GatePilot/blob/94f5c069dad296877cd321bdfa54275ed7b95ba6/README.md#checks',
     imageKind: 'screenshot',
@@ -96,7 +97,8 @@ export const projects = [
       'React and Vite provide the interface; Express and SQLite store accounts and encrypted vaults. Money uses integer minor units with separate currency totals. Account workspaces use password-derived AES-GCM encryption for local copies and backups; revision checks flag synchronization conflicts for review. Recurring entries are posted when the workspace is unlocked.',
     testing:
       'The repository includes tests for money precision, transfers, recurring dates, debt repayments, undo, imports, report totals and encryption. Server tests cover account isolation, synchronization conflicts, MFA, recovery and session revocation. Real-device PWA installation remains a separate verification step.',
-    status: 'Personal cashbook app · temporary guest demo · records money without processing payments',
+    status:
+      'Personal cashbook app · temporary guest demo · records money without processing payments',
     evidence:
       'https://github.com/vishnu-tharan/CashManage/blob/6c4d82d5fcd3eab6985d4691bcf822ea2bc417aa/README.md#checks',
     imageKind: 'logo',

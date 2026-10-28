@@ -1,16 +1,20 @@
 [
   {
     "repository": "vishnu-tharan/Buyora",
-    "commit": "2b71f8e3484a9fec1f51a184dfe78f2a945f7c46",
-    "reviewed": "2026-10-27",
+    "commit": "c9e7d4ab210128b58c4efe98c88747ae3739a760",
+    "reviewed": "2026-10-29",
     "sources": [
       "BuyoraBackend/pom.xml",
+      "BuyoraBackend/src/main/java/com/buyora/api/address/AddressService.java",
+      "BuyoraBackend/src/main/java/com/buyora/api/auth/AuthService.java",
       "BuyoraBackend/src/main/java/com/buyora/api/checkout/CheckoutService.java",
       "BuyoraBackend/src/main/java/com/buyora/api/inventory/InventoryService.java",
       "BuyoraBackend/src/main/java/com/buyora/api/product/CatalogService.java",
       "BuyoraBackend/src/main/java/com/buyora/api/returns/ReturnService.java",
+      "BuyoraBackend/src/main/java/com/buyora/api/user/AccountController.java",
       "BuyoraBackend/src/main/java/com/buyora/api/wishlist/WishlistService.java",
       "BuyoraFrontend/src/app/(store)/account/orders/[orderNumber]/page.jsx",
+      "BuyoraFrontend/src/app/(store)/account/security/page.jsx",
       "BuyoraFrontend/src/app/(store)/search/SearchPageClient.jsx",
       "BuyoraFrontend/src/app/(store)/track-order/page.jsx",
       "BuyoraFrontend/src/app/(store)/wishlist/page.jsx",
@@ -19,6 +23,7 @@
       "BuyoraFrontend/src/components/checkout/PaymentStep.jsx",
       "README.md",
       "docker-compose.yml",
+      "docs/AUDIT.md",
       "docs/screenshots/manifest.json"
     ],
     "implemented_workflows": {
@@ -39,6 +44,12 @@
         "BuyoraFrontend/src/app/admin/products/page.jsx",
         "BuyoraFrontend/src/app/admin/settings/page.jsx",
         "BuyoraBackend/src/main/java/com/buyora/api/returns/ReturnService.java"
+      ],
+      "Registration, sign-in and account management": [
+        "BuyoraBackend/src/main/java/com/buyora/api/auth/AuthService.java",
+        "BuyoraBackend/src/main/java/com/buyora/api/user/AccountController.java",
+        "BuyoraFrontend/src/app/(store)/account/security/page.jsx",
+        "BuyoraBackend/src/main/java/com/buyora/api/address/AddressService.java"
       ]
     }
   },
