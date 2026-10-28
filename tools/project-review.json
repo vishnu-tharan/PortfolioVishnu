@@ -143,32 +143,50 @@
   {
     "repository": "vishnu-tharan/GatePilot",
     "commit": "94f5c069dad296877cd321bdfa54275ed7b95ba6",
-    "reviewed": "2026-10-27",
+    "reviewed": "2026-10-28",
     "sources": [
       "README.md",
       "backend/package.json",
       "backend/src/models.js",
+      "backend/src/routes/accounts.js",
+      "backend/src/routes/authentication.js",
+      "backend/src/routes/dashboard.js",
       "backend/src/routes/settings.js",
       "backend/src/routes/visits.js",
+      "backend/src/settings.js",
       "backend/test/security.test.js",
       "frontend/package.json",
       "frontend/src/Workspace.jsx",
       "frontend/src/screens/Accounts.jsx",
+      "frontend/src/screens/Dashboard.jsx",
       "frontend/src/screens/Entry.jsx",
+      "frontend/src/screens/Profile.jsx",
       "frontend/src/screens/Records.jsx",
       "frontend/src/screens/Settings.jsx"
     ],
     "implemented_workflows": {
-      "Entry, exit and approvals": [
-        "frontend/src/Workspace.jsx",
+      "Vehicle entry, exit, approval and resubmission": [
         "frontend/src/screens/Entry.jsx",
+        "frontend/src/screens/Records.jsx",
         "backend/src/routes/visits.js"
       ],
-      "Records, accounts and organization settings": [
+      "Search, filters, pagination and dashboard": [
         "frontend/src/screens/Records.jsx",
+        "frontend/src/screens/Dashboard.jsx",
+        "backend/src/routes/dashboard.js",
+        "backend/src/routes/visits.js"
+      ],
+      "Three roles, accounts and profile settings": [
+        "frontend/src/Workspace.jsx",
         "frontend/src/screens/Accounts.jsx",
+        "frontend/src/screens/Profile.jsx",
+        "backend/src/routes/accounts.js",
+        "backend/src/routes/authentication.js"
+      ],
+      "Organization name, gates and departments": [
         "frontend/src/screens/Settings.jsx",
-        "backend/src/routes/settings.js"
+        "backend/src/routes/settings.js",
+        "backend/src/settings.js"
       ]
     }
   },

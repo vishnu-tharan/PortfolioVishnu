@@ -46,8 +46,8 @@ export const projectScreenshots = {
     {
       src: './assets/projects/gatepilot-07-mobile-dashboard.png',
       label: 'Mobile dashboard',
-      alt: 'GatePilot — mobile dashboard screen',
-      caption: 'Mobile dashboard · Isolated demo · fictional Sample Campus records',
+      alt: 'GatePilot — dashboard in a mobile web browser',
+      caption: 'Mobile web dashboard · Isolated demo · fictional Sample Campus records',
       width: 430,
       height: 932
     }

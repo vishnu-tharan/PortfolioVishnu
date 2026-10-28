@@ -1,4 +1,4 @@
-import { projectScreenshots } from './project-screenshots.js?v=20261027-readable-v1';
+import { projectScreenshots } from './project-screenshots.js?v=20261028-gatepilot-v1';
 // Current descriptions are limited to implemented screens and routes.
 export const projects = [
   {
@@ -58,18 +58,18 @@ export const projects = [
     type: 'ACCESS MANAGEMENT / WEB & MOBILE',
     stack: 'React Native · Expo · Express · MongoDB · Docker',
     summary:
-      'A gate-management prototype for vehicle entry, exit and department equipment approvals.',
+      'A gate-management prototype with vehicle entry and exit, equipment approvals and searchable visit records.',
     role: 'Full-stack development',
     link: 'https://github.com/vishnu-tharan/GatePilot',
     problem:
       'Coordinate vehicle arrivals, equipment decisions and departures across configurable gates and departments.',
     contribution:
-      'Built vehicle entry and exit screens, equipment approval and rejection actions, searchable vehicle records and dashboard counts. Added account and organization settings for the administrator.',
+      'Built vehicle arrivals and departures with recorded gates and times, equipment approval, rejection and resubmission. Added searchable records with status and gate filters, pagination and dashboard counts. Developed account management, profile and password changes, and organization settings.',
     decision:
-      'React Native and Expo provide the responsive interface. Express endpoints use MongoDB records and role/department filters for gate-officer and administrator actions.',
+      'React Native and Expo provide the responsive interface. Express and MongoDB support three roles: gate officer, department administrator and organization administrator. The API checks department access and equipment approval before departure; conditional updates prevent duplicate approvals and exits.',
     testing:
-      'The repository includes backend security/workflow tests and frontend record/pagination tests. Build scripts export web and native bundles.',
-    status: 'Independent development prototype · fictional Sample Campus demo',
+      'The repository includes tests for sign-in, sessions, permissions, concurrent vehicle updates and approval workflows, plus frontend pagination tests. Build scripts export web, Android and iOS bundles; these exports are not signed native installers or physical-device tests.',
+    status: 'Independent development prototype · fictional Sample Campus demo · responsive web screenshots',
     evidence:
       'https://github.com/vishnu-tharan/GatePilot/blob/94f5c069dad296877cd321bdfa54275ed7b95ba6/README.md#checks',
     imageKind: 'screenshot',
