@@ -1,4 +1,4 @@
-import { projectScreenshots } from './project-screenshots.js?v=20261028-ceb-v1';
+import { projectScreenshots } from './project-screenshots.js?v=20261028-cinema-v1';
 // Current descriptions are limited to implemented screens and routes.
 export const projects = [
   {
@@ -157,18 +157,19 @@ export const projects = [
     caption: 'Movie discovery · Current web prototype · online accounts and collections',
     type: 'MOVIE DISCOVERY / MOBILE & WEB',
     stack: 'JavaScript · React Native · Expo Router · Firebase · Firestore',
-    summary: 'A movie catalog with search, genre filters, trailers and personal collections.',
+    summary:
+      'A 20-film discovery app with search, genre filters, YouTube trailers and personal movie collections.',
     role: 'Mobile and web application development',
     link: 'https://github.com/vishnu-tharan/CinemaStream',
     problem:
       'Let guests discover films while signed-in users manage their own favourites, watchlist and watched movies.',
     contribution:
-      'Built movie discovery, search, genre filtering and film-detail screens with trailer links. Added guest browsing, account access and favourites/watchlist/watched controls.',
+      'Built a responsive movie grid, search by title, cast, genre and release year, genre filters and film-detail screens with YouTube trailer links. Added guest browsing, registration, sign-in, password reset and email verification, plus favourites, watchlist and watched collection filters.',
     decision:
-      'React Native screens use Expo Router. Firebase handles account access, and Firestore stores the signed-in account’s movie collection. Collection reads and writes require an internet connection.',
+      'React Native screens use Expo Router and a bundled 20-film catalog. Firebase Authentication manages accounts, and Firestore stores each account’s collection. Database rules check ownership and record fields; the interface updates a collection after a successful write. Collection reads and writes require an internet connection.',
     testing:
-      'The repository includes JavaScript helper tests, catalog checks and Firestore permission tests. Its export script builds the web app.',
-    status: 'Movie-discovery prototype · online account collections · trailer links',
+      'The repository includes tests for search, combined genre filters, movie IDs and collection records, plus catalog checks and Firestore permission tests using Firebase emulators. The web export script creates a static website build.',
+    status: 'Movie-discovery prototype · curated catalog · online collections · external trailers',
     evidence:
       'https://github.com/vishnu-tharan/CinemaStream/blob/abc97b57ac3e454cbfa55c797b3d8c421d2f2ba3/README.md#check',
     imageKind: 'screenshot',

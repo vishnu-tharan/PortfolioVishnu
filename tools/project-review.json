@@ -134,34 +134,55 @@
   {
     "repository": "vishnu-tharan/CinemaStream",
     "commit": "abc97b57ac3e454cbfa55c797b3d8c421d2f2ba3",
-    "reviewed": "2026-10-27",
+    "reviewed": "2026-10-28",
     "sources": [
       "README.md",
+      "app/(auth)/login.jsx",
+      "app/(auth)/register.jsx",
+      "app/(auth)/reset-password.jsx",
+      "app/(auth)/verify-email.jsx",
       "app/(tabs)/favorites.jsx",
       "app/(tabs)/index.jsx",
       "app/movie/[id].jsx",
+      "assets/data/movies.js",
       "docs/screenshots/README.md",
       "firestore.rules",
       "package.json",
+      "scripts/check-catalog.cjs",
       "src/contexts/auth.jsx",
       "src/contexts/library.jsx",
       "src/lib/discovery.js",
       "src/lib/library.js",
       "src/lib/trailers.js",
+      "tests/firestore.test.cjs",
       "tests/unit.test.mjs"
     ],
     "implemented_workflows": {
-      "Discovery, details and trailers": [
+      "Twenty-film catalog, search, genre filters and trailer links": [
+        "assets/data/movies.js",
         "app/(tabs)/index.jsx",
         "app/movie/[id].jsx",
         "src/lib/discovery.js",
         "src/lib/trailers.js"
       ],
-      "Online account collections": [
+      "Guest browsing and account access": [
         "src/contexts/auth.jsx",
-        "src/contexts/library.jsx",
+        "app/(auth)/login.jsx",
+        "app/(auth)/register.jsx",
+        "app/(auth)/reset-password.jsx",
+        "app/(auth)/verify-email.jsx"
+      ],
+      "Online favourites, watchlist and watched collection filters": [
         "app/(tabs)/favorites.jsx",
+        "src/contexts/library.jsx",
+        "src/lib/library.js",
         "firestore.rules"
+      ],
+      "Helper, catalog and database permission checks": [
+        "tests/unit.test.mjs",
+        "tests/firestore.test.cjs",
+        "scripts/check-catalog.cjs",
+        "package.json"
       ]
     }
   },
