@@ -16,7 +16,7 @@ from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import SimpleDocTemplate, Paragraph, KeepTogether, HRFlowable, PageBreak, Flowable
+from reportlab.platypus import SimpleDocTemplate, Paragraph, KeepTogether, HRFlowable, PageBreak, Flowable, Table, TableStyle
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = json.loads((ROOT / 'tools/cv-data.json').read_text(encoding='utf-8'))
@@ -81,23 +81,48 @@ def education_text():
         dates += f" | Expected graduation: {education['expected_graduation']}"
     return dates
 
+def dated_heading(title, dates, style_set):
+    """Keep an entry title on the left and its date against the right margin."""
+    date_style = ParagraphStyle('entry-date', parent=style_set['stack'], alignment=2, spaceAfter=0)
+    row = Table(
+        [[paragraph(title, 'project', style_set), Paragraph(escape(dates), date_style)]],
+        colWidths=[A4[0] - 96 - 136, 136],
+        hAlign='LEFT',
+    )
+    row.setStyle(TableStyle([
+        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
+        ('LEFTPADDING', (0, 0), (-1, -1), 0),
+        ('RIGHTPADDING', (0, 0), (-1, -1), 0),
+        ('TOPPADDING', (0, 0), (-1, -1), 0),
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 2),
+    ]))
+    row.spaceBefore = 7
+    return row
+
+
 def pdf_project(project, style_set=styles):
     links = pdf_link(project['url'], 'Repository')
     if project.get('evidence'):
         links += ' | ' + pdf_link(project['evidence'], 'Verification')
-    dates = f" | {escape(project['dates'])}" if project.get('dates') else ''
-    title = f"{escape(project['name'])} <font name=\"{regular}\" size=\"9.5\">| {escape(project['category'])}{dates}</font>"
-    block = [paragraph(title, 'project', style_set), paragraph(f"{escape(project['stack'])} | {links}", 'stack', style_set)]
-    block.extend(paragraph('- ' + escape(bullet), 'bullet', style_set) for bullet in project['bullets'])
+    title = f"{escape(project['name'])} <font name=\"{regular}\" size=\"9.5\">| {escape(project['category'])}</font>"
+    block = [
+        dated_heading(title, project.get('dates', ''), style_set),
+        paragraph(f"{escape(project['stack'])} | {links}", 'stack', style_set),
+    ]
+    for bullet in project['bullets']:
+        block.append(paragraph('- ' + escape(bullet), 'bullet', style_set))
     return KeepTogether(block)
+
 
 def html_project(project):
     links = html_link(project['url'], 'Repository')
     if project.get('evidence'):
         links += ' · ' + html_link(project['evidence'], 'Verification')
-    dates = f'<p class="cv-stack">{escape(project["dates"])}</p>' if project.get('dates') else ''
-    return f'''<article class="cv-project"><h3>{html_link(project['url'], project['name'])}<span>{escape(project['category'])}</span></h3>
-<p class="cv-stack">{escape(project['stack'])}</p>{dates}<ul>{''.join(f'<li>{escape(bullet)}</li>' for bullet in project['bullets'])}</ul><p class="cv-evidence">{links}</p></article>'''
+    dates = f'<p class="cv-entry-date">{escape(project["dates"])}</p>' if project.get('dates') else ''
+    bullets = ''.join(f'<li>{escape(bullet)}</li>' for bullet in project['bullets'])
+    return f'''<article class="cv-project">
+<div class="cv-entry-heading"><h3>{html_link(project['url'], project['name'])} <span>| {escape(project['category'])}</span></h3>{dates}</div>
+<p class="cv-stack">{escape(project['stack'])}</p><ul>{bullets}</ul><p class="cv-evidence">{links}</p></article>'''
 
 def certificate_date(certificate):
     when = date.fromisoformat(certificate['date'])
@@ -108,15 +133,19 @@ def certificate_description(certificate):
 
 def pdf_certificate(certificate, style_set=styles):
     url = DATA['portfolio'] + 'assets/certificates/' + certificate['file']
+    title = f'<b>{escape(certificate["title"])}</b> <font name="{regular}" size="9.5">| {escape(certificate["kind"])}</font>'
+    details = f'{escape(certificate["issuer"])}. {escape(certificate_description(certificate))} | {pdf_link(url, "Certificate")}'
     return KeepTogether([
-        paragraph(f'<b>{escape(certificate["title"])}</b> | {escape(certificate["kind"])}', 'project', style_set),
-        paragraph(f'{escape(certificate["issuer"])} | {certificate_date(certificate)} | {pdf_link(url, "Certificate")}', 'stack', style_set),
-        paragraph(escape(certificate_description(certificate)), 'body', style_set),
+        dated_heading(title, certificate_date(certificate), style_set),
+        paragraph(details, 'certificate', style_set),
     ])
+
 
 def html_certificate(certificate):
     url = './assets/certificates/' + certificate['file']
-    return f'<article class="cv-certificate"><h3>{escape(certificate["title"])}<span>{escape(certificate["kind"])}</span></h3><p class="cv-stack">{escape(certificate["issuer"])} | {certificate_date(certificate)} | {html_link(url, "Certificate")}</p><p>{escape(certificate_description(certificate))}</p></article>'
+    return f'''<article class="cv-certificate">
+<div class="cv-entry-heading"><h3>{escape(certificate["title"])} <span>| {escape(certificate["kind"])}</span></h3><p class="cv-entry-date">{certificate_date(certificate)}</p></div>
+<p class="cv-certificate-details">{escape(certificate["issuer"])}. {escape(certificate_description(certificate))} · {html_link(url, "Certificate")}</p></article>'''
 
 def page_footer(canvas, document):
     canvas.saveState()
@@ -132,6 +161,7 @@ class SectionHeading(Flowable):
         super().__init__()
         self.heading = heading
         self.keepWithNext = True
+        self.spaceBefore = 10
         self.spaceAfter = 5
     def wrap(self, available_width, available_height):
         self.width = available_width
@@ -168,10 +198,11 @@ def build(key, profile):
         document_styles['section'].fontSize = 11
         document_styles['section'].spaceBefore = 0
         document_styles['section'].spaceAfter = 5
-        document_styles['body'].leading = 13.8
+        document_styles['body'].leading = 14.2
         document_styles['body'].spaceAfter = 1
-        document_styles['bullet'].leading = 13.8
+        document_styles['bullet'].leading = 14.2
         document_styles['project'].spaceBefore = 7
+    document_styles['certificate'] = ParagraphStyle('certificate-details', parent=document_styles['stack'], leading=12.8, spaceAfter=4)
     def paragraph(text, style='body'):
         return Paragraph(text, document_styles[style])
     def section(title):
@@ -184,9 +215,14 @@ def build(key, profile):
     story.append(header(escape(display_name), 'name'))
     if role:
         story.append(header(escape(role), 'role'))
-    contact = f'{pdf_link("mailto:" + DATA["email"], DATA["email"])} | {pdf_link("tel:" + DATA["phone"].replace(" ", ""), DATA["phone"])}'
-    story.append(header(contact, 'contact'))
-    story.append(header(f'{pdf_link(DATA["github"], "GitHub" if refined else "github.com/vishnu-tharan")} | {pdf_link(DATA["portfolio"], "Portfolio" if refined else "vishnu-tharan.github.io/PortfolioVishnu")} | {pdf_link(DATA["linkedin"], "LinkedIn")}', 'contact'))
+    contact_links = [
+        pdf_link('mailto:' + DATA['email'], DATA['email']),
+        pdf_link('tel:' + DATA['phone'].replace(' ', ''), DATA['phone']),
+        pdf_link(DATA['github'], 'GitHub'),
+        pdf_link(DATA['linkedin'], 'LinkedIn'),
+        pdf_link(DATA['portfolio'], 'Portfolio'),
+    ]
+    story.append(header(' | '.join(contact_links), 'contact'))
     if not refined:
         story.append(HRFlowable(width='100%', thickness=0.7, color=ink, spaceBefore=8, spaceAfter=0))
     story.extend([section('PROFILE'), paragraph(escape(summary))])
@@ -200,9 +236,9 @@ def build(key, profile):
     story.extend(paragraph(f'<b>{escape(label)}:</b> {escape(value)}') for label, value in skills)
     story.append(section('TECHNICAL PROJECTS'))
     story.extend(pdf_project(project, document_styles) for project in selected)
+    story.append(PageBreak())
     if others:
         story.append(KeepTogether([section('OTHER DEVELOPMENTS'), paragraph(' | '.join(pdf_link(project['url'], project['name']) for project in others))]))
-    story.append(PageBreak())
     teamwork = [section('TEAM PROJECTS & LEADERSHIP')]
     for team in teams:
         teamwork.append(paragraph(f'<b>{escape(team["name"])}</b> | {escape(team["category"])} | {pdf_link(team["url"], "Repository")}'))
@@ -212,7 +248,7 @@ def build(key, profile):
     teamwork.append(paragraph(escape(DATA['community'])))
     teamwork.extend(paragraph(f'<b>{escape(item["title"])}</b> | {escape(item["institution"])}' + (f' | {escape(item["dates"])}' if item.get('dates') else '')) for item in DATA.get('leadership', []))
     teamwork.extend(pdf_certificate(certificate, document_styles) for certificate in CERTIFICATES if certificate['kind'] == 'Development event')
-    story.append(KeepTogether(teamwork))
+    story.extend(teamwork)
     story.extend([section('CERTIFICATIONS & WORKSHOPS'), paragraph(escape(DATA['certifications']))])
     story.extend(pdf_certificate(certificate, document_styles) for certificate in CERTIFICATES if certificate['kind'] in ['Course', 'Workshop'])
     story.append(section('AWARDS & COMPETITIONS'))
@@ -261,17 +297,17 @@ def build(key, profile):
 {versions_html}
 <main class="cv-sheet{' cv-sheet-refined' if refined else ''}">
 <header class="cv-heading{' cv-heading-centered' if centered else ''}"><h1>{escape(display_name)}</h1>{role_html}
-<div class="cv-contact">{html_link('mailto:' + DATA['email'], DATA['email'])} {html_link('tel:' + DATA['phone'].replace(' ', ''), DATA['phone'])} {html_link(DATA['github'], 'GitHub / vishnu-tharan')} {html_link(DATA['portfolio'], 'Portfolio')} {html_link(DATA['linkedin'], 'LinkedIn')}</div></header>
+<div class="cv-contact">{html_link('mailto:' + DATA['email'], DATA['email'])} {html_link('tel:' + DATA['phone'].replace(' ', ''), DATA['phone'])} {html_link(DATA['github'], 'GitHub')} {html_link(DATA['portfolio'], 'Portfolio')} {html_link(DATA['linkedin'], 'LinkedIn')}</div></header>
 <section><h2>Profile</h2><p>{escape(summary)}</p></section>
 <section><h2>Education</h2><h3>{escape(education['degree'])}<span>{escape(education_text())}</span></h3><p>{escape(education['institution'])}</p><p>{escape(education['detail'])}</p></section>
 <section><h2>Technical skills</h2><dl class="cv-skills">{skills_html}</dl></section>
 <section><h2>Technical projects</h2>{''.join(html_project(project) for project in selected)}</section>
-{other_html}
-<section class="cv-page-two"><h2>Team projects &amp; leadership</h2>{team_html}<p>{escape(DATA['community'])}</p>{leadership_html}{development_html}</section>
+<div class="cv-page-two">{other_html}
+<section><h2>Team projects &amp; leadership</h2>{team_html}<p>{escape(DATA['community'])}</p>{leadership_html}{development_html}</section>
 <section><h2>Certifications &amp; workshops</h2><p>{escape(DATA['certifications'])}</p>{courses_html}</section>
 <section><h2>Awards &amp; competitions</h2>{awards_html}</section>
 {references_html}
-</main><script type="module" src="./src/preferences.js"></script></body></html>
+</div></main><script type="module" src="./src/preferences.js"></script></body></html>
 '''
     (ROOT / 'dist' / html_filename).write_text(html, encoding='utf-8')
     if key == DEFAULT_PROFILE:

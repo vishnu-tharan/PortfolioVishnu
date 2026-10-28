@@ -75,7 +75,7 @@ for key, profile in DATA['profiles'].items():
     assert all(PROJECTS[project_id]['url'] in urls for project_id in profile['project_ids'])
     covered_ids = set(profile['project_ids']) | set(DATA['team_project_ids'])
     others = [project for project in DATA['projects'] if project['id'] not in covered_ids]
-    other_text = text.split('OTHER DEVELOPMENTS', 1)[1].split(DATA['name'], 1)[0].strip()
+    other_text = text.split('OTHER DEVELOPMENTS', 1)[1].split('TEAM PROJECTS & LEADERSHIP', 1)[0].strip()
     assert ' '.join(other_text.split()) == ' | '.join(project['name'] for project in others), f'{filename}: other developments should contain only remaining project names'
     assert all(project['url'] in urls for project in others), f'{filename}: missing other project links'
     for reference in DATA.get('references', []):
@@ -113,6 +113,15 @@ for key, profile in DATA['profiles'].items():
             assert all(char['size'] >= 9.4 for char in page.chars), f'{filename}: unreadable small text'
             assert all(grayscale(char['non_stroking_color']) for char in page.chars), f'{filename}: colored text in monochrome CV'
             assert all(grayscale(line['stroking_color']) for line in page.lines), f'{filename}: colored decoration in monochrome CV'
+        # Project dates share the title row and the same right-hand text margin.
+        first_page = document.pages[0]
+        for project_id in profile['project_ids']:
+            project = PROJECTS[project_id]
+            if project.get('dates'):
+                title = first_page.search(project['name'], regex=False)[0]
+                dates = first_page.search(project['dates'], regex=False)[0]
+                assert abs(dates['x1'] - (first_page.width - 48)) < 1, f'{filename}: project date is not aligned to the right margin'
+                assert abs(title['top'] - dates['top']) < 3, f'{filename}: project date should share the title row'
     html = (ROOT / 'dist' / html_name).read_text(encoding='utf-8')
     page = Page(); page.feed(html)
     # HTML indentation should not change content validation.
