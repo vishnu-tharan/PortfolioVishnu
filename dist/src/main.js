@@ -2,9 +2,9 @@ import {
   renderProjectGallery,
   projectDetails,
   mountProjectScreenshots
-} from './projects.js?v=20261029-buyora-v1';
-import { projects } from './project-data.js?v=20261029-buyora-v1';
-import './journey.js?v=20261029-buyora-v1';
+} from './projects.js?v=20261029-cv-layout-v1';
+import { projects } from './project-data.js?v=20261029-cv-layout-v1';
+import './journey.js?v=20261029-cv-layout-v1';
 
 // Project dialogs and shareable links.
 const dialog = document.querySelector('.project-dialog');

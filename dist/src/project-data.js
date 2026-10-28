@@ -1,4 +1,4 @@
-import { projectScreenshots } from './project-screenshots.js?v=20261029-buyora-v1';
+import { projectScreenshots } from './project-screenshots.js?v=20261029-cv-layout-v1';
 // Current descriptions are limited to implemented screens and routes.
 export const projects = [
   {
