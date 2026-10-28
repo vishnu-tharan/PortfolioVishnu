@@ -47,7 +47,7 @@
       "category": "E-commerce application",
       "stack": "Next.js, Spring Boot, PostgreSQL, Docker",
       "url": "https://github.com/vishnu-tharan/Buyora",
-      "evidence": "https://github.com/vishnu-tharan/Buyora/blob/2b71f8e3484a9fec1f51a184dfe78f2a945f7c46/README.md#checks",
+      "evidence": "https://github.com/vishnu-tharan/Buyora/blob/c9e7d4ab210128b58c4efe98c88747ae3739a760/README.md#checks",
       "bullets": [
         "Built a Next.js/Spring Boot shop with product filters, saved favourites, guest carts, cash-on-delivery checkout and order tracking.",
         "Developed admin product/order screens and transactional PostgreSQL checkout with stock validation, server-calculated totals and duplicate-order protection."
