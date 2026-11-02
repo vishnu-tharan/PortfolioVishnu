@@ -381,18 +381,20 @@ html {
 }
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
 .skills-grid article {
-  padding: 25px;
+  padding: 24px;
   border: 1px solid #ffffff25;
   background: #151011c9;
   border-radius: 10px;
+  display: flex;
+  flex-direction: column;
 }
 .skills-grid h3 {
-  font-size: 21px;
-  margin: 0 0 14px;
+  font-size: 20px;
+  margin: 0 0 10px;
 }
 .skills-grid p {
   font-size: 16px;
@@ -400,10 +402,47 @@ html {
   color: #c9bdb7;
 }
 .skills-grid a {
+  margin-top: auto;
   font-size: 14px;
   color: #ffb7a7;
   text-decoration: underline;
   text-underline-offset: 4px;
+  padding-top: 10px;
+}
+.skill-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 16px;
+}
+.skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 11px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  font-size: 13.5px;
+  color: #dcd4cf;
+  line-height: 1.2;
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+.skill-badge:hover {
+  background: rgba(255, 66, 46, 0.14);
+  border-color: rgba(255, 66, 46, 0.5);
+  color: #ffffff;
+  transform: translateY(-1.5px);
+}
+.skill-badge svg.skill-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  fill: currentColor;
 }
 .journey-heading {
   margin-top: 30px;

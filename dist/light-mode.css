@@ -121,6 +121,16 @@
   background: linear-gradient(135deg, #fff, #fcf1ea);
   border-color: #d8c1b6;
 }
+[data-theme='light'] .skill-badge {
+  background: #f4ece6;
+  border-color: #d8c1b6;
+  color: #211e1c;
+}
+[data-theme='light'] .skill-badge:hover {
+  background: #fde8e4;
+  border-color: #ff422e;
+  color: #c92a17;
+}
 [data-theme='light'] .year-story {
   border-color: #cfa08a;
 }
