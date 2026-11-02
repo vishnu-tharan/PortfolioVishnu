@@ -1,126 +1,97 @@
 {
   "author": "vishnu-tharan",
   "name": "Vishnutharan Bavachelvan",
-  "role": "",
+  "role": "B.Sc. (Hons) in Information Technology Undergraduate",
   "default_profile": "general",
   "uppercase_name": true,
   "email": "vtharan.b@gmail.com",
   "phone": "+94 77 364 6391",
+  "location": "Jaffna, Sri Lanka",
   "github": "https://github.com/vishnu-tharan",
   "portfolio": "https://vishnu-tharan.github.io/PortfolioVishnu/",
-  "summary": "IT honours undergraduate with practical experience in programming, web and mobile applications, API integration and databases. Contributed to individual and university group projects, with experience in software testing and collaborative development.",
+  "linkedin": "https://www.linkedin.com/in/vishnutharan",
+  "summary": "Information Technology Honours undergraduate at University of Vavuniya with hands-on experience in full-stack web and mobile application engineering, relational/NoSQL databases, and RESTful microservices. Proven track record building production-style applications using Spring Boot, Next.js, React Native, and PostgreSQL. Experienced in collaborative version control, automated testing, containerized deployments, and competitive programming hackathons.",
   "skills": [
     [
       "Languages",
-      "Java, JavaScript, C++, C, Python, SQL, HTML, CSS"
+      "Java, JavaScript (ES6+), Python, C++, C, SQL, HTML5, CSS3"
     ],
     [
-      "Frameworks",
-      "React, Next.js, React Native, Expo, Spring Boot, Node.js, Express"
+      "Frameworks & Mobile",
+      "Spring Boot, React, Next.js, React Native, Expo, Node.js, Express"
     ],
     [
-      "Engineering",
-      "REST APIs, authentication, permissions, data consistency"
+      "Databases & Storage",
+      "PostgreSQL, MongoDB, SQLite, Firebase Realtime Database"
     ],
     [
-      "Databases",
-      "PostgreSQL, MongoDB, SQLite, Firebase"
+      "Engineering & DevOps",
+      "RESTful APIs, JWT Authentication, Role-Based Access Control, Docker, Git, GitHub Actions, Linux"
     ],
     [
-      "Tools & testing",
-      "Git, Docker, Linux, GitHub Actions; Selenium automation, Postman"
-    ],
-    [
-      "Development environments",
-      "VS Code, IntelliJ IDEA"
-    ],
-    [
-      "Analysis & prototyping",
-      "MATLAB, Jupyter Notebook, Axure RP"
+      "Testing & Tools",
+      "Postman, Selenium Automation, IntelliJ IDEA, VS Code"
     ]
   ],
   "projects": [
     {
       "id": "buyora",
       "name": "Buyora",
-      "dates": "May 2026 - June 2026",
-      "category": "E-commerce application",
-      "stack": "Next.js, Spring Boot, PostgreSQL, Docker",
+      "dates": "May 2026 – June 2026",
+      "category": "Full-Stack E-Commerce Platform",
+      "stack": "Next.js, Spring Boot, PostgreSQL, Docker, REST APIs",
       "url": "https://github.com/vishnu-tharan/Buyora",
       "evidence": "https://github.com/vishnu-tharan/Buyora/blob/c9e7d4ab210128b58c4efe98c88747ae3739a760/README.md#checks",
       "bullets": [
-        "Built a Next.js/Spring Boot shop with product filters, saved favourites, guest carts, cash-on-delivery checkout and order tracking.",
-        "Developed admin product/order screens and transactional PostgreSQL checkout with stock validation, server-calculated totals and duplicate-order protection."
-      ]
-    },
-    {
-      "id": "gateway",
-      "name": "GATEWAY",
-      "category": "Semester 3.1 group project",
-      "stack": "React, JavaScript, Node.js, Express, MongoDB",
-      "url": "https://github.com/chamikara12/GATEWAY",
-      "bullets": [
-        "Contributed React frontend and Express/MongoDB backend development to our semester 3.1 university vehicle and gate-pass group project."
-      ]
-    },
-    {
-      "id": "cashmanage",
-      "name": "CashManage",
-      "category": "Personal finance application",
-      "stack": "JavaScript, React, Vite, Express, SQLite, PWA",
-      "url": "https://github.com/vishnu-tharan/CashManage",
-      "evidence": "https://github.com/vishnu-tharan/CashManage/blob/6c4d82d5fcd3eab6985d4691bcf822ea2bc417aa/README.md#checks",
-      "bullets": [
-        "Built a React/Express/SQLite cashbook for transactions, budgets, transfers, debts, savings and receipts.",
-        "Added CSV import/export, browser PDF printing, encrypted backup restore and local-vault synchronization."
-      ]
-    },
-    {
-      "id": "agri",
-      "name": "Lanka Agri-Direct",
-      "category": "Produce directory | Group project",
-      "stack": "Spring Boot, React, React Native, MongoDB, Docker",
-      "url": "https://github.com/dragon-udfly/LankaAgriDirect",
-      "bullets": [
-        "Contributed frontend development, interface design and API integration testing to a team produce directory with buyer, producer and admin interfaces."
-      ]
-    },
-    {
-      "id": "cinemastream",
-      "name": "CinemaStream",
-      "dates": "November 2025",
-      "category": "Movie discovery | Mobile & web",
-      "stack": "JavaScript, React Native, Expo Router, Firebase, Firestore",
-      "url": "https://github.com/vishnu-tharan/CinemaStream",
-      "evidence": "https://github.com/vishnu-tharan/CinemaStream/blob/abc97b57ac3e454cbfa55c797b3d8c421d2f2ba3/README.md#check",
-      "bullets": [
-        "Built React Native/Expo movie discovery with search, genre filters, film details, trailer links and guest browsing.",
-        "Connected Firebase account access and online Firestore favourites, watchlists and watched records."
-      ]
-    },
-    {
-      "id": "ceb",
-      "name": "CEB-Management",
-      "category": "Household electricity tracker",
-      "stack": "JavaScript, HTML, CSS, Node.js, Express, SQLite",
-      "url": "https://github.com/vishnu-tharan/CEB-Management",
-      "evidence": "https://github.com/vishnu-tharan/CEB-Management/blob/e708d978a9b13e72d0b193a38bfc11095c44fa61/README.md#verify",
-      "bullets": [
-        "Built an Express/SQLite household tracker with appliance records, cumulative meter readings and usage charts.",
-        "Added a dated tariff-based bill estimator, actual bill history, account settings and responsive light/dark screens."
+        "Architected an online store with product filtering, saved favorites, guest shopping carts, and cash-on-delivery tracking.",
+        "Engineered transactional PostgreSQL checkout logic in Spring Boot with strict stock validation, server-calculated totals, and duplicate-order protection.",
+        "Built administrative screens for product and order lifecycle monitoring; containerized backend services using Docker."
       ]
     },
     {
       "id": "gatepilot",
       "name": "GatePilot",
-      "dates": "August 2026 - September 2026",
-      "category": "Independent access-management prototype",
-      "stack": "React Native, Expo, Express, MongoDB, Docker",
+      "dates": "Aug 2026 – Sep 2026",
+      "category": "Smart Vehicle & Access Management Prototype",
+      "stack": "React Native, Expo, Node.js, Express, MongoDB, Docker",
       "url": "https://github.com/vishnu-tharan/GatePilot",
       "evidence": "https://github.com/vishnu-tharan/GatePilot/blob/94f5c069dad296877cd321bdfa54275ed7b95ba6/README.md#checks",
       "bullets": [
-        "Built React Native/Expo screens for vehicle entry, exit and department equipment approvals with an Express/MongoDB API.",
-        "Added searchable vehicle records, role-based dashboards, account management and organization settings."
+        "Developed a mobile access management app in React Native/Expo for vehicular entry/exit logs and equipment clearance approvals.",
+        "Implemented an Express & MongoDB API with indexed search, account management, and role-based administrative dashboards."
+      ]
+    },
+    {
+      "id": "ceb",
+      "name": "CEB-Management",
+      "dates": "Jan 2026 – March 2026",
+      "category": "Household Electricity Tracker",
+      "stack": "JavaScript, Node.js, Express, SQLite, HTML5/CSS3",
+      "url": "https://github.com/vishnu-tharan/CEB-Management",
+      "evidence": "https://github.com/vishnu-tharan/CEB-Management/blob/e708d978a9b13e72d0b193a38bfc11095c44fa61/README.md#verify",
+      "bullets": [
+        "Created an electricity utility tracker managing appliance records, cumulative meter readings, and consumption charts.",
+        "Implemented a dated tariff-based bill estimator, historical billing logs, and responsive light/dark application screens."
+      ]
+    },
+    {
+      "id": "gateway",
+      "name": "GATEWAY (Gate-Pass System)",
+      "category": "Semester 3.1 departmental vehicle pass group project",
+      "stack": "React, JavaScript, Node.js, Express, MongoDB",
+      "url": "https://github.com/chamikara12/GATEWAY",
+      "bullets": [
+        "Built React UI screens and Express/MongoDB backend endpoints for a semester 3.1 departmental vehicle pass group project."
+      ]
+    },
+    {
+      "id": "agri",
+      "name": "Lanka Agri-Direct (Produce Directory)",
+      "category": "Produce directory | Group project",
+      "stack": "Spring Boot, React, React Native, MongoDB, Docker",
+      "url": "https://github.com/dragon-udfly/LankaAgriDirect",
+      "bullets": [
+        "Contributed frontend development, UI design, and API integration testing for a team directory connecting agricultural buyers, producers, and administrators."
       ]
     }
   ],
@@ -131,34 +102,43 @@
   "education": {
     "degree": "B.Sc. (Hons) in Information Technology",
     "institution": "Faculty of Applied Science, University of Vavuniya",
-    "dates": "2023 - Present",
+    "dates": "2023 – Present",
     "expected_graduation": "June 2027",
-    "detail": "Selected for the Honours programme in 2026. Coursework: object-oriented programming, data structures and algorithms, databases, web development."
+    "detail": "Selected for the Honours Degree Programme in 2026 based on academic performance."
   },
-  "certifications": "JavaScript Essentials 1 & 2 - Cisco Networking Academy.",
-  "certificate_descriptions": {
-    "trailblazers-2024": "Personal and professional development event.",
-    "ieeextreme-18-2024": "Team: TheChiefs.",
-    "ieeextreme-17-2023": "Team: Riskybiscuits.",
-    "school-merit-2023": "Grade 13 recognition in Accounting and ICT.",
-    "hackforce-2023": "Salesforce hackathon participation."
-  },
-  "community": "IEEEXtreme 18.0 organizing committee member. JamporIEEE logistics volunteer. IEEE and AIESEC member, 2023 - present.",
-  "leadership": [
+  "certifications": [
     {
-      "title": "School Head Prefect",
-      "institution": "J/Uduppiddy American Mission College",
-      "dates": "2020 - 2022"
+      "issuer": "Cisco Academy",
+      "title": "JavaScript Essentials 1 & 2 (Foundations, Data Structures, OOP, DOM)"
+    },
+    {
+      "issuer": "Cursor AI / Techloom",
+      "title": "AI-Powered Coding Session Workshop — IEEE Student Branch, Univ. of Vavuniya (Sep 2026)",
+      "certificate": "https://vishnu-tharan.github.io/PortfolioVishnu/assets/certificates/vishnutharan-cursor-ai-coding-workshop-2026.png"
+    },
+    {
+      "issuer": "Sololearn",
+      "title": "Introduction to SQL — Relational Querying & Database Design",
+      "certificate": "https://vishnu-tharan.github.io/PortfolioVishnu/assets/certificates/vishnutharan-introduction-to-sql-sololearn-2024.jpg"
     }
   ],
-  "linkedin": "https://www.linkedin.com/in/vishnutharan",
+  "competitions_events": "Competed in IEEEXtreme 18.0 [Certificate] and IEEEXtreme 17.0 [Certificate]; participated in Yarl Salesforce Ohana HACKFORCE '23 [Certificate]; attended AIESEC Trailblazers '24 [Certificate].",
+  "leadership_volunteering": "IEEEXtreme 18.0 Organizing Committee Member; JamporIEEE Logistics Volunteer; Active Member of IEEE and AIESEC (2023–Present).",
   "references": [
     {
       "name": "Dr. R. Nagulan",
-      "credentials": "B.Sc. (Jaffna), M.Sc. in Computer Science (Peradeniya), Ph.D. in Medical Image Computing (Kent, UK)",
-      "title": "Senior Lecturer Gr.I",
+      "title": "Senior Lecturer Gr. I, Faculty of Applied Science",
+      "institution": "University of Vavuniya",
+      "credentials": "B.Sc. (Jaffna), M.Sc. in CS (Peradeniya), Ph.D. (Kent, UK)",
       "phone": "+94 71 107 1289",
       "email": "nagulanr@vau.ac.lk"
+    },
+    {
+      "name": "Mr. Vasanthan Athiththan",
+      "title": "Lecturer (Probationary), Faculty of Applied Science",
+      "institution": "University of Vavuniya",
+      "credentials": "B.Sc. (Hons) in IT (Jaffna, Sri Lanka)",
+      "email": "athiththanv@vau.ac.lk"
     }
   ],
   "profiles": {
