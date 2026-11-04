@@ -1,0 +1,94 @@
+VISHNUTHARAN BAVACHELVAN - PORTFOLIO DETAILS
+CV updated: 4 November 2026; project review dates are recorded in PROJECT-REVIEW.md
+
+vtharan.b@gmail.com
+https://www.linkedin.com/in/vishnutharan
+https://github.com/vishnu-tharan
+
+EDUCATION
+B.Sc. (Hons) in Information Technology
+Faculty of Applied Science, University of Vavuniya
+Expected graduation: June 2027
+
+TECHNICAL SKILLS
+Languages: Java, JavaScript, C++, C, Python, SQL, HTML, CSS
+Frameworks: React, Next.js, React Native, Expo, Spring Boot, Node.js, Express
+Engineering: REST APIs, authentication, permissions, data consistency
+Databases: PostgreSQL, MongoDB, SQLite, Firebase
+Tools & testing: Git, Docker, Linux, GitHub Actions; Selenium automation, Postman
+Development environments: VS Code, IntelliJ IDEA
+Analysis & prototyping: MATLAB, Jupyter Notebook, Axure RP
+
+PROJECTS - CURRENT REPOSITORY REVIEW
+
+1. Buyora
+Link: https://github.com/vishnu-tharan/Buyora
+Stack: Next.js · Spring Boot · PostgreSQL · Docker
+Role: Full-stack development
+Summary: An LKR-priced shop with product filters, saved favourites, guest checkout and order management.
+Contribution: Built product discovery, saved favourites, guest and account carts, cash-on-delivery checkout and order tracking. Developed admin screens for products, stock, orders, reviews and store settings.
+Decision: Next.js calls Spring Boot services backed directly by PostgreSQL. Transactional checkout reserves stock, calculates totals on the server and uses an idempotency key to prevent duplicate orders.
+Status: Local Docker development setup · cash on delivery · PayHere sandbox requires configuration
+
+2. GATEWAY
+Link: https://github.com/chamikara12/GATEWAY
+Stack: React · JavaScript · Node.js · Express · MongoDB
+Role: Frontend and backend development · Group project
+Summary: Our semester 3.1 group project for university vehicle entries, exits and gate passes.
+Contribution: Contributed frontend and backend development to our group project. The active React application shows separate admin and security dashboards, with screens for vehicle movements and gate passes.
+Decision: React dashboards call Express controllers and MongoDB models for vehicle and gate-pass records. The current src/App.jsx selects the dashboard using the signed-in user role.
+Status: Semester 3.1 academic group project · frontend and backend contribution
+
+3. GatePilot
+Link: https://github.com/vishnu-tharan/GatePilot
+Stack: React Native · Expo · Express · MongoDB · Docker
+Role: Full-stack development
+Summary: A gate-management prototype for vehicle entry, exit and department equipment approvals.
+Contribution: Built vehicle entry and exit screens, equipment approval and rejection actions, searchable vehicle records and dashboard counts. Added account and organization settings for the administrator.
+Decision: React Native and Expo provide the responsive interface. Express endpoints use MongoDB records and role/department filters for gate-officer and administrator actions.
+Status: Independent development prototype · fictional Sample Campus demo
+
+4. CashManage
+Link: https://github.com/vishnu-tharan/CashManage
+Stack: React · JavaScript · Vite · Express · SQLite · PWA
+Role: Full-stack development
+Summary: A personal cashbook for income, expenses, budgets, transfers and reports.
+Contribution: Built cashbooks, transaction tracking, budgets, debt and savings forms, CSV import and reports. Added receipt attachments, encrypted backup download/restore and account settings.
+Decision: React and Vite provide the interface; Express and SQLite handle accounts and saved vaults. The workspace hook manages local encrypted storage and synchronization. Reports use CSV export and the browser Print / Save as PDF action.
+Status: Personal finance development app · records transactions without processing payments
+
+5. Lanka Agri-Direct
+Link: https://github.com/dragon-udfly/LankaAgriDirect
+Stack: Spring Boot · React · React Native · MongoDB · Docker
+Role: Frontend, design and API testing
+Summary: A group project for browsing produce listings and finding verified Sri Lankan producers.
+Contribution: Contributed frontend development, interface design and API integration testing. The project has React Native buyer/producer screens and React admin screens for producer and product management.
+Decision: Mobile screens call Spring Boot product and producer endpoints backed by MongoDB. Buyers can browse listings and save bookmarks locally; producers manage listings and sold-out status, while administrators review registrations.
+Status: Academic group project · frontend, design and API-testing contribution
+
+6. CEB-Management
+Link: https://github.com/vishnu-tharan/CEB-Management
+Stack: JavaScript · HTML · CSS · Express · SQLite
+Role: Web application development
+Summary: A household electricity tracker with appliances, meter readings and bill estimates.
+Contribution: Built appliance management, meter-reading entry, usage charts, a bill estimator and saved bill history. Added profile and account-security screens with light and dark themes.
+Decision: HTML, CSS and JavaScript call an Express API backed by SQLite. The app calculates usage from appliance inputs or cumulative meter readings and estimates bills using its dated tariff model.
+Status: Independent student project · estimated bills use a dated tariff model
+
+7. CinemaStream
+Link: https://github.com/vishnu-tharan/CinemaStream
+Stack: JavaScript · React Native · Expo Router · Firebase · Firestore
+Role: Mobile and web application development
+Summary: A movie catalog with search, genre filters, trailers and personal collections.
+Contribution: Built movie discovery, search, genre filtering and film-detail screens with trailer links. Added guest browsing, account access and favourites/watchlist/watched controls.
+Decision: React Native screens use Expo Router. Firebase handles account access, and Firestore stores the signed-in account’s movie collection. Collection reads and writes require an internet connection.
+Status: Movie-discovery prototype · online account collections · trailer links
+
+Source paths: PROJECT-REVIEW.md
+
+COMMON CV UPDATE
+Title: B.Sc. (Hons) in Information Technology Undergraduate
+Location: Jaffna, Sri Lanka
+Academic References:
+1. Dr. R. Nagulan (Senior Lecturer Gr. I, Faculty of Applied Science, University of Vavuniya, nagulanr@vau.ac.lk)
+2. Mr. Vasanthan Athiththan (Lecturer Probationary, Faculty of Applied Science, University of Vavuniya, athiththanv@vau.ac.lk)

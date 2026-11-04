@@ -122,3 +122,7 @@ Individual feature verification: PROJECT-REVIEW.md and tools/project-review.json
 ## Editing the code
 
 See [CODE-GUIDE.md](CODE-GUIDE.md) for the file map, simple coding conventions and preview/check commands. Website source files use normal indentation and separate functions for project dialogs, screenshot galleries and the education timeline.
+
+## Supplied CV PDF
+
+`tools/cv-source.pdf` is the owner-supplied master PDF. `python tools/build_cv.py` copies it unchanged to current and legacy downloads and rebuilds the web CV from `tools/cv-data.json`. To replace it, use `python tools/build_cv.py --pdf PATH_TO_NEW_PDF`, keep the metadata consistent, then run `python tools/check_cv.py`. The reference phone field is optional. Run the asset version script after rebuilding.

@@ -173,3 +173,11 @@ html[data-theme='dark'] .cv-page {
     display: none;
   }
 }
+
+/* Contact separators are supplied by the web CV markup. */
+.cv-contact a + a::before {
+  content: none;
+}
+.cv-sheet .cv-contact {
+  column-gap: 8px;
+}
