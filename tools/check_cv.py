@@ -40,7 +40,9 @@ for key, profile in DATA['profiles'].items():
     pdf = ROOT / 'dist/assets' / filename
     reader = PdfReader(pdf)
     assert len(reader.pages) == 2, f'{filename}: expected two pages'
-    raw_text = '\n'.join(page.extract_text() for page in reader.pages)
+    # Use glyph positions to avoid false spaces in text from the supplied PDF.
+    with pdfplumber.open(pdf) as source_document:
+        raw_text = '\n'.join(page.extract_text() for page in source_document.pages)
     text = unicodedata.normalize('NFKD', raw_text)
     assert DATA['name'].upper() in text.upper(), f'{filename}: missing name'
     assert DATA['education']['expected_graduation'] in text, f'{filename}: missing graduation date'
