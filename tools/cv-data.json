@@ -10,7 +10,7 @@
   "github": "https://github.com/vishnu-tharan",
   "portfolio": "https://vishnu-tharan.github.io/PortfolioVishnu/",
   "linkedin": "https://www.linkedin.com/in/vishnutharan",
-  "summary": "Information Technology Honours undergraduate at University of Vavuniya with hands-on experience in full-stack web and mobile application engineering, relational/NoSQL databases, and RESTful microservices. Proven track record building production-style applications using Spring Boot, Next.js, React Native, and PostgreSQL. Experienced in collaborative version control, automated testing, containerized deployments, and competitive programming hackathons.",
+  "summary": "Information Technology Honours undergraduate at the University of Vavuniya with interests in web and mobile development, databases and REST APIs. Familiar with version control, automated testing and containerization, and active in competitive programming events.",
   "skills": [
     [
       "Languages",
@@ -33,72 +33,6 @@
       "Postman, Selenium Automation, IntelliJ IDEA, VS Code"
     ]
   ],
-  "projects": [
-    {
-      "id": "buyora",
-      "name": "Buyora",
-      "dates": "May 2026 – June 2026",
-      "category": "Full-Stack E-Commerce Platform",
-      "stack": "Next.js, Spring Boot, PostgreSQL, Docker, REST APIs",
-      "url": "https://github.com/vishnu-tharan/Buyora",
-      "evidence": "https://github.com/vishnu-tharan/Buyora/blob/c9e7d4ab210128b58c4efe98c88747ae3739a760/README.md#checks",
-      "bullets": [
-        "Architected an online store with product filtering, saved favorites, guest shopping carts, and cash-on-delivery tracking.",
-        "Engineered transactional PostgreSQL checkout logic in Spring Boot with strict stock validation, server-calculated totals, and duplicate-order protection.",
-        "Built administrative screens for product and order lifecycle monitoring; containerized backend services using Docker."
-      ]
-    },
-    {
-      "id": "gatepilot",
-      "name": "GatePilot",
-      "dates": "Aug 2026 – Sep 2026",
-      "category": "Smart Vehicle & Access Management Prototype",
-      "stack": "React Native, Expo, Node.js, Express, MongoDB, Docker",
-      "url": "https://github.com/vishnu-tharan/GatePilot",
-      "evidence": "https://github.com/vishnu-tharan/GatePilot/blob/94f5c069dad296877cd321bdfa54275ed7b95ba6/README.md#checks",
-      "bullets": [
-        "Developed a mobile access management app in React Native/Expo for vehicular entry/exit logs and equipment clearance approvals.",
-        "Implemented an Express & MongoDB API with indexed search, account management, and role-based administrative dashboards."
-      ]
-    },
-    {
-      "id": "ceb",
-      "name": "CEB-Management",
-      "dates": "Jan 2026 – March 2026",
-      "category": "Household Electricity Tracker",
-      "stack": "JavaScript, Node.js, Express, SQLite, HTML5/CSS3",
-      "url": "https://github.com/vishnu-tharan/CEB-Management",
-      "evidence": "https://github.com/vishnu-tharan/CEB-Management/blob/e708d978a9b13e72d0b193a38bfc11095c44fa61/README.md#verify",
-      "bullets": [
-        "Created an electricity utility tracker managing appliance records, cumulative meter readings, and consumption charts.",
-        "Implemented a dated tariff-based bill estimator, historical billing logs, and responsive light/dark application screens."
-      ]
-    },
-    {
-      "id": "gateway",
-      "name": "GATEWAY (Gate-Pass System)",
-      "category": "Semester 3.1 departmental vehicle pass group project",
-      "stack": "React, JavaScript, Node.js, Express, MongoDB",
-      "url": "https://github.com/chamikara12/GATEWAY",
-      "bullets": [
-        "Built React UI screens and Express/MongoDB backend endpoints for a semester 3.1 departmental vehicle pass group project."
-      ]
-    },
-    {
-      "id": "agri",
-      "name": "Lanka Agri-Direct (Produce Directory)",
-      "category": "Produce directory | Group project",
-      "stack": "Spring Boot, React, React Native, MongoDB, Docker",
-      "url": "https://github.com/dragon-udfly/LankaAgriDirect",
-      "bullets": [
-        "Contributed frontend development, UI design, and API integration testing for a team directory connecting agricultural buyers, producers, and administrators."
-      ]
-    }
-  ],
-  "team_project_ids": [
-    "gateway",
-    "agri"
-  ],
   "education": {
     "degree": "B.Sc. (Hons) in Information Technology",
     "institution": "Faculty of Applied Science, University of Vavuniya",
@@ -114,12 +48,12 @@
     {
       "issuer": "Cursor AI / Techloom",
       "title": "AI-Powered Coding Session Workshop — IEEE Student Branch, Univ. of Vavuniya (Sep 2026)",
-      "certificate": "https://vishnu-tharan.github.io/PortfolioVishnu/assets/certificates/vishnutharan-cursor-ai-coding-workshop-2026.png"
+      "certificate": "./assets/certificates/vishnutharan-cursor-ai-coding-workshop-2026.png"
     },
     {
       "issuer": "Sololearn",
       "title": "Introduction to SQL — Relational Querying & Database Design",
-      "certificate": "https://vishnu-tharan.github.io/PortfolioVishnu/assets/certificates/vishnutharan-introduction-to-sql-sololearn-2024.jpg"
+      "certificate": "./assets/certificates/vishnutharan-introduction-to-sql-sololearn-2024.jpg"
     }
   ],
   "competitions_events": "Competed in IEEEXtreme 18.0 [Certificate] and IEEEXtreme 17.0 [Certificate]; participated in Yarl Salesforce Ohana HACKFORCE '23 [Certificate]; attended AIESEC Trailblazers '24 [Certificate].",
@@ -145,12 +79,7 @@
     "general": {
       "label": "General",
       "heading_alignment": "center",
-      "refined_layout": true,
-      "project_ids": [
-        "buyora",
-        "gatepilot",
-        "ceb"
-      ]
+      "refined_layout": true
     }
   }
 }

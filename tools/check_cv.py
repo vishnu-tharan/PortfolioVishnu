@@ -11,7 +11,6 @@ from pypdf import PdfReader
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = json.loads((ROOT / 'tools/cv-data.json').read_text(encoding='utf-8'))
-PROJECTS = {project['id']: project for project in DATA['projects']}
 CERTIFICATES = json.loads((ROOT / 'tools/certificate-data.json').read_text(encoding='utf-8'))
 
 class Page(HTMLParser):
@@ -32,14 +31,13 @@ class Page(HTMLParser):
 suffixes = {'general': 'General'}
 assert set(DATA['profiles']) == set(suffixes), 'Expected one common CV'
 assert DATA['default_profile'] == 'general', 'The main CV must be general'
-assert 'ceb' in DATA['profiles']['general']['project_ids'], 'Main project selection must retain CEB'
 
 for key, profile in DATA['profiles'].items():
     filename = f'Vishnutharan-Bavachelvan-CV-{suffixes[key]}.pdf'
     html_name = f'cv-{key}.html'
     pdf = ROOT / 'dist/assets' / filename
     reader = PdfReader(pdf)
-    assert len(reader.pages) == 2, f'{filename}: expected two pages'
+    assert len(reader.pages) in (1, 2), f'{filename}: expected one or two pages'
     # Use glyph positions to avoid false spaces in text from the supplied PDF.
     with pdfplumber.open(pdf) as source_document:
         raw_text = '\n'.join(page.extract_text() for page in source_document.pages)
@@ -66,8 +64,7 @@ for key, profile in DATA['profiles'].items():
         'PROFESSIONAL PROFILE',
         'EDUCATION',
         'TECHNICAL SKILLS',
-        'TECHNICAL PROJECTS',
-        'TEAM PROJECTS, COMPETITIONS & LEADERSHIP',
+        'COMPETITIONS & LEADERSHIP',
         'CERTIFICATIONS & WORKSHOPS',
         'ACADEMIC REFERENCES'
     ]
@@ -75,26 +72,13 @@ for key, profile in DATA['profiles'].items():
     assert section_positions == sorted(section_positions), f'{filename}: incorrect reading order'
     assert '\ufffd' not in text, f'{filename}: broken characters'
 
-    # Project ordering and bullets
-    names = [PROJECTS[project_id]['name'] for project_id in profile['project_ids']]
-    positions = [text.index(name) for name in names]
-    assert positions == sorted(positions), f'{filename}: incorrect project order'
-    for project_id in profile['project_ids']:
-        if PROJECTS[project_id].get('dates'):
-            assert PROJECTS[project_id]['dates'] in normalized, f'{filename}: missing project dates'
-        for bullet in PROJECTS[project_id]['bullets']:
-            assert ' '.join(bullet.split()) in normalized, f'{filename}: missing project bullet'
+    assert 'PROJECTS' not in text.upper(), f'{filename}: project section remains'
 
     # Annotation URLs
     annotations = [annotation for page in reader.pages for annotation in page.get('/Annots', [])]
     urls = [str(annotation.get_object().get('/A', {}).get('/URI', '')) for annotation in annotations]
     assert DATA['github'] in urls and DATA['portfolio'] in urls and DATA['linkedin'] in urls
-    assert all(PROJECTS[project_id]['url'] in urls for project_id in profile['project_ids'])
-
-    # Team projects
-    for project_id in DATA.get('team_project_ids', []):
-        team = PROJECTS[project_id]
-        assert team['name'] in text and team['url'] in urls, f'{filename}: missing team project {team["name"]}'
+    assert all(not re.match(r'https://github[.]com/[^/]+/[^/]+', url) for url in urls)
 
     # Academic references
     for reference in DATA.get('references', []):
@@ -113,10 +97,10 @@ for key, profile in DATA['profiles'].items():
     assert [urlsplit(url).path for url in page.downloads] == [f'./assets/{filename}'], f'{html_name}: incorrect PDF download'
     assert DATA['name'].upper() in html, f'{html_name}: name missing'
     assert DATA['role'] in html, f'{html_name}: role title missing'
-    assert all(PROJECTS[project_id]['name'] in html for project_id in profile['project_ids'])
+    assert 'Projects' not in html, f'{html_name}: project section remains'
     assert all(reference['name'] in html for reference in DATA.get('references', []))
     assert pdf.read_bytes() == (ROOT / 'output/pdf' / filename).read_bytes(), f'{filename}: stale published PDF'
-    print(f'{key}: two readable pages, role title, skills, projects and academic references verified')
+    print(f'{key}: readable CV, skills, activities and academic references verified')
 
 main_filename = 'Vishnutharan-Bavachelvan-CV.pdf'
 general_filename = 'Vishnutharan-Bavachelvan-CV-General.pdf'
