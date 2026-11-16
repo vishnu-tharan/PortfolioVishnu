@@ -1,9 +1,6 @@
 html {
   scroll-padding-top: calc(var(--header-height, 78px) + 16px);
 }
-.project-dialog {
-  max-height: min(90svh, calc(var(--usable-height, 100svh) - 28px));
-}
 .search-dialog {
   max-height: min(76svh, calc(var(--usable-height, 100svh) - 28px));
   margin-top: min(12svh, 28px);
@@ -39,16 +36,9 @@ html {
   min-width: 0;
   overflow-wrap: anywhere;
 }
-.project-stack > span {
-  overflow-wrap: anywhere;
-}
-.project-preview,
-.project-details,
 .portrait-toggle {
   touch-action: manipulation;
 }
-.project-details,
-.project-links a,
 .portrait-toggle {
   min-height: 44px;
 }
@@ -158,9 +148,6 @@ html {
   .terminal-launcher {
     right: 64px;
   }
-  .project-body {
-    padding: 20px;
-  }
   .github-summary {
     padding: 18px;
     gap: 9px;
@@ -173,9 +160,6 @@ html {
   }
 }
 @media (hover: none) {
-  .work .project-card:hover {
-    translate: none;
-  }
   .identity-card:after {
     opacity: 0.5;
   }

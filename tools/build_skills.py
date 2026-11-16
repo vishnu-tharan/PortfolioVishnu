@@ -38,8 +38,6 @@ ICONS = {
 CATEGORIES = [
     {
         'title': 'Languages',
-        'link': '#work',
-        'linkLabel': 'See them in action ↗',
         'skills': [
             ('Python', 'python'),
             ('Java', 'java'),
@@ -53,8 +51,6 @@ CATEGORIES = [
     },
     {
         'title': 'Frameworks & Mobile',
-        'link': '#work',
-        'linkLabel': 'Explore interfaces ↗',
         'skills': [
             ('Spring Boot', 'springboot'),
             ('Next.js', 'nextjs'),
@@ -67,8 +63,6 @@ CATEGORIES = [
     },
     {
         'title': 'Databases & Storage',
-        'link': '#work',
-        'linkLabel': 'Explore database systems ↗',
         'skills': [
             ('PostgreSQL', 'postgresql'),
             ('MongoDB', 'mongodb'),
@@ -102,12 +96,14 @@ def build_grid():
     cards = []
     for cat in CATEGORIES:
         badges = '\n                  '.join(make_badge(name, k) for name, k in cat['skills'])
+        link = ''
+        if 'link' in cat:
+            link = f'\n                <a href="{cat["link"]}">{cat["linkLabel"]}</a>'
         card = f'''              <article>
                 <h3>{cat['title']}</h3>
                 <div class="skill-badges">
                   {badges}
-                </div>
-                <a href="{cat['link']}">{cat['linkLabel']}</a>
+                </div>{link}
               </article>'''
         cards.append(card)
     return '<div class="skills-grid" aria-label="Technical skills">\n' + '\n'.join(cards) + '\n            </div>'

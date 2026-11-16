@@ -177,20 +177,6 @@
 .section-label {
   border-image: linear-gradient(90deg, #ff49356b, #ffffff12 55%, transparent) 1;
 }
-.project-art {
-  border-radius: 12px;
-  transition:
-    box-shadow 0.4s,
-    filter 0.4s,
-    translate 0.4s;
-}
-.project-card:is(:hover, :focus-visible) .project-art {
-  box-shadow:
-    0 18px 40px #0007,
-    0 0 0 1px #ff76594a,
-    0 0 30px #ff493512;
-  translate: 0 -4px;
-}
 .contact-form {
   border-radius: 16px;
   background: linear-gradient(135deg, #261411aa, #110d0ce8);
@@ -261,9 +247,6 @@
     animation: none;
     transform: none;
     transition: none;
-  }
-  .project-card .project-art {
-    translate: none;
   }
   .identity-card:after {
     transition: none;

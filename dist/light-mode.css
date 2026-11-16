@@ -90,33 +90,6 @@
 [data-theme='light'] .card-status {
   border-top-color: var(--line);
 }
-[data-theme='light'] .work .project-card {
-  border-color: #d8c1b6;
-  box-shadow: 0 10px 25px #7548320b;
-}
-[data-theme='light'] .work .project-card:hover,
-[data-theme='light'] .work .project-card:focus-within {
-  border-color: #b64b32;
-  box-shadow:
-    0 16px 38px #863b241c,
-    0 0 24px #d875431c;
-}
-[data-theme='light'] .project-stack > span {
-  color: #7a3225;
-  background: #fff0e7;
-  border-color: #d4b5a6;
-}
-[data-theme='light'] .project-role strong,
-[data-theme='light'] .project-body h3 {
-  color: var(--text);
-}
-[data-theme='light'] .github-row {
-  color: var(--text);
-  border-color: var(--line);
-}
-[data-theme='light'] .github-row > span:first-child {
-  color: var(--muted);
-}
 [data-theme='light'] .skills-grid article {
   background: linear-gradient(135deg, #fff, #fcf1ea);
   border-color: #d8c1b6;
@@ -214,13 +187,6 @@
 }
 [data-theme='light'] .footer-word {
   color: #a9392117;
-}
-[data-theme='light'] .project-dialog .project-links a,
-[data-theme='light'] .project-dialog .project-details {
-  color: #8e2e20;
-}
-[data-theme='light'] .project-dialog::backdrop {
-  background: #4d241b66;
 }
 [data-theme='light'] .terminal-form input::placeholder,
 [data-theme='light'] .search-dialog > input::placeholder {

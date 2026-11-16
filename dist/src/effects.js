@@ -4,7 +4,7 @@ progress.setAttribute('aria-hidden', 'true');
 document.body.append(progress);
 const header = document.querySelector('.header');
 const links = [...document.querySelectorAll('.header a[href^="#"]')];
-const sections = [...document.querySelectorAll('#home,#work,#universe,#journey,#beyond,#contact')];
+const sections = [...document.querySelectorAll('#home,#universe,#journey,#beyond,#contact')];
 let navigationFrame = 0;
 function paintNavigation() {
   navigationFrame = 0;

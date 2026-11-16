@@ -1,35 +1,13 @@
 /* Quiet interactions and static accents keep the focus on portfolio content. */
-:is(
-  .cv-button,
-  .outline-button,
-  .feature-button,
-  .github-refresh,
-  .project-details,
-  .contact-form button
-) {
+:is(.cv-button, .outline-button, .feature-button, .github-refresh, .contact-form button) {
   transition:
     background-color 0.15s,
     color 0.15s,
     border-color 0.15s;
 }
-:is(.hero-social a, .project-links a, .project-details, .skills-grid a) {
+:is(.hero-social a, .skills-grid a) {
   text-decoration-thickness: 1px;
   text-underline-offset: 5px;
-}
-.project-dialog .copy-status {
-  font-size: 14px;
-  color: var(--text);
-  margin: 16px 0;
-  padding: 12px 14px;
-  background: var(--accent-soft);
-  border-left: 2px solid var(--accent);
-  border-radius: 4px;
-}
-.copy-status:empty {
-  display: none;
-}
-.project-details.copy-confirmed {
-  color: var(--accent);
 }
 .scroll-progress {
   position: fixed;
@@ -84,11 +62,4 @@ html.motion-paused .hero-portrait,
 html.motion-paused #hero-title {
   transform: none;
   translate: none;
-}
-.work .project-card::before {
-  background: linear-gradient(145deg, #ff493509, transparent);
-  opacity: 1;
-}
-.project-preview img {
-  transform: none !important;
 }

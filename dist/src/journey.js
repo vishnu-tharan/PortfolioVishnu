@@ -25,8 +25,8 @@ const years = [
     year: 2025,
     label: '2024–2025 / APPLIED LEARNING',
     title: 'Putting knowledge into practice.',
-    body: 'Applied my Year 2 software and database studies through a Mini LMS project, alongside academic coursework and student activities at the University of Vavuniya.',
-    skills: ['Mini LMS Project', 'Object-oriented programming', 'Frontend development']
+    body: 'Studied software development and databases in Year 2 at the University of Vavuniya.',
+    skills: ['Object-oriented programming', 'Frontend development']
   },
   {
     year: 2026,

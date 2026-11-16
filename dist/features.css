@@ -71,31 +71,18 @@
   background: #faf7f5f5;
   border-color: var(--line);
 }
-[data-theme='light'] :is(.hero, .flow, .work, .sticky-scene, .beyond, .finale) {
+[data-theme='light'] :is(.hero, .flow, .sticky-scene, .beyond, .finale) {
   background: var(--bg);
   color: var(--text);
 }
 [data-theme='light']
-  :is(
-    .hero-summary,
-    .hero-availability,
-    .overline,
-    .word-baseline,
-    .section-label,
-    .header nav a,
-    .universe-copy p,
-    .work-heading p,
-    .journey-heading p,
-    .year-story p,
-    .contact-intro,
-    .contact-methods p
-  ) {
+  :is(.hero-summary, .hero-availability, .overline, .word-baseline, .section-label, .header nav a, .universe-copy p, .journey-heading p, .year-story p, .contact-intro, .contact-methods p) {
   color: var(--muted);
 }
-[data-theme='light'] :is(.section-label span:first-child, .hero-index span, .project-role strong) {
+[data-theme='light'] :is(.section-label span:first-child, .hero-index span) {
   color: var(--text);
 }
-[data-theme='light'] :is(.section-label, .word-baseline, .project-links) {
+[data-theme='light'] :is(.section-label, .word-baseline) {
   border-color: var(--line);
 }
 [data-theme='light'] .identity-card {
@@ -112,47 +99,25 @@
 [data-theme='light'] .portrait-code {
   color: #734237;
 }
-[data-theme='light'] :is(.work .project-card, .skills-grid article, .beyond .credentials article) {
+[data-theme='light'] :is(.skills-grid article, .beyond .credentials article) {
   background: var(--surface);
   border-color: var(--line);
   box-shadow: 0 10px 28px #65422b08;
 }
 [data-theme='light']
-  :is(
-    .project-summary,
-    .project-role,
-    .project-category,
-    .skills-grid p,
-    .credentials article p,
-    .credentials article > span
-  ) {
+  :is(.skills-grid p, .credentials article p, .credentials article > span) {
   color: var(--muted);
 }
 [data-theme='light']
-  :is(.project-stack > span, .project-links a, .project-details, .skills-grid a) {
+  :is(.skills-grid a) {
   color: var(--accent);
 }
-[data-theme='light'] .project-dialog {
-  background: var(--surface);
-  color: var(--text);
-  border-color: var(--line);
-}
-[data-theme='light'] .dialog-close {
-  background: var(--surface-2);
+[data-theme='light']
+  :is(.year-story h3, .credentials h3, .contact-methods strong, .contact-form h3) {
   color: var(--text);
 }
 [data-theme='light']
-  :is(.case-study h3, .year-story h3, .credentials h3, .contact-methods strong, .contact-form h3) {
-  color: var(--text);
-}
-[data-theme='light']
-  :is(
-    .project-dialog .case-study p,
-    .project-detail-image figcaption,
-    .project-dialog .project-status,
-    .dialog-tech,
-    .year-skills li
-  ) {
+  :is(.year-skills li) {
   color: var(--muted);
 }
 [data-theme='light'] .year-skills li {
