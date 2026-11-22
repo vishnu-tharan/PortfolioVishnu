@@ -81,5 +81,13 @@
       "heading_alignment": "center",
       "refined_layout": true
     }
-  }
+  },
+  "projects": [
+    {
+      "name": "Buyora",
+      "stack": "JavaScript, React, Express, Node.js, MongoDB",
+      "url": "https://github.com/vishnu-tharan/Buyoraa",
+      "summary": "Built a storefront with search, filters and cash-on-delivery checkout. Used MongoDB transactions to keep orders and stock in sync, and added admin tools for order tracking, packing slips and stock history."
+    }
+  ]
 }

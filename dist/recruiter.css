@@ -574,3 +574,33 @@ html {
   }
 
 @media (max-width: 600px) {
+
+.work-projects {
+  padding: clamp(3rem, 7vw, 7rem) 6vw;
+  scroll-margin-top: 5rem;
+}
+.work-projects h2 {
+  margin: 0 0 1.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+.work-project {
+  max-width: 56rem;
+  padding: clamp(1.25rem, 4vw, 3rem);
+  border: 1px solid var(--line, currentColor);
+  border-radius: 1rem;
+}
+.work-project h3 {
+  margin: 0.4rem 0 1rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+.work-project p {
+  max-width: 63ch;
+  line-height: 1.6;
+}
+.work-project .work-project-stack {
+  font-size: 0.875rem;
+}
+.work-project .hero-actions {
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}

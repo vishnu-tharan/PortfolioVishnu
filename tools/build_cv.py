@@ -57,6 +57,14 @@ def build_html(pdf_name):
     body = section('Professional Profile', '<p>' + escape(DATA['summary']) + '</p>')
     body += section('Education', f'<h3>{escape(education["degree"])}</h3><p>{escape(education["institution"])}</p><p class="cv-stack">{escape(education["dates"])} (Expected {escape(education["expected_graduation"])})</p><p>{escape(education["detail"])}</p>')
     body += section('Technical Skills', '<dl class="cv-skills">' + skills + '</dl>')
+    projects = []
+    for project in DATA.get('projects', []):
+        name = link(project['url'], project['name'])
+        stack = escape(project['stack'])
+        summary = escape(project['summary'])
+        projects.append(f'<article class="cv-project"><h3>{name}</h3><p class="cv-stack">{stack}</p><p>{summary}</p></article>')
+    if projects:
+        body += section('Projects', ''.join(projects))
     body += section('Competitions & Leadership', activities)
     body += section('Certifications & Workshops', courses)
     body += section('Academic References', ''.join(reference_html(reference) for reference in DATA['references']))

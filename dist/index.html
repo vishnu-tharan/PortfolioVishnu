@@ -48,7 +48,7 @@
     <link rel="stylesheet" href="./beyond.css?v=20261116-portfolio-refresh" />
     <link rel="stylesheet" href="./cv.css?v=20261116-portfolio-refresh" />
     <link rel="stylesheet" href="./certificates.css?v=20261116-portfolio-refresh" />
-    <link rel="stylesheet" href="./recruiter.css?v=20261116-portfolio-refresh" />
+    <link rel="stylesheet" href="./recruiter.css?v=20261122-buyora" />
     <link rel="stylesheet" href="./theme.css?v=20261116-portfolio-refresh" />
     <link rel="stylesheet" href="./features.css?v=20261116-portfolio-refresh" />
     <link rel="stylesheet" href="./light-mode.css?v=20261116-portfolio-refresh" />
@@ -71,6 +71,7 @@
     <header class="header">
       <a class="brand" href="#home" aria-label="Vishnu home">V<span>↗</span></a>
       <nav aria-label="Main navigation">
+        <a href="#work">Projects</a>
         <a href="#universe">Skills</a><a href="#beyond">Education</a><a href="./cv.html">CV</a>
       </nav>
       <div class="feature-controls">
@@ -117,10 +118,10 @@
             <div class="hero-actions">
               <a
                 class="cv-button"
-                href="./assets/Vishnutharan-Bavachelvan-CV.pdf?v=20261116-cv-skills"
+                href="./assets/Vishnutharan-Bavachelvan-CV.pdf?v=20261122-buyora"
                 download
                 >Download CV <span>PDF ↓</span></a
-              ><a class="outline-button" href="#universe">Explore skills ↓</a>
+              ><a class="outline-button" href="#work">Explore projects ↓</a>
             </div>
             <div class="hero-social">
               <a
@@ -168,6 +169,25 @@
         <div class="hero-index">01 <span>/ THE INTRODUCTION</span></div>
       </section>
       <div class="flow">
+        <section id="work" class="work-projects" aria-labelledby="work-title">
+          <h2 id="work-title">Projects</h2>
+          <article class="work-project">
+            <p class="work-project-stack">JavaScript · React · Express · Node.js · MongoDB</p>
+            <h3>Buyora</h3>
+            <p>
+              An online store with product search and filters, wishlists, saved delivery addresses
+              and cash-on-delivery checkout in Sri Lankan rupees.
+            </p>
+            <p>
+              Checkout uses a MongoDB transaction to create the order and deduct stock together.
+              Admins can filter orders, print packing slips and review stock history.
+            </p>
+            <div class="hero-actions">
+              <a class="outline-button" href="https://buyoraa.onrender.com">Live store ↗</a>
+              <a class="outline-button" href="https://github.com/vishnu-tharan/Buyoraa">GitHub repository ↗</a>
+            </div>
+          </article>
+        </section>
         <section id="universe" class="universe pinned-section" aria-labelledby="universe-title">
           <div class="sticky-scene">
             <div class="scene-canvas scene-static" aria-hidden="true"></div>
@@ -653,7 +673,7 @@
               <div class="cv-actions">
                 <a
                   class="cv-button"
-                  href="./assets/Vishnutharan-Bavachelvan-CV.pdf?v=20261116-cv-skills"
+                  href="./assets/Vishnutharan-Bavachelvan-CV.pdf?v=20261122-buyora"
                   download
                   >Download CV <span>PDF ↓</span></a
                 ><a class="cv-view" href="./cv.html">View CV</a>

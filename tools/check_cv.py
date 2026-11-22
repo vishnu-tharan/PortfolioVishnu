@@ -68,17 +68,20 @@ for key, profile in DATA['profiles'].items():
         'CERTIFICATIONS & WORKSHOPS',
         'ACADEMIC REFERENCES'
     ]
+    if DATA.get('projects'):
+        sections.insert(sections.index('COMPETITIONS & LEADERSHIP'), 'PROJECTS')
     section_positions = [text.index(section) for section in sections]
     assert section_positions == sorted(section_positions), f'{filename}: incorrect reading order'
     assert '\ufffd' not in text, f'{filename}: broken characters'
-
-    assert 'PROJECTS' not in text.upper(), f'{filename}: project section remains'
 
     # Annotation URLs
     annotations = [annotation for page in reader.pages for annotation in page.get('/Annots', [])]
     urls = [str(annotation.get_object().get('/A', {}).get('/URI', '')) for annotation in annotations]
     assert DATA['github'] in urls and DATA['portfolio'] in urls and DATA['linkedin'] in urls
-    assert all(not re.match(r'https://github[.]com/[^/]+/[^/]+', url) for url in urls)
+    for project in DATA.get('projects', []):
+        assert project['name'] in text and project['url'] in urls
+        assert project['summary'] in normalized
+        assert project['stack'] in normalized
 
     # Academic references
     for reference in DATA.get('references', []):
@@ -97,7 +100,8 @@ for key, profile in DATA['profiles'].items():
     assert [urlsplit(url).path for url in page.downloads] == [f'./assets/{filename}'], f'{html_name}: incorrect PDF download'
     assert DATA['name'].upper() in html, f'{html_name}: name missing'
     assert DATA['role'] in html, f'{html_name}: role title missing'
-    assert 'Projects' not in html, f'{html_name}: project section remains'
+    for project in DATA.get('projects', []):
+        assert all(escape(project[field]) in html for field in ('name', 'stack', 'url', 'summary'))
     assert all(reference['name'] in html for reference in DATA.get('references', []))
     assert pdf.read_bytes() == (ROOT / 'output/pdf' / filename).read_bytes(), f'{filename}: stale published PDF'
     print(f'{key}: readable CV, skills, activities and academic references verified')
