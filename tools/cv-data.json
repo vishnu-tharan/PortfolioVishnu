@@ -103,6 +103,12 @@
       "live_url": "https://eventsphere-ica02.onrender.com",
       "live_label": "Live demo",
       "summary": "Individual assignment for IT4123 (P), Agent Based Computing. Built five rule-based agents for venue scheduling, ticket bookings, QR check-in, waitlists and notifications."
+    },
+    {
+      "name": "Serviqo",
+      "stack": "Java, Swing, SQLite, JDBC",
+      "url": "https://github.com/vishnu-tharan/Serviqo",
+      "summary": "Built a desktop workshop app to manage customers, vehicles and service jobs, record parts and labor charges, search service history and print invoices for completed jobs."
     }
   ],
   "coursework": [
