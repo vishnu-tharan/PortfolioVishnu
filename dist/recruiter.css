@@ -573,7 +573,7 @@ html {
     top: -5px;
   }
 
-@media (max-width: 600px) {
+}
 
 .work-projects {
   padding: clamp(3rem, 7vw, 7rem) 6vw;
@@ -603,4 +603,8 @@ html {
 .work-project .hero-actions {
   flex-wrap: wrap;
   margin-top: 1.25rem;
+}
+
+.work-project + .work-project {
+  margin-top: 1.5rem;
 }

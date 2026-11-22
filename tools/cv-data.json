@@ -88,6 +88,12 @@
       "stack": "JavaScript, React, Express, Node.js, MongoDB",
       "url": "https://github.com/vishnu-tharan/Buyoraa",
       "summary": "Built a storefront with search, filters and cash-on-delivery checkout. Used MongoDB transactions to keep orders and stock in sync, and added admin tools for order tracking, packing slips and stock history."
+    },
+    {
+      "name": "Labriqo",
+      "stack": "PHP, MySQL / MariaDB, HTML, CSS",
+      "url": "https://github.com/vishnu-tharan/Labriqo",
+      "summary": "Built a university lab lending system with student requests and staff approvals, returns and overdue tracking. Used database transactions to keep stock and loan records consistent and tracked individual units with asset tags."
     }
   ]
 }
