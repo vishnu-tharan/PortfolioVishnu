@@ -608,3 +608,24 @@ html {
 .work-project + .work-project {
   margin-top: 1.5rem;
 }
+
+.work-coursework {
+  max-width: 56rem;
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.work-coursework h3,
+.work-coursework p {
+  margin: 0;
+}
+.work-coursework ul {
+  padding-inline-start: 1.25rem;
+}
+.work-coursework li + li {
+  margin-top: 0.65rem;
+}
+.work-coursework a {
+  text-decoration: underline;
+  text-underline-offset: 0.16em;
+}

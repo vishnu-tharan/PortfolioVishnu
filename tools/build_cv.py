@@ -66,6 +66,10 @@ def build_html(pdf_name):
         if project.get('live_url'):
             live_store = ' | ' + link(project['live_url'], project.get('live_label', 'Live store'))
         projects.append(f'<article class="cv-project"><h3>{name}</h3><p class="cv-stack">{stack}{live_store}</p><p>{summary}</p></article>')
+    coursework = DATA.get('coursework', [])
+    if coursework:
+        details = ' · '.join(escape(item) for item in coursework)
+        projects.append(f'<p><strong>Selected coursework:</strong> {details}</p>')
     if projects:
         body += section('Projects', ''.join(projects))
     body += section('Competitions & Leadership', activities)

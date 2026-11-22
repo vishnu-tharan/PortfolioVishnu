@@ -85,6 +85,9 @@ for key, profile in DATA['profiles'].items():
         if project.get('live_url'):
             assert project['live_url'] in urls
 
+    for item in DATA.get('coursework', []):
+        assert item in normalized, f'{filename}: missing coursework'
+
     # Academic references
     for reference in DATA.get('references', []):
         assert reference['name'] in text, f'{filename}: missing reference {reference["name"]}'
@@ -106,6 +109,7 @@ for key, profile in DATA['profiles'].items():
         assert all(escape(project[field]) in html for field in ('name', 'stack', 'url', 'summary'))
         if project.get('live_url'):
             assert escape(project['live_url']) in html
+    assert all(escape(item) in html for item in DATA.get('coursework', []))
     assert all(reference['name'] in html for reference in DATA.get('references', []))
     assert pdf.read_bytes() == (ROOT / 'output/pdf' / filename).read_bytes(), f'{filename}: stale published PDF'
     print(f'{key}: readable CV, skills, activities and academic references verified')

@@ -104,5 +104,9 @@
       "live_label": "Live demo",
       "summary": "Individual assignment for IT4123 (P), Agent Based Computing. Built five rule-based agents for venue scheduling, ticket bookings, QR check-in, waitlists and notifications."
     }
+  ],
+  "coursework": [
+    "EL4122 Data Science — feature importance comparison in Python",
+    "IT4133 (P) Bioinformatics — individual glioma data analysis in R"
   ]
 }
