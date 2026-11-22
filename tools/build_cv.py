@@ -64,7 +64,7 @@ def build_html(pdf_name):
         summary = escape(project['summary'])
         live_store = ''
         if project.get('live_url'):
-            live_store = ' | ' + link(project['live_url'], 'Live store')
+            live_store = ' | ' + link(project['live_url'], project.get('live_label', 'Live store'))
         projects.append(f'<article class="cv-project"><h3>{name}</h3><p class="cv-stack">{stack}{live_store}</p><p>{summary}</p></article>')
     if projects:
         body += section('Projects', ''.join(projects))

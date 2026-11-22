@@ -95,6 +95,14 @@
       "stack": "PHP, MySQL / MariaDB, HTML, CSS",
       "url": "https://github.com/vishnu-tharan/Labriqo",
       "summary": "Built a university lab lending system with student requests and staff approvals, returns and overdue tracking. Used database transactions to keep stock and loan records consistent and tracked individual units with asset tags."
+    },
+    {
+      "name": "EventSphere",
+      "stack": "Python, FastAPI, SQLAlchemy, PostgreSQL",
+      "url": "https://github.com/vishnu-tharan/EventSphere",
+      "live_url": "https://eventsphere-ica02.onrender.com",
+      "live_label": "Live demo",
+      "summary": "Individual assignment for IT4123 (P), Agent Based Computing. Built five rule-based agents for venue scheduling, ticket bookings, QR check-in, waitlists and notifications."
     }
   ]
 }
