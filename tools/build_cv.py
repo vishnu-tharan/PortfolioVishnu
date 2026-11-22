@@ -62,7 +62,10 @@ def build_html(pdf_name):
         name = link(project['url'], project['name'])
         stack = escape(project['stack'])
         summary = escape(project['summary'])
-        projects.append(f'<article class="cv-project"><h3>{name}</h3><p class="cv-stack">{stack}</p><p>{summary}</p></article>')
+        live_store = ''
+        if project.get('live_url'):
+            live_store = ' | ' + link(project['live_url'], 'Live store')
+        projects.append(f'<article class="cv-project"><h3>{name}</h3><p class="cv-stack">{stack}{live_store}</p><p>{summary}</p></article>')
     if projects:
         body += section('Projects', ''.join(projects))
     body += section('Competitions & Leadership', activities)
