@@ -71,7 +71,7 @@ CATEGORIES = [
         ]
     },
     {
-        'title': 'DevOps, Testing & Tools',
+        'title': 'Testing & Tools',
         'link': './cv.html',
         'linkLabel': 'Read my CV ↗',
         'skills': [
