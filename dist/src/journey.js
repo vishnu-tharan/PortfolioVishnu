@@ -23,17 +23,17 @@ const years = [
   },
   {
     year: 2025,
-    label: '2024–2025 / APPLIED LEARNING',
-    title: 'Putting knowledge into practice.',
-    body: 'Studied software development and databases in Year 2 at the University of Vavuniya.',
-    skills: ['Object-oriented programming', 'Frontend development']
+    label: 'YEAR 3 / SYSTEMS DEVELOPMENT',
+    title: 'Building software systems.',
+    body: 'Moved from individual programming exercises to building systems that connect interfaces, backend logic and databases. Applied these skills to forms, data validation and database-backed workflows.',
+    skills: ['Application design', 'Backend development', 'Database integration']
   },
   {
     year: 2026,
-    label: 'HONOURS PROGRAMME SELECTION',
-    title: 'The next academic chapter.',
-    body: 'Selected for the B.Sc. in Information Technology Honours degree programme at the University of Vavuniya. Continuing to develop my skills in software development and computing.',
-    skills: ['B.Sc. IT Honours', 'University of Vavuniya']
+    label: 'YEAR 4 / IT HONOURS',
+    title: 'Honours coursework and projects.',
+    body: 'Selected for the IT Honours programme at the University of Vavuniya. Built EventSphere for Agent-Based Computing and compared feature importance methods in Data Science. Also developed Buyora, an online store, and Labriqo, a lab equipment lending system.',
+    skills: ['Agent-Based Computing', 'Data Science', 'Full-stack development']
   }
 ];
 

@@ -1,4 +1,4 @@
-import './journey.js?v=20261116-portfolio-refresh';
+import './journey.js?v=projects-timeline';
 
 // Reveal content once when it enters the screen. Decorations stay still.
 document.documentElement.classList.add('motion-paused');
