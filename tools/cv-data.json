@@ -14,15 +14,15 @@
   "skills": [
     [
       "Languages",
-      "Java, JavaScript (ES6+), Python, C++, C, SQL, HTML5, CSS3"
+      "Java, JavaScript (ES6+), Python, C++, C, SQL, HTML5, CSS3, PHP, R"
     ],
     [
       "Frameworks & Mobile",
-      "Spring Boot, React, Next.js, React Native, Expo, Node.js, Express"
+      "Spring Boot, React, Next.js, React Native, Expo, Node.js, Express, FastAPI, SQLAlchemy"
     ],
     [
       "Databases & Storage",
-      "PostgreSQL, MongoDB, SQLite, Firebase Realtime Database"
+      "PostgreSQL, MongoDB, SQLite, Firebase Realtime Database, MySQL / MariaDB"
     ],
     [
       "Web Development",
@@ -31,6 +31,10 @@
     [
       "Testing & Tools",
       "Postman, Selenium Automation, IntelliJ IDEA, VS Code"
+    ],
+    [
+      "Data Science",
+      "scikit-learn, pandas, NumPy, Matplotlib"
     ]
   ],
   "education": {

@@ -40,6 +40,8 @@ CATEGORIES = [
         'title': 'Languages',
         'skills': [
             ('Python', 'python'),
+            ('PHP', None),
+            ('R', None),
             ('Java', 'java'),
             ('JavaScript', 'javascript'),
             ('C++', 'cpp'),
@@ -58,7 +60,9 @@ CATEGORIES = [
             ('React Native', 'reactnative'),
             ('Expo', 'expo'),
             ('Node.js', 'nodejs'),
-            ('Express', 'express')
+            ('Express', 'express'),
+            ('FastAPI', None),
+            ('SQLAlchemy', None)
         ]
     },
     {
@@ -67,6 +71,7 @@ CATEGORIES = [
             ('PostgreSQL', 'postgresql'),
             ('MongoDB', 'mongodb'),
             ('SQLite', 'sqlite'),
+            ('MySQL / MariaDB', None),
             ('Firebase', 'firebase')
         ]
     },
@@ -84,11 +89,22 @@ CATEGORIES = [
             ('VS Code', 'vscode'),
             ('IntelliJ IDEA', 'intellij')
         ]
+    },
+    {
+        'title': 'Data Science',
+        'skills': [
+            ('scikit-learn', None),
+            ('pandas', None),
+            ('NumPy', None),
+            ('Matplotlib', None)
+        ]
     }
 ]
 
 def make_badge(name, icon_key):
-    path = ICONS.get(icon_key, '')
+    if icon_key is None:
+        return f'<span class="skill-badge"><span>{name}</span></span>'
+    path = ICONS[icon_key]
     svg = f'<svg class="skill-icon" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">{path}</svg>'
     return f'<span class="skill-badge">{svg}<span>{name}</span></span>'
 
