@@ -69,7 +69,7 @@ The GitHub Pages workflow publishes `dist/` when commits reach `main`. The local
 
 `dist/recruiter.css` contains the responsive layout refinements. `dist/social-preview.html` is the source for the 1200 × 630 social sharing image.
 
-The contact form submits through FormSubmit with its default spam verification and a hidden honeypot. The owner must click **Activate Form** in the email from FormSubmit before delivery works. An activation request has been sent; delivery still needs an owner-confirmed test after activation. Direct email and phone links remain available. The form discloses the third-party processor and redirects to `contact-sent.html` after submission. Update the form's `_next` URL if the hosting address changes.
+The contact form submits through FormSubmit with its default spam verification and a hidden honeypot. FormSubmit accepted a test submission to the configured address and returned its success page. Receipt in the Gmail inbox still needs owner confirmation. Direct email and phone links remain available. The form discloses the third-party processor and redirects to `contact-sent.html` after submission. Update the form's `_next` URL if the hosting address changes.
 
 ## CV
 
@@ -91,7 +91,7 @@ After editing the metadata, run `python tools/build_certificates.py`, then `pyth
 
 Author: **vishnu-tharan**.
 
-Contact and security update (18 October 2026): the portfolio and all current/legacy CV downloads use vtharan.b@gmail.com. LinkedIn is https://www.linkedin.com/in/vishnutharan. A copy-email shortcut works in both themes. The new FormSubmit destination may need activation; delivery has not been verified. See SECURITY-AUDIT.md for findings, checks and hosting limitations. Run tools/version_assets.py after generating pages to apply the browser security policy.
+Contact and security update (18 October 2026): the portfolio and all current/legacy CV downloads use vtharan.b@gmail.com. LinkedIn is https://www.linkedin.com/in/vishnutharan. A copy-email shortcut works in both themes. See the contact form section for the latest delivery check. See SECURITY-AUDIT.md for findings, checks and hosting limitations. Run tools/version_assets.py after generating pages to apply the browser security policy.
 
 ## Editing the code
 
