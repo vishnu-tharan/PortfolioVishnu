@@ -5,12 +5,15 @@
   align-items: center;
   align-self: flex-start;
   gap: 0.8rem;
-  margin: 0.25rem 0 0.75rem;
+  margin: auto 0 0.75rem;
   border: 1px solid var(--line);
   border-radius: 0.65rem;
   padding: 0.4rem 0.9rem 0.4rem 0.4rem;
   font-size: 0.9rem;
   font-weight: 600;
+}
+.project-gallery-link + .hero-actions {
+  margin-top: 0;
 }
 .project-gallery-link img {
   width: 6.5rem;
