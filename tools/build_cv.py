@@ -70,6 +70,9 @@ def build_html(pdf_name):
     if coursework:
         details = ' · '.join(escape(item) for item in coursework)
         projects.append(f'<p><strong>Selected coursework:</strong> {details}</p>')
+    additional_project = DATA.get('additional_project')
+    if additional_project:
+        projects.append(f'<p><strong>Other project:</strong> {escape(additional_project)}</p>')
     if projects:
         body += section('Projects', ''.join(projects))
     body += section('Competitions & Leadership', activities)

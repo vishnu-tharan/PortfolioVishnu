@@ -118,5 +118,6 @@
   "coursework": [
     "EL4122 Data Science — feature importance comparison in Python",
     "IT4133 (P) Bioinformatics — individual glioma data analysis in R"
-  ]
+  ],
+  "additional_project": "Pinglora (Python ping monitor)"
 }
