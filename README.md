@@ -75,11 +75,11 @@ The contact form submits through FormSubmit with its default spam verification a
 
 The portfolio has one [common CV](dist/cv.html) and [downloadable PDF](dist/assets/Vishnutharan-Bavachelvan-CV.pdf). The one-page CV includes the academic heading, technical skills, education, competitions, leadership, certificates and two academic references. Previous role-specific page URLs redirect to the common page, and their historical PDF URLs serve the same common document.
 
-Edit `tools/cv-data.json`, then run `python tools/build_cv.py` with pypdf installed to regenerate the common PDF/web CV and compatibility copies for historical download URLs. The main PDF is also saved to `output/pdf/`. Run `python tools/check_cv.py` with pdfplumber to verify the monochrome layout, content, links, academic heading and consistency of all old URLs. Render and inspect both pages, then run `python tools/version_assets.py <new-release-name>`.
+Edit `tools/cv-data.json`, then run `python tools/build_cv.py` with ReportLab and pypdf installed. It generates the web CV and all PDF downloads from the same data. The main PDF is also saved to `output/pdf/`. Run `python tools/check_cv.py` with pdfplumber installed to verify the content, links and older download URLs, then inspect the PDF and the web CV in print preview.
 
-The source has one `general` profile. `certificate_descriptions` supplies concise CV wording for participation and merit entries; the portfolio retains the fuller evidence descriptions. Confirmed dates remain supported without placeholders for unknown dates.
+The source has one general profile. The CV links to the corresponding certificate files in the portfolio.
 
-CVs use a single column with black text, gray secondary text, thin rules below section headings, a concise profile and five skill groups. There is no rule above the name. The academic subtitle and contact links appear directly below it. Tools include Linux and GitHub Actions; Playwright and Vitest are omitted. The common profile enables `refined_layout`. Contact links have short labels, and education separates the institution from its dates. The web document stays white in both themes; surrounding controls use monochrome light/dark colors. All legacy PDF aliases are byte-identical to the common download. Selectable text and logical reading order support applicant-tracking compatibility; no automated screening score is claimed. The common CV has no targeted job title.
+The CV uses black text, thin rules below section headings and six skill groups. The academic references sit side by side in the PDF and on wider web layouts. There is no rule above the name. The academic subtitle and contact links appear directly below it. Tools include GitHub Actions, Git, Postman and Selenium Automation. The common profile enables `refined_layout`. Contact links have short labels, and education separates the institution from its dates. The web document stays white in both themes; surrounding controls use monochrome light/dark colors. All legacy PDF aliases are byte-identical to the common download. Selectable text and logical reading order support applicant-tracking compatibility; no automated screening score is claimed. The common CV has no targeted job title.
 
 ## Certificates and recognition
 
@@ -99,4 +99,4 @@ See [CODE-GUIDE.md](CODE-GUIDE.md) for the file map, simple coding conventions a
 
 ## Supplied CV PDF
 
-`tools/cv-source.pdf` is the master PDF. `python tools/build_cv.py` copies it unchanged to current and legacy downloads and rebuilds the web CV from `tools/cv-data.json`. To replace it, use `python tools/build_cv.py --pdf PATH_TO_NEW_PDF`, keep the metadata consistent, then run `python tools/check_cv.py`. The reference phone field is optional. Run the asset version script after rebuilding.
+`tools/cv-source.pdf` stores the latest generated PDF. To publish an owner-supplied PDF instead, update the corresponding content in `tools/cv-data.json`, run `python tools/build_cv.py --pdf PATH_TO_NEW_PDF`, then run `python tools/check_cv.py` to compare the PDF and web CV. The reference phone field is optional.
