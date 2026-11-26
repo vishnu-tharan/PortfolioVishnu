@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+
+.project-gallery-link {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.8rem;
+  margin: 0.25rem 0 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 0.65rem;
+  padding: 0.4rem 0.9rem 0.4rem 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.project-gallery-link img {
+  width: 6.5rem;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 0.35rem;
+}
+.project-gallery-link:hover,
+.project-gallery-link:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.project-gallery {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', Arial, sans-serif;
+}
+.gallery-frame {
+  box-sizing: border-box;
+  width: min(100% - 2rem, 76rem);
+  margin-inline: auto;
+}
+.gallery-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+.gallery-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  padding-block: 0.65rem;
+}
+.gallery-nav a,
+.gallery-nav button {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: inherit;
+  font: inherit;
+}
+.gallery-nav a {
+  text-underline-offset: 0.22em;
+}
+.gallery-nav button {
+  border: 1px solid var(--line);
+  border-radius: 0.5rem;
+  padding: 0 0.8rem;
+  background: var(--surface-2);
+  cursor: pointer;
+}
+[data-theme='light'] .gallery-to-light,
+[data-theme='dark'] .gallery-to-dark {
+  display: none;
+}
+.gallery-main {
+  padding-block: clamp(2rem, 5vw, 4.5rem);
+}
+.gallery-main h1 {
+  margin: 0;
+  font-size: clamp(2.15rem, 5vw, 4rem);
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+}
+.gallery-intro {
+  margin: 0.65rem 0 2.5rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.screenshot-group + .screenshot-group {
+  margin-top: 2.75rem;
+}
+.screenshot-group h2 {
+  margin: 0 0 0.85rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.6rem;
+  font-size: clamp(1.25rem, 2.5vw, 1.6rem);
+}
+.screenshot-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.screenshot-card {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 0.8rem;
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+}
+.screenshot-card:hover {
+  border-color: var(--accent);
+}
+.project-gallery :is(a, button):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.screenshot-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: center top;
+  background: var(--surface-2);
+}
+.screenshot-portrait img {
+  object-fit: contain;
+  object-position: center;
+  height: clamp(15rem, 45vw, 22rem);
+}
+.screenshot-caption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.85rem 1rem;
+  font-weight: 600;
+}
+.screenshot-caption span {
+  color: var(--accent);
+}
