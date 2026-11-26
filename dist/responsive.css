@@ -133,6 +133,11 @@ html {
     gap: 12px;
   }
 }
+@media (max-width: 440px) {
+  .header > .contact-link {
+    display: none;
+  }
+}
 @media (max-width: 360px) {
   .hero-with-portrait .overline {
     font-size: 11px;

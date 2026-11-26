@@ -184,6 +184,9 @@
   }
 }
 @media (max-width: 400px) {
+  .header > .contact-link {
+    display: none;
+  }
   .header .brand {
     font-size: 28px;
   }
